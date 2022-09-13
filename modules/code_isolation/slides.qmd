@@ -1,0 +1,18 @@
+---
+title: "Code Isolation"
+subtitle: Environments and Docker
+format:
+    revealjs:
+        slide-number: true
+        chalkboard:
+          buttons: true
+        preview-links: auto
+        logo: ../../images/logo.png
+        theme: [../../custom_slides.scss]
+
+footer: \
+    <a href="https://opensourcecourse.dev/modules/code_isolation/overview.html">overview</a> /\
+    <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/code_isolation/slides.qmd">source</a> /\
+    <a href="https://opensourcecourse.dev/modules/code_isolation/exercises.html">exercises</a>
+---
+

@@ -1,0 +1,8 @@
+name: opencourse
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip
+  - jupyter
+  - nbformat

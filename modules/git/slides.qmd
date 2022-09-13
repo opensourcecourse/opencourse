@@ -1,0 +1,35 @@
+---
+title: "Git Good (Enough)"
+subtitle: A brief introduction to Git
+format:
+    revealjs:
+        slide-number: true
+        chalkboard:
+          buttons: true
+        preview-links: auto
+        logo: ../../images/logo.png
+        theme: [../../custom_slides.scss]
+
+footer: \
+    <a href="https://opensourcecourse.dev/modules/git/overview.html">overview</a> /\
+    <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/git/slides.qmd">source</a> /\
+    <a href="https://opensourcecourse.dev/modules/git/exercises.html">exercises</a>
+---
+
+
+# {}
+::: {.r-stack}
+![](https://imgs.xkcd.com/comics/git.png){height="700"}
+:::
+
+
+
+## Overview
+
+- A conceptual framework
+- Common git commands
+- Branching models
+
+
+
+

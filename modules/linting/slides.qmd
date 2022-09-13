@@ -1,0 +1,17 @@
+---
+title: "Linting"
+subtitle: Checking the boring stuff
+format:
+    revealjs:
+        slide-number: true
+        chalkboard:
+          buttons: true
+        preview-links: auto
+        logo: ../../images/logo.png
+        theme: [../../custom_slides.scss]
+
+footer: \
+    <a href="https://opensourcecourse.dev/modules/linting/overview.html">overview</a> /\
+    <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/linting/slides.qmd">source</a> /\
+    <a href="https://opensourcecourse.dev/modules/linting/exercises.html">exercises</a>
+---

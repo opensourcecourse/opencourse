@@ -1,0 +1,81 @@
+---
+title: OpenSourceCourse
+pagetitle: "OSC"
+css: index.css
+editor: source
+---
+
+# Introduction
+
+Welcome to OpenSourceCourse (OSC)!
+
+OSC is designed to help engineering/science students acquire the skills they
+need to effectively engage with the open-source scientific python ecosystem.
+
+# Learning Objectives
+
+After successfully completing this course you will:
+
+1. Have a working understanding of git and its common uses
+2. Develop a sense of "Pythonic" code and avoid "smelly" pitfalls
+3. Follow open-source etiquette and effectively use the collaborative features of GitHub
+4. Understand basic software testing philosophies and use the pytest framework
+5. Know how to package and share a modern python library
+6. Understand how to build and deploy effective documentation for python projects
+7. Have a basic understand of code isolation through environments and containerization
+
+# Prerequisites
+
+This course is designed for someone well versed using python to solve practical problems. Specifically you should
+be able to:
+
+1. Write modular python code with functions
+2. Understand python's control flow (if/then, for, while, etc.)
+3. Know how to install python packages and manage python environments
+4. Be semi-comfortable with the command line.
+
+:::{.callout-warning}
+Although the content is meant to be user-friendly, this is not a beginning python/computing course. Competency
+in basic python is required.
+:::
+
+# Course Structure
+
+All of the course content can be found at the [OpenSourceCourse github organization](https://github.com/opensourcecourse).
+
+The content of the course is organized by modules. Each module contains three components:
+
+### Overview
+
+The overview strives to give a very short, motivating introduction to the topic and learning objectives.
+Before each module is presented in class, you should review the overview (but feel free to skip additional resources).
+This doesn't mean you need to understand every reading or spend lots of time delving deep into each resource,
+but do look over them and come to class prepared to ask questions.
+
+### Slides
+
+The slides contain the material that will be presented in class. You can look them over but this is not required.
+
+### Exercises
+
+The exercises are to be done at the end of or after class. They are essential for helping you internalize the concepts
+and develop the skills you need to be successful. Although they are not difficult or overly time-consuming, please do
+treat them seriously.
+
+# Enlisting
+
+You should start be creating a github account, if you don't already have one. Then, you sign up for the course by
+joining the [student team](https://github.com/orgs/opensourcecourse/teams/students) of the OSC organization.
+
+# Getting Help
+
+Office hours for the instructors will be posted. You are also encouraged to use the
+[metacourse repo](https://github.com/opensourcecourse/metacourse) for asking questions, engaging in discussions, or raising
+issues.
+
+# Collaboration
+
+If you notice any ways to improve the content of OSC please don't hesitate to share! Each page on the website has an
+"edit in GitHub" button, or a github icon, which you can click on to make quick pull requests in your browser.
+
+Now, let's learn together!

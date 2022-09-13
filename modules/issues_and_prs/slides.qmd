@@ -1,0 +1,17 @@
+---
+title: "Issues and PRs"
+subtitle: Helpful, Beautiful, Contributions
+format:
+    revealjs:
+        slide-number: true
+        chalkboard:
+          buttons: true
+        preview-links: auto
+        logo: ../../images/logo.png
+        theme: [../../custom_slides.scss]
+
+footer: \
+    <a href="https://opensourcecourse.dev/modules/issues_and_prs/overview.html">overview</a> /\
+    <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/issues_and_prs/slides.qmd">source</a> /\
+    <a href="https://opensourcecourse.dev/modules/issues_and_prs/exercises.html">exercises</a>
+---

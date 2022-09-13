@@ -125,5 +125,13 @@ venv.bak/
 .dmypy.json
 dmypy.json
 
-# Pyre type checker
-.pyre/
+
+# Quarto stuff
+
+.quarto/
+_site
+
+/.quarto/
+
+# pycharm
+.idea

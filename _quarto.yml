@@ -1,0 +1,169 @@
+project:
+  type: website
+  output-dir: _site
+
+
+website:
+  title: "OSC"
+  image: "images/logo.png"
+  favicon: "images/favicon.png"
+  # google-analytics: "G-FV9Z7SDZ0M"
+  # open-graph: true
+  twitter-card: true
+  site-url: https://github.com/opensourcecourse
+  repo-url: https://github.com/opensourcecourse/website
+  repo-actions: [edit]
+  page-navigation: true
+
+#  page-footer:
+#    center:
+#      - text: "About"
+#        href: about.qmd
+#
+#    right:
+#      - icon: github
+#        href: https://github.com/opensoursecourse/website
+#        aria-label: OSC GitHub
+
+  sidebar: 
+    style: "floating"
+    collapse-level: 2
+    title: "Open Source Course"
+    subtitle: 'OSC'
+    logo: "images/side_art.png"
+    search: true
+    contents:
+      - index.qmd
+
+      - section: "Modules"
+        contents:
+
+        - section: "Git"
+          href: modules/git/overview.qmd
+          contents:
+            - text: 'overview'
+              href: modules/git/overview.qmd
+            - text: 'slides'
+              href: modules/git/slides.qmd
+            - text: "exercises"
+              href: modules/git/exercises.qmd
+
+        - section: "Style"
+          href: modules/style/overview.qmd
+          contents:
+            - text: 'overview'
+              href: modules/style/overview.qmd
+            - text: 'slides'
+              href: modules/style/slides.qmd
+            - text: "exercises"
+              href: modules/style/exercises.qmd
+
+        - section: "Linting"
+          href: modules/linting/overview.qmd
+          contents:
+            - text: 'overview'
+              href: modules/linting/overview.qmd
+            - text: 'slides'
+              href: modules/linting/slides.qmd
+            - text: "exercises"
+              href: modules/linting/exercises.qmd
+
+        - section: "Advanced Python"
+          href: modules/advanced_python/overview.qmd
+          contents:
+            - text: 'overview'
+              href: modules/advanced_python/overview.qmd
+            - text: 'slides'
+              href: modules/advanced_python/slides.qmd
+            - text: "exercises"
+              href: modules/advanced_python/exercises.qmd
+
+        - section: "Issues and PRs"
+          href: modules/issues_and_prs/overview.qmd
+          contents:
+            - text: 'overview'
+              href: modules/issues_and_prs/overview.qmd
+            - text: 'slides'
+              href: modules/issues_and_prs/slides.qmd
+            - text: "exercises"
+              href: modules/issues_and_prs/exercises.qmd
+
+        - section: "Testing"
+          href: modules/testing/overview.qmd
+          contents:
+            - text: 'overview'
+              href: modules/testing/overview.qmd
+            - text: 'slides'
+              href: modules/testing/slides.qmd
+            - text: "exercises"
+              href: modules/testing/exercises.qmd
+
+        - section: "Documentation"
+          href: modules/documentation/overview.qmd
+          contents:
+            - text: 'overview'
+              href: modules/documentation/overview.qmd
+            - text: 'slides'
+              href: modules/documentation/slides.qmd
+            - text: "exercises"
+              href: modules/documentation/exercises.qmd
+
+        - section: "Continuous Integration"
+          href: modules/continuous_integration/overview.qmd
+          contents:
+            - text: 'overview'
+              href: modules/continuous_integration/overview.qmd
+            - text: 'slides'
+              href: modules/continuous_integration/slides.qmd
+            - text: "exercises"
+              href: modules/continuous_integration/exercises.qmd
+
+        - section: "Packaging"
+          href: modules/packaging/overview.qmd
+          contents:
+            - text: 'overview'
+              href: modules/packaging/overview.qmd
+            - text: 'slides'
+              href: modules/packaging/slides.qmd
+            - text: "exercises"
+              href: modules/packaging/exercises.qmd
+
+        - section: "Code Isolation"
+          href: modules/code_isolation/overview.qmd
+          contents:
+            - text: 'overview'
+              href: modules/code_isolation/overview.qmd
+            - text: 'slides'
+              href: modules/code_isolation/slides.qmd
+            - text: "exercises"
+              href: modules/code_isolation/exercises.qmd
+
+      - acknowledgements.qmd
+
+  navbar:
+    background: light
+    logo: images/logo.png
+    logo-alt: "OSC logo."
+    title: false
+    collapse-below: lg
+    left:
+      - text: "Overview"
+        href: index.qmd
+
+    right:
+      - icon: github
+        href: https://github.com/opensourcecourse/website
+        aria-label: OpenSourceCourse GitHub
+
+  
+# bibliography: references.bib
+
+format:
+  html:
+    toc: true
+    theme:
+      light: [cosmo, theme.scss]
+    code-copy: true
+    code-overflow: wrap
+    css: styles.css
+    # include-after-body: js.html

@@ -1,0 +1,17 @@
+---
+title: "Continuous Integration"
+subtitle: Using Github Actions to automate all the things
+format:
+    revealjs:
+        slide-number: true
+        chalkboard:
+          buttons: true
+        preview-links: auto
+        logo: ../../images/logo.png
+        theme: [../../custom_slides.scss]
+
+footer: \
+    <a href="https://opensourcecourse.dev/modules/continuous_integration/overview.html">overview</a> /\
+    <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/continuous_integration/slides.qmd">source</a> /\
+    <a href="https://opensourcecourse.dev/modules/continuous_integration/exercises.html">exercises</a>
+---
