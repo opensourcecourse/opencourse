@@ -1,4 +1,66 @@
 ---
-title: A witty relevant title
+title: "Style Matters"
 ---
-# Dascore is cool
+![](../../images/style_guy.png)
+
+:::{.callout-note appearance="minimal"}
+Beautiful is better than ugly.
+
+Explicit is better than implicit.
+
+Simple is better than complex.
+
+Complex is better than complicated.
+
+Flat is better than nested.
+
+Sparse is better than dense.
+
+Readability counts....
+
+\- The Zen of Python
+:::
+
+# Style
+
+Idiomatic Python, or "Pythonic" code is code that conforms to the Python community's norms and makes good use
+of language features. But it is more than that: truly python code achieves a difficult to describe aesthetic,
+a sense of beautiful utility, brevity, and conciseness that simply "fits in your brain."
+
+Conversely, its easy to spot the antithesis of Pythonic code. Perhaps it "works", but it is overly complex, ignores community
+practices, disregards language features, is hard to comprehend, and/or looks suspiciously like code written in another
+language. These sorts of issue are collectively known as "code smells" or "antipatterns" and understanding and avoiding
+them is hallmark of a good python programmer.
+
+Of course, we all start off writing "smelly" code, but its important to improve. Like painting a masterpiece,
+writing pythonic code takes practice and exposure to pythonic code bases. The open-source python ecosystem is the
+best place to develop this acumen.
+
+:::{.callout-warning}
+There is a danger in enforcing rules with blind dogmatic zeal, such "foolish consistencies" can often overshadow
+more important issues and occasionally there are good reasons to disregard certain guidelines. You should take
+the content in this module as good advice, not unalterable commandments.
+:::
+
+# Objectives
+
+In this module, we will:
+
+1. Highlight tenants of pep8 and other community practices.
+2. Detect code smells/antipatterns.
+2. Fixes for python code issues.
+
+# Before Class
+
+## Reading
+
+- [SO: What is Pythonic?](https://stackoverflow.com/a/25011492/3645626)
+- [Pep8 song](https://www.youtube.com/watch?v=hgI0p1zf31k)
+- [Hitcher's Guide to Python style chapter](https://docs.python-guide.org/writing/style/)
+
+# Additional Resources
+
+- [The Little Book of Python Anti-Patterns](https://docs.quantifiedcode.com/python-anti-patterns/)
+- [Raymond Hettinger's Pycon 2013 Talk](https://www.youtube.com/watch?v=OSGv2VnC0go)
+- [How to Be Pythonic and Why you Should Care](https://towardsdatascience.com/how-to-be-pythonic-and-why-you-should-care-188d63a5037e)
+

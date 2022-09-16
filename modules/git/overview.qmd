@@ -28,12 +28,77 @@ In this module, we will:
 3. Look at some common branching models used by open-source projects
 4. Practice getting out of sticky situations (merge-conflicts, detached heads, etc.)
 
-# Reading
+# Before Class
 
- - [The 10 git commands you need](https://www.freecodecamp.org/news/10-important-git-commands-that-every-developer-should-know/)
+## Reading
+
+- [The 10 git commands you need](https://www.freecodecamp.org/news/10-important-git-commands-that-every-developer-should-know/)
+
+## Setup
+
+Before class, you should go through the following steps to make sure your git installation is working and configured
+properly to be able to push to github. If you know git is already installed and you have recently pushed content to a
+github repo you can skip this section.
+
+1. Make sure you have [git installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your laptop.
+2. [Create a personal repo](https://docs.github.com/en/get-started/quickstart/create-a-repo) called "git_test"
+3. Clone your repo
+
+with https
+```bash
+git clone https://github.com/{your_user_name}/git_test
+```
+
+or with ssh
+```bash
+git clone git@github.com:{your_user_name}/git_test
+```
+
+4. Make a small change
+Simply add a file called README.txt and write some text in there such as "this is a test"
+
+5. Stage the change
+```bash
+git add -A
+```
+
+6. Commit the change
+```bash
+git commit -m "test message"
+```
+
+7. Push to origin
+```bash
+git push origin main
+```
+or if master is the name of the default branch
+
+```bash
+git push origin master
+```
+
+If this works you are good to go. If not, see the following note.
+
+:::{.callout-note}
+
+If you haven't done so yet, you may need to either:
+1) Setup a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+to use https or 2) Setup [ssh keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) to use ssh.
+
+:::
+
+
+
+
+
+
+
 
 # Additional Resources
 
+ - [Software Carpentry's Git intro](https://swcarpentry.github.io/git-novice/)
  - [Using VCS in VSCode](https://code.visualstudio.com/docs/editor/versioncontrol)
  - [Official git documentation](https://git-scm.com/doc)
  - [Git Cheat Sheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
+ - [Branching Strategies](https://www.flagship.io/git-branching-strategies/)
+ - [Reverting Commits](https://stackoverflow.com/a/4114122/3645626)

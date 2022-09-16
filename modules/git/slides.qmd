@@ -16,19 +16,87 @@ footer: \
     <a href="https://opensourcecourse.dev/modules/git/exercises.html">exercises</a>
 ---
 
-
-# {}
-::: {.r-stack}
-![](https://imgs.xkcd.com/comics/git.png){height="700"}
-:::
-
-
-
 ## Overview
+
+</br>
+
+::: {style="font-size: 1.6em; text-align: center; presentation-line-height: 1.0"}
 
 - A conceptual framework
 - Common git commands
 - Branching models
+
+:::
+
+
+## The Problem with Git Tutorials
+
+::: {.r-stack}
+![](images/thought_tools.png)
+:::
+
+## Conceptual Framework: Edits {auto-animate="true"}
+
+</br>
+
+```{mermaid}
+%%| fig-width: 4.0
+flowchart LR
+  A[Edit]
+```
+
+
+## Conceptual Framework: Edits {auto-animate="true"}
+
+</br>
+
+```{mermaid}
+%%| fig-width: 4.0
+flowchart LR
+  A[Edit]
+```
+
+
+
+## Basic Git Commands
+
+::: {.incremental}
+
+::: {style="font-size: 1.3em; text-align: center; presentation-line-height: 1.0"}
+* clone - download repo
+* add - propose changes to save
+* commit - save changes
+* status - see state summary
+* push - send changes somewhere
+* pull - download and apply changes
+* checkout - switch to another branch/commit
+:::
+
+:::
+
+
+## clone
+</br>
+
+
+
+
+
+
+
+
+:::{.r-stack}
+
+```{mermaid}
+%%| fig-width: 10.0
+flowchart LR
+  A[Edit] --> B(Stage)
+  B --> C((Commit))
+  style A fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+:::
+
 
 
 

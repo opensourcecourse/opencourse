@@ -1,4 +1,4 @@
 ---
 title: A witty relevant title
 ---
-# Dascore is cool
+# open source is cool
