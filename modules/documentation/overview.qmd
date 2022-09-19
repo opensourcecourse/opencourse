@@ -1,4 +1,6 @@
 ---
-title: A witty relevant title
+title: Documentation
 ---
-# open source is cool
+![](../../images/conspiracy_board.png)
+
+# Documentation

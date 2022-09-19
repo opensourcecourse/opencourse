@@ -1,4 +1,42 @@
 ---
-title: A witty relevant title
+title: Python Magic
 ---
-# open source is cool
+![](../../images/cyber_punk_streets.png)
+
+:::{.callout-note appearance="minimal"}
+Any sufficiently advanced technology is indistinguishable from magic.
+
+\- Author C. Clarke
+:::
+
+# Advanced Python
+
+Python's popularity is in part due to its simplicity. However, unlike many other "simple" languages,
+Python has many advanced features that, when used correctly, facilitate the expression of complex
+concepts in a concise way. Knowing some of these features is necessary, not just to level up as a developer,
+but because they are used often in open-source libraries.
+
+Although we won't dive into the python's truly advanced
+features here (like [ast manipulation](https://docs.python.org/3/library/ast.html),
+[meta-classes](https://realpython.com/python-metaclasses/), or [pattern matching](https://peps.python.org/pep-0636/)),
+we hope to give you an intro features commonly used when building libraries: Python's data model and decorators.
+
+
+# Objectives
+
+In this module we will learn about:
+
+1. Python's data model and dunder methods
+2. Decorators and closures
+
+
+# Reading
+
+ - [Python's Data Module](https://davidbpython.com/advanced_python/slides/handout-61-3.html)
+ - [A Primer on Decorators](https://realpython.com/primer-on-python-decorators/)
+
+
+# Additional Resources
+
+ - [Fluent Python](https://www.oreilly.com/library/view/fluent-python-2nd/9781492056348/)
+ - [Python Tips: Decorators](https://book.pythontips.com/en/latest/decorators.html)

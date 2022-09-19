@@ -1,4 +1,44 @@
 ---
-title: A witty relevant title
+title: Issues and Solutions
 ---
-# open source is cool
+![](../../images/therapy.png)
+
+:::{.callout-note appearance="minimal"}
+Given enough eyeballs, all bugs are shallow.
+
+\- Eric Raymond
+:::
+
+The most widely used medium for contributing to open-source software are issues and pull requests. An issue is just what
+it sounds like, a report about a problem, or more precisely, a deviation from expected behavior, experienced by a user.
+In an open-source context, most issues are a petition to a volunteer to spend his or her time helping you solve your
+problem or answer your question. In light of this, you should make that proposition as compelling as possible.
+
+A Pull Request is a proposed change to the main branch of the software. It might contain a fix or a new feature. Whether
+the PR gets merged, or is actually a net positive to the project, depends on several (very human) factors, but ensuring
+your PRs are well prepared and showing you put forth effort to following project guidelines goes a long ways!
+
+Lastly, when you are in a position to review other's work it is important to treat everyone with respect while also
+maintaining project standard and vision. Conducting effective code reviews that leave all parties encouraged to improve
+is a difficult art to master!
+
+# Objectives
+
+In this module we will:
+
+1. Highlight best practices for engaging with open-source projects
+2. Discuss components of a good issue
+3. Demonstrate the creation of a PR
+4. Overview best practices for code reviews
+
+# Reading
+
+- [Writing a Proper Github Issue](https://medium.com/nyc-planning-digital/writing-a-proper-github-issue-97427d62a20f)
+- [How to Make a Perfect Pull Request](https://betterprogramming.pub/how-to-make-a-perfect-pull-request-3578fb4c112)
+- [Code Review Best Practices](https://blog.palantir.com/code-review-best-practices-19e02780015f)
+
+# Additional Resources
+
+- [How to Write a Good Issue](https://developers.google.com/blockly/guides/contribute/get-started/write_a_good_issue)
+- [How to Make a Pull Request in Github](https://opensource.com/article/19/7/create-pull-request-github)
+- [How to Make Code Reviews Better](https://relevant.software/blog/good-software-engineer-mentor-tips/)

@@ -1,0 +1,69 @@
+---
+title: Course Setup
+---
+
+In order to avoid wasting class time setting up software, please go through the following before class:
+
+# Create a Github Account
+
+This is straight-forward. Got to [Github's website](https://github.com/) and click sign up on the top right. Of course,
+if you already have a github account you can skip this step.
+
+
+# Setup Git
+
+Here we will make sure your git installation is working and configured properly to push to github. If you know git is
+already installed on your machine and you have recently pushed content to a github repo you can skip this section.
+
+1. Make sure you have [git installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your laptop.
+2. [Create a personal repo](https://docs.github.com/en/get-started/quickstart/create-a-repo) called "git_test"
+3. Clone your repo
+
+with https
+```bash
+git clone https://github.com/{your_user_name}/git_test
+```
+
+or with ssh
+```bash
+git clone git@github.com:{your_user_name}/git_test
+```
+
+4. Make a small change
+Simply add a file called README.txt and write some text in there such as "this is a test"
+
+5. Stage the change
+```bash
+git add -A
+```
+
+6. Commit the change
+```bash
+git commit -m "test message"
+```
+
+7. Push to origin
+```bash
+git push origin main
+```
+or if master is the name of the default branch
+
+```bash
+git push origin master
+```
+
+If this works you are good to go. If not, see the following note.
+
+:::{.callout-note}
+
+If you haven't done so yet, you may need to either:
+1) Setup a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+to use https or 2) Setup [ssh keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) to use ssh.
+
+:::
+
+# Setup Python
+
+There are several ways to setup python but we recommend using [conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html). You
+may also want to [create a virtual environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands)
+for the course.

@@ -30,10 +30,11 @@ website:
     collapse-level: 2
     title: "Open Source Course"
     subtitle: 'OSC'
-    logo: "images/side_art.png"
+    logo: "images/oss_gateway.png"
     search: true
     contents:
       - index.qmd
+      - setup.qmd
 
       - section: "Modules"
         contents:

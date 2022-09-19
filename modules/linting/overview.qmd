@@ -1,4 +1,44 @@
 ---
-title: A witty relevant title
+title: Cleaning Code Lint
 ---
-# open source is cool
+![](../../images/hallway.png)
+
+:::{.callout-note appearance="minimal"}
+Even bad code can function. But if code isn’t clean, it can bring a development organization to its knees.
+Every year, countless hours and significant resources are lost because of poorly written code.
+But it doesn’t have to be that way.
+
+\- Clean Code: A Handbook of Agile Software Craftsmanship
+:::
+
+
+# Linting
+
+If the [previous module on style](../style/overview.md) has you worried about memorizing a bunch of guidelines,
+the good news is that you don't have to remember most of them! Programs can take care of fixing many style
+issues automatically. These codes belong to a class of programs known as
+[linters](https://realpython.com/python-code-quality/#linters). Typically, a project selects a set of linters
+and configurations and [continuous integrations](../continuous_integration) systems take care of compliance.
+
+
+# Objectives
+
+In this module we will:
+
+1. Survey the landscape of python linters
+2. Look at linting practice in popular open-source python libraries
+3. Learn how to integrate linters and configuration with the [pre-commit framework](https://pre-commit.com/)
+
+
+# Reading
+
+- [An Introduction to Linting and Formatting](https://www.jumpingrivers.com/blog/python-linting-guide/#:~:text=Why%20should%20I%20care%3F,which%20most%20linters%20adhere%20to.)
+- [A Python Linter Overview](https://dsstream.com/improve-your-python-code-quality/)
+
+
+# Additional Resources
+
+- [Pre-commit Website](https://pre-commit.com/)
+- [Flake 8](https://flake8.pycqa.org/en/latest/)
+- [Pylint](https://pylint.pycqa.org/en/latest/)
+- [Black](https://black.readthedocs.io/en/stable/)

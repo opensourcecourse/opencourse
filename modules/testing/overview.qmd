@@ -1,4 +1,13 @@
 ---
-title: A witty relevant title
+title: Bugging and Debugging
 ---
-# open source is cool
+
+![](../../images/test_bench.png)
+
+:::{.callout-note appearance="minimal"}
+Untested code is broken code
+
+\- Unknown
+:::
+
+# Testing
