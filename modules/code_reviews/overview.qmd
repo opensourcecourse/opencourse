@@ -1,4 +1,32 @@
 ---
-title: A witty relevant title
+title: Code, View, Review, Rereview
 ---
-# open source is cool
+
+![](../../images/guidance.png)
+
+:::{.callout-note appearance="minimal"}
+Any stupid can write the program that computer understands but only good programmers write code that humans understand.
+
+\- Martin Fowler
+:::
+
+# Code Review
+
+
+# Objectives
+
+In this module we will:
+
+1. Highlight best practices for code reviews
+2. Demonstrate Github's code review mechanisms
+
+
+# Reading
+
+- [Five Reasons for Code Reviews](https://www.brightspot.com/learn/articles/5-reasons-why-the-code-review-process-is-critical-for-developers)
+- [Code Review Best Practices](https://blog.palantir.com/code-review-best-practices-19e02780015f)
+
+# Additional Resources
+
+
+- [How to Make Code Reviews Better](https://relevant.software/blog/good-software-engineer-mentor-tips/)

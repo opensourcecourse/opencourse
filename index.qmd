@@ -26,13 +26,16 @@ After successfully completing this course you will:
 
 # Prerequisites
 
-This course is designed for someone well versed using python to solve practical problems. Specifically you should
+This course is designed for someone well versed in using python to solve practical problems. Specifically you should
 be able to:
 
 1. Write modular python code with functions
-2. Understand python's control flow (if/then, for, while, etc.)
-3. Know how to install python packages and manage python environments
-4. Be semi-comfortable with the command line.
+2. Work with common data structures like lists, dicts, tuples, etc.
+3. Understand iterable objects and indexing
+4. Understand python's control flow (if/then, for, while, etc.)
+5. Know how to install python packages and manage python environments
+6. Be semi-comfortable using the command line
+
 
 :::{.callout-warning}
 Although the content is meant to be user-friendly, this is not a beginning python/computing course. Competency

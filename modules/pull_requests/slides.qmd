@@ -9,6 +9,11 @@ format:
     preview-links: auto
     logo: ../../images/logo.png
     theme: [../../custom_slides.scss]
+
+footer: \
+    <a href="https://opensourcecourse.dev/modules/pull_requests/overview.html">overview</a> /\
+    <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/pull_requests/slides.qmd">source</a> /\
+    <a href="https://opensourcecourse.dev/modules/pull_requests/exercises.html">exercises</a>
 ---
 
 

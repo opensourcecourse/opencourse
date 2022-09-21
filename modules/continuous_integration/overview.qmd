@@ -1,4 +1,4 @@
 ---
-title: A witty relevant title
+title: Continuous Integration
 ---
-# open source is cool
+# Continuous Integration

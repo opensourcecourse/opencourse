@@ -1,4 +1,42 @@
 ---
-title: A witty relevant title
+title: Pull Requested, Pull Granted
 ---
-# open source is cool
+![](../../images/sharing_papers.png)
+
+:::{.callout-note appearance="minimal"}
+Users are wonderful things to have, and not just because they demonstrate that you’re serving a need, that you’ve
+done something right. Properly cultivated, they can become co-developers.
+
+\- Eric S Raymond
+:::
+
+# Pull Requests
+
+A pull request is Github's mechanism for submitting code to an open-source project. A core developer, or maintainer, of
+the project will see your proposed changes and decide whether to merge it, reject it, or ask for
+changes. This is similar to the process of peer-review for submitting manuscripts to scientific journals.
+
+A pull request can range from a simple typo fix in a project's documentation to a complete refactoring of an entire
+project. How you should approach the pull request depends on its scope and impact. Its not uncommon to fire off
+a simple documentation fix in a matter of seconds, whereas a sustainable change requires considerably more thought.
+It is a good idea to discuss major changes or new features to a project before spending too much time coding, just
+in case the developers are not interested in changing the project in such a way.
+
+Knowing how to create good pull requests will improve your effectiveness as an open-source contributor and make it
+more likely your code gets merged.
+
+# Objectives
+
+In this module we will:
+
+1. Discuss what differentiates a good PR from a bad one
+2. Review Git commands and branching models
+3. Demonstrate the creation of a PR
+
+# Reading
+
+- [How to Make a Perfect Pull Request](https://betterprogramming.pub/how-to-make-a-perfect-pull-request-3578fb4c112)
+
+# Additional Resources
+
+- [How to Make a Pull Request in Github](https://opensource.com/article/19/7/create-pull-request-github)

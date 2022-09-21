@@ -11,7 +11,7 @@ format:
         theme: [../../custom_slides.scss]
 
 footer: \
-    <a href="https://opensourcecourse.dev/modules/issues_and_prs/overview.html">overview</a> /\
-    <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/issues_and_prs/slides.qmd">source</a> /\
-    <a href="https://opensourcecourse.dev/modules/issues_and_prs/exercises.html">exercises</a>
+    <a href="https://opensourcecourse.dev/modules/issues/overview.html">overview</a> /\
+    <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/issues/slides.qmd">source</a> /\
+    <a href="https://opensourcecourse.dev/modules/issues/exercises.html">exercises</a>
 ---
