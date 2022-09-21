@@ -1,0 +1,39 @@
+---
+title: Typing Python
+---
+![](../../images/my_type.png)
+
+:::{.callout-note appearance="minimal"}
+
+:::
+
+# Type Hints
+
+One of Python's most interesting features is type-hints; the ability to add optional typing information to python.
+Although the original introduction of type-hints was largely controversial, it is now widely recognized as a
+useful feature for maintaining large python codes. Static type checkers such as [mypy](http://mypy-lang.org/) can use
+type hints to find many types of bugs before users do. Type hinting is a good idea for public interfaces of open-source
+libraries, but it does take some time to learn.
+
+Apart from static type-checking, many modern python libraries use type hints for runtime purposes. Probably the most
+prevalent example is [pydantic](https://pydantic-docs.helpmanual.io/), which uses type-hints to elegantly define API
+schemas.
+
+We won't dive into all their uses or intricacies, but learning the basics of python typing is very helpful.
+
+# Objectives
+
+In this module we will learn about:
+
+1. Python's typing module and type hinting
+2. Running type-checkers
+3. Using run-time type information with pydantic
+
+# Reading
+
+ - [Python Type Checking](https://realpython.com/python-type-checking/)
+
+# Additional Resources
+
+ - [Typing Module Documentation](https://docs.python.org/3/library/typing.html)
+ - [Pydantic Documentation](https://pydantic-docs.helpmanual.io/)

@@ -1,0 +1,13 @@
+---
+title: Bugging and Debugging
+---
+
+![](../../images/test_bench.png)
+
+:::{.callout-note appearance="minimal"}
+Untested code is broken code
+
+\- Unknown
+:::
+
+# Testing

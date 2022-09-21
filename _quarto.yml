@@ -15,16 +15,6 @@ website:
   repo-actions: [edit]
   page-navigation: true
 
-#  page-footer:
-#    center:
-#      - text: "About"
-#        href: about.qmd
-#
-#    right:
-#      - icon: github
-#        href: https://github.com/opensoursecourse/website
-#        aria-label: OSC GitHub
-
   sidebar: 
     style: "floating"
     collapse-level: 2
@@ -69,35 +59,55 @@ website:
             - text: "exercises"
               href: modules/linting/exercises.qmd
 
-        - section: "Advanced Python"
-          href: modules/advanced_python/overview.qmd
+        - section: "Python: Data Model"
+          href: modules/python_data_model/overview.qmd
           contents:
             - text: 'overview'
-              href: modules/advanced_python/overview.qmd
+              href: modules/python_data_model/overview.qmd
             - text: 'slides'
-              href: modules/advanced_python/slides.qmd
+              href: modules/python_data_model/slides.qmd
             - text: "exercises"
-              href: modules/advanced_python/exercises.qmd
+              href: modules/python_data_model/exercises.qmd
 
-        - section: "Issues and PRs"
-          href: modules/issues_and_prs/overview.qmd
+        - section: "Python: Decorators"
+          href: modules/python_decorators/overview.qmd
           contents:
             - text: 'overview'
-              href: modules/issues_and_prs/overview.qmd
+              href: modules/python_decorators/overview.qmd
             - text: 'slides'
-              href: modules/issues_and_prs/slides.qmd
+              href: modules/python_decorators/slides.qmd
             - text: "exercises"
-              href: modules/issues_and_prs/exercises.qmd
+              href: modules/python_decorators/exercises.qmd
 
-        - section: "Testing"
-          href: modules/testing/overview.qmd
+        - section: "Python: Type Hints"
+          href: modules/python_type_hints/overview.qmd
           contents:
             - text: 'overview'
-              href: modules/testing/overview.qmd
+              href: modules/python_type_hints/overview.qmd
             - text: 'slides'
-              href: modules/testing/slides.qmd
+              href: modules/python_type_hints/slides.qmd
             - text: "exercises"
-              href: modules/testing/exercises.qmd
+              href: modules/python_type_hints/exercises.qmd
+
+        - section: "Testing: Theory"
+          href: modules/testing_theory/overview.qmd
+          contents:
+            - text: 'overview'
+              href: modules/testing_theory/overview.qmd
+            - text: 'slides'
+              href: modules/testing_theory/slides.qmd
+            - text: "exercises"
+              href: modules/testing_theory/exercises.qmd
+
+        - section: "Testing: Practice"
+          href: modules/testing_practice/overview.qmd
+          contents:
+            - text: 'overview'
+              href: modules/testing_practice/overview.qmd
+            - text: 'slides'
+              href: modules/testing_practice/slides.qmd
+            - text: "exercises"
+              href: modules/testing_practice/exercises.qmd
 
         - section: "Documentation"
           href: modules/documentation/overview.qmd
@@ -109,6 +119,36 @@ website:
             - text: "exercises"
               href: modules/documentation/exercises.qmd
 
+        - section: "Issues"
+          href: modules/issues/overview.qmd
+          contents:
+            - text: 'overview'
+              href: modules/issues/overview.qmd
+            - text: 'slides'
+              href: modules/issues/slides.qmd
+            - text: "exercises"
+              href: modules/issues/exercises.qmd
+
+        - section: "Pull Requests"
+          href: modules/pull_requests/overview.qmd
+          contents:
+            - text: 'overview'
+              href: modules/pull_requests/overview.qmd
+            - text: 'slides'
+              href: modules/pull_requests/slides.qmd
+            - text: "exercises"
+              href: modules/pull_requests/exercises.qmd
+
+        - section: "Code Reviews"
+          href: modules/code_reviews/overview.qmd
+          contents:
+            - text: 'overview'
+              href: modules/code_reviews/overview.qmd
+            - text: 'slides'
+              href: modules/code_reviews/slides.qmd
+            - text: "exercises"
+              href: modules/code_reviews/exercises.qmd
+
         - section: "Continuous Integration"
           href: modules/continuous_integration/overview.qmd
           contents:
@@ -119,25 +159,25 @@ website:
             - text: "exercises"
               href: modules/continuous_integration/exercises.qmd
 
-        - section: "Packaging"
-          href: modules/packaging/overview.qmd
-          contents:
-            - text: 'overview'
-              href: modules/packaging/overview.qmd
-            - text: 'slides'
-              href: modules/packaging/slides.qmd
-            - text: "exercises"
-              href: modules/packaging/exercises.qmd
-
-        - section: "Code Isolation"
-          href: modules/code_isolation/overview.qmd
-          contents:
-            - text: 'overview'
-              href: modules/code_isolation/overview.qmd
-            - text: 'slides'
-              href: modules/code_isolation/slides.qmd
-            - text: "exercises"
-              href: modules/code_isolation/exercises.qmd
+#        - section: "Packaging"
+#          href: modules/packaging/overview.qmd
+#          contents:
+#            - text: 'overview'
+#              href: modules/packaging/overview.qmd
+#            - text: 'slides'
+#              href: modules/packaging/slides.qmd
+#            - text: "exercises"
+#              href: modules/packaging/exercises.qmd
+#
+#        - section: "Code Isolation"
+#          href: modules/code_isolation/overview.qmd
+#          contents:
+#            - text: 'overview'
+#              href: modules/code_isolation/overview.qmd
+#            - text: 'slides'
+#              href: modules/code_isolation/slides.qmd
+#            - text: "exercises"
+#              href: modules/code_isolation/exercises.qmd
 
       - acknowledgements.qmd
 

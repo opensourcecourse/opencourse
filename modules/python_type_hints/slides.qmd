@@ -1,0 +1,19 @@
+---
+title: "Advanced Python"
+subtitle: A few advances Python features you'll see in the wild
+format:
+    revealjs:
+        slide-number: true
+        chalkboard:
+          buttons: true
+        preview-links: auto
+        logo: ../../images/logo.png
+        theme: [../../custom_slides.scss]
+
+footer: \
+    <a href="https://opensourcecourse.dev/modules/advanced_python/overview.html">overview</a> /\
+    <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/advanced_python/slides.qmd">source</a> /\
+    <a href="https://opensourcecourse.dev/modules/advanced_python/exercises.html">exercises</a>
+---
+
+## Overview

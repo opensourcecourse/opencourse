@@ -1,0 +1,34 @@
+---
+title: Decorative Python
+---
+![](../../images/decorative_cloth.png)
+
+:::{.callout-note appearance="minimal"}
+Elegance is not about being noticed, it’s about being remembered.
+
+\- Giorgio Armani
+:::
+
+# Decorators
+
+One of python's most powerful, and prevalent, *functional* features is decorators. They are often used to mark or modify
+functions or classes in some simple, and *hopefully*, easy to remember way. However, despite looking simple, there
+is actually a lot going on behind the scenes. Because they are so common and powerful, decorators are certainly
+worth understanding.
+
+# Objectives
+
+In this module we will learn about:
+
+1. Closures and scope
+2. Creating decorators
+3. Advice for when and how to use decorators in practice.
+
+# Reading
+
+ - [A Primer on Decorators](https://realpython.com/primer-on-python-decorators/)
+ - [Python Closures](https://www.programiz.com/python-programming/closure)
+
+# Additional Resources
+
+ - [Python Tips: Decorators](https://book.pythontips.com/en/latest/decorators.html)
