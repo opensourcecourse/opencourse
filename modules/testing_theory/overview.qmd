@@ -1,5 +1,5 @@
 ---
-title: Bugging and Debugging
+title: Test
 ---
 
 ![](../../images/test_bench.png)
@@ -10,4 +10,46 @@ Untested code is broken code
 \- Unknown
 :::
 
-# Testing
+# Software Testing
+
+Testing is probably the most important topic in software engineering. This is because malfunctioning software can have dire
+consequences, like [causing a multi-million dollar satellite to crash into mars](https://en.wikipedia.org/wiki/Mars_Climate_Orbiter),
+[flashing the infamous blue screen of death](https://www.youtube.com/watch?v=AbER5TVTHEc&t=29s) during a live demo,
+or bankrupting an entire firm in a few minutes by
+[losing $440 million dollars in bad trades](https://www.henricodolfing.com/2019/06/project-failure-case-study-knight-capital.html).
+There have also been high profile bugs in scientific software, like when protein structure analysis code
+[swapped two data columns](https://www.science.org/doi/full/10.1126/science.314.5807.1856) producing spurious results
+that lead to a retraction of five research papers, hundreds of hours of wasted research time, and a ruined career.
+Testing is our main defense against such spectacular failures, and the way we gain confidence that a code works.
+
+Testing strategies are varied, from manually testing a code as it is written, to creating a massive suite of
+automated tests that run every line (or branch) of the code under test, sometimes dynamically changing test inputs.
+The appropriate testing strategy depends on the nature of code. Understanding a code can result in the type of costly
+mistakes mentioned above, but over testing can also cause lead to software failure by exploding budgets and failing to
+meet deadlines. Selecting the right testing strategy is an art that takes time to master.
+
+Testing could easily be a whole course (or several courses). Here we simply try to highlight some of the main ideas
+and provide good resources for further reading.
+
+# Objectives
+
+In this module, we will:
+
+1. Discuss prevalent testing taxonomies and their components
+2. Discuss different testing philosophies
+3. Provide guidance on selecting the appropriate testing strategy for different types of software
+4. Demonstrate a few simple examples of testing in python.
+
+# Reading
+
+- [The Testing Pyramid](https://www.browserstack.com/guide/testing-pyramid-for-test-automation)
+- [Unit vs Integration Testing](https://circleci.com/blog/unit-testing-vs-integration-testing/)
+- [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development)
+
+
+# Additional Resources
+
+- [The Test and Code Podcast](https://testandcode.com/)
+- [The Pragmatic Programmer](https://raygun.com/blog/costly-software-errors-history/)
+- [Hypothesis: Property-Based Testing in Python](https://hypothesis.readthedocs.io/en/latest/)
+- [Mutatest: Mutation Testing in Python](https://hypothesis.readthedocs.io/en/latest/)

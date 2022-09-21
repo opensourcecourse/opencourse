@@ -48,7 +48,7 @@ In this module, we will:
 
 1. Highlight tenants of pep8 and other community practices.
 2. Detect code smells/antipatterns.
-2. Fixes for python code issues.
+3. Fixes for python code issues.
 
 # Reading
 
