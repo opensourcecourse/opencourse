@@ -3,4 +3,13 @@ title: Documentation
 ---
 ![](../../images/conspiracy_board.png)
 
+:::{.callout-note appearance="minimal"}
+Don't document the program; program the document.
+
+\- Unknown
+:::
+
 # Documentation
+
+
+

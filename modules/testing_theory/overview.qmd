@@ -1,8 +1,8 @@
 ---
-title: Test
+title: Test all the Things
 ---
 
-![](../../images/test_bench.png)
+![](../../images/workbench_explosion.png)
 
 :::{.callout-note appearance="minimal"}
 Untested code is broken code
@@ -23,29 +23,31 @@ that lead to a retraction of five research papers, hundreds of hours of wasted r
 Testing is our main defense against such spectacular failures, and the way we gain confidence that a code works.
 
 Testing strategies are varied, from manually testing a code as it is written, to creating a massive suite of
-automated tests that run every line (or branch) of the code under test, sometimes dynamically changing test inputs.
-The appropriate testing strategy depends on the nature of code. Understanding a code can result in the type of costly
-mistakes mentioned above, but over testing can also cause lead to software failure by exploding budgets and failing to
-meet deadlines. Selecting the right testing strategy is an art that takes time to master.
+automated tests that run every line (or branch) of the code under test, sometimes dynamically changing test inputs or
+even the code itself! The appropriate testing strategy and amount of testing depends on the nature of code.
+Under-testing a code means failures are more likely, but over testing can cause software failure via exploding budgets
+and missed deadlines. Selecting the right testing strategy and amount is an art that takes time to master.
+
+Moreover, many argue writing software that is easily testable, or even when tests are written *before* the software,
+helps create more modular robust code. This is one of the common arguments behind the
+[Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) movement.
 
 Testing could easily be a whole course (or several courses). Here we simply try to highlight some of the main ideas
-and provide good resources for further reading.
+and provide resources for future learning.
 
 # Objectives
 
 In this module, we will:
 
 1. Discuss prevalent testing taxonomies and their components
-2. Discuss different testing philosophies
+2. Discuss common types of testing
 3. Provide guidance on selecting the appropriate testing strategy for different types of software
-4. Demonstrate a few simple examples of testing in python.
+4. Demonstrate a few simple examples of testing in python
 
 # Reading
 
 - [The Testing Pyramid](https://www.browserstack.com/guide/testing-pyramid-for-test-automation)
 - [Unit vs Integration Testing](https://circleci.com/blog/unit-testing-vs-integration-testing/)
-- [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development)
-
 
 # Additional Resources
 

@@ -2,12 +2,38 @@
 title: Bugging and Debugging
 ---
 
-![](../../images/test_bench.png)
+![](../../images/scafold.png)
 
 :::{.callout-note appearance="minimal"}
-Untested code is broken code
+If you don’t like unit testing your product, most likely your users won’t like to test it either.
 
 \- Unknown
 :::
 
-# Testing
+# Testing with Pytest
+
+There are several frameworks commonly used to test Python code, but the most popular by far is
+[pytest](https://docs.pytest.org/en/7.1.x/). Pytest has dominated the testing landscape because it is incredibly
+flexible, concise, and elegant (at least once you understand its abstractions).
+
+Pytest's feature set includes fixtures with customizable lifetimes to manage setup and cleanup of test state,
+marks to organize tests, assert rewrites for informative failure messages, a thriving plug-in ecosystem, and many others.
+
+# Objectives
+
+In this module, we will:
+
+1. See examples of tests writen with pytest
+2. Go over pytest's fixture model
+3. Look at running and debugging tests
+4. Discuss test organization
+
+# Reading
+
+- [Python Testing With Pytst](https://realpython.com/pytest-python-testing/)
+
+# Additional Resources
+
+- [Pytest Documentation](https://docs.pytest.org/en/7.1.x/)
+- [Awesome Pytest List](https://github.com/augustogoulart/awesome-pytest)
+- [Using Pytest Fixtures](https://www.testim.io/blog/using-pytest-fixtures/)

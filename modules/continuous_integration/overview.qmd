@@ -1,4 +1,9 @@
 ---
-title: Continuous Integration
+title: Automation
 ---
+![](../../images/conveyor.png)
+
+
 # Continuous Integration
+
+
