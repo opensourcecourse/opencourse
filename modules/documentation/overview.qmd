@@ -10,6 +10,40 @@ Don't document the program; program the document.
 :::
 
 # Documentation
+Documenting all software is important, but just like testing, selecting the appropriate depends on the type of software
+and audience. For example, a simple script for producing a figure for a report will be documented very differently from
+an open-source library used by 1000s of people. Its not a coincidence that some of the most popular python packages are
+also the best documented. However, its not the *volume* of documentation that counts, but *quality*.
+
+Types of documentation include code comments, docstrings, tutorials, how tos, quickstarts, references, etc. Each one
+has its place, and we will touch discuss them.
+
+# Objectives
+
+In this module we will learn about:
+
+1. Writing effective code comments (and code that needs less of them)
+2. Python docstrings
+3. Creating effective introduction/tutorial documentation
+4. Technical references
+5. Documentation build systems
+
+# Reading
+
+- [Best Practices for Code Comments](https://stackoverflow.blog/2021/12/23/best-practices-for-writing-code-comments/)
+- [Example Numpy Docstring](https://github.com/numpy/numpy/blob/main/doc/example.py)
+- [Write Better READMEs](https://github.com/banesullivan/README)
+
+# Additional Resources
+
+- [Docs or It Doesnt Exist](https://lukeplant.me.uk/blog/posts/docs-or-it-doesnt-exist/)
+- [The Four Types of Documentation](https://nick.groenen.me/posts/the-4-types-of-technical-documentation/)
+- [5 Comment Don'ts](https://www.itprotoday.com/development-techniques-and-management/5-code-commenting-donts)
+- [How to Write Numpy Docstrings](https://python.plainenglish.io/how-to-write-numpy-style-docstrings-a092121403ba)
+- [Sphinx](https://www.sphinx-doc.org/en/master/)
+- [Quarto](https://github.com/quarto-dev/quarto-cli)
+- [MKDocs](https://www.mkdocs.org/)
+- [Read the Docs](https://readthedocs.org/)
 
 
 

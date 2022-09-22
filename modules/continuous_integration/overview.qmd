@@ -3,7 +3,39 @@ title: Automation
 ---
 ![](../../images/conveyor.png)
 
+:::{.callout-note appearance="minimal"}
+The most powerful tool we have as developers is automation.
+
+\- Scott Hanselman
+:::
 
 # Continuous Integration
 
+At its heart, continuous integration (or related terms) really means automation. Automation of what exactly
+depends on the software. For a website, such as this one, it means building and deploying site every time a change is
+merged into the main branch. For numerical scientific library it could mean linting the code, running the test suite,
+publishing benchmarks, building and deploying the documentation, releasing a new version to PyPI, etc. Practically
+anything that can be automated can be included in CI.
+
+In the dark times before 2018, projects on github wishing to test their code on different operating systems were forced
+to employ a hodgepodge different CI services, each with its own API and quirks. These days, practically everything
+can be done with Github actions. For Free.
+
+# Objectives
+
+In this module we will:
+
+1. Highlight different applications of Github Actions
+2. Look at Github's YAML syntax for writing actions
+3. Discus some useful community actions and how to use them
+4. Overview CI debugging and maintenance practices
+
+# Reading
+
+- [What is Continuous Integration](https://semaphoreci.com/continuous-integration)
+
+# Additional Resources
+
+- [Github Actions Documentation](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)
+- [Awesome Github Actions](https://github.com/sdras/awesome-actions)
 

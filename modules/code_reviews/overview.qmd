@@ -1,5 +1,5 @@
 ---
-title: Code, View, Review, Rereview
+title: Code, View, Review
 ---
 
 ![](../../images/guidance.png)
@@ -12,6 +12,12 @@ Any stupid can write the program that computer understands but only good program
 
 # Code Review
 
+Code reviews play an important role in maintaining high quality community software. They are also an excellent
+opportunity for semi-formal mentoring and learning. However, if done poorly, they can fail to improve code
+in any significant way and leave a bad impression with the involved parties. Like many other tasks that
+can be thought of as purely technical, there are some significant human factors at play that need to be respected.
+
+In this model we discuss how to effectively conduct and respond to code reviews using Github.
 
 # Objectives
 
@@ -19,7 +25,6 @@ In this module we will:
 
 1. Highlight best practices for code reviews
 2. Demonstrate Github's code review mechanisms
-
 
 # Reading
 

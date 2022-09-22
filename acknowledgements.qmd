@@ -3,8 +3,8 @@ title: Acknowledgements
 ---
 
 # Contributors
-A special thanks to [all those who contributed content](https://github.com/opensourcecourse/opencourse/graphs/contributors) to OSC.
-It takes a village.
+A special thanks to [all those who contributed content](https://github.com/opensourcecourse/opencourse/graphs/contributors)
+to OSC. It takes a village.
 
 # Images
 
