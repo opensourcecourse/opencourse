@@ -38,4 +38,3 @@ In this module we will:
 
 - [Github Actions Documentation](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)
 - [Awesome Github Actions](https://github.com/sdras/awesome-actions)
-

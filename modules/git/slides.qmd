@@ -20,7 +20,7 @@ footer: \
 
 </br>
 
-::: {style="font-size: 1.6em; text-align: center; presentation-line-height: 1.0"}
+::: {style="font-size: 1.4em; text-align: center; presentation-line-height: 1.0"}
 
 - A conceptual framework
 - Common git commands
@@ -35,7 +35,55 @@ footer: \
 ![](images/thought_tools.png)
 :::
 
-## Conceptual Framework: Edits {auto-animate="true"}
+## Conceptual Framework: Edits {.nostretch auto-animate="true"}
+
+</br>
+
+```{.python filename="myscript.py"}
+
+def add_numbers(num1, num2):
+    """Add two things together"""
+    answer = num1 + num2
+    print(f"{num1} + {num2} is {answer}")
+
+add_numbers(2, 2)
+```
+
+## Conceptual Framework: Edits {.nostretch auto-animate="true"}
+
+</br>
+
+```{.python filename="myscript.py"}
+
+def add_numbers(num1, num2):
+    """Add two things together"""
+    return num1 + num2
+
+assert add_numbers(1, 1) == 2
+```
+
+## Conceptual Framework: Edits {.nostretch auto-animate="true"}
+</br>
+
+
+:::{.callout-note appearance="minimal"}
+
+## File Difference
+
+[-4 answer = num1 + num2]{style="color: red;"}
+
+[-5 print(f"{num1} + {num2} is {answer}")]{style="color: red;"}
+
+[-7 add_numbers(2, 2)]{style="color: red;"}
+
+[+4 return num1 + num2]{style="color: green;"}
+
+[+6 assert add_numbers(1, 1) == 2]{style="color: green;"}
+
+
+:::
+
+## Conceptual Framework: Edits {.nostretch auto-animate="true"}
 
 </br>
 
@@ -45,18 +93,20 @@ flowchart LR
   A[Edit]
 ```
 
-
-## Conceptual Framework: Edits {auto-animate="true"}
-
-</br>
+## Conceptual Framework: Edits {.stretch auto-animate="true"}
 
 ```{mermaid}
-%%| fig-width: 4.0
-flowchart LR
-  A[Edit]
+gitGraph
+   commit id: "Alpha"
+   commit id: "Beta"
+   commit id: "Gamma"
+   branch develop
+   commit id: "Gamma2"
+   commit id: "Gamma3"
+   checkout main
+   merge develop
+
 ```
-
-
 
 ## Basic Git Commands
 
