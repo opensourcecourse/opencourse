@@ -35,7 +35,126 @@ footer: \
 ![](images/thought_tools.png)
 :::
 
-## Conceptual Framework: Edits {.nostretch auto-animate="true"}
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+</br>
+First we create a new file.
+
+```{.python filename="myscript.py"}
+def add_numbers(num1, num2):
+    """Add two things together"""
+    answer = num1 + num2
+    print(f"{num1} + {num2} is {answer}")
+
+add_numbers(2, 2)
+```
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+</br>
+
+Changes from an empty repo to current state
+
+:::{.callout-note appearance="minimal"}
+## File Difference
+
+[+1] [def add_numbers(num1, num2):]{style="color: green;"}
+
+[+2]    ["""Add two things together"""]{style="color: green;"}
+
+[+3]    [answer = num1 + num2]{style="color: green;"}
+
+[+4]    [print(f"{num1} + {num2} is {answer}")]{style="color: green;"}
+:::
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+</br>
+
+We propose saving the changes
+
+:::{.callout-warning appearance="minimal"}
+## Added changes
+
+[+1] [def add_numbers(num1, num2):]{style="color: green;"}
+
+[+2]    ["""Add two things together"""]{style="color: green;"}
+
+[+3]    [answer = num1 + num2]{style="color: green;"}
+
+[+4]    [print(f"{num1} + {num2} is {answer}")]{style="color: green;"}
+:::
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+</br>
+
+Then commit to saving them
+
+:::{.callout-tip appearance="minimal"}
+## Committed (saved) changes [1989ee1]
+
+[+1] [def add_numbers(num1, num2):]{style="color: green;"}
+
+[+2]    ["""Add two things together"""]{style="color: green;"}
+
+[+3]    [answer = num1 + num2]{style="color: green;"}
+
+[+4]    [print(f"{num1} + {num2} is {answer}")]{style="color: green;"}
+:::
+
+
+## Conceptual Framework {auto-animate="true"}
+</br>
+
+This creates our first commit!
+</br>
+</br>
+```{mermaid}
+
+gitGraph
+   commit id: "0-1989ee1"
+```
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+Each commit has metadata
+
+:::{.callout-tip appearance="minimal"}
+## [1989ee1]
+
+[+1] [def add_numbers(num1, num2):]{style="color: green;"}
+
+[+2]    ["""Add two things together"""]{style="color: green;"}
+
+[+3]    [answer = num1 + num2]{style="color: green;"}
+
+[+4]    [print(f"{num1} + {num2} is {answer}")]{style="color: green;"}
+:::
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+Each commit has metadata
+
+:::{.callout-tip appearance="minimal"}
+## [1989ee1]
+    commit message  => "First file"
+    committer       => Bob Belcher <bobs@gmail.com>
+    commit date     => Sat Nov 8 11:13:49 2014 +0100
+    author          => Bob Belcher <bobs@gmail.com>
+    author date     => Sat Nov 8 11:13:49 2014 +0100
+    tree            => 9c435a86e664be00...
+    parents         => [0d973e9c4353ef3..., ]
+
+:::
+
+
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
 
 </br>
 

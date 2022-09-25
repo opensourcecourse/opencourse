@@ -33,6 +33,8 @@ jobs:
 
       - name: Install quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: pre-release
 
       - name: print quarto version
         run: |
