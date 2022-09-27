@@ -19,21 +19,21 @@ After successfully completing this course you will:
 1. Have a working understanding of git and its common uses
 2. Develop a sense of "Pythonic" code and how to avoid "smelly" pitfalls
 3. Follow open-source etiquette and effectively use the collaborative features of GitHub
-4. Understand basic software testing philosophies and use the pytest framework
+4. Understand basic software testing philosophies and be able to use the pytest framework
 6. Be familiar with the different tiers of code documentation and know how to effectively document different
 types of codes
 
 
 # Prerequisites
 
-This course is designed for someone well versed in using python to solve practical problems. Specifically you should:
+This course is designed for someone experienced in using python to solve practical problems. Specifically you should:
 
 1. Be well-versed with writing modular python code with functions
-2. Have experience working with common data structures like lists, dicts, tuples, etc.
+2. Be familiar with common data structures like lists, dicts, tuples, etc.
 3. Understand iteration and indexing
 4. Understand python's control flow (if/then, for, while, etc.)
 5. Know how to install python packages and manage python environments
-6. Be at least semi-comfortable using a command prompt
+6. Be semi-comfortable using a command prompt
 
 
 :::{.callout-warning}

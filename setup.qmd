@@ -2,11 +2,11 @@
 title: Course Setup
 ---
 
-In order to avoid wasting class time setting up software, please go through the following before class:
+In order to use class time effectively, please do the following before the course starts:
 
 # Create a Github Account
 
-This is straight-forward. Got to [Github's website](https://github.com/) and click sign up on the top right. Of course,
+Go to [Github's website](https://github.com/) and click sign up on the top right. Of course,
 if you already have a github account you can skip this step.
 
 
@@ -15,7 +15,7 @@ if you already have a github account you can skip this step.
 Here we will make sure your git installation is working and configured properly to push to github. If you know git is
 already installed on your machine and you have recently pushed content to a github repo you can skip this section.
 
-1. Make sure you have [git installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your laptop.
+1. Make sure you have [git installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 2. [Create a personal repo](https://docs.github.com/en/get-started/quickstart/create-a-repo) called "git_test"
 3. Clone your repo
 
@@ -28,6 +28,18 @@ or with ssh
 ```bash
 git clone git@github.com:{your_user_name}/git_test
 ```
+
+4. Configure your username/email address
+
+```bash
+git config --global user.name "FIRST_NAME LAST_NAME"
+git config --global user.email "MY_EMAIL@example.com"
+```
+
+:::{.callout-tip}
+If you don't want to include your email but still want github to give you credit for your commits, you can use:
+MY_GITHUB_NAME@users.noreply.github.com
+:::
 
 4. Make a small change
 Simply add a file called README.txt and write some text in there such as "this is a test"
