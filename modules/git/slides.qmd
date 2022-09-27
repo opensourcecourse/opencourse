@@ -9,6 +9,7 @@ format:
         preview-links: auto
         logo: ../../images/logo.png
         theme: [../../custom_slides.scss]
+        view-distance: 50
 
 footer: \
     <a href="https://opensourcecourse.dev/modules/git/overview.html">overview</a> /\
@@ -22,7 +23,7 @@ footer: \
 
 ::: {style="font-size: 1.4em; text-align: center; presentation-line-height: 1.0"}
 
-- A conceptual framework
+- Conceptual framework
 - Common git commands
 - Branching models
 
@@ -39,7 +40,59 @@ footer: \
 ## Conceptual Framework {.nostretch auto-animate="true"}
 
 </br>
+
+::: {style="font-size: 1.4em; text-align: center; presentation-line-height: 1.0"}
+A graphical, graphical model
+:::
+
+</br>
+
+```{mermaid}
+%%| fig-width: 10
+    gitGraph
+       commit
+       commit
+       branch develop
+       checkout develop
+       commit
+       commit
+       checkout main
+       merge develop
+       checkout develop
+       commit
+       commit
+       checkout main
+       commit
+       branch fix_1
+       commit
+       commit
+       checkout main
+       merge fix_1
+       commit
+       checkout develop
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+### Scenario
+
+::: incremental
+
+- We have just created an empty directory
+- We are going to write some code
+- Then make some changes
+- and manage it all with git
+
+:::
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
 First we create a new file.
+</br>
 
 ```{.python filename="myscript.py"}
 def add_numbers(num1, num2):
@@ -51,13 +104,13 @@ add_numbers(2, 2)
 ```
 
 
-## Conceptual Framework {.nostretch auto-animate="true"}
-</br>
 
-Changes from an empty repo to current state
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+Then look at the difference between nothing and current state.
 
 :::{.callout-note appearance="minimal"}
-## File Difference
+< myscript.py >
 
 [+1] [def add_numbers(num1, num2):]{style="color: green;"}
 
@@ -69,13 +122,14 @@ Changes from an empty repo to current state
 :::
 
 
-## Conceptual Framework {.nostretch auto-animate="true"}
-</br>
 
-We propose saving the changes
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+We propose saving the changes.
 
 :::{.callout-warning appearance="minimal"}
-## Added changes
+
+< myscript.py >
 
 [+1] [def add_numbers(num1, num2):]{style="color: green;"}
 
@@ -87,43 +141,16 @@ We propose saving the changes
 :::
 
 
-## Conceptual Framework {.nostretch auto-animate="true"}
-</br>
-
-Then commit to saving them
-
-:::{.callout-tip appearance="minimal"}
-## Committed (saved) changes [1989ee1]
-
-[+1] [def add_numbers(num1, num2):]{style="color: green;"}
-
-[+2]    ["""Add two things together"""]{style="color: green;"}
-
-[+3]    [answer = num1 + num2]{style="color: green;"}
-
-[+4]    [print(f"{num1} + {num2} is {answer}")]{style="color: green;"}
-:::
-
-
-## Conceptual Framework {auto-animate="true"}
-</br>
-
-This creates our first commit!
-</br>
-</br>
-```{mermaid}
-
-gitGraph
-   commit id: "0-1989ee1"
-```
 
 ## Conceptual Framework {.nostretch auto-animate="true"}
 
-Each commit has metadata
+Then commit to saving them.
 
 :::{.callout-tip appearance="minimal"}
 ## [1989ee1]
 
+< myscript.py >
+
 [+1] [def add_numbers(num1, num2):]{style="color: green;"}
 
 [+2]    ["""Add two things together"""]{style="color: green;"}
@@ -134,9 +161,44 @@ Each commit has metadata
 :::
 
 
+
+## Conceptual Framework {auto-animate="true"}
+
+This creates our first commit (dot) on the default branch (main).
+
+</br>
+
+```{mermaid}
+%%| fig-width: 5
+gitGraph
+   commit id: "0-1989ee1"
+```
+
+
+
 ## Conceptual Framework {.nostretch auto-animate="true"}
 
-Each commit has metadata
+Each commit has metadata.
+
+:::{.callout-tip appearance="minimal"}
+## [1989ee1]
+
+< myscript.py >
+
+[+1] [def add_numbers(num1, num2):]{style="color: green;"}
+
+[+2]    ["""Add two things together"""]{style="color: green;"}
+
+[+3]    [answer = num1 + num2]{style="color: green;"}
+
+[+4]    [print(f"{num1} + {num2} is {answer}")]{style="color: green;"}
+:::
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+Each commit has metadata.
 
 :::{.callout-tip appearance="minimal"}
 ## [1989ee1]
@@ -145,16 +207,14 @@ Each commit has metadata
     commit date     => Sat Nov 8 11:13:49 2014 +0100
     author          => Bob Belcher <bobs@gmail.com>
     author date     => Sat Nov 8 11:13:49 2014 +0100
-    tree            => 9c435a86e664be00...
-    parents         => [0d973e9c4353ef3..., ]
-
+    ...
 :::
 
 
 
-
-
 ## Conceptual Framework {.nostretch auto-animate="true"}
+
+Next, we make some changes.
 
 </br>
 
@@ -168,7 +228,11 @@ def add_numbers(num1, num2):
 add_numbers(2, 2)
 ```
 
-## Conceptual Framework: Edits {.nostretch auto-animate="true"}
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+Next, we make some changes.
 
 </br>
 
@@ -181,13 +245,15 @@ def add_numbers(num1, num2):
 assert add_numbers(1, 1) == 2
 ```
 
-## Conceptual Framework: Edits {.nostretch auto-animate="true"}
-</br>
 
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+And view the difference from previous state to current.
 
 :::{.callout-note appearance="minimal"}
 
-## File Difference
+< myscript.py >
 
 [-4 answer = num1 + num2]{style="color: red;"}
 
@@ -198,34 +264,203 @@ assert add_numbers(1, 1) == 2
 [+4 return num1 + num2]{style="color: green;"}
 
 [+6 assert add_numbers(1, 1) == 2]{style="color: green;"}
-
-
 :::
 
-## Conceptual Framework: Edits {.nostretch auto-animate="true"}
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+Then add the changes.
+
+:::{.callout-warning appearance="minimal"}
+
+< myscript.py >
+
+[-4 answer = num1 + num2]{style="color: red;"}
+
+[-5 print(f"{num1} + {num2} is {answer}")]{style="color: red;"}
+
+[-7 add_numbers(2, 2)]{style="color: red;"}
+
+[+4 return num1 + num2]{style="color: green;"}
+
+[+6 assert add_numbers(1, 1) == 2]{style="color: green;"}
+:::
+
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+And finally commit them.
+
+:::{.callout-tip appearance="minimal"}
+
+## [15d5f2a]
+
+< myscript.py >
+
+[-4 answer = num1 + num2]{style="color: red;"}
+
+[-5 print(f"{num1} + {num2} is {answer}")]{style="color: red;"}
+
+[-7 add_numbers(2, 2)]{style="color: red;"}
+
+[+4 return num1 + num2]{style="color: green;"}
+
+[+6 assert add_numbers(1, 1) == 2]{style="color: green;"}
+:::
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+Which adds a new commit to our main branch.
 
 </br>
 
 ```{mermaid}
-%%| fig-width: 4.0
-flowchart LR
-  A[Edit]
+%%| fig-width: 5
+gitGraph
+   commit id: "0-1989ee1"
+   commit id: "1-15d5f2a"
 ```
 
-## Conceptual Framework: Edits {.stretch auto-animate="true"}
+
+## Knowledge Check {.nostretch auto-animate="true"}
+</br>
+```{mermaid}
+%%| fig-width: 5
+gitGraph
+   commit id: "0-1989ee1"
+   commit id: "1-15d5f2a"
+```
+
+::: incremental
+- What is main?
+- What is 15d5f2a?
+- What information does it contain?
+:::
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+We can create *branches* with their own commits
+
+(think parallel universe)
+
+</br>
 
 ```{mermaid}
+%%| fig-width: 7
 gitGraph
-   commit id: "Alpha"
-   commit id: "Beta"
-   commit id: "Gamma"
-   branch develop
-   commit id: "Gamma2"
-   commit id: "Gamma3"
-   checkout main
-   merge develop
-
+   commit id: "0-1989ee1"
+   commit id: "1-15d5f2a"
+   branch branch_1
+   commit id: "2-a577878"
+   commit id: "3-c17d954"
 ```
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+Then merge branches back together
+
+</br>
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "0-1989ee1"
+   commit id: "1-15d5f2a"
+   branch branch_1
+   commit id: "2-a577878"
+   commit id: "3-c17d954"
+   checkout main
+   merge branch_1
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+Which has the same effect (on the code) as committing on main
+
+</br>
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "0-1989ee1"
+   commit id: "1-15d5f2a"
+   commit id: "2-a577878"
+   commit id: "3-c17d954"
+```
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+But what if someone else makes changes?
+
+</br>
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "0-1989ee1"
+   commit id: "1-15d5f2a"
+   branch branch_1
+   commit id: "2-a577878"
+   commit id: "3-c17d954"
+   checkout main
+   commit
+   commit
+```
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+We can still bring the branch_1 changes back to main
+
+But we might have *conflicts*
+
+</br>
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "0-1989ee1"
+   commit id: "1-15d5f2a"
+   branch branch_1
+   commit id: "2-a577878"
+   commit id: "3-c17d954"
+   checkout main
+   commit
+   commit
+   merge branch_1
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+What should happen if the changes on both branches aren't compatible?
+
+:::{.r-stack}
+
+:::{.fragment}
+- Prioritize changes on main?
+- Prioritize changes on branch_1?
+- Make the merger sort it out?
+:::
+
+:::{.fragment}
+![](https://static1.cbrimages.com/wordpress/wp-content/uploads/2019/02/Batman-slapping-Robin-Meme-Blank.jpg?q=50&fit=contain&w=750&h=&dpr=1.5)
+:::
+
+:::
+
+
 
 ## Basic Git Commands
 
@@ -248,23 +483,6 @@ gitGraph
 </br>
 
 
-
-
-
-
-
-
-:::{.r-stack}
-
-```{mermaid}
-%%| fig-width: 10.0
-flowchart LR
-  A[Edit] --> B(Stage)
-  B --> C((Commit))
-  style A fill:#f9f,stroke:#333,stroke-width:4px
-```
-
-:::
 
 
 
