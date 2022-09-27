@@ -92,6 +92,7 @@ A graphical, graphical model
 ## Conceptual Framework {.nostretch auto-animate="true"}
 
 First we create a new file.
+
 </br>
 
 ```{.python filename="myscript.py"}
@@ -119,6 +120,10 @@ Then look at the difference between nothing and current state.
 [+3]    [answer = num1 + num2]{style="color: green;"}
 
 [+4]    [print(f"{num1} + {num2} is {answer}")]{style="color: green;"}
+
+[+5]
+
+[+6] [add_numbers(2, 2)]{style="color: green;"}
 :::
 
 
@@ -138,16 +143,20 @@ We propose saving the changes.
 [+3]    [answer = num1 + num2]{style="color: green;"}
 
 [+4]    [print(f"{num1} + {num2} is {answer}")]{style="color: green;"}
+
+[+5]
+
+[+6] [add_numbers(2, 2)]{style="color: green;"}
 :::
 
 
 
 ## Conceptual Framework {.nostretch auto-animate="true"}
 
-Then commit to saving them.
+Then commit to saving them. Note the commit Tag.
 
 :::{.callout-tip appearance="minimal"}
-## [1989ee1]
+## [9d6b7c]
 
 < myscript.py >
 
@@ -158,6 +167,10 @@ Then commit to saving them.
 [+3]    [answer = num1 + num2]{style="color: green;"}
 
 [+4]    [print(f"{num1} + {num2} is {answer}")]{style="color: green;"}
+
+[+5]
+
+[+6] [add_numbers(2, 2)]{style="color: green;"}
 :::
 
 
@@ -165,13 +178,14 @@ Then commit to saving them.
 ## Conceptual Framework {auto-animate="true"}
 
 This creates our first commit (dot) on the default branch (main).
+"HEAD" is the latest commit on the current branch.
 
 </br>
 
 ```{mermaid}
 %%| fig-width: 5
 gitGraph
-   commit id: "0-1989ee1"
+   commit id: "9d6b7c"
 ```
 
 
@@ -181,33 +195,22 @@ gitGraph
 Each commit has metadata.
 
 :::{.callout-tip appearance="minimal"}
-## [1989ee1]
+## [9d6b7c...] (HEAD, main)
 
-< myscript.py >
+Author:
 
-[+1] [def add_numbers(num1, num2):]{style="color: green;"}
+    Derrick Chambers
+    <d-chambers@users.noreply.github.com>
 
-[+2]    ["""Add two things together"""]{style="color: green;"}
+Date:
 
-[+3]    [answer = num1 + num2]{style="color: green;"}
+    Mon Sep 26 20:11:10 2022 -0600
 
-[+4]    [print(f"{num1} + {num2} is {answer}")]{style="color: green;"}
-:::
+Message:
 
+    work on myscript
 
-
-## Conceptual Framework {.nostretch auto-animate="true"}
-
-Each commit has metadata.
-
-:::{.callout-tip appearance="minimal"}
-## [1989ee1]
-    commit message  => "First file"
-    committer       => Bob Belcher <bobs@gmail.com>
-    commit date     => Sat Nov 8 11:13:49 2014 +0100
-    author          => Bob Belcher <bobs@gmail.com>
-    author date     => Sat Nov 8 11:13:49 2014 +0100
-    ...
+...
 :::
 
 
@@ -219,7 +222,6 @@ Next, we make some changes.
 </br>
 
 ```{.python filename="myscript.py"}
-
 def add_numbers(num1, num2):
     """Add two things together"""
     answer = num1 + num2
@@ -237,7 +239,6 @@ Next, we make some changes.
 </br>
 
 ```{.python filename="myscript.py"}
-
 def add_numbers(num1, num2):
     """Add two things together"""
     return num1 + num2
@@ -261,9 +262,9 @@ And view the difference from previous state to current.
 
 [-7 add_numbers(2, 2)]{style="color: red;"}
 
-[+4 return num1 + num2]{style="color: green;"}
+[+3 return num1 + num2]{style="color: green;"}
 
-[+6 assert add_numbers(1, 1) == 2]{style="color: green;"}
+[+5 assert add_numbers(1, 1) == 2]{style="color: green;"}
 :::
 
 
@@ -282,9 +283,9 @@ Then add the changes.
 
 [-7 add_numbers(2, 2)]{style="color: red;"}
 
-[+4 return num1 + num2]{style="color: green;"}
+[+3 return num1 + num2]{style="color: green;"}
 
-[+6 assert add_numbers(1, 1) == 2]{style="color: green;"}
+[+5 assert add_numbers(1, 1) == 2]{style="color: green;"}
 :::
 
 
@@ -296,7 +297,7 @@ And finally commit them.
 
 :::{.callout-tip appearance="minimal"}
 
-## [15d5f2a]
+## [046a7a]
 
 < myscript.py >
 
@@ -306,9 +307,9 @@ And finally commit them.
 
 [-7 add_numbers(2, 2)]{style="color: red;"}
 
-[+4 return num1 + num2]{style="color: green;"}
+[+3 return num1 + num2]{style="color: green;"}
 
-[+6 assert add_numbers(1, 1) == 2]{style="color: green;"}
+[+5 assert add_numbers(1, 1) == 2]{style="color: green;"}
 :::
 
 
@@ -322,8 +323,8 @@ Which adds a new commit to our main branch.
 ```{mermaid}
 %%| fig-width: 5
 gitGraph
-   commit id: "0-1989ee1"
-   commit id: "1-15d5f2a"
+   commit id: "9d6b7c"
+   commit id: "046a7a"
 ```
 
 
@@ -332,14 +333,15 @@ gitGraph
 ```{mermaid}
 %%| fig-width: 5
 gitGraph
-   commit id: "0-1989ee1"
-   commit id: "1-15d5f2a"
+   commit id: "9d6b7c"
+   commit id: "046a7a"
 ```
 
 ::: incremental
 - What is main?
-- What is 15d5f2a?
+- What is 046a7a?
 - What information does it contain?
+- What commit does "HEAD" refer to?
 :::
 
 
@@ -355,8 +357,8 @@ We can create *branches* with their own commits
 ```{mermaid}
 %%| fig-width: 7
 gitGraph
-   commit id: "0-1989ee1"
-   commit id: "1-15d5f2a"
+   commit id: "9d6b7c"
+   commit id: "046a7a"
    branch branch_1
    commit id: "2-a577878"
    commit id: "3-c17d954"
@@ -364,18 +366,18 @@ gitGraph
 
 ## Conceptual Framework {.nostretch auto-animate="true"}
 
-Then merge branches back together
+Then merge branches (e.g., back into main)
 
 </br>
 
 ```{mermaid}
 %%| fig-width: 7
 gitGraph
-   commit id: "0-1989ee1"
-   commit id: "1-15d5f2a"
+   commit id: "9d6b7c"
+   commit id: "1-046a7a"
    branch branch_1
-   commit id: "2-a577878"
-   commit id: "3-c17d954"
+   commit id: "4c0f818"
+   commit id: "221d22"
    checkout main
    merge branch_1
 ```
@@ -391,27 +393,27 @@ Which has the same effect (on the code) as committing on main
 ```{mermaid}
 %%| fig-width: 7
 gitGraph
-   commit id: "0-1989ee1"
-   commit id: "1-15d5f2a"
-   commit id: "2-a577878"
-   commit id: "3-c17d954"
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
 ```
 
 
 ## Conceptual Framework {.nostretch auto-animate="true"}
 
-But what if someone else makes changes?
+But what if someone else makes changes on main before the merge?
 
 </br>
 
 ```{mermaid}
 %%| fig-width: 7
 gitGraph
-   commit id: "0-1989ee1"
-   commit id: "1-15d5f2a"
+   commit id: "9d6b7c"
+   commit id: "046a7a"
    branch branch_1
-   commit id: "2-a577878"
-   commit id: "3-c17d954"
+   commit id: "4c0f818"
+   commit id: "221d22"
    checkout main
    commit
    commit
@@ -429,11 +431,11 @@ But we might have *conflicts*
 ```{mermaid}
 %%| fig-width: 7
 gitGraph
-   commit id: "0-1989ee1"
-   commit id: "1-15d5f2a"
+   commit id: "9d6b7c"
+   commit id: "046a7a"
    branch branch_1
-   commit id: "2-a577878"
-   commit id: "3-c17d954"
+   commit id: "4c0f818"
+   commit id: "221d22"
    checkout main
    commit
    commit
@@ -444,21 +446,132 @@ gitGraph
 
 ## Conceptual Framework {.nostretch auto-animate="true"}
 
-What should happen if the changes on both branches aren't compatible?
+What should happen if the changes aren't compatible?
 
 :::{.r-stack}
 
-:::{.fragment}
+:::{.fragment .fade-in-then-out}
 - Prioritize changes on main?
 - Prioritize changes on branch_1?
 - Make the merger sort it out?
 :::
+
+:::{.fragment .fade-in-then-out}
+ **Make the merger sort it out!**
+:::
+
 
 :::{.fragment}
 ![](https://static1.cbrimages.com/wordpress/wp-content/uploads/2019/02/Batman-slapping-Robin-Meme-Blank.jpg?q=50&fit=contain&w=750&h=&dpr=1.5)
 :::
 
 :::
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+What should happen if the changes aren't compatible?
+
+</br>
+
+```{.python filename="myscript.py (main)"}
+"""
+A script to practice using functions.
+
+A brilliant script written by Derrick.
+"""
+...
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+What should happen if the changes aren't compatible?
+
+</br>
+
+```{.python filename="myscript.py (branch_2)"}
+"""
+A script to practice using functions.
+
+A really dumb script written by Peiyao.
+"""
+...
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+What should happen if the changes aren't compatible?
+
+</br>
+
+```{.python filename="myscript.py (merge conflict)" code-line-numbers="|3-6|6-8"}
+"""
+A script to practice using functions.
+
+<<<<<<< HEAD
+A brilliant script written by Derrick.
+=======
+A really dumb script writen by Peiyao.
+>>>>>>> branch_2
+"""
+...
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+What should happen if the changes aren't compatible?
+
+</br>
+
+```{.python filename="myscript.py (resolved)" code-line-numbers="4"}
+"""
+A script to practice using functions.
+
+A brilliant script written by Derrick.
+"""
+...
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+Commits can be *squashed* (combined)
+
+</br>
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+Commits can be *squashed* (combined)
+
+</br>
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "ab3b7c"
+   commit id: "046a7a" type: REVERSE
+   commit id: "4c0f818" type: REVERSE
+   commit id: "221d22" type: REVERSE
+```
 
 
 
