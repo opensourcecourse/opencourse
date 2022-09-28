@@ -9,7 +9,9 @@ format:
         preview-links: auto
         logo: ../../images/logo.png
         theme: [../../custom_slides.scss]
-        view-distance: 50
+        view-distance: 100
+        mobile-view-distance: 100
+        css: ../../slides.css
 
 footer: \
     <a href="https://opensourcecourse.dev/modules/git/overview.html">overview</a> /\
@@ -183,7 +185,7 @@ This creates our first commit (dot) on the default branch (main).
 </br>
 
 ```{mermaid}
-%%| fig-width: 5
+%%| fig-width: 3
 gitGraph
    commit id: "9d6b7c"
 ```
@@ -402,7 +404,7 @@ gitGraph
 
 ## Conceptual Framework {.nostretch auto-animate="true"}
 
-But what if someone else makes changes on main before the merge?
+But what if changes are made on main before the merge?
 
 </br>
 
@@ -422,9 +424,9 @@ gitGraph
 
 ## Conceptual Framework {.nostretch auto-animate="true"}
 
-We can still bring the branch_1 changes back to main
+We can still merge branch_1 into main but....
 
-But we might have *conflicts*
+there might be *conflicts*
 
 </br>
 
@@ -541,6 +543,18 @@ A brilliant script written by Derrick.
 
 
 
+## Knowledge Check {.nostretch auto-animate="true"}
+</br>
+
+Now that we have fixed the file:
+
+::: incremental
+- What do we need to do next?
+- and after adding the changes?
+:::
+
+
+
 ## Conceptual Framework {.nostretch auto-animate="true"}
 
 Commits can be *squashed* (combined)
@@ -571,6 +585,402 @@ gitGraph
    commit id: "046a7a" type: REVERSE
    commit id: "4c0f818" type: REVERSE
    commit id: "221d22" type: REVERSE
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+Commits can be be *tagged* (usually with a version)
+
+</br>
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a" tag: "v1.0.0"
+   commit id: "4c0f818"
+   commit id: "221d22" tag: "v1.1.0"
+```
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+Commits can be *Cherry-Picked*
+
+</br>
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+   checkout main
+   commit id: "4c0f818"
+   commit id: "221d22"
+```
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+Commits can be *Cherry-Picked*
+
+</br>
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+   checkout main
+   commit id: "4c0f818"
+   commit id: "221d22"
+   commit id: "dc12a2"
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+Branches can be *rebased*
+
+</br>
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+   checkout main
+   commit id: "4c0f818"
+   commit id: "221d22"
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+Branches can be *rebased*
+
+</br>
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+Git is a *distributed* version control system
+
+This means it knows how to interact with other repositories.
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+We can *clone* remote (non-local) repositories
+
+::: {.repo_header}
+origin
+:::
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+We can *clone* remote (non-local) repositories
+
+::: {.repo_header}
+local
+:::
+
+```{mermaid}
+%%| fig-width: 5
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+```
+
+::: {.repo_header}
+origin
+:::
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+And *fetch* non-default branches
+
+::: {.repo_header}
+local
+:::
+
+```{mermaid}
+%%| fig-width: 5
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+```
+
+::: {.repo_header}
+origin
+:::
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+And *fetch* non-default branches
+
+::: {.repo_header}
+local
+:::
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+```
+
+::: {.repo_header}
+origin
+:::
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+```
+
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+We make local changes and *push* them back to remote
+
+::: {.repo_header}
+local
+:::
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+   commit id: "5dab5d"
+```
+
+::: {.repo_header}
+origin
+:::
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+We make local changes and *push* them back to remote
+
+::: {.repo_header}
+local
+:::
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+   commit id: "5dab5d"
+```
+
+::: {.repo_header}
+origin
+:::
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+   commit id: "5dab5d"
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+We *pull* changes from remote to local
+
+::: {.repo_header}
+local
+:::
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+```
+
+::: {.repo_header}
+origin
+:::
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+   commit id: "5dab5d"
+```
+
+
+
+## Conceptual Framework {.nostretch auto-animate="true"}
+
+We *pull* changes from remote to local
+
+::: {.repo_header}
+local
+:::
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+   commit id: "5dab5d"
+```
+
+::: {.repo_header}
+origin
+:::
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+   commit id: "5dab5d"
 ```
 
 

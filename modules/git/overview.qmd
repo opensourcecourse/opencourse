@@ -35,6 +35,7 @@ In this module, we will:
 # Additional Resources
 
  - [Software Carpentry's Git intro](https://swcarpentry.github.io/git-novice/)
+ - [20 Git Commands With Examples](https://dzone.com/articles/top-20-git-commands-with-examples)
  - [Using VCS in VSCode](https://code.visualstudio.com/docs/editor/versioncontrol)
  - [Official git documentation](https://git-scm.com/doc)
  - [Git Cheat Sheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
