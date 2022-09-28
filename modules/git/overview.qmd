@@ -23,10 +23,9 @@ While other VCS exist, git is used almost exclusively these days.
 
 In this module, we will:
 
-1. Present a graphical conceptual model to help think about and understand git
-2. Review some important git operations
-3. Look at common branching models used by open-source projects
-4. Practice getting out of sticky situations (merge-conflicts, detached heads, etc.)
+1. Present a graphical model of git
+2. Review some important git operations (with pictures)
+3. Look at a common procedure for making a contribution
 
 # Reading
 
