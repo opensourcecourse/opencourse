@@ -1,3 +1,11 @@
 ---
-title: homework
+title: Exercises
 ---
+
+# Github Starter Course (Optional)
+
+Before proceeding to the assignment, if you feel you need more instructions, or want to learn more about the
+github specific features, you can complete the [starter course from github](https://github.com/opensourcecourse/github-starter-course).
+
+# Git Good Assignment
+For this assignment, we will be practicing some of the git commands we discussed in class.
