@@ -4,8 +4,6 @@ subtitle: A graphical introduction to Git
 format:
     revealjs:
         slide-number: true
-        chalkboard:
-          buttons: true
         preview-links: auto
         logo: ../../images/logo.png
         theme: [../../custom_slides.scss]
@@ -64,7 +62,7 @@ A graphical, graphical model
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+## Git Through Graphs {.nostretch auto-animate="true" visibility="uncounted"}
 
 ### Scenario
 
@@ -79,7 +77,7 @@ A graphical, graphical model
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+## Git Through Graphs {.nostretch auto-animate="true" visibility="uncounted"}
 
 First we *init* the repo, then create a new file.
 
@@ -96,7 +94,7 @@ add_numbers(2, 2)
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+## Git Through Graphs {.nostretch auto-animate="true" visibility="uncounted"}
 
 Then *diff* to see difference between previous (nothing) and current state.
 
@@ -118,7 +116,7 @@ Then *diff* to see difference between previous (nothing) and current state.
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+## Git Through Graphs {.nostretch auto-animate="true" visibility="uncounted"}
 
 We *add* modified files so git knows we may want to save them.
 
@@ -141,7 +139,7 @@ We *add* modified files so git knows we may want to save them.
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+## Git Through Graphs {.nostretch auto-animate="true" visibility="uncounted"}
 
 Then *commit* to saving them. Note the Tag.
 
@@ -165,7 +163,7 @@ Then *commit* to saving them. Note the Tag.
 
 
 
-## Git Through Graphs {auto-animate="true"}
+## Git Through Graphs {auto-animate="true" visibility="uncounted"}
 
 This creates our first commit (dot) on the default branch (main).
 "HEAD" is the latest commit on the current branch.
@@ -180,7 +178,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+## Git Through Graphs {.nostretch auto-animate="true" visibility="uncounted"}
 
 Each commit has metadata.
 
@@ -1581,7 +1579,7 @@ gitGraph
 
 Submit a *pull request* to add changes to origin/main.
 
-Get it approved!
+[Get it approved!]{.fragment}
 
 ::: {.r-stack}
 
@@ -1702,8 +1700,129 @@ gitGraph
    commit id: "ba34dc"
 ```
 
+## Branching Strategies
 
-## Summary: Now the Tools
+:::{.incremental}
+
+::: {.center_midsized}
+- Main only
+- Single Trunk
+- Double Trunk
+:::
+
+:::
+
+
+
+## Branching: Main Only
+
+::: {.center_midsized}
+- Working by yourself
+- You only need checkpoints not branches
+- Easiest strategy
+:::
+
+</br>
+
+```{mermaid}
+%%| fig-width: 6
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+```
+
+
+
+## Branching: Single Trunk
+
+:::{r-stack}
+
+::: {.fragment}
+
+::: {.center_midsized}
+- Features and Bug fixes in separate branches
+- All branches merge back to main
+- Version bump depends on recent commits
+- Main is always *deployable*
+:::
+
+:::
+
+:::{.fragment}
+```{mermaid}
+%%| fig-width: 10
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a" tag: "v1.0.1"
+   branch bug_fix_1
+   commit id: "6bc3a3"
+   commit id: "f23da3"
+   checkout main
+   branch feature_1
+   commit id: "4c0f818"
+   commit id: "221d22"
+   commit id: "ac1d25"
+   checkout main
+   merge bug_fix_1 tag: "v1.0.2"
+   merge feature_1 tag: "v1.1.0"
+```
+:::
+
+:::
+
+
+
+## Branching: Double Trunk
+
+:::{r-stack}
+
+::: {.center_midsized}
+- Features and Bug fixes in separate branches
+- Features merge to *develop*, bug fixes to *main*
+- Bug fix releases are done on main
+- Develop is merged into main for feature releases
+- Main is merged into develop
+:::
+
+:::
+
+
+
+## Branching: Double Trunk
+
+</br>
+```{mermaid}
+%%| fig-width: 10
+gitGraph
+   commit id: "ab3490"
+   branch develop
+   commit id: "ac231c"
+   commit id: "0931dc"
+
+   checkout main
+   commit id: "046a7a" tag: "v1.0.0"
+   branch bug_fix_1
+   commit id: "6bc3a3"
+   commit id: "f23da3"
+   checkout main
+   merge bug_fix_1 tag: "v1.0.1"
+   checkout develop
+   branch feature_1
+   commit id: "4c0f818"
+   commit id: "221d22"
+   checkout develop
+   merge feature_1
+   checkout main
+   merge develop tag: "v1.1.0"
+```
+
+
+
+
+
+## Summary: the Tools
 
 ::: {.incremental}
 
