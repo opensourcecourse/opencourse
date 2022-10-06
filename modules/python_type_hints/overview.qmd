@@ -37,5 +37,6 @@ In this module we will learn about:
 
 # Additional Resources
 
+ - [Begining type hints](https://towardsdatascience.com/12-beginner-concepts-about-type-hints-to-improve-your-python-code-90f1ba0ac49)
  - [Typing Module Documentation](https://docs.python.org/3/library/typing.html)
  - [Pydantic Documentation](https://pydantic-docs.helpmanual.io/)
