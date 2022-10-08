@@ -1,11 +1,12 @@
 ---
 title: "Git Good (Enough)"
 subtitle: A graphical introduction to Git
+execute:
+  enabled: true
 format:
     revealjs:
         slide-number: true
         preview-links: auto
-        logo: ../../images/logo.png
         theme: [../../custom_slides.scss]
         css: ../../slides.css
         view-distance: 100
@@ -28,20 +29,18 @@ footer: \
 :::
 
 
-# Git Through Graphs {.nostretch auto-animate="true" .top}
-
-## Git Through Graphs {.nostretch auto-animate="true" .top}
-
-# Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Overview {.nostretch auto-animate="true"}
 
 </br>
 
-::: {style="font-size: 1.4em; text-align: center; presentation-line-height: 1.0"}
+::: {.centered_midsized}
 A graphical, graphical model
 :::
 
+::: {.r-stack}
+
 ```{mermaid}
-%%| fig-width: 10
+%%| fig-width: 11
     gitGraph
        commit
        commit
@@ -65,11 +64,15 @@ A graphical, graphical model
        checkout develop
 ```
 
+:::
 
 
-## Git Through Graphs {.nostretch auto-animate="true" visibility="uncounted"}
+# Git Graphs: Setup {.nostretch auto-animate="true" visibility="uncounted"}
 
-### Scenario
+
+:::{.midsize}
+Scenario
+:::
 
 ::: incremental
 
@@ -81,8 +84,7 @@ A graphical, graphical model
 :::
 
 
-
-## Git Through Graphs {.nostretch auto-animate="true" visibility="uncounted"}
+# Git Graphs {.nostretch auto-animate="true" visibility="uncounted"}
 
 First we *init* the repo, then create a new file.
 
@@ -99,29 +101,21 @@ add_numbers(2, 2)
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true" visibility="uncounted"}
+## Git Graphs: Setup
 
-Then *diff* to see difference between previous (nothing) and current state.
+</br>
 
-:::{.callout-note appearance="minimal"}
-< myscript.py >
+Creating a repo from scratch
 
-[+1] [def add_numbers(num1, num2):]{style="color: green;"}
-
-[+2]    ["""Add two things together"""]{style="color: green;"}
-
-[+3]    [answer = num1 + num2]{style="color: green;"}
-
-[+4]    [print(f"{num1} + {num2} is {answer}")]{style="color: green;"}
-
-[+5]
-
-[+6] [add_numbers(2, 2)]{style="color: green;"}
-:::
+```bash
+mkdir new
+cd new
+git init
+```
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true" visibility="uncounted"}
+# Git Graphs: Add {.nostretch auto-animate="true" visibility="uncounted"}
 
 We *add* modified files so git knows we may want to save them.
 
@@ -143,15 +137,33 @@ We *add* modified files so git knows we may want to save them.
 :::
 
 
+## Git Add
 
-## Git Through Graphs {.nostretch auto-animate="true" visibility="uncounted"}
+Add is simple. Add files to be saved, or add all.
+
+```bash
+# add particular file
+git myscpript.py
+
+# add all files
+git add -A
+
+# add all python files
+git add *.py
+
+# add all files in a folder
+git add my_folder
+```
+
+
+
+# Git Graphs: Commit {.nostretch auto-animate="true" visibility="uncounted"}
 
 Then *commit* to saving them. Note the Tag.
 
 :::{.callout-tip appearance="minimal"}
-## [9d6b7c]
 
-< myscript.py >
+[9d6b7c...]  < myscript.py >
 
 [+1] [def add_numbers(num1, num2):]{style="color: green;"}
 
@@ -168,10 +180,26 @@ Then *commit* to saving them. Note the Tag.
 
 
 
-## Git Through Graphs {auto-animate="true" visibility="uncounted"}
+## Git Commit
+
+Commit tells git to save the changes we added (staged). Add a message in the commit command
+or an editor will open automatically.
+
+```bash
+# commit staged changes with a simple message
+git commit -m "simple message"
+
+# add all changes to previously committed files
+# but wont add new files
+git commit -am "simple message"
+```
+
+
+
+# Git Graphs: Commit {auto-animate="true" visibility="uncounted"}
 
 This creates our first commit (dot) on the default branch (main).
-"HEAD" is the latest commit on the current branch.
+"HEAD" refers to the latest commit on the current branch.
 
 </br>
 
@@ -183,7 +211,29 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true" visibility="uncounted"}
+## Commit Hash
+
+The structure of the full commit HASH:
+
+:::{.callout-tip appearance="minimal"}
+
+6fd21da172fa169568a996bc2c7e97461bec7110
+
+:::
+
+A very long string of hexadecimal numbers (0-9 and a-f)
+
+Fortunately, you can reference a commit with a few of the left characters:
+
+:::{.callout-tip appearance="minimal"}
+
+6fd21d
+
+:::
+
+
+
+# Git Graphs: Commit {.nostretch auto-animate="true" visibility="uncounted"}
 
 Each commit has metadata.
 
@@ -207,7 +257,22 @@ Message:
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+
+## Git Show {.nostretch auto-animate="true" visibility="uncounted"}
+
+Show can be used to see metadata about a commit
+
+```bash
+# show metadata about 9d6b7c and its diff
+git show 9d6b7c
+
+# suppress the diff
+git show --quiet 9d6b7c
+```
+
+
+
+# Git Graphs: Modify {.nostretch auto-animate="true"}
 
 Next, we make some changes.
 
@@ -224,7 +289,7 @@ add_numbers(2, 2)
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Modify {.nostretch auto-animate="true"}
 
 Next, we make some changes.
 
@@ -240,28 +305,45 @@ assert add_numbers(1, 1) == 2
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Diff {.nostretch auto-animate="true" visibility="uncounted"}
 
-And *diff* to see the difference from previous state to current.
+Then *diff* to see difference between saved and current state.
 
-:::{.callout-note appearance="minimal"}
-
+:::{.callout-warning appearance="minimal"}
 < myscript.py >
 
-[-4 answer = num1 + num2]{style="color: red;"}
+[-3]    [answer = num1 + num2]{style="color: red;"}
 
-[-5 print(f"{num1} + {num2} is {answer}")]{style="color: red;"}
+[-4]    [print(f"{num1} + {num2} is {answer}")]{style="color: red;"}
 
-[-7 add_numbers(2, 2)]{style="color: red;"}
+[-6]    [print(f"{num1} + {num2} is {answer}")]{style="color: red;"}
 
-[+3 return num1 + num2]{style="color: green;"}
+[+3]    [return num1 + num2]{style="color: green;"}
 
-[+5 assert add_numbers(1, 1) == 2]{style="color: green;"}
+[+5]    [assert add_numbers(1, 1) == 2]{style="color: green;"}
 :::
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+## Git Diff
+
+The diff commands shows changes between commits, files, branches, etc.
+
+```bash
+# diff between last commit and unstaged changes
+git diff
+
+# diff between two commits
+git diff 9d6b7c 046a7a
+
+# diff between a file on latest commit for
+# two different branches
+git diff main:myscript.py branch_1:myscript.py
+```
+
+
+
+# Git Graphs: Add (again) {.nostretch auto-animate="true"}
 
 Then add the changes.
 
@@ -283,7 +365,7 @@ Then add the changes.
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Commit (again) {.nostretch auto-animate="true"}
 
 And finally *commit* them.
 
@@ -306,7 +388,7 @@ And finally *commit* them.
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 Which adds a new commit to our main branch.
 
@@ -320,7 +402,7 @@ gitGraph
 ```
 
 
-## Knowledge Check {.nostretch auto-animate="true"}
+# Knowledge Check {.nostretch auto-animate="true"}
 </br>
 ```{mermaid}
 %%| fig-width: 5
@@ -338,7 +420,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Branch {.nostretch auto-animate="true"}
 
 We can create *branches* with their own commits
 
@@ -356,7 +438,7 @@ gitGraph
    commit id: "3-c17d954"
 ```
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 Then merge branches (e.g., back into main)
 
@@ -376,7 +458,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 Which has the same effect (on the code) as committing on main
 
@@ -392,7 +474,7 @@ gitGraph
 ```
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 But what if changes are made on main before the merge?
 
@@ -412,7 +494,7 @@ gitGraph
 ```
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 We can still merge branch_1 into main but....
 
@@ -436,7 +518,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 What should happen if the changes aren't compatible?
 
@@ -461,7 +543,7 @@ What should happen if the changes aren't compatible?
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 What should happen if the changes aren't compatible?
 
@@ -478,7 +560,7 @@ A brilliant script written by Derrick.
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 What should happen if the changes aren't compatible?
 
@@ -495,7 +577,7 @@ A really dumb script written by Peiyao.
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 What should happen if the changes aren't compatible?
 
@@ -516,7 +598,7 @@ A really dumb script writen by Peiyao.
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 What should happen if the changes aren't compatible?
 
@@ -533,7 +615,7 @@ A brilliant script written by Derrick.
 
 
 
-## Knowledge Check {.nostretch auto-animate="true"}
+# Knowledge Check {.nostretch auto-animate="true"}
 </br>
 
 Now that we have fixed the file:
@@ -545,7 +627,7 @@ Now that we have fixed the file:
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 Commits can be *squashed* (combined)
 
@@ -562,7 +644,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 Commits can be *squashed* (combined)
 
@@ -579,7 +661,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 Commits can be be *tagged* (usually with a version)
 
@@ -595,7 +677,7 @@ gitGraph
 ```
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 Commits can be *Cherry-Picked*
 
@@ -615,7 +697,7 @@ gitGraph
 ```
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 Commits can be *Cherry-Picked*
 
@@ -637,7 +719,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 Branches can be *rebased*
 
@@ -658,7 +740,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 Branches can be *rebased*
 
@@ -678,7 +760,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 HEAD can be *reset*, keeping or discarding commits/unsaved changes
 
@@ -694,7 +776,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 Soft *reset*
 
@@ -709,7 +791,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 Hard *reset*
 
@@ -731,7 +813,7 @@ All commits and unsaved work after "046a7a" really are gone...
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 Hard *reset*
 
@@ -749,7 +831,7 @@ Hard *reset*
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 Git is a *distributed* version control system
 
@@ -757,7 +839,7 @@ This means it knows how to interact with other repositories.
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 We can *clone* remote (non-local) repositories
 
@@ -779,7 +861,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 We can *clone* remote (non-local) repositories
 
@@ -814,7 +896,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 And *fetch* non-default branches
 
@@ -849,7 +931,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 And *fetch* non-default branches
 
@@ -888,7 +970,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 We make local changes and *push* them back to remote
 
@@ -927,7 +1009,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 We make local changes and *push* them back to remote
 
@@ -967,7 +1049,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 We *pull* changes from remote to local
 
@@ -1006,7 +1088,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 We *pull* changes from remote to local
 
@@ -1046,7 +1128,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 *fork* creates remote clones
 
@@ -1069,7 +1151,7 @@ gitGraph
 
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Graphs {.nostretch auto-animate="true"}
 
 *fork* creates remote clones
 
@@ -1109,7 +1191,7 @@ gitGraph
 
 
 
-## Other Useful Git Commands
+# Other Useful Git Commands
 
 ::: {.incremental}
 
@@ -1125,7 +1207,7 @@ gitGraph
 
 
 
-## Knowledge Check {.nostretch auto-animate="true"}
+# Knowledge Check {.nostretch auto-animate="true"}
 
 Name that Git Command (1)
 
@@ -1138,7 +1220,7 @@ gitGraph
 
 
 
-## Knowledge Check {.nostretch auto-animate="true"}
+# Knowledge Check {.nostretch auto-animate="true"}
 
 Name that Git Command (1)
 
@@ -1152,7 +1234,7 @@ gitGraph
 
 
 
-## Knowledge Check {.nostretch auto-animate="true"}
+# Knowledge Check {.nostretch auto-animate="true"}
 
 Name that Git Command (2)
 
@@ -1165,7 +1247,7 @@ gitGraph
 
 
 
-## Knowledge Check {.nostretch auto-animate="true"}
+# Knowledge Check {.nostretch auto-animate="true"}
 
 Name that Git Command (2)
 
@@ -1179,7 +1261,7 @@ gitGraph
 
 
 
-## Knowledge Check {.nostretch auto-animate="true"}
+# Knowledge Check {.nostretch auto-animate="true"}
 
 Name that Git Command (3)
 
@@ -1199,7 +1281,7 @@ gitGraph
 
 
 
-## Knowledge Check {.nostretch auto-animate="true"}
+# Knowledge Check {.nostretch auto-animate="true"}
 
 Name that Git Command (3)
 
@@ -1231,7 +1313,7 @@ gitGraph
 
 
 
-## Knowledge Check {.nostretch auto-animate="true"}
+# Knowledge Check {.nostretch auto-animate="true"}
 
 Name that Git Command (4)
 
@@ -1260,7 +1342,7 @@ gitGraph
 
 
 
-## Knowledge Check {.nostretch auto-animate="true"}
+# Knowledge Check {.nostretch auto-animate="true"}
 
 Name that Git Command (4)
 
@@ -1290,7 +1372,7 @@ gitGraph
 
 
 
-## Knowledge Check {.nostretch auto-animate="true"}
+# Knowledge Check {.nostretch auto-animate="true"}
 
 Name that Git Command (5)
 
@@ -1308,7 +1390,7 @@ gitGraph
 
 
 
-## Knowledge Check {.nostretch auto-animate="true"}
+# Knowledge Check {.nostretch auto-animate="true"}
 
 Name that Git Command (5)
 
@@ -1325,7 +1407,7 @@ gitGraph
 
 
 
-## Common Workflow {.nostretch auto-animate="true"}
+# Common Workflow {.nostretch auto-animate="true"}
 
 *fork* a repo
 
@@ -1344,7 +1426,7 @@ gitGraph
 
 
 
-## Common Workflow {.nostretch auto-animate="true"}
+# Common Workflow {.nostretch auto-animate="true"}
 
 *fork* a repo
 
@@ -1376,7 +1458,7 @@ gitGraph
 
 
 
-## Common Workflow {.nostretch auto-animate="true"}
+# Common Workflow {.nostretch auto-animate="true"}
 
 *clone* the fork
 
@@ -1395,7 +1477,7 @@ gitGraph
 
 
 
-## Common Workflow {.nostretch auto-animate="true"}
+# Common Workflow {.nostretch auto-animate="true"}
 
 *clone* the fork
 
@@ -1427,7 +1509,7 @@ gitGraph
 
 
 
-## Common Workflow {.nostretch auto-animate="true"}
+# Common Workflow {.nostretch auto-animate="true"}
 
 *branch* to create a new feature
 
@@ -1446,7 +1528,7 @@ gitGraph
 
 
 
-## Common Workflow {.nostretch auto-animate="true"}
+# Common Workflow {.nostretch auto-animate="true"}
 
 *branch* to create a new feature
 
@@ -1465,7 +1547,7 @@ gitGraph
 ```
 
 
-## Common Workflow {.nostretch auto-animate="true"}
+# Common Workflow {.nostretch auto-animate="true"}
 
 Write some code, *add*, *commit*
 
@@ -1485,7 +1567,7 @@ gitGraph
 
 
 
-## Common Workflow {.nostretch auto-animate="true"}
+# Common Workflow {.nostretch auto-animate="true"}
 
 Write some code, *add*, *commit*
 
@@ -1507,7 +1589,7 @@ gitGraph
 
 
 
-## Common Workflow {.nostretch auto-animate="true"}
+# Common Workflow {.nostretch auto-animate="true"}
 
 *push* new code to fork
 
@@ -1542,7 +1624,7 @@ gitGraph
 
 
 
-## Common Workflow {.nostretch auto-animate="true"}
+# Common Workflow {.nostretch auto-animate="true"}
 
 *push* new code to fork
 
@@ -1580,7 +1662,7 @@ gitGraph
 
 
 
-## Common Workflow {auto-animate="true"}
+# Common Workflow {auto-animate="true"}
 
 Submit a *pull request* to add changes to origin/main.
 
@@ -1596,7 +1678,7 @@ Submit a *pull request* to add changes to origin/main.
 
 
 
-## Common Workflow {.nostretch auto-animate="true"}
+# Common Workflow {.nostretch auto-animate="true"}
 
 *squash* commits on branch
 
@@ -1618,7 +1700,7 @@ gitGraph
 
 
 
-## Common Workflow {.nostretch auto-animate="true"}
+# Common Workflow {.nostretch auto-animate="true"}
 
 *squash* commits on branch
 
@@ -1639,7 +1721,7 @@ gitGraph
 
 
 
-## Common Workflow {.nostretch auto-animate="true"}
+# Common Workflow {.nostretch auto-animate="true"}
 
 *merge* remote/new_feature into origin/main
 
@@ -1672,7 +1754,7 @@ gitGraph
 ```
 
 
-## Common Workflow {.nostretch auto-animate="true"}
+# Common Workflow {.nostretch auto-animate="true"}
 
 *merge* remote/new_feature into origin/main
 
@@ -1705,7 +1787,7 @@ gitGraph
    commit id: "ba34dc"
 ```
 
-## Branching Strategies
+# Branching Strategies
 
 :::{.incremental}
 
@@ -1719,7 +1801,7 @@ gitGraph
 
 
 
-## Branching: Main Only
+# Branching: Main Only
 
 ::: {.center_midsized}
 - Working by yourself
@@ -1740,7 +1822,7 @@ gitGraph
 
 
 
-## Branching: Single Trunk
+# Branching: Single Trunk
 
 :::{r-stack}
 
@@ -1779,7 +1861,7 @@ gitGraph
 
 
 
-## Branching: Double Trunk
+# Branching: Double Trunk
 
 :::{r-stack}
 
@@ -1795,7 +1877,7 @@ gitGraph
 
 
 
-## Branching: Double Trunk
+# Branching: Double Trunk
 
 </br>
 ```{mermaid}
@@ -1827,7 +1909,7 @@ gitGraph
 
 
 
-## Summary: the Tools
+# Summary: the Tools
 
 ::: {.incremental}
 

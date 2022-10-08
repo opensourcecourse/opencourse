@@ -1,10 +1,21 @@
 /*Custom CSS classes for slides*/
 
+.midsize{
+    font-size: 1.2em;
+}
+
 .centered_midsized {
     font-size: 1.2em;
     text-align: center;
 }
 
+
+
+
+.centered_large {
+    font-size: 2.0em;
+    text-align: center;
+}
 
 .red-text {
   color: red;
@@ -28,12 +39,35 @@
 /*    !*top: 0px;*!*/
 /*    !*left: 0px;*!*/
 /*    !*z-index:500;*!*/
-/*    font-size: 24px;*/
+/*    !*font-size: 24px;*!*/
+/*    margin: 0;*/
 /*    !*background-color: rgba(0,0,0,0.5)*!*/
 /*}*/
 
 /*section.top h1{*/
-/*    margin-top: -220px;*/
+/*    margin-top: -350px;*/
+/*}*/
+
+
+section.level2 > h1 {
+    font-size: 200%;
+}
+
+section.level1 > h1 {
+    font-size: 200%;
+}
+
+
+section {
+    display: flex !important;
+    flex-direction: column;
+    top: unset !important;
+    height: 100vh;
+}
+
+/*section p {*/
+/*    margin-top: auto !important;*/
+/*    margin-bottom: auto !important;*/
 /*}*/
 
 
