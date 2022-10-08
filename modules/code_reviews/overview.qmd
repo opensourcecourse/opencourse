@@ -2,7 +2,7 @@
 title: Code, View, Review
 ---
 
-![](../../images/guidance.png)
+![](../../images/code_review.png)
 
 :::{.callout-note appearance="minimal"}
 Any stupid can write the program that computer understands but only good programmers write code that humans understand.
