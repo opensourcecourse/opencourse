@@ -7,9 +7,12 @@ format:
         preview-links: auto
         logo: ../../images/logo.png
         theme: [../../custom_slides.scss]
+        css: ../../slides.css
         view-distance: 100
         mobile-view-distance: 100
-        css: ../../slides.css
+        navigation-mode: vertical
+        controls-layout: bottom-right
+        controls-tutorial: true
 
 footer: \
     <a href="https://opensourcecourse.dev/modules/git/overview.html">overview</a> /\
@@ -18,22 +21,24 @@ footer: \
 ---
 
 
-## The Problem with Git Tutorials
+# The Problem with Git Tutorials
 
 ::: {.r-stack}
 ![](images/thought_tools.png)
 :::
 
 
-## Git Through Graphs {.nostretch auto-animate="true"}
+# Git Through Graphs {.nostretch auto-animate="true" .top}
+
+## Git Through Graphs {.nostretch auto-animate="true" .top}
+
+# Git Through Graphs {.nostretch auto-animate="true"}
 
 </br>
 
 ::: {style="font-size: 1.4em; text-align: center; presentation-line-height: 1.0"}
 A graphical, graphical model
 :::
-
-</br>
 
 ```{mermaid}
 %%| fig-width: 10
