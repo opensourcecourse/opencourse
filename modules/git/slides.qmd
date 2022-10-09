@@ -101,14 +101,16 @@ add_numbers(2, 2)
 
 
 
-## Git Graphs: Setup
+## Git init
 
-</br>
-
-Creating a repo from scratch
+The [init](https://git-scm.com/docs/git-init) creates a new repo in the specified directory.
 
 ```bash
+# Create a repo from scratch
 mkdir new
+git init new
+
+# or leave off the path for current directory
 cd new
 git init
 ```
@@ -139,7 +141,7 @@ We *add* modified files so git knows we may want to save them.
 
 ## Git Add
 
-Add is simple. Add files to be saved, or add all.
+The [add](https://git-scm.com/docs/git-add) command stages files, which means they are marked to be saved.
 
 ```bash
 # add particular file
@@ -182,8 +184,8 @@ Then *commit* to saving them. Note the Tag.
 
 ## Git Commit
 
-Commit tells git to save the changes we added (staged). Add a message in the commit command
-or an editor will open automatically.
+The [commit](https://git-scm.com/docs/git-commit) command saves the changes we added (staged).
+Add a message in the commit command or an editor will open automatically.
 
 ```bash
 # commit staged changes with a simple message
@@ -260,7 +262,7 @@ Message:
 
 ## Git Show {.nostretch auto-animate="true" visibility="uncounted"}
 
-Show can be used to see metadata about a commit
+The [show](https://git-scm.com/docs/git-show) can be used to see metadata about a commit
 
 ```bash
 # show metadata about 9d6b7c and its diff
@@ -327,7 +329,7 @@ Then *diff* to see difference between saved and current state.
 
 ## Git Diff
 
-The diff commands shows changes between commits, files, branches, etc.
+The [diff](https://git-scm.com/docs/git-diff) commands shows changes between commits, files, branches, etc.
 
 ```bash
 # diff between last commit and unstaged changes
@@ -438,7 +440,28 @@ gitGraph
    commit id: "3-c17d954"
 ```
 
-# Git Graphs {.nostretch auto-animate="true"}
+
+
+## Git Branch
+The [branch](https://git-scm.com/docs/git-branch) command is used to see, create, and destroy branches.
+
+```bash
+# list local branches
+git branch
+
+# list all branches (local and remote)
+git branch -a
+
+# create a new branch
+git branch new_branch
+
+# delete a branch
+git branch --delete new_branch
+```
+
+
+
+# Git Graphs: Merge {.nostretch auto-animate="true"}
 
 Then merge branches (e.g., back into main)
 
@@ -458,7 +481,21 @@ gitGraph
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+## Git Merge
+
+The [merge](https://git-scm.com/docs/git-merge) command joins branches together.
+
+```bash
+# ensure current branch is main
+# or HEAD is latest commit of main
+git checkout main
+
+# merge branch_1 into current branch
+git merge branch_1
+```
+
+
+# Git Graphs: Merge {.nostretch auto-animate="true"}
 
 Which has the same effect (on the code) as committing on main
 
@@ -474,7 +511,7 @@ gitGraph
 ```
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Merge {.nostretch auto-animate="true"}
 
 But what if changes are made on main before the merge?
 
@@ -494,7 +531,7 @@ gitGraph
 ```
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Merge {.nostretch auto-animate="true"}
 
 We can still merge branch_1 into main but....
 
@@ -518,7 +555,7 @@ gitGraph
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Merge {.nostretch auto-animate="true"}
 
 What should happen if the changes aren't compatible?
 
@@ -543,9 +580,30 @@ What should happen if the changes aren't compatible?
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+## Git Conflicts
 
-What should happen if the changes aren't compatible?
+Dealing with conflicts isn't fun (in git or life). Here are a few commands that might help.
+
+</br>
+
+```bash
+# abort merge (after conflicts show up)
+git merge --abort
+
+# list files with merge conflicts
+git diff --name-only --diff-filter=U --relative
+```
+
+</br>
+[When all else fails](https://xkcd.com/1597/)
+
+
+
+
+
+# Git Graphs: Conflicts {.nostretch auto-animate="true"}
+
+Example: myscript.py on main
 
 </br>
 
@@ -560,9 +618,9 @@ A brilliant script written by Derrick.
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Conflicts {.nostretch auto-animate="true"}
 
-What should happen if the changes aren't compatible?
+Example: myscript.py on branch_2
 
 </br>
 
@@ -577,9 +635,9 @@ A really dumb script written by Peiyao.
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Conflicts {.nostretch auto-animate="true"}
 
-What should happen if the changes aren't compatible?
+myscript.py after merge command
 
 </br>
 
@@ -598,9 +656,9 @@ A really dumb script writen by Peiyao.
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Conflicts {.nostretch auto-animate="true"}
 
-What should happen if the changes aren't compatible?
+Next, manually edit myscript.py so it is correct
 
 </br>
 
@@ -622,7 +680,8 @@ Now that we have fixed the file:
 
 ::: incremental
 - What do we need to do next?
-- and after adding the changes?
+- And after adding the changes?
+- What would be a good commit message for this commit?
 :::
 
 
