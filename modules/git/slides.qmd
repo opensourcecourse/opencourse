@@ -2,7 +2,7 @@
 title: "Git Good (Enough)"
 subtitle: A graphical introduction to Git
 execute:
-  enabled: true
+  enabled: false
 format:
     revealjs:
         slide-number: true
@@ -20,7 +20,6 @@ footer: \
     <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/git/slides.qmd">source</a> /\
     <a href="https://opensourcecourse.dev/modules/git/exercises.html">exercises</a>
 ---
-
 
 # The Problem with Git Tutorials
 
@@ -681,46 +680,13 @@ Now that we have fixed the file:
 ::: incremental
 - What do we need to do next?
 - And after adding the changes?
-- What would be a good commit message for this commit?
+- What would be a good message for this commit?
 :::
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
 
-Commits can be *squashed* (combined)
-
-</br>
-
-```{mermaid}
-%%| fig-width: 7
-gitGraph
-   commit id: "9d6b7c"
-   commit id: "046a7a"
-   commit id: "4c0f818"
-   commit id: "221d22"
-```
-
-
-
-# Git Graphs {.nostretch auto-animate="true"}
-
-Commits can be *squashed* (combined)
-
-</br>
-
-```{mermaid}
-%%| fig-width: 7
-gitGraph
-   commit id: "ab3b7c"
-   commit id: "046a7a" type: REVERSE
-   commit id: "4c0f818" type: REVERSE
-   commit id: "221d22" type: REVERSE
-```
-
-
-
-# Git Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Tag {.nostretch auto-animate="true"}
 
 Commits can be be *tagged* (usually with a version)
 
@@ -735,8 +701,27 @@ gitGraph
    commit id: "221d22" tag: "v1.1.0"
 ```
 
+## Git Tag
 
-# Git Graphs {.nostretch auto-animate="true"}
+[Tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) is like adding an alias to refer to a commit
+with a shorter string. Usually, but not always, tags are used for versioning.
+
+```bash
+# list tags
+git tag
+
+# tag HEAD with version number
+git tag v1.0.1
+
+# Tag head with version, add annotation
+git tag -a v1.0.1 -m "my favorite version"
+
+# Show info about tags
+git show v1.0.1
+```
+
+
+# Git Graphs: Cherry-Pick {.nostretch auto-animate="true"}
 
 Commits can be *Cherry-Picked*
 
@@ -756,7 +741,8 @@ gitGraph
 ```
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+
+# Git Graphs: Cherry-Pick {.nostretch auto-animate="true"}
 
 Commits can be *Cherry-Picked*
 
@@ -778,7 +764,23 @@ gitGraph
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+## Git Cherry-Pick
+
+The [cherry-pick](https://git-scm.com/docs/git-cherry-pick) command allows you to apply as single
+commit (from any branch) to HEAD. Watch out though, you can still get conflicts.
+
+```bash
+# Make sure HEAD is the last commit on main branch
+git checkout main
+
+# cherry pick a commit from a different branch to main
+git cherry-pick 221d227eea
+
+```
+
+
+
+# Git Graphs: Rebase {.nostretch auto-animate="true"}
 
 Branches can be *rebased*
 
@@ -799,9 +801,9 @@ gitGraph
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Rebase {.nostretch auto-animate="true"}
 
-Branches can be *rebased*
+Branches can be *rebased*.
 
 </br>
 
@@ -819,9 +821,26 @@ gitGraph
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+## Git Rebase
+The [rebase](https://git-scm.com/docs/git-rebase) command changes the starting point of a branch.
+MIt is often used to bring changes back into a feature branch from the main branch.
 
-HEAD can be *reset*, keeping or discarding commits/unsaved changes
+Rebase changes the git history. Make sure no one else is working on the branch before rebasing.
+
+```bash
+# navigate to a feature branch
+git checkout branch_1
+
+# apply all the missing main commits from main
+# onto branch_1
+git rebase main
+```
+
+
+
+# Git Graphs: Reset {.nostretch auto-animate="true"}
+
+HEAD can be *reset*, keeping or discarding commits/unsaved changes.
 
 
 ```{mermaid}
@@ -835,10 +854,25 @@ gitGraph
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+## Git Rest
+The [reset](https://git-scm.com/docs/git-reset) command cab be used to undo commits or staging.
+
+```bash
+# Undo git add
+git reset
+
+# Erase all unsaved changes
+git reset --hard
+
+# Remove last three commits, keep changes as staged
+git reset --soft HEAD~3
+```
+
+
+
+# Git Graphs: Reset Soft {.nostretch auto-animate="true"}
 
 Soft *reset*
-
 
 ```{mermaid}
 %%| fig-width: 5
@@ -850,10 +884,9 @@ gitGraph
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Reset Hard {.nostretch auto-animate="true"}
 
 Hard *reset*
-
 
 ```{mermaid}
 %%| fig-width: 4
@@ -872,7 +905,7 @@ All commits and unsaved work after "046a7a" really are gone...
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Reset Hard {.nostretch auto-animate="true"}
 
 Hard *reset*
 
@@ -884,23 +917,65 @@ Hard *reset*
 
 
 
+# Git Graphs: Squash {.nostretch auto-animate="true"}
+
+Commits can be *squashed* (combined)
+
+</br>
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+```
 
 
 
+# Git Graphs: Squash {.nostretch auto-animate="true"}
+
+Commits can be *squashed* (combined)
+
+</br>
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "ab3b7c"
+   commit id: "046a7a" type: REVERSE
+   commit id: "4c0f818" type: REVERSE
+   commit id: "221d22" type: REVERSE
+```
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+## Git Squash
+There actually isn't a squash command, but a few ways to
+[squash commits together](https://stackoverflow.com/questions/5189560/how-do-i-squash-my-last-n-commits-together)
+
+```bash
+# squash last 3 commits with reset
+git reset --soft HEAD~3
+git commit -m "squashed last 3 commits"
+```
+
+
+
+# Git Distributed Graphs {.nostretch auto-animate="true"}
 
 Git is a *distributed* version control system
 
-This means it knows how to interact with other repositories.
+This means it can interact with remote copies of the repository (like one hosted by github).
+
+Remote repos have names, like "origin" (think github).
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Clone {.nostretch auto-animate="true"}
 
-We can *clone* remote (non-local) repositories
+Git can *clone* remote (non-local) repositories.
 
 ::: {.center_midsized}
 remote: origin
@@ -920,9 +995,9 @@ gitGraph
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Clone {.nostretch auto-animate="true"}
 
-We can *clone* remote (non-local) repositories
+Git can *clone* remote (non-local) repositories.
 
 ::: {.center_midsized}
 local
@@ -955,9 +1030,25 @@ gitGraph
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+## Git CLone
+The [clone](https://git-scm.com/docs/git-clone) command downloads a remote repository (and all its branches).
 
-And *fetch* non-default branches
+```bash
+# Use http to download a repo
+git clone https://github.com/opensourcecourse/git_repo
+
+# Use ssh
+git clone https://github.com/opensourcecourse/git_repo
+
+# See all branches
+git branch -a
+```
+
+
+
+# Git Graphs: Fetch {.nostretch auto-animate="true"}
+
+Git can also *fetch* new branches since clone.
 
 ::: {.center_midsized}
 local
@@ -990,9 +1081,9 @@ gitGraph
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Fetch {.nostretch auto-animate="true"}
 
-And *fetch* non-default branches
+Git can also *fetch* new branches since clone.
 
 ::: {.center_midsized}
 local
@@ -1028,10 +1119,41 @@ gitGraph
 
 
 
+## Git Fetch
+Git fetch gets specific info from a remote repo (like a small clone).
 
-# Git Graphs {.nostretch auto-animate="true"}
+```bash
+# fetch branch
+git fetch branch_1
+git checkout branch_1
 
-We make local changes and *push* them back to remote
+# fetch all branches not on local
+git fetch --all
+
+# fetch tags
+git fetch --tags
+```
+
+
+
+## Git Fetch
+Note: After cloning it may appear not all branches were downloaded. Just make sure to use
+the -a flag on branch to see them. All you need to do is checkout one of the remote branches
+to make a it a local one.
+
+```bash
+# list all branches (note the origin/branch_1)
+git branch -a
+
+# checkout branch, making a local copy in process
+git checkout branch_1
+```
+
+
+
+# Git Graphs: Push {.nostretch auto-animate="true"}
+
+We *push* local changes to the remote repo.
 
 ::: {.center_midsized}
 local
@@ -1068,88 +1190,30 @@ gitGraph
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+## Git Push
+The [push](https://git-scm.com/docs/git-push) command shares local commits/branches with a remote repo. If the local
+and remote history have diverged you may have to force the push. Careful though, make sure no one else depends on that
+history!
 
-We make local changes and *push* them back to remote
+```bash
+# Push new commits on main to origin's main branch
+Git push origin main
 
-::: {.center_midsized}
-local
-:::
+# Push a new branch to origin
+git push origin branch_1
 
-```{mermaid}
-%%| fig-width: 7
-gitGraph
-   commit id: "9d6b7c"
-   commit id: "046a7a"
-   commit id: "4c0f818"
-   commit id: "221d22"
-   branch develop
-   commit id: "dc12a2"
-   commit id: "ca2259"
-   commit id: "5dab5d"
-```
-
-::: {.center_midsized}
-remote: origin
-:::
-
-```{mermaid}
-%%| fig-width: 7
-gitGraph
-   commit id: "9d6b7c"
-   commit id: "046a7a"
-   commit id: "4c0f818"
-   commit id: "221d22"
-   branch develop
-   commit id: "dc12a2"
-   commit id: "ca2259"
-   commit id: "5dab5d"
+# Force push a rebased branch
+git push origin branch_2 --force
 ```
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
-
-We *pull* changes from remote to local
-
-::: {.center_midsized}
-local
-:::
-
-```{mermaid}
-%%| fig-width: 7
-gitGraph
-   commit id: "9d6b7c"
-   commit id: "046a7a"
-   commit id: "4c0f818"
-   commit id: "221d22"
-   branch develop
-   commit id: "dc12a2"
-   commit id: "ca2259"
-```
-
-::: {.center_midsized}
-remote: origin
-:::
-
-```{mermaid}
-%%| fig-width: 7
-gitGraph
-   commit id: "9d6b7c"
-   commit id: "046a7a"
-   commit id: "4c0f818"
-   commit id: "221d22"
-   branch develop
-   commit id: "dc12a2"
-   commit id: "ca2259"
-   commit id: "5dab5d"
-```
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Push {.nostretch auto-animate="true"}
 
-We *pull* changes from remote to local
+We *push* local changes to the remote repo.
 
 ::: {.center_midsized}
 local
@@ -1187,9 +1251,75 @@ gitGraph
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Pull {.nostretch auto-animate="true"}
 
-*fork* creates remote clones
+We *pull* changes from remote to local (fetch + merge).
+
+::: {.center_midsized}
+local
+:::
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+```
+
+::: {.center_midsized}
+remote: origin
+:::
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+   commit id: "5dab5d"
+```
+
+
+## Git Pull
+
+The [pull](https://git-scm.com/docs/git-pull) command is used to fetch and merge changes from a remote repo
+into your current branch.
+
+```bash
+# Update main branch with commits from remote main
+git pull origin main
+```
+
+
+# Git Graphs: Pull {.nostretch auto-animate="true"}
+
+We *pull* changes from remote to local (fetch + merge).
+
+::: {.center_midsized}
+local
+:::
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+   commit id: "5dab5d"
+```
 
 ::: {.center_midsized}
 remote: origin
@@ -1210,9 +1340,38 @@ gitGraph
 
 
 
-# Git Graphs {.nostretch auto-animate="true"}
+# Git Graphs: Fork {.nostretch auto-animate="true"}
 
-*fork* creates remote clones
+*fork* creates remote clones.
+
+::: {.center_midsized}
+remote: origin
+:::
+
+```{mermaid}
+%%| fig-width: 7
+gitGraph
+   commit id: "9d6b7c"
+   commit id: "046a7a"
+   commit id: "4c0f818"
+   commit id: "221d22"
+   branch develop
+   commit id: "dc12a2"
+   commit id: "ca2259"
+   commit id: "5dab5d"
+```
+
+
+## Git Fork
+
+There is no fork command. [Forking](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+ done from Github's web interface.
+
+
+
+# Git Graphs: Fork {.nostretch auto-animate="true"}
+
+*fork* creates remote clones.
 
 ::: {.center_midsized}
 remote: fork

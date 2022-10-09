@@ -1,17 +1,98 @@
 ---
-title: "Style"
-subtitle: Approaching idiomatic Python code
+title: "Style Matters"
+subtitle: "Grokking Pythonic"
+execute:
+  enabled: true
 format:
     revealjs:
         slide-number: true
-        chalkboard:
-          buttons: true
         preview-links: auto
-        logo: ../../images/logo.png
         theme: [../../custom_slides.scss]
+        css: ../../slides.css
+        navigation-mode: vertical
+        controls-layout: bottom-right
+        controls-tutorial: true
 
 footer: \
     <a href="https://opensourcecourse.dev/modules/style/overview.html">overview</a> /\
     <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/style/slides.qmd">source</a> /\
     <a href="https://opensourcecourse.dev/modules/style/exercises.html">exercises</a>
 ---
+
+# Overview
+</br>
+
+:::{.r-stack}
+
+- Idiomatic Python
+- Anti-patterns and Code smells
+- Style Tips
+
+:::
+
+
+
+# A Case For Style
+
+</br>
+
+:::{.fragment}
+As long as it works, why does it matter what it looks like?
+:::
+
+</br>
+
+:::{.fragment}
+What does work mean?
+:::
+
+
+
+
+# A Case for Style
+
+</br>
+
+:::{.r-stack}
+
+```{python}
+#| echo: false
+#| output: true
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+with plt.xkcd():
+    fig, ax = plt.subplots(1, 1)
+    x_vals = np.arange(1, 100)
+    y_vals = x_vals ** 3
+    ax.plot(x_vals, y_vals)
+    ax.set_xlabel('People who use the code')
+    ax.set_ylabel("How much style matters")
+    ax.set_xticks([])
+    ax.set_yticks([])
+
+
+plt.show()
+```
+
+:::
+
+
+# Idiomatic Python
+
+**Pythonic**: a coding style that leverages Python's unique features to write code that is readable and beautiful.
+
+Pythonic code:
+
+::: incremental
+
+- Generally follows community guidelines (pep8)
+- Makes good use of python's features and libraries
+- Is as simple as possible
+- Is readable and documented
+
+:::
+
+
+
