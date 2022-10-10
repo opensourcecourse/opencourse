@@ -20,13 +20,17 @@ footer: \
 ---
 
 # Overview
-</br>
 
 :::{.r-stack}
-
+- A Case for Style
 - Idiomatic Python
-- Anti-patterns and Code smells
-- Style Tips
+    - Principles: The Zen
+    - Guidelines: PEP8
+- Anti-patterns and Code Smells
+    - Sloppiness
+    - Wrong Language
+    - Missing Python Features
+
 
 :::
 
@@ -40,14 +44,19 @@ footer: \
 As long as it works, why does it matter what it looks like?
 :::
 
-</br>
-
 :::{.fragment}
 What does work mean?
 :::
 
+:::{.r-stack}
 
+::: incremental
+- The inputs produce the expected outputs?
+- The code is understandable?
+- The code is easy to extend/debug?
+:::
 
+:::
 
 # A Case for Style
 
@@ -65,7 +74,7 @@ import numpy as np
 with plt.xkcd():
     fig, ax = plt.subplots(1, 1)
     x_vals = np.arange(1, 100)
-    y_vals = x_vals ** 3
+    y_vals = x_vals ** 1.1
     ax.plot(x_vals, y_vals)
     ax.set_xlabel('People who use the code')
     ax.set_ylabel("How much style matters")
@@ -75,7 +84,6 @@ with plt.xkcd():
 
 plt.show()
 ```
-
 :::
 
 
@@ -87,10 +95,35 @@ Pythonic code:
 
 ::: incremental
 
-- Generally follows community guidelines (pep8)
+- Follows community guidelines
 - Makes good use of python's features and libraries
-- Is as simple as possible
-- Is readable and documented
+- Is concise and readable
+- Is easy to change
+
+:::
+
+
+
+# The Zen
+
+</br>
+
+:::{.fragment .fade-in-then-out}
+
+:::{.callout-note appearance="simple"}
+1.
+    Beautiful is better than ugly.
+:::
+
+:::
+
+:::{.fragment .fade-in-then-out}
+2. Explicit is better than implicit.
+:::
+
+:::{.fragment .fade-in-then-out}
+3. Simple is better than complex.
+   Complex is better than complicated.
 
 :::
 
