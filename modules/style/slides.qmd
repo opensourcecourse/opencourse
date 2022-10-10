@@ -87,6 +87,80 @@ plt.show()
 :::
 
 
+
+# The Zen of Python
+
+```{python}
+#| echo: false
+#| output: asis
+
+# This code block generates markdown for listing the zen of
+# python.
+
+from textwrap import dedent
+
+zen_dict = {
+    "1. Beautiful": "Beautiful is better than ugly.",
+    "2. Explicit": "Explicit is better than implicit.",
+    "3. Simple": "Simple is better than complex.\n\nComplex is better than complicated.",
+    "4. Flat": "Flat is better than nested.",
+    "5. Sparse": "Sparse is better than dense.",
+    "6. Readable": "Readability counts.",
+    "7. Consistent": "Special cases aren't special enough to break the rules.",
+    "8. Pragmatic": "Although practicality beats purity.",
+    "9. Correct": "Errors should never pass silently.\n\n Unless explicitly silenced.",
+    "10. Unsurprising": "In the face of ambiguity, refuse the temptation to guess.",
+    "11. Intuitive": (
+        "There should be one-- and preferably only one -- obvious way to do it.\n\n"
+        "Although that way may not be obvious at first unless you're Dutch."
+        ""
+    ),
+    "12. Operational": "Now is better than never.",
+    "13. Easy to Change": "Although never is often better than \*right\* now.",
+    "14. Explainable": (
+        "If the implementation is hard to explain, it's a bad idea.\n\n"
+        "If the implementation is easy to explain, it may be a good idea."
+    ),
+    "15. Organized": "Namespaces are one honking great idea -- let's do more of those!",
+}
+
+print(":::{.r-stack}\n\n")
+
+for i, v in zen_dict.items():
+    print(":::{.fragment .fade-in-then-out}\n")
+    print(':::{.callout-note appearance="simple"}\n')
+    print(f"## {i}\n\n{v}\n")
+    print(":::\n")
+    print(":::\n")
+
+print("\n:::\n")
+```
+
+
+
+## History of The Zen
+
+::: {.columns}
+
+::: {.column width="40%"}
+![](images/tim.png)
+:::
+
+::: {.column width="60%"}
+Tim Peters wrote the Zen of Python, which was officially adopted via a Python Enhancement Proposal
+([PEP 20](https://peps.python.org/pep-0020/)) in 2004.
+
+```python
+import this
+```
+
+Tim also invented [Timsort](https://en.wikipedia.org/wiki/Timsort), a popular sorting algorithm used in many modern languages.
+:::
+
+:::
+
+
+
 # Idiomatic Python
 
 **Pythonic**: a coding style that leverages Python's unique features to write code that is readable and beautiful.
@@ -101,31 +175,3 @@ Pythonic code:
 - Is easy to change
 
 :::
-
-
-
-# The Zen
-
-</br>
-
-:::{.fragment .fade-in-then-out}
-
-:::{.callout-note appearance="simple"}
-1.
-    Beautiful is better than ugly.
-:::
-
-:::
-
-:::{.fragment .fade-in-then-out}
-2. Explicit is better than implicit.
-:::
-
-:::{.fragment .fade-in-then-out}
-3. Simple is better than complex.
-   Complex is better than complicated.
-
-:::
-
-
-
