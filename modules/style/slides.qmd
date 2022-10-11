@@ -58,6 +58,15 @@ What does work mean?
 
 :::
 
+
+
+# A Case for Style
+
+:::{.r-stack}
+![](images/babel.png){width="600"}
+:::
+
+
 # A Case for Style
 
 </br>
@@ -81,60 +90,27 @@ with plt.xkcd():
     ax.set_xticks([])
     ax.set_yticks([])
 
-
 plt.show()
 ```
 :::
 
 
 
-# The Zen of Python
 
-```{python}
-#| echo: false
-#| output: asis
+# Idiomatic Python
 
-# This code block generates markdown for listing the zen of
-# python.
+**Pythonic**: a coding style that leverages Python's unique features to write code that is readable and beautiful.
 
-from textwrap import dedent
+Pythonic code:
 
-zen_dict = {
-    "1. Beautiful": "Beautiful is better than ugly.",
-    "2. Explicit": "Explicit is better than implicit.",
-    "3. Simple": "Simple is better than complex.\n\nComplex is better than complicated.",
-    "4. Flat": "Flat is better than nested.",
-    "5. Sparse": "Sparse is better than dense.",
-    "6. Readable": "Readability counts.",
-    "7. Consistent": "Special cases aren't special enough to break the rules.",
-    "8. Pragmatic": "Although practicality beats purity.",
-    "9. Correct": "Errors should never pass silently.\n\n Unless explicitly silenced.",
-    "10. Unsurprising": "In the face of ambiguity, refuse the temptation to guess.",
-    "11. Intuitive": (
-        "There should be one-- and preferably only one -- obvious way to do it.\n\n"
-        "Although that way may not be obvious at first unless you're Dutch."
-        ""
-    ),
-    "12. Operational": "Now is better than never.",
-    "13. Easy to Change": "Although never is often better than \*right\* now.",
-    "14. Explainable": (
-        "If the implementation is hard to explain, it's a bad idea.\n\n"
-        "If the implementation is easy to explain, it may be a good idea."
-    ),
-    "15. Organized": "Namespaces are one honking great idea -- let's do more of those!",
-}
+::: incremental
 
-print(":::{.r-stack}\n\n")
+- Embodies Python's guiding principles (The Zen of Python)
+- Follows community guidelines (PEP 8, PEP 257, black, etc.)
+- Makes good use of python's features and libraries
+- Is easy to change
 
-for i, v in zen_dict.items():
-    print(":::{.fragment .fade-in-then-out}\n")
-    print(':::{.callout-note appearance="simple"}\n')
-    print(f"## {i}\n\n{v}\n")
-    print(":::\n")
-    print(":::\n")
-
-print("\n:::\n")
-```
+:::
 
 
 
@@ -161,17 +137,173 @@ Tim also invented [Timsort](https://en.wikipedia.org/wiki/Timsort), a popular so
 
 
 
-# Idiomatic Python
+# The Zen of Python
 
-**Pythonic**: a coding style that leverages Python's unique features to write code that is readable and beautiful.
+</br>
 
-Pythonic code:
-
-::: incremental
-
-- Follows community guidelines
-- Makes good use of python's features and libraries
-- Is concise and readable
-- Is easy to change
-
+:::{.callout-note appearance="simple"}
+## 1. Beautiful
+Beautiful is better than ugly.
 :::
+
+
+
+# The Zen of Python
+
+</br>
+
+
+:::{.callout-note appearance="simple"}
+## 2. Explicit
+Explicit is better than implicit.
+:::
+
+
+
+# The Zen of Python
+
+</br>
+
+:::{.callout-note appearance="simple"}
+## 3. Simple
+Simple is better than complex.\n\nComplex is better than complicated.
+:::
+
+
+
+# The Zen of Python
+
+</br>
+
+:::{.callout-note appearance="simple"}
+## 4. Flat
+Flat is better than nested.
+:::
+
+
+
+# The Zen of Python
+
+</br>
+
+:::{.callout-note appearance="simple"}
+## 5. Sparse
+Sparse is better than dense.
+:::
+
+
+
+# The Zen of Python
+
+</br>
+
+:::{.callout-note appearance="simple"}
+## 6. Readable
+Readability counts.
+:::
+
+
+
+# The Zen of Python
+
+</br>
+
+:::{.callout-note appearance="simple"}
+## 7. Consistent
+Special cases aren't special enough to break the rules.
+:::
+
+
+
+# The Zen of Python
+
+</br>
+
+:::{.callout-note appearance="simple"}
+## 8. Pragmatic
+Although practicality beats purity.
+:::
+
+
+
+# The Zen of Python
+
+</br>
+
+:::{.callout-note appearance="simple"}
+## 9. Correct
+Errors should never pass silently.\n\n Unless explicitly silenced.
+:::
+
+
+
+# The Zen of Python
+
+</br>
+
+:::{.callout-note appearance="simple"}
+## 10. Unsurprising
+In the face of ambiguity, refuse the temptation to guess.
+:::
+
+
+
+# The Zen of Python
+
+</br>
+
+:::{.callout-note appearance="simple"}
+## 11. Intuitive
+There should be one-- and preferably only one -- obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+:::
+
+
+
+# The Zen of Python
+
+</br>
+
+:::{.callout-note appearance="simple"}
+## 12. Operational
+Now is better than never.
+:::
+
+
+
+# The Zen of Python
+
+</br>
+
+:::{.callout-note appearance="simple"}
+## 13. Flexible
+Although never is often better than \*right\* now.
+:::
+
+
+
+# The Zen of Python
+
+</br>
+
+:::{.callout-note appearance="simple"}
+## 14. Explainable
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+:::
+
+
+
+# The Zen of Python
+
+</br>
+
+:::{.callout-note appearance="simple"}
+## 15. Organized
+Namespaces are one honking great idea -- let's do more of those!
+:::
+
+
+
+
+

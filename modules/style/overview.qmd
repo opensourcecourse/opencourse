@@ -58,6 +58,7 @@ In this module, we will:
 
 # Additional Resources
 
+- [The Zen of Python Song](https://www.youtube.com/watch?v=i6G6dmVJy74)
 - [The Little Book of Python Anti-Patterns](https://docs.quantifiedcode.com/python-anti-patterns/)
 - [Raymond Hettinger's Pycon 2013 Talk](https://www.youtube.com/watch?v=OSGv2VnC0go)
 - [How to Be Pythonic and Why you Should Care](https://towardsdatascience.com/how-to-be-pythonic-and-why-you-should-care-188d63a5037e)

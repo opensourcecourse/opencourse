@@ -6,3 +6,4 @@ dependencies:
   - pip
   - jupyter
   - nbformat
+  - matplotlib
