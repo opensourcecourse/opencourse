@@ -6,7 +6,7 @@ project:
 website:
   title: "OSC"
   image: "images/logo.png"
-  favicon: "images/favicon.png"
+  favicon: "images/osc_favi.png"
   # google-analytics: "G-FV9Z7SDZ0M"
   # open-graph: true
   twitter-card: true
@@ -183,7 +183,7 @@ website:
 
   navbar:
     background: light
-    logo: images/logo.png
+    logo: images/osc_favi.png
     logo-alt: "OSC logo."
     title: false
     collapse-below: lg
