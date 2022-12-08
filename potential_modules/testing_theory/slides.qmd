@@ -1,0 +1,17 @@
+---
+title: "Testing"
+subtitle: Ensuring code quality
+format:
+    revealjs:
+        slide-number: true
+        chalkboard:
+          buttons: true
+        preview-links: auto
+        logo: ../../images/logo.png
+        theme: [../../custom_slides.scss]
+
+footer: \
+    <a href="https://opensourcecourse.dev/modules/testing_theory/overview.html">overview</a> /\
+    <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/testing_theory/slides.qmd">source</a> /\
+    <a href="https://opensourcecourse.dev/modules/testing_theory/exercises.html">exercises</a>
+---

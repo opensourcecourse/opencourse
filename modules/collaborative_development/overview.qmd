@@ -1,0 +1,46 @@
+---
+title: Coding Together
+---
+
+![](../../images/code_review.png)
+
+:::{.callout-note appearance="minimal"}
+Any stupid can write the program that computer understands but only good programmers write code that humans understand.
+
+\- Martin Fowler
+:::
+
+# Collaborative Development
+
+In popular culture, coding if often portrayed as a solitary activity; something done by hooded wizards in
+confines of their (or their parents) basements. Open-source development, however, often involves many people
+working together, with all the benefits, and messiness, a group of people brings.
+
+There are technical needs for working together, such as the ability to discuss software performance,
+report bugs, share and review code, hold development discussions, etc. These are well met by the github
+platform. The harder issues, however, are related to people: maintaining a synchronized project vision,
+resolving conflict, and motivating a group of volunteers. To help address these issues, developers
+should follow general guidelines which foster respectful, productive, and rewarding online development
+cultures.
+
+In this model we discuss both basic collaborative features of github and guiding principles which
+facilitate effective collaborative development.
+
+# Overview
+
+In this module we will:
+
+1. Discuss github's Issue, Pull Request, and Code review features
+2. Review Code of Conducts and common principles
+
+# Reading
+
+- [Writing a Proper Github Issue](https://medium.com/nyc-planning-digital/writing-a-proper-github-issue-97427d62a20f)
+- [How to Make a Perfect Pull Request](https://betterprogramming.pub/how-to-make-a-perfect-pull-request-3578fb4c112)
+- [Open Source Etiquette](https://gomakethings.com/open-source-etiquette/)
+
+# Additional Resources
+
+- [Five Reasons for Code Reviews](https://www.brightspot.com/learn/articles/5-reasons-why-the-code-review-process-is-critical-for-developers)
+- [Code Review Best Practices](https://blog.palantir.com/code-review-best-practices-19e02780015f)
+- [How to Make Code Reviews Better](https://relevant.software/blog/good-software-engineer-mentor-tips/)

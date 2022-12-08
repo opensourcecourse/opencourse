@@ -30,8 +30,6 @@ footer: \
     - Sloppiness
     - Wrong Language
     - Missing Python Features
-
-
 :::
 
 
@@ -54,6 +52,7 @@ What does work mean?
 - The inputs produce the expected outputs?
 - The code is understandable?
 - The code is easy to extend/debug?
+- The code is maintainable?
 :::
 
 :::
