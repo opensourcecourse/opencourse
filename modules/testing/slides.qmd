@@ -1,6 +1,6 @@
 ---
 title: "Testing"
-subtitle: Ensuring code quality
+subtitle: How else do we know it works?
 format:
     revealjs:
         slide-number: true
@@ -11,7 +11,7 @@ format:
         theme: [../../custom_slides.scss]
 
 footer: \
-    <a href="https://opensourcecourse.dev/modules/testing_theory/overview.html">overview</a> /\
-    <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/testing_theory/slides.qmd">source</a> /\
-    <a href="https://opensourcecourse.dev/modules/testing_theory/exercises.html">exercises</a>
+    <a href="https://opensourcecourse.dev/modules/testing/overview.html">overview</a> /\
+    <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/testing/slides.qmd">source</a> /\
+    <a href="https://opensourcecourse.dev/modules/testing/exercises.html">exercises</a>
 ---
