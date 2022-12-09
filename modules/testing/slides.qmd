@@ -4,14 +4,32 @@ subtitle: How else do we know it works?
 format:
     revealjs:
         slide-number: true
-        chalkboard:
-          buttons: true
         preview-links: auto
-        logo: ../../images/logo.png
         theme: [../../custom_slides.scss]
+        css: ../../slides.css
+        view-distance: 100
+        mobile-view-distance: 100
+        navigation-mode: vertical
+        controls-layout: bottom-right
+        controls-tutorial: true
 
 footer: \
     <a href="https://opensourcecourse.dev/modules/testing/overview.html">overview</a> /\
     <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/testing/slides.qmd">source</a> /\
     <a href="https://opensourcecourse.dev/modules/testing/exercises.html">exercises</a>
 ---
+
+# Motivation
+
+
+:::{.r-stack style="font-size: 1.4em;"}
+</br>
+
+:::{.incremental}
+- How do we know a code works?
+
+- How do we know a code doesn't work?
+:::
+
+:::
+

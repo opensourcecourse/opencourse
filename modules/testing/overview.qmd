@@ -24,30 +24,31 @@ Testing is our main defense against such spectacular failures, and the way we ga
 
 Testing strategies are varied, from manually testing a code as it is written, to creating a massive suite of
 automated tests that run every line (or branch) of the code under test, sometimes dynamically changing test inputs or
-even the code itself! The appropriate testing strategy and amount of testing depends on the nature of code.
-Under-testing a code means failures are more likely, but over testing can cause software failure via exploding budgets
-and missed deadlines. Selecting the right testing strategy and amount is an art that takes time to master.
+even the code itself! Under-testing a code means failures are more likely, but over testing can cause blown budgets
+and missed deadlines. The appropriate testing strategy and rigor depends on the nature and requirements of the code.
 
-Moreover, many argue writing software that is easily testable, or even when tests are written *before* the software,
+Moreover, many argue writing software that is easily testable, like when tests are written *before* the software,
 helps create more modular robust code. This is one of the common arguments behind the
 [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) movement.
 
-Testing could easily be a whole course (or several courses). Here we simply try to highlight some of the main ideas
-and provide resources for future learning.
+In Python, the most popular framework for automated testing is [pytest](https://docs.pytest.org/en/7.2.x/). Pytest
+is a powerful tool that greatly improves testing, but like all tools, takes some time to learn.
 
-# Objectives
+Testing concepts and the pytest framework could both be a whole course (or several courses).
+Here we simply try to highlight some of the main ideas and provide the basics of pytest.
 
-In this module, we will:
+# Overview
 
-1. Discuss prevalent testing taxonomies and their components
-2. Discuss common types of testing
-3. Provide guidance on selecting the appropriate testing strategy for different types of software
-4. Demonstrate a few simple examples of testing in python
+In this module, we will cover:
+
+1. Prevalent testing taxonomies and common types of testing
+2. Basics of the pytest framework
 
 # Reading
 
 - [The Testing Pyramid](https://www.browserstack.com/guide/testing-pyramid-for-test-automation)
 - [Unit vs Integration Testing](https://circleci.com/blog/unit-testing-vs-integration-testing/)
+- [Python Testing With Pytst](https://realpython.com/pytest-python-testing/)
 
 # Additional Resources
 
@@ -55,3 +56,6 @@ In this module, we will:
 - [The Pragmatic Programmer](https://raygun.com/blog/costly-software-errors-history/)
 - [Hypothesis: Property-Based Testing in Python](https://hypothesis.readthedocs.io/en/latest/)
 - [Mutatest: Mutation Testing in Python](https://hypothesis.readthedocs.io/en/latest/)
+- [Pytest Documentation](https://docs.pytest.org/en/7.1.x/)
+- [Awesome Pytest List](https://github.com/augustogoulart/awesome-pytest)
+- [Using Pytest Fixtures](https://www.testim.io/blog/using-pytest-fixtures/)
