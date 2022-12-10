@@ -1,0 +1,181 @@
+---
+title: "Testing"
+subtitle: How else do we know it works?
+format:
+    revealjs:
+        slide-number: true
+        preview-links: auto
+        theme: [../../custom_slides.scss]
+        css: ../../slides.css
+        view-distance: 100
+        mobile-view-distance: 100
+        navigation-mode: vertical
+        controls-layout: bottom-right
+        controls-tutorial: true
+
+footer: \
+    <a href="https://opensourcecourse.dev/modules/testing/overview.html">overview</a> /\
+    <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/testing/slides.qmd">source</a> /\
+    <a href="https://opensourcecourse.dev/modules/testing/exercises.html">exercises</a>
+---
+
+# Motivation
+
+
+:::{.r-stack style="font-size: 1.4em;"}
+</br>
+
+:::{.incremental}
+- How do we know a code works?
+
+- How do we know a code doesn't work?
+:::
+
+:::
+
+
+# Motivation {auto-animate="true" visibility="uncounted"}
+
+<br>
+<br>
+
+```{python}
+#| echo: true
+#| eval: false
+
+def add(thing1, thing2):
+    """A function to add things."""
+    return thing1 + thing2
+```
+<br>
+
+:::{.fragment}
+Does it work?
+:::
+
+:::{.fragment}
+Is it correct?
+:::
+
+:::{.fragment}
+How can we prove it?
+:::
+
+
+# Motivation {auto-animate="true" visibility="uncounted"}
+
+<br>
+<br>
+
+```{python}
+#| echo: true
+#| eval: false
+
+def add(thing1, thing2):
+    """A function to add things."""
+    return thing1 + thing2
+
+out = add(1, 1)
+```
+
+
+
+# Motivation {auto-animate="true" visibility="uncounted"}
+
+<br>
+<br>
+
+```{python}
+#| echo: true
+#| eval: false
+
+def add(thing1, thing2):
+    """A function to add things."""
+    return thing1 + thing2
+
+out = add(1.0, 1)
+```
+
+
+
+# Motivation {auto-animate="true" visibility="uncounted"}
+
+<br>
+<br>
+
+```{python}
+#| echo: true
+#| eval: false
+
+def add(thing1, thing2):
+    """A function to add things."""
+    return thing1 + thing2
+
+out = add(1.0, '1')
+```
+
+
+
+# Motivation {auto-animate="true" visibility="uncounted"}
+
+<br>
+<br>
+
+```{python}
+#| echo: true
+#| eval: false
+
+def add(thing1, thing2):
+    """A function to add things."""
+    return thing1 + thing2
+
+out = add([1.0, 2.0], 1.0)
+```
+
+
+# Code Planes
+
+<!-- This sets up the code for plotting 3D wire mesh-->
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import axes3d
+
+X, Y, Z = axes3d.get_test_data(0.05)
+x, y, z = X[::2, ::2], Y[::2, ::2], Z[::2, ::2]
+
+def plot_wireframe(X, Y, Z, ax=None, color='blue', alpha=0.5):
+    if ax is None:
+        fig = plt.figure(figsize=(10,10))
+        ax = fig.add_subplot(projection='3d')
+        ax.set_axis_off()
+        # ax.set_xticks([])
+        # ax.set_yticks([])
+        # ax.set_zticks([])
+        # ax.xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+        # ax.yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+        # ax.zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+        # ax.set_xticklabels(['' for _ in range(len(ax.get_xticks()))])
+        # ax.set_yticklabels(['' for _ in range(len(ax.get_yticks()))])
+        # ax.set_zticklabels(['' for _ in range(len(ax.get_zticks()))])
+
+    # Plot a basic wireframe.
+    ax.plot_wireframe(X, Y, np.ones_like(X), rstride=10, cstride=10, color=color, alpha=alpha)
+
+    return ax
+```
+
+
+:::{.r-stack}
+
+```{python}
+#| echo: false
+
+
+ax = plot_wireframe(x, y, np.median(z))
+plt.show()
+```
+
+:::

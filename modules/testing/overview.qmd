@@ -1,0 +1,61 @@
+---
+title: Test all the Things
+---
+
+![](../../images/workbench_explosion.png)
+
+:::{.callout-note appearance="minimal"}
+Untested code is broken code
+
+\- Unknown
+:::
+
+# Software Testing
+
+Testing is probably the most important topic in software engineering. This is because malfunctioning software can have dire
+consequences, like [causing a multi-million dollar satellite to crash into mars](https://en.wikipedia.org/wiki/Mars_Climate_Orbiter),
+[flashing the infamous blue screen of death](https://www.youtube.com/watch?v=AbER5TVTHEc&t=29s) during a live demo,
+or bankrupting an entire financial firm in a few minutes by
+[losing $440 million dollars in bad trades](https://www.henricodolfing.com/2019/06/project-failure-case-study-knight-capital.html).
+There have also been high profile bugs in scientific software, like when protein structure analysis code
+[swapped two data columns](https://www.science.org/doi/full/10.1126/science.314.5807.1856) producing spurious results
+that lead to a retraction of five research papers, hundreds of hours of wasted research time, and a ruined career.
+Testing is our main defense against such spectacular failures, and the way we gain confidence that a code works.
+
+Testing strategies are varied, from manually testing a code as it is written, to creating a massive suite of
+automated tests that run every line (or branch) of the code under test, sometimes dynamically changing test inputs or
+even the code itself! Under-testing a code means failures are more likely, but over testing can cause blown budgets
+and missed deadlines. The appropriate testing strategy and rigor depends on the nature and requirements of the code.
+
+Moreover, many argue writing software that is easily testable, like when tests are written *before* the software,
+helps create more modular robust code. This is one of the common arguments behind the
+[Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) movement.
+
+In Python, the most popular framework for automated testing is [pytest](https://docs.pytest.org/en/7.2.x/). Pytest
+is a powerful tool that greatly improves testing, but like all tools, takes some time to learn.
+
+Testing concepts and the pytest framework could both be a whole course (or several courses).
+Here we simply try to highlight some of the main ideas and provide the basics of pytest.
+
+# Overview
+
+In this module, we will cover:
+
+1. Prevalent testing taxonomies and common types of testing
+2. Basics of the pytest framework
+
+# Reading
+
+- [The Testing Pyramid](https://www.browserstack.com/guide/testing-pyramid-for-test-automation)
+- [Unit vs Integration Testing](https://circleci.com/blog/unit-testing-vs-integration-testing/)
+- [Python Testing With Pytest](https://realpython.com/pytest-python-testing/)
+
+# Additional Resources
+
+- [The Test and Code Podcast](https://testandcode.com/)
+- [The Pragmatic Programmer](https://raygun.com/blog/costly-software-errors-history/)
+- [Hypothesis: Property-Based Testing in Python](https://hypothesis.readthedocs.io/en/latest/)
+- [Mutatest: Mutation Testing in Python](https://hypothesis.readthedocs.io/en/latest/)
+- [Pytest Documentation](https://docs.pytest.org/en/7.1.x/)
+- [Awesome Pytest List](https://github.com/augustogoulart/awesome-pytest)
+- [Using Pytest Fixtures](https://www.testim.io/blog/using-pytest-fixtures/)
