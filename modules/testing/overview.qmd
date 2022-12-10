@@ -48,7 +48,7 @@ In this module, we will cover:
 
 - [The Testing Pyramid](https://www.browserstack.com/guide/testing-pyramid-for-test-automation)
 - [Unit vs Integration Testing](https://circleci.com/blog/unit-testing-vs-integration-testing/)
-- [Python Testing With Pytst](https://realpython.com/pytest-python-testing/)
+- [Python Testing With Pytest](https://realpython.com/pytest-python-testing/)
 
 # Additional Resources
 
