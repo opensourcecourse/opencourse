@@ -146,6 +146,19 @@ Beautiful is better than ugly.
 :::
 
 
+## Beautiful code:
+
+Although beauty is subjective, [this so post](https://softwareengineering.stackexchange.com/a/207932) does a good job
+to explain the main attributed of beautiful code, which includes:
+
+- Clarity and Transparency
+
+- Elegance
+
+- Efficiency
+
+- Aesthetics
+
 
 # The Zen of Python
 
@@ -156,6 +169,12 @@ Beautiful is better than ugly.
 ## 2. Explicit
 Explicit is better than implicit.
 :::
+
+
+
+## Explicit
+
+Explicit code means the
 
 
 
