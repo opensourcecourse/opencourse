@@ -19,24 +19,9 @@ footer: \
     <a href="https://opensourcecourse.dev/modules/testing/exercises.html">exercises</a>
 ---
 
-# Motivation
-
-
-:::{.r-stack style="font-size: 1.4em;"}
-</br>
-
-:::{.incremental}
-- How do we know a code works?
-
-- How do we know a code doesn't work?
-:::
-
-:::
-
 
 # Motivation {auto-animate="true" visibility="uncounted"}
 
-<br>
 <br>
 
 ```{python}
@@ -65,7 +50,6 @@ How can we prove it?
 # Motivation {auto-animate="true" visibility="uncounted"}
 
 <br>
-<br>
 
 ```{python}
 #| echo: true
@@ -82,7 +66,6 @@ out = add(1, 1)
 
 # Motivation {auto-animate="true" visibility="uncounted"}
 
-<br>
 <br>
 
 ```{python}
@@ -101,7 +84,6 @@ out = add(1.0, 1)
 # Motivation {auto-animate="true" visibility="uncounted"}
 
 <br>
-<br>
 
 ```{python}
 #| echo: true
@@ -119,7 +101,6 @@ out = add(1.0, '1')
 # Motivation {auto-animate="true" visibility="uncounted"}
 
 <br>
-<br>
 
 ```{python}
 #| echo: true
@@ -133,9 +114,10 @@ out = add([1.0, 2.0], 1.0)
 ```
 
 
-# Code Planes
+<!-- Code planes: analogy for different testing types -->
 
-<!-- This sets up the code for plotting 3D wire mesh-->
+
+# Code Planes: Desired Behavior
 
 ```{python}
 #| echo: false
@@ -143,39 +125,110 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import axes3d
 
-X, Y, Z = axes3d.get_test_data(0.05)
-x, y, z = X[::2, ::2], Y[::2, ::2], Z[::2, ::2]
+plt.rcParams.update({
+    "figure.facecolor":  (0.0, 0.0, 0.0, 0.0),  # red   with alpha = 30%
+    "axes.facecolor":    (0.0, 1.0, 0.0, 0.0),  # green with alpha = 50%
+    "savefig.facecolor": (0.0, 0.0, 1.0, 0.0),  # blue  with alpha = 20%
+})
 
-def plot_wireframe(X, Y, Z, ax=None, color='blue', alpha=0.5):
+x, y, z = axes3d.get_test_data(0.03)
+
+
+def plot_wireframe(X, Y, Z, ax=None, color='blue', alpha=0.5, label=None):
     if ax is None:
-        fig = plt.figure(figsize=(10,10))
+        fig = plt.figure(figsize=(15,15))
         ax = fig.add_subplot(projection='3d')
         ax.set_axis_off()
-        # ax.set_xticks([])
-        # ax.set_yticks([])
-        # ax.set_zticks([])
-        # ax.xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-        # ax.yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-        # ax.zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-        # ax.set_xticklabels(['' for _ in range(len(ax.get_xticks()))])
-        # ax.set_yticklabels(['' for _ in range(len(ax.get_yticks()))])
-        # ax.set_zticklabels(['' for _ in range(len(ax.get_zticks()))])
+        fig = plt.figure()
+
+    if np.array(Z).shape != X.shape:
+        Z = np.ones_like(X) * Z
 
     # Plot a basic wireframe.
-    ax.plot_wireframe(X, Y, np.ones_like(X), rstride=10, cstride=10, color=color, alpha=alpha)
+    ax.plot_wireframe(
+        X, Y, Z, rstride=10, cstride=10, color=color, alpha=alpha, label=label,
+    )
 
     return ax
 ```
 
 
-:::{.r-stack}
+:::{.absolute top=-200 left=20}
 
 ```{python}
 #| echo: false
 
-
-ax = plot_wireframe(x, y, np.median(z))
+ax = plot_wireframe(x, y, np.median(z), color='blue', label='desired behavior')
 plt.show()
 ```
+
+:::
+
+
+
+# Code Planes: Actual Behavior
+
+:::{.absolute top=-200 left=20}
+
+```{python}
+#| echo: false
+
+ax = plot_wireframe(x, y, z, color='red', label='actual behavior')
+plt.show()
+```
+
+:::
+
+
+
+# Testing Taxonomy
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+**Testing** [Domains]{.red-bold-text}
+
+(What the planes mean)
+
+:::{.incremental}
+
+- Unit
+- Integration
+- End to End
+
+:::
+
+:::
+
+::: {.column width="50%"}
+
+**Testing** [Approaches]{.blue-bold-text}
+
+(How we measure residuals)
+
+:::{.incremental}
+
+- Point
+- Property
+- Mutation
+- Manual
+- Mathmatical
+
+:::
+
+:::
+
+:::
+
+# Testing [Domains]{.red-bold-text}: Unit
+
+<br>
+
+:::{.incremental}
+
+- Small chunk of code
+- Single function or method
+- Fast to write
 
 :::
