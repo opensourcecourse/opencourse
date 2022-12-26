@@ -48,15 +48,15 @@ website:
             - text: "exercises"
               href: modules/style/exercises.qmd
 
-        - section: "Linting"
-          href: modules/linting/overview.qmd
-          contents:
-            - text: 'overview'
-              href: modules/linting/overview.qmd
-            - text: 'slides'
-              href: modules/linting/slides.qmd
-            - text: "exercises"
-              href: modules/linting/exercises.qmd
+#        - section: "Linting"
+#          href: modules/linting/overview.qmd
+#          contents:
+#            - text: 'overview'
+#              href: modules/linting/overview.qmd
+#            - text: 'slides'
+#              href: modules/linting/slides.qmd
+#            - text: "exercises"
+#              href: modules/linting/exercises.qmd
 
         - section: "Python: Data Model"
           href: modules/python_data_model/overview.qmd
@@ -108,15 +108,15 @@ website:
             - text: "exercises"
               href: modules/collaborative_development/exercises.qmd
 
-        - section: "Continuous Integration"
-          href: modules/continuous_integration/overview.qmd
-          contents:
-            - text: 'overview'
-              href: modules/continuous_integration/overview.qmd
-            - text: 'slides'
-              href: modules/continuous_integration/slides.qmd
-            - text: "exercises"
-              href: modules/continuous_integration/exercises.qmd
+#        - section: "Continuous Integration"
+#          href: modules/continuous_integration/overview.qmd
+#          contents:
+#            - text: 'overview'
+#              href: modules/continuous_integration/overview.qmd
+#            - text: 'slides'
+#              href: modules/continuous_integration/slides.qmd
+#            - text: "exercises"
+#              href: modules/continuous_integration/exercises.qmd
 
       - acknowledgements.qmd
 
