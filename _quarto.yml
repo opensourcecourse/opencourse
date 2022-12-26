@@ -58,7 +58,7 @@ website:
 #            - text: "exercises"
 #              href: modules/linting/exercises.qmd
 
-        - section: "Python: Data Model"
+        - section: "Object Oriented Python"
           href: modules/python_data_model/overview.qmd
           contents:
             - text: 'overview'
@@ -68,7 +68,7 @@ website:
             - text: "exercises"
               href: modules/python_data_model/exercises.qmd
 
-        - section: "Python: Decorators"
+        - section: "Functional Python"
           href: modules/python_decorators/overview.qmd
           contents:
             - text: 'overview'
