@@ -11,9 +11,9 @@ format:
         theme: [../../custom_slides.scss]
 
 footer: \
-    <a href="https://opensourcecourse.dev/modules/python_data_model/overview.html">overview</a> /\
-    <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/python_data_model/slides.qmd">source</a> /\
-    <a href="https://opensourcecourse.dev/modules/python_data_model/exercises.html">exercises</a>
+    <a href="https://opensourcecourse.dev/modules/functional_python/overview.html">overview</a> /\
+    <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/functional_python/slides.qmd">source</a> /\
+    <a href="https://opensourcecourse.dev/modules/functional_python/exercises.html">exercises</a>
 ---
 
 ## Overview

@@ -5,7 +5,7 @@ title: Test all the Things
 ![](../../images/workbench_explosion.png)
 
 :::{.callout-note appearance="minimal"}
-Untested code is broken code
+Untested code is broken code.
 
 \- Unknown
 :::

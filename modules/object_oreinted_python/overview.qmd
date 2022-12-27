@@ -1,5 +1,5 @@
 ---
-title: Python Magic
+title: Object Oriented Python
 ---
 ![](../../images/cyber_punk_streets.png)
 

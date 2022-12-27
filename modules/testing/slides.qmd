@@ -187,12 +187,13 @@ plt.show()
 
 ::: {.column width="50%"}
 
-**Testing** [Domains]{.red-bold-text}
+**Testing** [Domains]{.red-bold}
 
 (What the planes mean)
 
 :::{.incremental}
 
+- Compilation
 - Unit
 - Integration
 - End to End
@@ -203,17 +204,16 @@ plt.show()
 
 ::: {.column width="50%"}
 
-**Testing** [Approaches]{.blue-bold-text}
+**Testing** [Approaches]{.blue-bold}
 
 (How we measure residuals)
 
 :::{.incremental}
 
-- Point
+- Example
 - Property
 - Mutation
-- Manual
-- Mathmatical
+- Mathematical
 
 :::
 
@@ -221,14 +221,102 @@ plt.show()
 
 :::
 
-# Testing [Domains]{.red-bold-text}: Unit
+# Testing [Domains]{.red-bold}
 
+
+:::{.r-stack}
+</br>
+![](images/test_pyramid.png){width="550"}
+
+:::
+
+# Testing [Domains]{.red-bold}: Unit
 <br>
 
-:::{.incremental}
+```python
+def test_raises_value_error_if_sparse():
+    error_msg = "dense data is required."
+    # X must not be sparse if positive == True
+    X = sparse.eye(10)
+    y = np.ones(10)
 
-- Small chunk of code
-- Single function or method
-- Fast to write
+    reg = LinearRegression(positive=True)
+
+    with pytest.raises(TypeError, match=error_msg):
+        reg.fit(X, y)
+
+```
+
+::: footer
+Example modified from [here](https://github.com/scikit-learn/scikit-learn/blob/e2dd39194d613eb0f011450cc41831cc429c67c9/sklearn/linear_model/tests/test_base.py#L95)
+:::
+
+
+
+# Testing [Domains]{.red-bold}: Integration
+
+```python
+def test_pipeline_methods_anova():
+    X, Y = iris.data, iris.target
+    # Test with Anova + LogisticRegression
+    clf = LogisticRegression()
+    filter1 = SelectKBest(f_classif, k=2)
+    anova = ("anova", filter1)
+    logistic = ("logistic", clf)
+    pipe = Pipeline([anova, logistic])
+    pipe.fit(X, y)
+    pipe.predict(X)
+    pipe.predict_proba(X)
+    pipe.predict_log_proba(X)
+    pipe.score(X, y)
+```
+
+::: footer
+Example modified from [here](https://github.com/scikit-learn/scikit-learn/blob/754bd5245aa46b89a1d686a3326c2b853012ff3e/sklearn/tests/test_pipeline.py#L264-L276)
+:::
+
+
+
+# Testing [Domains]{.red-bold}: End to End (E2E)
+
+```python
+def test_user_story_1():
+    # read data from disk
+    spool = dc.load('example_files')
+    # chunk data, filter
+    out = []
+    for patch in spool.chunk(time=10):
+        pa = patch.pass_filter(time=(None, 10))
+        out.append(pa)
+    # create new spool
+    proc_spool = dc.spool(out)
+    # plot first patch
+    proc_spool[0].viz.waterfall(show=True)
+    # save to disk
+    proc_spool.io.write('processed', 'DASDAE')
+```
+
+
+
+# Testing [Approaches]{.blue-bold}: Example
+- Generate example data manually for test case
+- Ensure expected and actual behavior match
+
+
+
+
+# Testing [Approaches]{.blue-bold}: Example
+
+:::{.absolute top=-200 left=20}
+
+```{python}
+#| echo: false
+
+new_z = z.cop
+
+ax = plot_wireframe(x, y, z, color='red', label='actual behavior')
+plt.show()
+```
 
 :::
+

@@ -14,8 +14,26 @@
     text-align: center;
 }
 
-.red-text {
+.red {
   color: red;
+}
+
+.blue{
+    color: blue;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.red-bold{
+    color: red;
+    font-weight: bold;
+}
+
+.blue-bold{
+    color: blue;
+    font-weight: bold;
 }
 
 section.level2 > h1 {
@@ -31,14 +49,4 @@ section {
     flex-direction: column;
     top: unset !important;
     height: 100vh;
-}
-
-.red-bold-text {
-    color: red;
-    font-weight: bold;
-}
-
-.blue-bold-text {
-    color: blue;
-    font-weight: bold;
 }
