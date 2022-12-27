@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="109.17986mm"
+   height="108.13565mm"
+   viewBox="0 0 109.17986 108.13565"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="smelly_code.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="202.40242"
+     inkscape:cy="199.70508"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1848"
+     inkscape:window-height="1016"
+     inkscape:window-x="72"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-21.924801,-33.062367)">
+    <rect
+       style="fill:#490056;fill-opacity:1;stroke:#d6e300;stroke-width:0.24304691;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect855"
+       width="96.793732"
+       height="96.793732"
+       x="34.189411"
+       y="33.183891" />
+    <rect
+       style="fill:#6c3db5;fill-opacity:1;stroke:#d6e300;stroke-width:0.20087305;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect855-6"
+       width="79.99794"
+       height="79.99794"
+       x="34.168324"
+       y="33.162804" />
+    <rect
+       style="fill:#80a3c5;fill-opacity:1;stroke:#d6e300;stroke-width:0.1526743;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect855-7"
+       width="60.802723"
+       height="60.802723"
+       x="34.144226"
+       y="33.138706" />
+    <rect
+       style="fill:#cad0d7;fill-opacity:1;stroke:#d6e300;stroke-width:0.11183926;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect855-5"
+       width="44.540119"
+       height="44.540119"
+       x="34.210499"
+       y="33.204979" />
+    <path
+       style="fill:#c56c57;fill-opacity:1;stroke-width:0.20690005"
+       d="m 105.10319,62.805624 c -1.15801,-0.29943 -1.69352,-0.83245 -1.6996,-1.69167 l -0.005,-0.73158 8.49413,-5.27898 8.49414,-5.278987 -29.445783,0.208411 c -32.33505,0.228861 -30.535744,0.271467 -31.406177,-0.743197 -0.511261,-0.595973 -0.514383,-1.029974 -0.01214,-1.68673 0.880681,-1.15162 -1.355702,-1.059431 31.308831,-1.290624 l 29.387009,-0.207996 -8.21828,-4.95362 c -4.52005,-2.72449 -8.34408,-5.095315 -8.49783,-5.268504 -0.41961,-0.47266 -0.34454,-1.508707 0.14043,-1.938193 0.23583,-0.208845 0.83355,-0.486196 1.32826,-0.61633 1.90992,-0.502419 1.90662,-0.504029 14.26247,6.940917 l 11.39569,6.866411 -0.12614,0.841665 -0.12617,0.841659 -11.03405,6.871998 c -6.19852,3.86043 -11.40645,6.97393 -11.88383,7.10459 -1.03417,0.28306 -1.29803,0.28427 -2.35578,0.0106 z"
+       id="path828-3"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#c56c57;fill-opacity:1;stroke-width:0.20690005"
+       d="m 34.981786,103.2875 c 0.29943,-1.15801 0.83245,-1.69352 1.69167,-1.6996 l 0.73158,-0.005 5.27898,8.49413 5.27899,8.49414 -0.20841,-29.445785 c -0.22886,-32.335048 -0.27147,-30.535742 0.7432,-31.406175 0.59597,-0.511261 1.02997,-0.514383 1.68673,-0.01214 1.15162,0.880681 1.05943,-1.355702 1.29062,31.308835 l 0.208,29.387005 4.95362,-8.21828 c 2.72449,-4.52005 5.09531,-8.34408 5.2685,-8.49783 0.47266,-0.41961 1.50871,-0.34454 1.93819,0.14043 0.20885,0.23583 0.4862,0.83355 0.61633,1.32826 0.50242,1.90992 0.50403,1.90662 -6.94091,14.26247 l -6.86641,11.39569 -0.84167,-0.12614 -0.84166,-0.12617 -6.872,-11.03405 c -3.86043,-6.19852 -6.97393,-11.40645 -7.10459,-11.88383 -0.28306,-1.03417 -0.28427,-1.29803 -0.0106,-2.35578 z"
+       id="path828-3-3"
+       inkscape:connector-curvature="0" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot912"
+       style="font-style:normal;font-weight:normal;font-size:33.33333206px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458333,0,0,0.26458333,-6.4144686,-7.2162773)"><flowRegion
+         id="flowRegion914"><rect
+           id="rect916"
+           width="341.43155"
+           height="39.395954"
+           x="201.02036"
+           y="518.44849" /></flowRegion><flowPara
+         id="flowPara918">Increasing Smell</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot912-5"
+       style="font-style:normal;font-weight:normal;font-size:33.33333206px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0,-0.26458333,0.26458333,0,-114.21249,172.2832)"><flowRegion
+         id="flowRegion914-6"><rect
+           id="rect916-2"
+           width="341.43155"
+           height="39.395954"
+           x="201.02036"
+           y="518.44849" /></flowRegion><flowPara
+         id="flowPara918-9">Increasing Smell</flowPara></flowRoot>  </g>
+</svg>

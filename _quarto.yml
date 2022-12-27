@@ -48,15 +48,15 @@ website:
             - text: "exercises"
               href: modules/style/exercises.qmd
 
-        - section: "Linting"
-          href: modules/linting/overview.qmd
+        - section: "Object Oriented Python"
+          href: modules/object_oriented_python/overview.qmd
           contents:
             - text: 'overview'
-              href: modules/linting/overview.qmd
+              href: modules/object_oriented_python/overview.qmd
             - text: 'slides'
-              href: modules/linting/slides.qmd
+              href: modules/object_oriented_python/slides.qmd
             - text: "exercises"
-              href: modules/linting/exercises.qmd
+              href: modules/object_oriented_python/exercises.qmd
 
         - section: "Object Oriented Python"
           href: modules/object_oriented_python/overview.qmd
@@ -107,16 +107,6 @@ website:
               href: modules/collaborative_development/slides.qmd
             - text: "exercises"
               href: modules/collaborative_development/exercises.qmd
-
-        - section: "Continuous Integration"
-          href: modules/continuous_integration/overview.qmd
-          contents:
-            - text: 'overview'
-              href: modules/continuous_integration/overview.qmd
-            - text: 'slides'
-              href: modules/continuous_integration/slides.qmd
-            - text: "exercises"
-              href: modules/continuous_integration/exercises.qmd
 
       - acknowledgements.qmd
 

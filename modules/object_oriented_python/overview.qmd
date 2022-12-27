@@ -12,18 +12,18 @@ Any sufficiently advanced technology is indistinguishable from magic.
 # Python's Data Model
 
 Python's popularity is in part due to its simplicity. However, unlike many other "simple" languages,
-Python has many advanced features that, when used correctly, facilitate the expression of complex
+Python has many advanced features that, when used pragmatically, facilitate the expression of complex
 concepts in a concise way. Knowing some of these features is necessary, not just to level up as a developer,
 but because they are used often in open-source libraries.
 
 One such features is python's data model (AKA class model). This is where Python's object-oriented (oo) features
 can really shine for making intuitive, simple APIs. The behavior of classes is controlled by dunder
-(double underscore methods, or "magic" methods). In this model we will learn the basics of "light handed" object-oriented
-design and see how to use a few of the more common dunder methods.
+(double underscore methods, or "magic" methods). In this module we will learn the basics of "light handed" 
+object-oriented design and see how to use a few of the more common dunder methods.
 
 :::{.callout-warning}
-Object-Oriented features are like salt; a little bit is nice but its easy to overdo. If you need a
-class hierarchy graph to explain your design, you have probably overdone it.
+Object-Oriented features are like salt; a little bit is nice but its easy to overdo. If your users need 
+a complicated class hierarchy graph to use your code you have probably overdone it.
 :::
 
 # Objectives
@@ -42,4 +42,4 @@ In this module we will learn about:
 # Additional Resources
 
  - [Fluent Python](https://www.oreilly.com/library/view/fluent-python-2nd/9781492056348/)
- - [8 Tips for Good OO Design in Python](https://towardsdatascience.com/8-tips-for-object-oriented-programming-in-python-3e98b767ae79)
+ - [OO programming in python](https://realpython.com/python3-object-oriented-programming/)

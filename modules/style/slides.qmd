@@ -159,6 +159,8 @@ to explain the main attributed of beautiful code, which includes:
 
 - Aesthetics
 
+It can take some time to develop the beautiful python taste. Study professional codes and keep programming.
+
 
 # The Zen of Python
 
@@ -170,12 +172,11 @@ to explain the main attributed of beautiful code, which includes:
 Explicit is better than implicit.
 :::
 
-
-
 ## Explicit
 
-Explicit code means the
-
+Explicit code means the abstractions are conistent and clear. 
+It doesn't mean everything is spelled out (you don't have to understand bytecode, 
+assembly, or semiconductor physics for your code to be explicit). 
 
 
 # The Zen of Python
@@ -188,6 +189,13 @@ Simple is better than complex.\n\nComplex is better than complicated.
 :::
 
 
+## Simple 
+
+Simple means the most direct (shortest lines of code, most readable) is preferred. This means avoiding
+complex features when possible (i.e., dictionaries and numpy arrays are better than custom classes 
+for simple cases.) However, sometime the correct behavior is complex, so complex code is unavoidable. 
+In this case, it can just be keept as simple as possible (for the user).
+
 
 # The Zen of Python
 
@@ -199,27 +207,57 @@ Flat is better than nested.
 :::
 
 
+## Flat
+
+Highly nested structures are complex, and they often require recursion to effectively navigate. 
+This should be avoided when possible. In scientific computing, numpy operations are strongly
+preferred over nested for loops, both for efficiency and readability.
+
 
 # The Zen of Python
 
 </br>
 
-:::{.callout-note appearance="simple"}
+:::{.callout-note appearance="Simple"}
 ## 5. Sparse
 Sparse is better than dense.
 :::
 
 
+## Concise
+
+Sparisity means fewer things. Fewer classes, fewer functions, fewer parametrs. Concise code better than
+verbose code. 
+
+:::{.callout-note appearance="Concise"}
+"Perfection is achieved, not when there is nothing to add, but when there is nothing left to take away." 
+
+-Antoine de Saint Exupéry
+:::
+
+
 
 # The Zen of Python
 
 </br>
 
-:::{.callout-note appearance="simple"}
+:::{.callout-note appearance="Simple"}
 ## 6. Readable
 Readability counts.
 :::
 
+
+## Readable
+
+Readility means code is optimizaed not just for a computer to understand, but for a developer to understand.
+This means making documentation a first class concern, and keeping the implementation as simple as possible.
+
+:::{.callout-note appearance="minimal"}
+Any fool can write code that a computer can understand. 
+Good programmers write code that humans can understand. 
+
+– Martin Fowler"
+:::
 
 
 # The Zen of Python
@@ -230,6 +268,11 @@ Readability counts.
 ## 7. Consistent
 Special cases aren't special enough to break the rules.
 :::
+
+
+## Consistent
+
+Concistent means abstractions are clear and not full of special expections.
 
 
 
@@ -243,6 +286,11 @@ Although practicality beats purity.
 :::
 
 
+## Pragmatic
+
+Pargamatic means prioritizing functionality and usability over more esoteric concerns like
+unlikely edge cases.
+
 
 # The Zen of Python
 
@@ -254,6 +302,10 @@ Errors should never pass silently.\n\n Unless explicitly silenced.
 :::
 
 
+## Correct
+
+Errors should be raised unless the way to deal with them is obvious.
+
 
 # The Zen of Python
 
@@ -263,6 +315,12 @@ Errors should never pass silently.\n\n Unless explicitly silenced.
 ## 10. Unsurprising
 In the face of ambiguity, refuse the temptation to guess.
 :::
+
+## Unsurprising
+
+Guessing what a user may want when there are several viable choises is rarely a good idea.
+It is much better to be explicit.
+
 
 
 
@@ -321,7 +379,727 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 :::
 
+## Organized
+
+Coming from MATLab, I found having to import python modules annoying. Why is it `np.pi` rather than just `pi`?
+Then, I created a variable named `pi` in a matlab finite element code which, of course, overwrote the 
+expected value. It took me several hours to debug, but afterward I understood.
+
+
+# Python Style (Pep 8)
+
+</br>
+
+* Python style-guide adopted in 2001
+* Several explicit rules to approach pythonic
+
+
+## Background
+
+Pep8 is python's style guide. While originally only applicable to the standard library, it is now widely
+considered good practice for (nearly) all python projects.
+
+Here we explore a few of the more important aspects of PeP8, but you can find the whole thing [here]
+
+
+# Pep 8: Line Lengths
+
+</br>
+
+* Limit line lengths to 79 characters
+* Limit docstring lengths to 72 characters
+
+:::{.callout-note}
+Many modern formatting tools expand the line limit to around 90 characters.
+:::
 
 
 
 
+# Style: [Imports](https://peps.python.org/pep-0008/#imports)
+
+</br>
+
+* Each import should be a single line
+* Unless multiple things are import *from* the same module
+
+```{.python code-line-numbers="1|2"}
+import numpy as np
+from pandas import DataFrame, Series
+```
+
+
+# Style: Imports
+
+</br>
+
+* Imports should be organized alphabetically
+
+* Imports should be grouped by
+  * module level dunders 
+  * standard library 
+  * external packages 
+  * internal packages
+
+
+
+# Style: Imports
+</br>
+
+```{.python code-line-numbers="1|3-4|6-7|9"}
+from __future__ import annotations
+
+import pathlib
+from collections import defaultdict
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+from mylibrary.util import combobulate
+```
+
+
+
+# Style: Naming
+
+</br>
+
+:::{.incremental}
+
+* i (single lowercase letter) - used for incremental variables.
+* ALL_CAPITAL - used for constants
+* CamelCase - used for classes
+* snake_case - used for functions, methods, modules, variables ...
+* Any name starting with _ is considered private
+
+:::
+
+
+# Style: Naming
+
+</br>
+
+```python
+myVariable = 10  # Not for python
+
+my_variable = 10  # correct
+```
+
+
+
+# Style: Naming
+
+</br>
+
+```{.python code-line-numbers="1|3|5"}
+from PoorlyNamedLibrary import *  # wrong! 
+
+from mylibrary import the_thing_i_need  # better
+
+import mylibrary  # even better (most the time)
+```
+
+
+# Understanding Check
+
+</br>
+
+What's wrong? 
+
+```python
+myVar = 10
+
+class snake_class:
+    '''A special class for snakes.'''
+    __snake_type__ = "python"
+    
+    def SlitherAround(self):
+        ...
+
+```
+
+
+# Style: Automation
+
+</br> 
+
+* Basic style should be enforced by each project
+* Nitpicks are better taken from a bot
+* Objective consistency is important
+
+
+# Style: Automation Tools
+
+</br> 
+
+* black, autopep8, pyflakes, isort, flake8 ...
+* All tools can be bundled into [pre-commit](https://pre-commit.com/)
+* recommendation: Try [shed](https://github.com/Zac-HD/shed)
+
+
+# Code Smells and Anti-patterns
+
+</br>
+
+Code smells and anti-patterns: style/design issues in code that works, but isn't
+python (elegant, efficient, readable, ...)
+
+
+# Code Smell: Complexity
+
+
+:::{.r-stack}
+![](images/code_smell.png){width="590"}
+:::
+
+
+
+# Code Smell: Complexity {auto-animate="true"}
+
+</br>
+
+```{.python}
+def my_func(arg_1):
+    """ An Example over-indented function. """
+    if isinstance(arg_1, int):
+        if arg_1 > 0:
+            if arg_1 < 20:
+                for n in range(arg_1):
+                    ...
+```
+
+
+
+## Code Smell: Complexity {auto-animate="true"}
+
+</br>
+
+```{.python}
+def my_func(arg_1):
+    """ Improvements with syntactic sugar """
+    if isinstance(arg_1, int) and 0 < arg_1 < 20:
+        for n in range(arg_1):
+            ...
+```
+
+
+
+## Code Smell: Complexity {auto-animate="true"}
+
+</br>
+
+```{.python}
+def _is_validate_arg(arg_1):
+    """Validate arg_1 for use with my_func"""
+    return isinstance(arg_1, int) and 0 < arg_1 < 20
+
+
+def my_func(arg_1):
+    """Improvement with new functions."""
+    if _is_valid_arg(arg_1):
+        for n in range(arg_1):
+            ...
+```
+
+
+
+# Code Smell: Complexity
+
+</br>
+
+How to measure? 
+
+:::{.incremental}
+* lines per fuction/method/class/module
+* number of indents (more rigorous: Cyclomatic complexity)
+* number of symbols defined
+* others? 
+:::
+
+  
+
+# Code Smell: Complexity
+</br>
+
+Complexity Deodorant
+
+:::{.incremental}
+
+* Divide functionality into multiple functions
+* Create abstractions (e.g., use/create classes)
+* Syntactic sugar (make complexity more readable)
+
+:::
+
+
+
+# Code Smell: Readablity {auto-animate="true"}
+
+</br>
+What does this do? 
+```{python}
+#| echo: true
+def func(a, b=1, c=0):
+    d = np.mean(a, c, keepdims=True)
+    e = (a - d) ** b
+    f = a.shape[c]
+    return np.sum(e) / f
+```
+
+```{python}
+#| echo: false
+
+import numpy as np
+from scipy.stats import moment
+
+test_ar = np.random.rand(10)
+assert np.allclose(func(test_ar, 1), moment(test_ar, 1))
+assert np.allclose(func(test_ar, 2), moment(test_ar, 2))
+assert np.allclose(func(test_ar, 0), moment(test_ar, 0))
+```
+
+
+
+## Code Smell: Readablity {auto-animate="true"}
+
+</br> 
+Add meaningful names and docstring
+```{python}
+#| echo: true
+def get_stats_moment(array, moment=1, axis=0):
+    """Calculate the statistical moment."""
+    mean = np.mean(array, axis, keepdims=True)
+    demean_raised = (array - mean) ** moment
+    sample_count = a.shape[c]
+    return np.sum(demain) / sample_count
+```
+
+
+
+## Code Smell: Readablity {auto-animate="true"}
+
+</br> 
+Even Better, use scipy! 
+```{python}
+#| echo: true
+from scipy.stats import moment
+```
+
+
+
+# Code Smell: Readablity {auto-animate="true"}
+
+</br> 
+Incomprehensible Comprehensions
+```python
+nested = [1, 2, 3, [2, 3], {1, 2, 3}]
+
+[y for z in [x if isinstance(x, list) else[x] \
+for x in nested] for y in z]
+```
+
+::: footer
+https://github.com/wdm0006/incomprehensible
+:::
+
+
+
+## Code Smell: Readablity {auto-animate="true"}
+
+</br> 
+Break into different lines
+```python
+[
+    y for z in 
+    [
+        x if isinstance(x, list) 
+        else [x] 
+        for x in nested
+    ] 
+    for y in z
+]
+```
+
+
+
+## Code Smell: Readablity {auto-animate="true"}
+
+</br> 
+Wrap in a function
+```python
+def unwrap_list(nested):
+    """unwrap nested heterogeneous lists"""
+    out = [
+        y for z in
+        [
+            x if isinstance(x, list)
+            else [x]
+            for x in nested
+        ]
+        for y in z
+    ]
+    return out
+```
+
+
+
+## Code Smell: Readablity {auto-animate="true"}
+
+</br> 
+If still unreadable, remove comprehension.
+```python
+def unwrap_list(nested):
+    """unwrap nested heterogeneous lists"""
+    out = []
+    for element in nested:
+        if isinstance(element, list):
+            for sub_element in element:
+                out.append(sub_element)
+        else:
+            out.append(element)
+    return out
+```
+
+
+# Code Smell: Signatures
+
+</br>
+
+Signature: inputs and outputs of a callable (can include names and types)
+
+Common problems:
+
+:::{.increment}
+* Too many arguments
+* Different output types/shapes
+:::
+
+
+
+# Code Smell: Signature Length
+
+</br>
+Too many input parameters (probably need different functions)
+```python
+def do_stats(
+    ar, 
+    mean=True, 
+    median=True, 
+    std=True, 
+    kurtosis=True,
+    ...
+)
+    ...
+    return out_dict
+```
+
+## Code Smell: Signature Length
+
+:::{.caleout-note}
+The largest signature I know of is [`pd.read_csv`](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html)
+which, as of pandas 1.5.1, supports 51 arguments. Although it is not ideal, it is one of the most used function
+in the python data ecosystem. Also, all but one of its parameters is optional, and keyword only arguments are used.
+:::
+
+
+
+# Code Smell: Multiple Signature Return Values
+
+</br>
+Output changes based on parameters
+```python
+import numpy as np
+
+def std(ar, axis=0, return_mean=True):
+    """Calc std of array"""
+    mean = np.mean(ar, axis=axis, keepdims=True)
+    std_ar = np.sum((ar - mean) ** 2) / ar.shape[axis]
+    if return_mean:
+        return std_ar, mean
+    else:
+        return std_ar
+```
+
+# Code Smell: Multiple Signature Return Values
+
+</br>
+None returned rather than raising an Error
+```python
+import numpy as np
+
+def std(ar, axis=0):
+    """Calc std of array"""
+    mean = np.mean(ar, axis=axis, keepdims=True)
+    std_ar = np.sum((ar - mean) ** 2) / ar.shape[axis]
+    if np.any(np.isnan(std)):
+        return None
+    return std_ar
+```
+
+
+# Code Smell: Ignorance
+
+Not using language/std lib features:
+
+:::{.increment}
+* iteration
+* zip
+* enumerate
+* dict.get
+* dict.items
+* collections
+* list comprehensions
+:::
+
+
+
+# Code Smell: Ignorance
+
+</br>
+Iteration (bad)
+
+```python
+some_list = [1, 2, 3]
+
+for i in range(len(some_list)):
+    val = some_list[i]
+```
+
+
+
+## Code Smell: Ignorance {auto-animate="true"}
+
+</br>
+Iteration (good)
+
+```python
+some_list = [1, 2, 3]
+
+for val in some_list:
+    ...
+```
+
+
+
+# Code Smell: Ignorance {auto-animate="true"}
+
+</br>
+Dual iteration (bad)
+```python
+list_1 = [1, 2, 3]
+list_2 = [4, 5, 6]
+
+list_len = min([len(list_1), len(list_2)])
+
+for i in range(list_len):
+    val_1 = list_1[i]
+    val_2 = list_2[i]
+```
+
+
+
+## Code Smell: Ignorance {auto-animate="true"}
+
+</br>
+Dual iteration (good)
+```python
+list_1 = [1, 2, 3]
+list_2 = [4, 5, 6]
+
+for val_1, val_2 in zip(list_1, list_2):
+    ...
+```
+
+
+# Code Smell: Ignorance
+
+</br>
+Enumeration (bad)
+
+```python
+some_list = [1, 2, 3]
+
+count = 0
+for val in some_list:
+    count += 1
+```
+
+
+
+## Code Smell: Ignorance {auto-animate="true"}
+
+</br>
+Enumeration (bad) 
+
+```python
+some_list = [1, 2, 3]
+
+for count, val in enumerate(some_list):
+    ...
+```
+
+
+
+# Code Smell: Ignorance {auto-animate="true"}
+
+</br>
+Unsure keys (bad)
+
+```python
+some_dict = {1: 1, 2: 2}
+
+if 3 in some_dict:
+    val = some_dict[3]
+else:
+    val = 3
+```
+
+
+
+## Code Smell: Ignorance {auto-animate="true"}
+
+</br>
+Unsure keys (good)
+
+```python
+some_dict = {1: 1, 2: 2}
+
+val = some_dict.get(3, 3)
+```
+
+
+
+# Code Smell: Ignorance {auto-animate="true"}
+
+</br>
+Key/value iteration (bad)
+
+```python
+some_dict = {1: 1, 2: 2}
+
+for key in some_dict:
+    value = some_dict[key]
+```
+
+
+
+## Code Smell: Ignorance {auto-animate="true"}
+
+</br>
+Key/value iteration (good)
+
+```python
+some_dict = {1: 1, 2: 2}
+
+for key, value in some_dict.items():
+    ...
+```
+
+
+
+
+# Code Smell: Ignorance {auto-animate="true"}
+
+</br>
+Nested dict (bad)
+
+```python
+key_dict = {}  # a dict of lists for storing outputs
+
+# iterate key/value of data dict
+for key, data in some_data.items():
+    if key in key_dict:
+        key_dict[key].append(value)
+    else:
+        key_dict[key] = [value]
+```
+
+::: footer
+The [collections module](https://docs.python.org/3/library/collections.html) of the standard library is full of goodies. 
+:::
+
+
+
+## Code Smell: Ignorance {auto-animate="true"}
+
+</br>
+Nested dict (good)
+
+```python
+from collections import defaultdict
+key_dict = defaultdict(list)  # a dict of lists for storing outputs
+
+# iterate key/value of data dict
+for key, data in some_data.items():
+    key_dict[key].append(data)
+```
+
+
+
+# Code Smell: Ignorance {auto-animate="true"}
+
+</br>
+Queuing (bad)
+
+```python
+queue = [1, 2, 3]  # a poor man's queue
+
+# pop last value off queue
+last_value = queue.pop(-1)
+
+# append to queue end
+queue.append(4)
+```
+
+
+
+## Code Smell: Ignorance {auto-animate="true"}
+
+Queuing (Good)
+
+```python
+from collections import deque
+queue = deque([1, 2, 3])  # a proper queue
+
+# pop last value off queue
+last_value = queue.pop()
+
+# append to queue end
+queue.append(4)
+
+# pop first value
+first_value = queue.popleft()
+
+# append to first value
+queue.appendleft(-1)
+```
+
+
+
+## Code Smell: Ignorance {auto-animate="true"}
+
+Other reasons not to use a list for a  queue? 
+
+
+
+# Code Smell: Ignorance {auto-animate="true"}
+
+</br>
+Filtering list contents (bad)
+
+```python
+out = []  # get all even numbers < 100
+for a in range(100):
+    if a % 2 == 0:
+        out.append(a)    
+```
+
+
+## Code Smell: Ignorance {auto-animate="true"}
+
+</br>
+Filtering list contents (good)
+
+```python
+out = [a for a in range(100) if a % 2 == 0]
+```
