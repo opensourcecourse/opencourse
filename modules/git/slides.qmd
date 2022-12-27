@@ -30,7 +30,7 @@ footer: \
 
 # Git Graphs: Overview {.nostretch auto-animate="true"}
 
-</br>
+<br>
 
 ::: {.centered_midsized}
 A graphical, graphical model
@@ -87,7 +87,7 @@ Scenario
 
 First we *init* the repo, then create a new file.
 
-</br>
+<br>
 
 ```{.python filename="myscript.py"}
 def add_numbers(num1, num2):
@@ -202,7 +202,7 @@ git commit -am "simple message"
 This creates our first commit (dot) on the default branch (main).
 "HEAD" refers to the latest commit on the current branch.
 
-</br>
+<br>
 
 ```{mermaid}
 %%| fig-width: 3
@@ -277,7 +277,7 @@ git show --quiet 9d6b7c
 
 Next, we make some changes.
 
-</br>
+<br>
 
 ```{.python filename="myscript.py"}
 def add_numbers(num1, num2):
@@ -294,7 +294,7 @@ add_numbers(2, 2)
 
 Next, we make some changes.
 
-</br>
+<br>
 
 ```{.python filename="myscript.py"}
 def add_numbers(num1, num2):
@@ -393,7 +393,7 @@ And finally *commit* them.
 
 Which adds a new commit to our main branch.
 
-</br>
+<br>
 
 ```{mermaid}
 %%| fig-width: 5
@@ -404,7 +404,7 @@ gitGraph
 
 
 # Knowledge Check {.nostretch auto-animate="true"}
-</br>
+<br>
 ```{mermaid}
 %%| fig-width: 5
 gitGraph
@@ -427,7 +427,7 @@ We can create *branches* with their own commits
 
 (think parallel universe)
 
-</br>
+<br>
 
 ```{mermaid}
 %%| fig-width: 7
@@ -464,7 +464,7 @@ git branch --delete new_branch
 
 Then merge branches (e.g., back into main)
 
-</br>
+<br>
 
 ```{mermaid}
 %%| fig-width: 7
@@ -498,7 +498,7 @@ git merge branch_1
 
 Which has the same effect (on the code) as committing on main
 
-</br>
+<br>
 
 ```{mermaid}
 %%| fig-width: 6
@@ -514,7 +514,7 @@ gitGraph
 
 But what if changes are made on main before the merge?
 
-</br>
+<br>
 
 ```{mermaid}
 %%| fig-width: 7
@@ -536,7 +536,7 @@ We can still merge branch_1 into main but....
 
 there might be *conflicts*
 
-</br>
+<br>
 
 ```{mermaid}
 %%| fig-width: 7
@@ -583,7 +583,7 @@ What should happen if the changes aren't compatible?
 
 Dealing with conflicts isn't fun (in git or life). Here are a few commands that might help.
 
-</br>
+<br>
 
 ```bash
 # abort merge (after conflicts show up)
@@ -593,7 +593,7 @@ git merge --abort
 git diff --name-only --diff-filter=U --relative
 ```
 
-</br>
+<br>
 [When all else fails](https://xkcd.com/1597/)
 
 
@@ -604,7 +604,7 @@ git diff --name-only --diff-filter=U --relative
 
 Example: myscript.py on main
 
-</br>
+<br>
 
 ```{.python filename="myscript.py (main)"}
 """
@@ -621,7 +621,7 @@ A brilliant script written by Derrick.
 
 Example: myscript.py on branch_2
 
-</br>
+<br>
 
 ```{.python filename="myscript.py (branch_2)"}
 """
@@ -638,7 +638,7 @@ A really dumb script written by Peiyao.
 
 myscript.py after merge command
 
-</br>
+<br>
 
 ```{.python filename="myscript.py (merge conflict)" code-line-numbers="|3-6|6-8"}
 """
@@ -659,7 +659,7 @@ A really dumb script writen by Peiyao.
 
 Next, manually edit myscript.py so it is correct
 
-</br>
+<br>
 
 ```{.python filename="myscript.py (resolved)" code-line-numbers="4"}
 """
@@ -673,7 +673,7 @@ A brilliant script written by Derrick.
 
 
 # Knowledge Check {.nostretch auto-animate="true"}
-</br>
+<br>
 
 Now that we have fixed the file:
 
@@ -690,7 +690,7 @@ Now that we have fixed the file:
 
 Commits can be be *tagged* (usually with a version)
 
-</br>
+<br>
 
 ```{mermaid}
 %%| fig-width: 7
@@ -725,7 +725,7 @@ git show v1.0.1
 
 Commits can be *Cherry-Picked*
 
-</br>
+<br>
 
 ```{mermaid}
 %%| fig-width: 7
@@ -746,7 +746,7 @@ gitGraph
 
 Commits can be *Cherry-Picked*
 
-</br>
+<br>
 
 ```{mermaid}
 %%| fig-width: 7
@@ -784,7 +784,7 @@ git cherry-pick 221d227eea
 
 Branches can be *rebased*
 
-</br>
+<br>
 
 ```{mermaid}
 %%| fig-width: 7
@@ -805,7 +805,7 @@ gitGraph
 
 Branches can be *rebased*.
 
-</br>
+<br>
 
 ```{mermaid}
 %%| fig-width: 7
@@ -921,7 +921,7 @@ Hard *reset*
 
 Commits can be *squashed* (combined)
 
-</br>
+<br>
 
 ```{mermaid}
 %%| fig-width: 7
@@ -938,7 +938,7 @@ gitGraph
 
 Commits can be *squashed* (combined)
 
-</br>
+<br>
 
 ```{mermaid}
 %%| fig-width: 7
@@ -2027,7 +2027,7 @@ gitGraph
 - Easiest strategy
 :::
 
-</br>
+<br>
 
 ```{mermaid}
 %%| fig-width: 6
@@ -2097,7 +2097,7 @@ gitGraph
 
 # Branching: Double Trunk
 
-</br>
+<br>
 ```{mermaid}
 %%| fig-width: 10
 gitGraph

@@ -58,16 +58,6 @@ website:
             - text: "exercises"
               href: modules/object_oriented_python/exercises.qmd
 
-        - section: "Object Oriented Python"
-          href: modules/object_oriented_python/overview.qmd
-          contents:
-            - text: 'overview'
-              href: modules/object_oriented_python/overview.qmd
-            - text: 'slides'
-              href: modules/object_oriented_python/slides.qmd
-            - text: "exercises"
-              href: modules/object_oriented_python/exercises.qmd
-
         - section: "Functional Python"
           href: modules/python_decorators/overview.qmd
           contents:

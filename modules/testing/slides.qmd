@@ -225,7 +225,7 @@ plt.show()
 
 
 :::{.r-stack}
-</br>
+<br>
 ![](images/test_pyramid.png){width="550"}
 
 :::
@@ -312,10 +312,10 @@ def test_user_story_1():
 ```{python}
 #| echo: false
 
-new_z = z.cop
+# new_z = z.cop
 
-ax = plot_wireframe(x, y, z, color='red', label='actual behavior')
-plt.show()
+# ax = plot_wireframe(x, y, z, color='red', label='actual behavior')
+# plt.show()
 ```
 
 :::

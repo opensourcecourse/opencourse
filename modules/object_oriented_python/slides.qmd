@@ -1,19 +1,363 @@
 ---
-title: "Advanced Python"
-subtitle: A few advances Python features you'll see in the wild
+title: "Object Oriented Python"
+subtitle: Basic OO design with python
 format:
     revealjs:
         slide-number: true
-        chalkboard:
-          buttons: true
         preview-links: auto
-        logo: ../../images/logo.png
         theme: [../../custom_slides.scss]
-
+        css: ../../slides.css
+        navigation-mode: vertical
+        controls-layout: bottom-right
+        controls-tutorial: true
 footer: \
     <a href="https://opensourcecourse.dev/modules/object_oriented_python/overview.html">overview</a> /\
     <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/object_oriented_python/slides.qmd">source</a> /\
     <a href="https://opensourcecourse.dev/modules/object_oriented_python/exercises.html">exercises</a>
 ---
 
-## Overview
+# Intro
+
+<br>
+
+What is object oriented programming anyway?
+
+::: {.incremental}
+* An abstraction with Data (attributes) and behavior (methods)
+* Data model may fit real-world
+* Extensibility through inheritance
+:::
+
+
+
+# Intro
+
+<br>
+
+:::{.callout-warning}
+Object Orientied is not synonymous with "better"
+:::
+
+
+# Intro
+
+<br>
+
+```python
+class Dog:
+    def __init__(self, name):
+        self.name = name  # data
+    
+    def say_hello(self):  # behavior
+        print(self.name) 
+
+        
+fido = Dog('fido')
+fido.say_hello()
+```
+
+
+
+# Knowledge Check
+
+<br>
+
+```python
+rover = Dog('rover')
+
+rover.say_hello()  # what does this print?
+```
+
+
+
+# Intro
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Possible [Advantages]{.blue}
+
+::: {.incremental}
+- Expressive (inuitive interfaces)
+- Modularity (inheretence)
+- Common Paradigm (java/c++)
+:::
+
+:::
+
+::: {.column width="50%"}
+
+Possible [Disadvantages]{.red}
+
+::: {.incremental}
+- Expressive (sometimes too much freedom)
+- Shared State (who changed what and when?)
+- Slower Execution (objects vs arrays)
+:::
+
+:::
+
+::::
+
+:::{.fragment}
+Others?
+:::
+
+# Nomenclature
+
+<br>
+
+::: {.incremental}
+
+- class - the definition (blank form)  
+- instance - the filled in data (filled in form)
+- self - conventional name for instance
+- attribute - data accessed via getattr (object.name)
+- method - class functions (starts with self)
+
+:::
+
+
+
+# Knowledge Check {auto-animate="true"}
+<br>
+
+```{.python}
+class Customer:
+    name = None
+    
+    def __init__(self, name):
+        self.name = name
+        self.balance = 0
+        
+    def withdraw(self, amount):
+        self.balance -= amount
+```
+
+
+
+# Knowledge Check {auto-animate="true"}
+
+<br>
+
+```{.python code-line-numbers="1|2|3|4"}
+bob = Customer('bob')  # What is bob?  
+cust = Customer  # what is cust?
+bob.balance  # what is balance (value and thing)
+bob.withdraw  # what is withdraw? 
+```
+
+
+
+# Dunders
+
+<br>
+
+Dunders: things with double leading and trailing underscores. 
+These are part of the python language.
+
+
+
+# Dunders: Examples
+
+<br>
+
+```python
+if __name__ == "__main__":
+    ...
+```
+
+
+
+# Dunders: Examples
+
+<br>
+
+```python
+class Customer:
+    def __init__(self, name):
+        self.name = name
+        self.balance = 0
+```
+
+
+
+# Dunders: Examples
+
+<br>
+
+```python
+class Customer:
+    def __add__(self, object_2):
+        ...
+```
+
+
+
+# Dunders: Operator overloading
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- \__add__\  (+)
+- \__sub__\  (-)
+- \__mul__\  (*)
+- \__truediv__\  (/)
+- \__floordiv__\  (//)
+- \__pow__\  (**)
+- \__rshift__\  (>>)
+- \__lshift__\  (<<)
+
+
+:::
+
+::: {.column width="50%"}
+- \__or__\  (|)
+- \__eq__\ (==)
+- \__ne__\ (!=)
+- \__gt__\  (>)
+- \__lt__\  (<)
+- \__neg__\ (-)
+- \__pos__\ (+)
+- \__invert__\ (~)
+:::
+
+::::
+
+
+# Dunders: Operator overloading
+
+```{python}
+#| echo: True
+class FunkyString:
+    def __init__(self, starting_string):
+        self._data = starting_string
+
+    def __rshift__(self, num):
+        return ' '*num + self._data
+
+fs = FunkyString('bob')
+print(fs >> 3)
+print(fs >> 6)
+print(fs >> 9)
+```
+
+
+
+# Inheritance 
+
+<br>
+
+- Inheritance is used to extend or modify classes
+
+- MRO defines lookups (instance) -> (class) -> (parent)
+
+
+
+## Inheritance 
+
+You can check the MRO via the `__MRO__` dunder class attribute.
+
+<br>
+
+```{python}
+#| echo: true
+import pandas as pd
+
+print(pd.DataFrame.__mro__)
+```
+
+
+
+# Inheritance 
+
+```{.python code-line-numbers="|11|12|13"}
+class Parent:
+    value_1 = 0
+    
+class Child(Parent):
+    value_2 = 1    
+    
+    def __init__(self):
+        self.value_1 = 2
+
+child = Child()
+print(child.value_1)
+print(child.value_2)
+print(Child.value_1)
+```
+
+
+
+# OO Design: Good Examples 
+
+<br>
+
+A few well-loved python classes:
+
+:::{.incremental}
+- pathlib.Path
+- pandas.DataFrame
+- scikitlearn (Estimator, Predictor, Transformer, Model)
+- pydantic.BaseModel
+:::
+
+
+
+# OO Design: Good Examples 
+
+<br>
+
+before pathlib
+```python 
+import os
+
+data_path = '/home/user/data'
+
+data_file = os.path.join(data_path, 'the_facts.csv')
+```
+
+
+
+## OO Design: Good Examples 
+
+<br>
+
+With pathlib
+```python 
+from pathlib import Path
+
+data_path = Path('/home/user/data')  # / will now work on windows!
+
+data_file = data_path / 'the_facts.csv'
+```
+
+
+
+# OO Design: Not Good Examples 
+
+<br>
+
+A few dreaded python OO libraries:
+
+:::{.incremental}
+- PyQT (Too many objects)
+- VTK (Too many objects)
+- Boto3 (dynamic loading objects, huge number of objects, etc.)
+:::
+
+
+
+# Good OO Design Rules 
+
+:::{.incremental}
+- Common uses shouldn't require more than 3 classes
+- Classes are simplest when extensions of familiar things (ie list-like plus extra bits)
+- Class division at a high data level (DataFrame rather than dict of Series)
+- Take it easy on operator overloading
+- Avoid deep and multiple inheritance
+- Prefer to return new instances rather than modify in place
+- Functions are just fine too!
+:::
