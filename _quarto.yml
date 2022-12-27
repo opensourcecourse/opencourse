@@ -59,24 +59,24 @@ website:
 #              href: modules/linting/exercises.qmd
 
         - section: "Object Oriented Python"
-          href: modules/python_data_model/overview.qmd
+          href: modules/object_oriented_python/overview.qmd
           contents:
             - text: 'overview'
-              href: modules/python_data_model/overview.qmd
+              href: modules/object_oriented_python/overview.qmd
             - text: 'slides'
-              href: modules/python_data_model/slides.qmd
+              href: modules/object_oriented_python/slides.qmd
             - text: "exercises"
-              href: modules/python_data_model/exercises.qmd
+              href: modules/object_oriented_python/exercises.qmd
 
         - section: "Functional Python"
-          href: modules/python_decorators/overview.qmd
+          href: modules/functional_python/overview.qmd
           contents:
             - text: 'overview'
-              href: modules/python_decorators/overview.qmd
+              href: modules/functional_python/overview.qmd
             - text: 'slides'
-              href: modules/python_decorators/slides.qmd
+              href: modules/functional_python/slides.qmd
             - text: "exercises"
-              href: modules/python_decorators/exercises.qmd
+              href: modules/functional_python/exercises.qmd
 
         - section: "Testing"
           href: modules/testing/overview.qmd
