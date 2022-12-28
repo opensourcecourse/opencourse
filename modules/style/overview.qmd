@@ -4,21 +4,9 @@ title: "Style Matters"
 ![](../../images/style_guy.png)
 
 :::{.callout-note appearance="minimal"}
-Beautiful is better than ugly.
+In character, in manner, in style, in all things, the supreme excellence is simplicity.”
 
-Explicit is better than implicit.
-
-Simple is better than complex.
-
-Complex is better than complicated.
-
-Flat is better than nested.
-
-Sparse is better than dense.
-
-Readability counts....
-
-\- The Zen of Python
+\- Henry Wadsworth
 :::
 
 # Style

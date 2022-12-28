@@ -1,14 +1,15 @@
 ---
-title: "Advanced Python"
-subtitle: A few advances Python features you'll see in the wild
+title: "Functional Python"
+subtitle: Functional features you wont want to live without
 format:
     revealjs:
         slide-number: true
-        chalkboard:
-          buttons: true
         preview-links: auto
-        logo: ../../images/logo.png
         theme: [../../custom_slides.scss]
+        css: ../../slides.css
+        navigation-mode: vertical
+        controls-layout: bottom-right
+        controls-tutorial: true
 
 footer: \
     <a href="https://opensourcecourse.dev/modules/functional_python/overview.html">overview</a> /\
@@ -16,4 +17,393 @@ footer: \
     <a href="https://opensourcecourse.dev/modules/functional_python/exercises.html">exercises</a>
 ---
 
-## Overview
+# Functional Concepts
+
+<br>
+
+:::{.incremental}
+- Pure functions
+- Immutability
+- Functions as parameters
+- Decorators
+- Anonymous functions
+- Map, reduce
+- Recursion
+:::
+
+
+
+# Pure Functions
+
+<br>
+
+```{.python}
+evil_global_state = {'value': 1}
+
+def impure_add(a):
+    return evil_global_state['value'] + a
+
+def pure_add(a, b):
+    return a + b
+```
+
+
+
+# Pure Functions
+
+:::: {.columns}
+
+::: {.column width="50%"}
+[Advantages]{.blue}
+
+::: {.incremental}
+- Parallelize
+- Easier to tests
+- Eliminates race conditions (for atomic uses)
+:::
+
+:::
+
+::: {.column width="50%"}
+
+[Disadvantages]{.red}
+
+::: {.incremental}
+- Less convenient
+- Potentially lots of state to pass around
+- Usually more data copies
+:::
+
+:::
+
+::::
+
+
+
+# Immutability
+
+<br>
+
+:::{.incremental}
+- Objects cannot change once created
+- New objects are created
+- Immutable built-ins: tuple, str, frozenset
+:::
+
+
+
+# Immutability
+
+<br>
+
+```python
+list_1 = [1, 2, 3]
+tuple_1 = (1, 2, 3)
+
+list_1[0] = 0  # sure, why not?
+tuple_1[0] = 0  # no way!
+```
+
+<br>
+
+:::{.fragment}
+Why would we limit ourselves as developers?
+:::
+
+
+
+# Pure Functions
+
+:::: {.columns}
+
+::: {.column width="50%"}
+[Advantages]{.blue}
+
+::: {.incremental}
+- Fewer copies for safety (no-inplace modifications)
+- Cannot be mutated (no race conditions)
+- Eliminates certain bugs
+:::
+
+:::
+
+::: {.column width="50%"}
+
+[Disadvantages]{.red}
+
+::: {.incremental}
+- Less convenient, cant use certain approaches
+- More copies (no-inplace modifications)
+:::
+
+:::
+
+::::
+
+:::{.fragment}
+Avoid changing things and prefer immutability until otherwise needed.
+:::
+
+
+
+# Functions as Parameters
+
+<br>
+
+Functions, or any object, can be passed as a parameter to a callable. 
+
+```python
+def func1():
+    print('func1 called')
+
+def func2(func):
+    return func()
+
+func2(func1)
+```
+
+
+
+# Scope
+
+<br>
+
+Scope: the order in which python "sees" names and values (LEGB):
+
+:::{.incremental}
+Local — callables own indent level
+
+Enclosing-function — callable containing callable
+
+Global (module) — top-level or module names
+
+Built-in (Python) — python names (open, list, set, ValueError, ...)
+:::
+
+::: footer
+See [here](https://realpython.com/python-scope-legb-rule/) for an excellent overview of scope.
+:::
+
+
+
+# Scope{auto-animate="true"}
+
+```python
+arg = 0
+
+def func_1():
+    arg = 1
+    
+    def func_2():
+        arg = 2
+        print(arg)
+    
+    return func_2()
+
+func_1()
+```
+
+:::{.fragment}
+prints: 2
+:::
+
+
+
+# Scope{auto-animate="true"}
+
+```python
+arg = 0
+
+def func_1():
+    arg = 1
+    
+    def func_2():
+        print(arg)
+    
+    return func_2()
+
+func_1()
+```
+
+:::{.fragment}
+prints: 1
+:::
+
+
+
+# Scope{auto-animate="true"}
+
+```python
+arg = 0
+
+def func_1():
+    
+    def func_2():
+        print(arg)
+    
+    return func_2()
+
+func_1()
+```
+
+:::{.fragment}
+prints: 0
+:::
+
+
+# Scope{auto-animate="true"}
+
+```python
+some_arg = 1
+
+def func1():
+    print(some_arg)
+
+def func2(func):
+    some_arg = 2
+    func()
+
+func1()
+func2(func1)
+```
+:::{.fragment}
+prints: 1, Why!?
+:::
+
+
+
+# Scope{auto-animate="true"}
+
+```python
+arg = 0
+
+def func_1():
+    arg = 1
+    
+    def func_2():
+        global arg
+        print(arg)
+    
+    return func_2()
+
+func_1()
+```
+
+:::{.fragment}
+prints: 0, why?
+:::
+
+
+
+# Scope{auto-animate="true"}
+
+```python
+arg = 0
+
+def func_1():
+    arg = 1
+    
+    def func_2():
+        nonlocal arg
+        print(arg)
+    
+    return func_2()
+
+func_1()
+```
+
+:::{.fragment}
+prints: 1, why?
+:::
+
+
+:::{.fragment}
+The function *definition* determines scope, not its use.
+:::
+
+
+
+## Scope{auto-animate="true"}
+
+<br>
+
+:::{.callout-note}
+99% of the time, using global or nonlocal is not a good idea.
+:::
+
+
+
+# Decorators (finally){auto-animate="true"}
+Decorators are a function that take other function.
+
+```python
+def decorator(func):
+    def _wrapper(arg1, arg2):
+        new_arg1 = arg1 + 1
+        new_arg2 = arg2 + 1
+        return func(new_arg1, new_arg2)
+    return _wrapper
+
+def add(arg1, arg2):
+    return arg1 + arg2
+
+decorated = decorator(add)
+print(decorated(1, 1))
+```
+
+
+
+# Decorators {auto-animate="true"}
+@ is used as syntactic sugar.
+
+```python
+def decorator(func):
+    def _wrapper(arg1, arg2):
+        new_arg1 = arg1 + 1
+        new_arg2 = arg2 + 1
+        return func(new_arg1, new_arg2)
+    return _wrapper
+
+@decorator
+def add(arg1, arg2):
+    return arg1 + arg2
+
+add(1, 1)
+```
+
+
+
+# Decorators {auto-animate="true"}
+Decorators don't need to replace the old function
+
+```python
+register = []
+
+def decorator(func):
+    register.append(func)
+    return func
+
+@decorator
+def add(arg1, arg2):
+    return arg1 + arg2
+
+print(add(1, 1), len(register))
+```
+
+
+
+# Decorators {auto-animate="true"}
+But when they do, they should use "wrap" to transfer metedata.
+
+```python
+from functools import wraps
+
+def decorator(func):
+    @wraps(func)
+    def _wrapper(arg1, arg2):
+        new_arg1 = arg1 + 1
+        new_arg2 = arg2 + 1
+        return func(new_arg1, new_arg2)
+    return _wrapper
+```
+

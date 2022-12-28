@@ -245,7 +245,6 @@ print(fs >> 9)
 ```
 
 
-
 # Inheritance 
 
 <br>
@@ -288,6 +287,60 @@ print(child.value_1)
 print(child.value_2)
 print(Child.value_1)
 ```
+
+
+
+# isinstance and issubclass
+
+Checking class relations are done with `isinstance` and `issubclass`
+```{.python code-line-numbers="|7|8|9|10|11|12"}
+class Parent():
+    pass
+
+class Child(Parent):
+    pass
+
+child = Child()
+isinstance(child, Child)
+isinstance(child, Parent)
+isinstance(Child, Parent)
+issubclass(Child, Parent)
+issubclass(child, Parent)
+```
+
+
+
+# Protocols
+
+<br>
+
+Protocols (sometimes called interfaces):
+
+    - indicate objects are compatible in some way
+    - dunders and inheritance are used to *implement* protocols
+    - any number of protocols are possible
+
+
+
+# Protocols
+
+<br>
+
+```python
+class MyCallableClass:
+    secret_number = 42
+    
+    def __call__(self, arg1, arg2):
+        return self.secret_number + arg1 + arg2
+
+my_instance = MyCallableClass()
+
+# now instances are callable
+# (implements callable protocol)
+print(my_instance(-1, 1))
+```
+
+
 
 
 
