@@ -1,6 +1,6 @@
 ---
 title: "Object Oriented Python"
-subtitle: Basic OO design with python
+subtitle: OO programming with python
 format:
     revealjs:
         slide-number: true
@@ -292,7 +292,7 @@ print(Child.value_1)
 
 # isinstance and issubclass
 
-Checking class relations are done with `isinstance` and `issubclass`
+Checking class relations is done with `isinstance` and `issubclass`
 ```{.python code-line-numbers="|7|8|9|10|11|12"}
 class Parent():
     pass
@@ -317,16 +317,51 @@ issubclass(child, Parent)
 Protocols (sometimes called interfaces):
 
     - indicate objects are compatible in some way
-    - dunders and inheritance are used to *implement* protocols
+    - dunders often used to *implement* protocols
     - any number of protocols are possible
+
+
+# Protocols
+
+Common Protocols (most found in types or typing module):
+
+    - Sequence
+    - Mapping
+    - Collection
+    - Hashable
+    - Reversible
+    - Sized
+    - Iterable
+    - ...
 
 
 
 # Protocols
 
-<br>
+Create a class which implements the Hashable protocol
+```{python}
+#| echo: true
 
-```python
+class MyHashableClass:
+    def __init__(self, seed: int):
+        self.seed = seed
+    
+    def __hash__(self):
+        return hash(self.seed)
+
+my_instance = MyHashableClass(42)
+
+# my instance is a valid key in a dictionary
+my_dict = {my_instance: 42}
+```
+
+
+# Protocols
+
+Create a class which implements the Callable protocol
+```{python}
+#| echo: true
+
 class MyCallableClass:
     secret_number = 42
     
@@ -336,11 +371,122 @@ class MyCallableClass:
 my_instance = MyCallableClass()
 
 # now instances are callable
-# (implements callable protocol)
-print(my_instance(-1, 1))
+my_instance(-1, 1)
 ```
 
 
+
+# Protocols
+
+<br>
+Defining protocols
+
+    - ABC module and typing.Protocol define protocols
+    - Protocol specifies required methods and their signatures
+    - ABCs use inheretence (or registering virtual children)
+    - typing.Protocol is based on structure not inheritance, often used for static type checking
+
+::: footer
+[This](https://jellis18.github.io/post/2022-01-11-abc-vs-protocol/) is a great article on the difference between ABC and
+typing.Protocol. See [ABC module](https://docs.python.org/3/library/abc.html) and 
+[typing.Protocol](https://peps.python.org/pep-0544/) docs for more details.
+:::
+
+
+
+# Protocols
+
+ABC example
+```{python}
+#| echo: true
+import abc
+
+class DeckABC(abc.ABC):
+    """An ABC for a deck of cards."""
+    @abc.abstractmethod
+    def shuffle(self):
+        ...
+    
+    @abc.abstractmethod
+    def draw(self):
+        ...
+```
+
+
+
+## Protocols
+
+ABC use
+```{python}
+#| echo: true
+from random import choice, sample
+
+class MyDeck(DeckABC):
+    """A deck with cards 1-10"""
+    def __init__(self, cards=None):
+        if cards is None:
+            cards = list(range(1,11))
+        self.cards = cards
+    
+    def shuffle(self):
+        cards = sample(self.cards, len(self.cards))
+        return MyDeck(cards)
+    
+    def draw(self):
+        card = choice(self.cards)
+        self.cards.pop(card)
+        return card
+        
+mydeck = MyDeck()
+```
+
+
+# Protocols
+
+typing.Protocol example
+```{python}
+#| echo: true
+from typing import Protocol, runtime_checkable, Self
+
+@runtime_checkable
+class DeckProtocol(Protocol):
+    """An ABC for a deck of cards."""
+    def shuffle(self) -> Self:
+        ...
+    
+    def draw(self) -> str:
+        ...
+```
+
+
+
+## Protocols
+
+typing.Protocol use
+```{python}
+#| echo: true
+from typing import Self
+from random import choice, sample
+
+class MyDeck:
+    """A deck with cards 1-10"""
+    def __init__(self, cards=None):
+        if cards is None:
+            cards = list(range(1,11))
+        self.cards = cards
+    
+    def shuffle(self) -> Self:
+        cards = sample(self.cards, len(self.cards))
+        return MyDeck(cards)
+    
+    def draw(self) -> str:
+        card = choice(self.cards)
+        self.cards.pop(card)
+        return card
+
+deck = MyDeck()
+assert isinstance(deck, DeckProtocol)
+```
 
 
 
@@ -403,11 +549,11 @@ A few dreaded python OO libraries:
 
 
 
-# Good OO Design Rules 
+# Derrick's OO Design Guidelines 
 
 :::{.incremental}
-- Common uses shouldn't require more than 3 classes
-- Classes are simplest when extensions of familiar things (ie list-like plus extra bits)
+- Common uses shouldn't require more than 3 classes (make a user-friendly code not a puzzle)
+- Classes are simplest when extensions of familiar protocols (ie list-like plus extra bits)
 - Class division at a high data level (DataFrame rather than dict of Series)
 - Take it easy on operator overloading
 - Avoid deep and multiple inheritance

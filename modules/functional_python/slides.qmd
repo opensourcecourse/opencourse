@@ -112,7 +112,7 @@ Why would we limit ourselves as developers?
 
 
 
-# Pure Functions
+# Immutability
 
 :::: {.columns}
 
@@ -377,17 +377,17 @@ add(1, 1)
 Decorators don't need to replace the old function
 
 ```python
-register = []
+registery = []
 
 def decorator(func):
-    register.append(func)
+    registery.append(func)
     return func
 
 @decorator
 def add(arg1, arg2):
     return arg1 + arg2
 
-print(add(1, 1), len(register))
+print(add(1, 1), len(registery))
 ```
 
 
@@ -406,4 +406,211 @@ def decorator(func):
         return func(new_arg1, new_arg2)
     return _wrapper
 ```
+
+
+
+# Decorators in the Wild
+
+<br>
+
+functools cache
+
+```python
+from functools import cache
+
+@cache
+def fibonacci(n):
+   if n <= 1:
+       return n
+   fib1 = fibonacci(n-1)
+   fib2 = fibonacci(n-2)
+   return fib1 + fib2
+```
+
+
+
+# Decorators in the Wild
+
+<br>
+
+functools partial
+
+```{python}
+#| echo: true
+from functools import partial
+
+def add(a, b):
+    return a + b
+
+partial_add = partial(add, b=2)
+
+print(partial_add(1))
+```
+
+
+
+# Decorators in the Wild
+
+<br>
+
+Pytest
+
+```python
+import pytest
+
+@pytest.fixture()
+def setup_data():
+    return [1, 2, 3]
+
+def test_data(setup_data):
+    assert len(setup_data)
+```
+
+
+
+# Decorators in the Wild
+
+<br>
+
+Flask
+
+```python
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+```
+
+
+
+# Decorators Summary
+
+<br>
+Decorators:
+
+:::{.incremental}
+- Are functions which take other functions as inputs
+- Can use the @ as shorthand for `decorator(func)`
+- May return a new function (appears to modify original)
+- Semantically mark a function
+:::
+
+
+
+# Anonymous Functions
+
+:::{.r-stack}
+![](https://ih1.redbubble.net/image.789708875.3643/poster,504x498,f8f8f8-pad,600x600,f8f8f8.u4.jpg)
+:::
+
+
+
+# Anonymous Functions
+
+<br>
+Functions with no name
+
+```{.python code-line-numbers="|6" auto-animate="true"}
+my_list = [1, 3, 2]
+other_map = {1: 10, 2: 0, 3: 99}
+
+sort_list = sorted(
+    my_list, 
+    key=lambda x: other_map[x]
+)
+```
+
+
+
+# Anonymous Functions
+
+<br>
+
+Lambda def equivalence
+
+```
+# never give a lambda a name
+func1 = lambda x, y, z: x + y + z
+
+# use a def instead
+def func1(x, y, z):
+    return x + y + z 
+```
+
+
+
+# Map
+
+<br>
+
+Apply a function to each element of a sequence
+
+```{python}
+#| echo: true
+my_range = range(10)
+
+# square the list
+out = map(lambda x: x*x, my_range)
+
+print(list(out))
+```
+
+
+
+# Reduce
+
+
+Apply a function to first two elements, then the result to the third, etc.
+
+
+```{python}
+#| echo: true
+from functools import reduce
+my_range = range(1, 6)
+
+# square the list
+out = reduce(lambda x,y: x*y, my_range)
+
+print(out)
+```
+
+::: footer
+Haskel calls reduce "fold" which is a more descriptive name.
+See [Real Python's article](https://realpython.com/python-reduce-function/) for more on reduce.
+:::
+
+
+
+# Recursion
+
+<br>
+When a function calls into itself. Has a base case and at least one recursive case.
+
+
+```{.python code-line-numbers="|3|4,5"}
+def fibonacci(n):
+   if n <= 1:
+       return n
+   fib1 = fibonacci(n-1)
+   fib2 = fibonacci(n-2)
+   return fib1 + fib2
+```
+
+
+
+# Recursion
+
+<br>
+
+Recursion:
+
+:::{.incremental}
+- Works well for parsing recursive data structures (eg trees)
+- Easy to overflow the stack
+- Works well for showing off
+- Can be difficult to understand
+- Should be used sparingly
+:::
 
