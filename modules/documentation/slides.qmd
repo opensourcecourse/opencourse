@@ -16,10 +16,247 @@ format:
 footer: \
     <a href="https://opensourcecourse.dev/modules/documentation/overview.html">overview</a> /\
     <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/documentation/slides.qmd">source</a> /\
-[testing](..%2Ftesting)    <a href="https://opensourcecourse.dev/modules/documentation/exercises.html">exercises</a>
+    <a href="https://opensourcecourse.dev/modules/documentation/exercises.html">exercises</a>
 ---
 
 
-# Documentation 
+# What is it? 
+<br>
 
-Why?
+Documentation is:
+
+:::{.incremental}
+- User's manual
+- Blueprints
+- Promotional material
+- Sticky notes
+- Textbook
+- Prose
+:::
+
+
+  
+# Documentation Taxonomy
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+[Forms]{.red-bold}
+
+:::{.incremental}
+- Code comments (in-line, block)
+- Docstrings
+- Markdown/ReST files
+:::
+
+:::
+
+::: {.column width="50%"}
+[Audiences]{.blue-bold}
+
+:::{.incremental}
+- Developers
+- Software users
+- Potential users
+- General public
+:::
+
+:::
+
+::::
+
+
+
+# Code Comments: in-line {auto-animate="true"}
+
+<br> 
+
+comments made on the same line as code. Should be separated with 2 spaces.
+
+```python
+extent = width + 0.1  # Accounts for screen boarder  
+```
+
+
+
+# Code Comments: in-line {auto-animate="true"}
+
+<br> 
+
+Use sparingly to explain why, not what.
+
+```python
+extent = width + 0.1  # Add a bit to width  
+```
+
+
+
+# Code Comments: in-line {auto-animate="true"}
+
+<br> 
+
+Don't use comments to mask other issues
+
+```python
+x = 1.7  # Event magnitude  
+```
+
+
+
+# Code Comments: in-line {auto-animate="true"}
+
+<br> 
+
+Don't use comments to mask other issues
+
+```python
+event_magnitude = 1.7  
+```
+
+
+
+# Code Comments: block {auto-animate="true"}
+
+</br>
+
+- One or more lines which starts with #
+- A single space follows each #
+- Can span many lines
+- Should match indentation level of code
+
+
+
+# Code Comments: block {auto-animate="true"}
+<br>
+
+```python
+# We loop over the data list here because the rows 
+# can have different lengths which precludes using
+# an array.
+for row in data:
+    ...
+```
+
+
+# Code Comments: block {auto-animate="true"}
+
+<br>
+Don't state the obvious
+
+```python
+# Loop over 0-9, add 42 and print.
+for num in range(10):
+    new_num = num + 42
+    print(new_num)
+```
+
+
+
+## Code Comments: block {auto-animate="true"}
+
+</br>
+
+:::{.callout-note}
+In some cases, it might actually help to explain what a groups of lines are doing
+with a comment above them to help with "human parsability". But do this after
+trying to rename variables and breaking into smaller functionality.
+:::
+
+
+
+# Code Comments: block {auto-animate="true"}
+
+<br>
+Explain/justify unorthodoxy  
+
+```python
+# Keep imports sorted this way to avoid circular
+# imports between sub-modules
+import .utils
+import .processing
+```
+
+
+
+# Code Comments: block {auto-animate="true"}
+
+<br>
+Comment on attributes/variables meaning.
+
+```python
+# Planck's constant in m**2 kg / s
+planck = 6.62607015e-34
+```
+
+::: footer
+Although [pep 224](https://peps.python.org/pep-0224/) was rejected, placing a string literal
+after an assignment is also popular. Using the attributes section on class or module docstring
+is probably the best approach, however.
+:::
+
+
+# Docstrings
+
+
+# Diátaxis
+
+
+![](https://diataxis.fr/_images/diataxis.png)
+
+
+::: footer
+Read more on  the [Diátaxis website](https://diataxis.fr/).
+:::
+
+
+
+# Tutorials
+Take the reader through a series of steps (learning-oriented).
+
+:::{.incremental}
+- Get the user started
+- Provide a complete picture at the start
+- Ensure that the tutorial works reliably
+- Ensure the user sees results immediately
+- Describe concrete steps, not abstract concepts
+- Offer only minimum, necessary, explanation
+- Ignore options and alternatives
+:::
+
+
+
+# How tos
+Walk the reader through solving a real-world problem (goal-oriented).
+
+:::{.incremental}
+- Solve a problem
+- Don't explain concepts
+- Are flexible
+- Omit unnecessary info
+- Are well named
+:::
+
+
+
+# References
+Technical descriptions of the machinery and how to operate it (information-oriented).
+
+:::{.incremental}
+- Are consistent
+- Do nothing but describe
+- Provide examples
+- Is accurate
+:::
+
+
+# Explanation
+Clarifies and illuminates a particular topic (understanding-oriented).
+
+:::{.incremental}
+- Makes connections
+- Provides context
+- Talk *about* the subject
+- Discuss alternatives and opinions
+- Doesn't instruct or provide technical reference
+:::
