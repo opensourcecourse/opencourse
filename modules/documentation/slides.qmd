@@ -16,7 +16,7 @@ format:
 footer: \
     <a href="https://opensourcecourse.dev/modules/documentation/overview.html">overview</a> /\
     <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/documentation/slides.qmd">source</a> /\
-    <a href="https://opensourcecourse.dev/modules/documentation/exercises.html">exercises</a>
+[testing](..%2Ftesting)    <a href="https://opensourcecourse.dev/modules/documentation/exercises.html">exercises</a>
 ---
 
 
