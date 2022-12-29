@@ -299,9 +299,27 @@ def test_user_story_1():
 
 
 # Testing [Approaches]{.blue-bold}: Example
+<br>
+
 - Generate example data manually for test case
 - Ensure expected and actual behavior match
+- How do we know when we have picked enough examples?
 
+
+
+# Testing [Approaches]{.blue-bold}: Example
+<br>
+```python
+def add(a, b):
+    return a + b
+
+def test_add_some_floats():
+    """Add floats together"""
+    assert add(1, 3) == 4
+    assert add(10, 12) == 22
+    assert add(-5, 5) == 0
+    ...
+```
 
 
 
@@ -312,11 +330,383 @@ def test_user_story_1():
 ```{python}
 #| echo: false
 
-# new_z = z.cop
+new_z = np.copy(z)
+shape = z.shape
+rand = np.random.RandomState(33)
 
-# ax = plot_wireframe(x, y, z, color='red', label='actual behavior')
-# plt.show()
+
+# create x/y pair
+x_vals, y_vals = [], []
+for _ in range(50):
+    x_vals.append(rand.randint(0, shape[0]))
+    y_vals.append(rand.randint(0, shape[1]))
+
+# set new_z values to expected value for pair.
+for x_ind, y_ind in zip(x_vals, y_vals):
+    new_z[x_ind-3:x_ind + 3, y_ind - 3:y_ind + 3] = np.median(z)
+    
+
+
+ax = plot_wireframe(x, y, new_z, color='red', label='actual behavior')
+
+# set new_z values to expected value for pair.
+for x_ind, y_ind in zip(x_vals, y_vals):
+    xval = x[x_ind, y_ind]
+    yval = y[x_ind, y_ind]
+    ax.scatter(
+        xval, yval, np.median(z), color='blue',
+    )
+plt.show()
 ```
 
 :::
 
+
+
+# Testing [Approaches]{.blue-bold}: Property
+<br>
+
+- The framework generate many examples (distribution)
+- Keeps track of failures
+- Edge cases also checked (eg 0, -1 NaN, inf)
+- Tests can take much longer
+- Non-deterministic
+
+
+
+# Testing [Approaches]{.blue-bold}: Property
+<br>
+```python
+def add(a, b):
+    return a + b
+
+# The framework injects f1/f2 into test many times
+def test_add_many_floats_floats(f1, f2):
+    """Add floats together"""
+    assert add(f1, f2) == f1 + f2
+```
+
+
+
+# Testing [Approaches]{.blue-bold}: Property
+
+:::{.absolute top=-200 left=20}
+
+```{python}
+#| echo: false
+
+new_z = np.copy(z)
+
+ind = 100
+
+new_z[:, ind - 6: ind + 6] = np.median(z)
+
+ax = plot_wireframe(x, y, new_z, color='red', label='actual behavior')
+
+# set new_z values to expected value for pair.
+for xval, yval in zip(x[:, ind], y[:, ind]):
+    ax.scatter(
+        xval, yval, np.median(z), color='blue',
+    )
+plt.show()
+```
+
+:::
+
+
+# Testing [Approaches]{.blue-bold}: Mutation
+
+:::{.r-stack}
+![](https://preview.redd.it/ikue937n15u71.jpg?auto=webp&s=a94c95751fd5f3b718950e3cf9d4cc3384c2b4f4){width="400"}
+:::
+
+
+# Testing [Approaches]{.blue-bold}: Mutation
+<br>
+
+- Approach to test the tests
+- The framework make syntactically correct changes to the code
+- Runs the tests
+- Expects a test failure (no test-failure = failed mutation test)
+
+
+
+# Testing [Approaches]{.blue-bold}: Mutation {auto-animate=true}
+<br>
+Original function and tests
+
+```python
+def add(a, b):
+    return a + b
+
+def test_add_many_floats_floats():
+    """Test add floats together"""
+    assert add(1, 2) == 3
+    assert add(2, 2) == 4
+```
+
+
+
+# Testing [Approaches]{.blue-bold}: Mutation {auto-animate=true}
+
+<br>
+
+Mutated function (tests unchanged)
+
+```{.python code-line-numbers="|2"}
+def add(a, b):
+    return a - b
+
+def test_add_many_floats_floats():
+    """Test add floats together"""
+    assert add(1, 2) == 3
+    assert add(2, 2) == 4
+```
+
+
+
+
+# Testing [Approaches]{.blue-bold}: Mutation
+
+:::{.absolute top=-200 left=20}
+
+```{python}
+#| echo: false
+
+rand = np.random.RandomState(33)
+
+new_z = z + rand.randint(0, 10, size=new_z.shape) * np.std(z)/40
+
+ax = plot_wireframe(x, y, new_z, color='red', label='actual behavior')
+plt.show()
+```
+
+:::
+
+
+
+# [Pytest](https://docs.pytest.org/en/7.2.x/)
+
+<br>
+
+- De-facto python testing framework (apart from unittest)
+- Highly extensible (100+ plugins)
+- Separates setup, testing, teardown
+- Configurable with commandline arguments
+
+:::{.r-stack}
+![](https://docs.pytest.org/en/7.1.x/_static/pytest_logo_curves.svg){width="180"}
+:::
+
+
+
+# Pytest
+
+Write some extra tests for numpy's linalg norm
+
+
+```{.python filename="test_norm1.py" code-line-numbers="|5|11"}
+import numpy as np
+
+def test_l2_norm_positive():
+    random = np.rand.random(100)
+    assert np.linalg.norm(random, ord=2) > 0
+
+def test_nan_returns_nan():
+    random = np.rand.random(100)
+    random[10] = np.NaN
+    out = np.linalg.norm(random)
+    assert np.isnan(out)
+```
+
+
+
+# Pytest
+
+<br>
+
+Run tests from the command line using pytest.
+
+```bash
+pytest test_norm.py
+```
+
+![](images/test_run.png)
+
+Specifying the file is optional, otherwise all are discovered. 
+
+
+
+# Knowledge Check
+
+<br>
+
+What domain and approach are we using?
+
+
+
+# Pytest: Fixtures
+
+
+```{.python filename="test_norm1.py" code-line-numbers="|6-7|8|11-13|9"}
+import numpy as np
+import pytest
+
+@pytest.fixture()
+def array_with_nans():
+    random = np.rand.random(100)
+    random[10] = np.NaN
+    yield random
+    del random
+
+def test_nan_returns_nan(array_with_nans):
+    out = np.linalg.norm(array_with_nans)
+    assert np.isnan(out)
+```
+
+
+
+# Pytest: Fixtures Scope {auto-animate=true}
+
+
+Scopes control how often fixtures are run: 
+ "function", "class", "module", "package", "session" 
+
+```{.python filename="test_norm1.py"}
+import numpy as np
+import pytest
+
+@pytest.fixture(scope='class')
+def array_with_nans():
+    random = np.rand.random(100)
+    random[10] = np.NaN
+    yield random
+    del random
+```
+
+
+# Knowledge Check
+
+What's wrong here?
+```{.python}
+import numpy as np
+import pytest
+
+@pytest.fixture()
+def data():
+    return [1, 2, 3]
+    
+def test_data_1():
+    assert isinstance(data, list)
+```
+:::{.fragment}
+test_data_1 needs the data argument!
+:::
+
+
+# Knowledge Check
+
+What's wrong here? How can we fix it?
+```{.python code-line-numbers="|4|9"}
+import numpy as np
+import pytest
+
+@pytest.fixture(scope='session')
+def data():
+    return [1, 2, 3]
+    
+def test_data_1(data):
+    data[0] = 10
+
+def test_data_2(data):
+    assert sum(data) == 6
+```
+
+
+
+# Pytest: Derrick's Test Organization 
+
+<br>
+
+
+:::{.incremental}
+- Organize like tests into classes
+- Make fixtures when setup is more than 2~3 lines or teardown is needed
+- Fixtures should be as close to tests as possible
+- Move fixtures from classes, to modules, to conftest.py as needed
+- Test files mirror packages, go in tests/ directory
+:::
+
+
+# Pytest: Derrick's Test Organization {auto-animate=true}
+
+```python
+import numpy as np
+import pytest
+
+class TestThing1:
+    def test_1_thing_1(self, array):
+        ar = np.array([1, 2, 3])
+        ...
+    
+    def test_2_thing_1(self, array):
+        ar = np.array([1, 2, 3])
+        ...
+```
+
+
+
+# Pytest: Derrick's Test Organization {auto-animate=true}
+
+```python
+import numpy as np
+import pytest
+
+class TestThing1:
+    @pytest.fixture()
+    def array(self):
+        return np.array([1, 2, 3])
+    
+    def test_1_thing_1(self, array):
+        ...
+    
+    def test_2_thing_1(self, array):
+        ...
+```
+
+
+
+# Pytest: Derrick's Test Organization {auto-animate=true}
+
+```python
+import numpy as np
+import pytest
+
+@pytest.fixture()
+def array():
+    return np.array([1, 2, 3])
+
+class TestThing1:
+    
+    def test_1_thing_1(self, array):
+        ...
+    
+    def test_2_thing_1(self, array):
+        ...
+
+class TestThing2:
+    def test_1_thing_2(self, array):
+        ...
+```
+
+
+
+# Pytest: Tips/Tricks
+
+<br>
+
+- --pdb -x -x flags stop after a test failure and drop into debugger
+- Check coverage with [pytest-cov](https://pypi.org/project/pytest-cov/)
+- Testing reqs are different for packages/libraries vs research scripts
+- pytest integrates with many IDEs (vscode, pycharm)
+- Have fun!

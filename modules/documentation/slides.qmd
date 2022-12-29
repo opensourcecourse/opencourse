@@ -1,17 +1,25 @@
 ---
 title: "Documentation"
-subtitle: Documenting python code
+subtitle: Document it or it doesn't exist
 format:
     revealjs:
         slide-number: true
-        chalkboard:
-          buttons: true
         preview-links: auto
-        logo: ../../images/logo.png
         theme: [../../custom_slides.scss]
+        css: ../../slides.css
+        view-distance: 100
+        mobile-view-distance: 100
+        navigation-mode: vertical
+        controls-layout: bottom-right
+        controls-tutorial: true
 
 footer: \
     <a href="https://opensourcecourse.dev/modules/documentation/overview.html">overview</a> /\
     <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/documentation/slides.qmd">source</a> /\
     <a href="https://opensourcecourse.dev/modules/documentation/exercises.html">exercises</a>
 ---
+
+
+# Documentation 
+
+Why?
