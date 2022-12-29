@@ -36,67 +36,54 @@ Documentation is:
 
 
   
-# Documentation Taxonomy
+# Documentation  Types
 
-
-:::: {.columns}
-
-::: {.column width="50%"}
-[Forms]{.red-bold}
+<br>
 
 :::{.incremental}
 - Code comments (in-line, block)
 - Docstrings
-- Markdown/ReST files
+- Readme
+- Project Documentation
 :::
 
-:::
-
-::: {.column width="50%"}
-[Audiences]{.blue-bold}
-
-:::{.incremental}
-- Developers
-- Software users
-- Potential users
-- General public
-:::
-
-:::
-
-::::
 
 
-
-# Code Comments: in-line {auto-animate="true"}
+# Code Comments: In-Line {auto-animate="true"}
 
 <br> 
 
-comments made on the same line as code. Should be separated with 2 spaces.
+Comments made on the same line as code. Should be separated with 2 spaces.
+
+<br>
 
 ```python
-extent = width + 0.1  # Accounts for screen boarder  
+extent = width + 1  # Accounts for screen boarder  
 ```
 
 
 
-# Code Comments: in-line {auto-animate="true"}
+# Code Comments: In-Line {auto-animate="true"}
 
 <br> 
 
-Use sparingly to explain why, not what.
+Use sparingly. Explain why, not what.
+
+<br>
 
 ```python
-extent = width + 0.1  # Add a bit to width  
+extent = width + 1  # Add a bit to width  
 ```
 
 
 
-# Code Comments: in-line {auto-animate="true"}
+# Code Comments: In-Line {auto-animate="true"}
 
 <br> 
 
 Don't use comments to mask other issues
+
+<br> 
 
 ```python
 x = 1.7  # Event magnitude  
@@ -104,11 +91,13 @@ x = 1.7  # Event magnitude
 
 
 
-# Code Comments: in-line {auto-animate="true"}
+# Code Comments: In-Line {auto-animate="true"}
 
 <br> 
 
 Don't use comments to mask other issues
+
+<br> 
 
 ```python
 event_magnitude = 1.7  
@@ -116,9 +105,9 @@ event_magnitude = 1.7
 
 
 
-# Code Comments: block {auto-animate="true"}
+# Code Comments: Block  {auto-animate="true"}
 
-</br>
+<br>
 
 - One or more lines which starts with #
 - A single space follows each #
@@ -127,7 +116,7 @@ event_magnitude = 1.7
 
 
 
-# Code Comments: block {auto-animate="true"}
+# Code Comments: Block  {auto-animate="true"}
 <br>
 
 ```python
@@ -139,7 +128,7 @@ for row in data:
 ```
 
 
-# Code Comments: block {auto-animate="true"}
+# Code Comments: Block  {auto-animate="true"}
 
 <br>
 Don't state the obvious
@@ -153,9 +142,9 @@ for num in range(10):
 
 
 
-## Code Comments: block {auto-animate="true"}
+## Code Comments: Block  {auto-animate="true"}
 
-</br>
+<br>
 
 :::{.callout-note}
 In some cases, it might actually help to explain what a groups of lines are doing
@@ -165,7 +154,7 @@ trying to rename variables and breaking into smaller functionality.
 
 
 
-# Code Comments: block {auto-animate="true"}
+# Code Comments: Block  {auto-animate="true"}
 
 <br>
 Explain/justify unorthodoxy  
@@ -179,7 +168,7 @@ import .processing
 
 
 
-# Code Comments: block {auto-animate="true"}
+# Code Comments: Block  {auto-animate="true"}
 
 <br>
 Comment on attributes/variables meaning.
@@ -196,7 +185,215 @@ is probably the best approach, however.
 :::
 
 
-# Docstrings
+# Code Comments: In the Wild
+<br>
+
+```python
+class record(nt.void):
+    """A data-type scalar that allows field
+     access as attribute lookup.
+    """
+    # manually set name and module so that 
+    # this class's type shows up as numpy.record 
+    # when printed
+    __name__ = 'record'
+    __module__ = 'numpy'
+```
+
+:::footer
+Example from [here](https://github.com/numpy/numpy/blob/bf20c55a2e464b183db54c280c3b327762c390af/numpy/core/records.py#L223-L230)
+, reformatted to fit on screen.
+:::
+
+
+# Code Comments: In the Wild
+<br>
+
+```python
+# GH#23758: We may still need to 
+# localize the result with tz
+# GH#25546: Apply tz_parsed first (from arg),
+# then tz (from caller)
+# result will be naive but in UTC
+result = (
+    result.tz_localize("UTC")
+    .tz_convert(tz_parsed)
+)
+```
+
+:::footer
+Example from [here](https://github.com/pandas-dev/pandas/blob/502919e4b18e5d5aca584d4ebb84d663fcefffc9/pandas/core/tools/datetimes.py#L538-L541),
+reformatted to fit on screen.
+:::
+
+
+# Docstrings  {auto-animate="true"}
+
+<br>
+
+Docstrings follow functions, methods, modules, classes, etc.
+They explain the purpose and use of the code.
+
+```python
+def recombobulate(bob, bits):
+    """Put Bob and bits back together"""
+```
+
+
+
+# Docstrings  {auto-animate="true"}
+
+<br>
+
+docstrings are accessed via `__doc__`
+
+```python
+def recombobulate(bob, bits):
+    """Put Bob and bits back together"""
+
+print(recombobulate.__doc__)
+```
+
+
+
+# Docstrings  {auto-animate="true"}
+
+<br>
+
+Ideal public (doesn't start with _) docstrings:
+
+:::{.incremental}
+- Start with a single line description
+- Describe the input parameters
+- Describe the output parameters (when needed)
+- Provide an example
+:::
+
+
+
+# Docstrings  {auto-animate="true"}
+<br>
+
+There are several common flavors of docstrings
+
+- Numpy
+- ReST
+- Google
+- Just markdown (I wish)
+
+
+
+# Docstrings: Numpy
+
+<br>
+
+- Most common docstring style for scientific/machine learning codes
+- More human readable than some other styles
+- Uses several sections underscored by -----
+- Examples section uses standard [doctest format](https://docs.python.org/3/library/doctest.html)
+
+::: footer
+See the [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html) site for more details on numpy flavored
+docstrings.
+:::
+
+
+# Docstrings: Numpy
+
+<br>
+
+```python
+def recombobulate(bob, bits):
+    """Put Bob and bits back together.
+    
+    Parameters
+    ----------
+    bob
+        The Bob object which was discombobulated.
+        
+    bits
+        The Bob bits which fell off.
+    
+    Returns
+    -------
+    A new Bob object without missing bits. 
+        
+    Examples
+    --------
+    >>> new_bob = recombobulate(bob, bits)
+    """
+```
+
+
+# Docstrings: Doctests
+
+<br>
+Example can (and should) be run to make sure it still works. 
+Pytest does this:
+
+```bash
+pytest --doctest-modules
+```
+
+
+# Docstrings: Tips
+
+<br>
+
+:::{.incremental}
+- Use a spell checker
+- Use complete sentences
+- Try to be empathetic
+- It's fine if the docstring is longer than the code
+- Typehints are good too, don't be redundant.
+:::
+
+
+# Understanding Check
+
+What's wrong here? 
+
+```{.python}
+def my_func(thing_a, thing_b):
+    """
+    
+    Parameters
+    ----------
+    thing_a
+        The first thing 
+    """
+```
+
+
+# Readme
+
+<br>
+
+Your project's elevator pitch / note in a bottle
+
+- Short
+- Show code snippets
+- Describe basic functionality
+- A prospective user knows within 2 minutes if the library might solve their problem
+
+
+
+# Markdown/reST
+
+<br>
+The rest of the documentation is written in markdown, restructured text (less common), or notebooks.
+
+These include:
+
+:::{.increment}
+- readme
+- tutorials
+- technical references
+- How to guides
+:::
+
+
+
 
 
 # Diátaxis
@@ -260,3 +457,58 @@ Clarifies and illuminates a particular topic (understanding-oriented).
 - Discuss alternatives and opinions
 - Doesn't instruct or provide technical reference
 :::
+
+
+
+# Advice
+
+<br>
+
+- While writing, remember the kind of doc.
+- Don't cross the streams! Try to keep each doc type separate but add links where needed.
+- Make sure any code is executed when building docs
+- Have someone who doesn't know the library review docs
+
+
+
+# Building and Hosting Docs
+
+<br>
+
+The most common libraries for building python docs:
+
+- [sphinx](https://www.sphinx-doc.org/en/master/)
+- [mkdocs](https://www.mkdocs.org/)
+- [quarto](https://quarto.org/)
+
+The pages can be hosted on readthedocs, githubpages, or elsewhere.
+
+
+
+# Virtual Field Trip
+
+<br>
+With a partner, checkout two  of these project's readmes:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+- [TQDM](https://github.com/tqdm/tqdm)
+- [fastapi](https://github.com/tiangolo/fastapi)
+- [textual](https://github.com/Textualize/textual)
+- [rocketry](https://github.com/Miksus/rocketry)
+- [distinctipy](https://github.com/alan-turing-institute/distinctipy)
+:::
+
+::: {.column width="60%"}
+- [awkward](https://github.com/scikit-hep/awkward)
+- [pytest-codeblocks](https://github.com/nschloe/pytest-codeblocks)
+- [svglue](https://github.com/mbr/svglue)
+- [sktime](https://github.com/sktime/sktime)
+- [pooch](https://github.com/fatiando/pooch)
+:::
+
+::::
+
+
+

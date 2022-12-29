@@ -19,7 +19,88 @@ footer: \
     <a href="https://opensourcecourse.dev/modules/collaborative_development/exercises.html">exercises</a>
 ---
 
+
+# Collaborative Development
+
+<br>
+
+- Codes of Conduct
+- Issues
+- Discussions
+- Pull Requests
+- Code Reviews
+
+
+
+
+# Codes of Conduct
+
+<br>
+
+- Establishes expectations
+- Lays out conflict resolution
+- Can help establish the tone of a community
+- [Contributor covenant](https://www.contributor-covenant.org/) is a popular choice
+- Be respectful of others, practice empathy
+
+
 # Issues
 
+An issue is a petition for a volunteer's time.
+Make that petition compelling.
 
+<br>
+
+- Provide enough information to reproduce the issue
+- Provide information about your setup
+- Be clear about your expectations of the code
+- Be patient
+- Make suggestions on how to fix, open PR if obvious
+
+
+# Issues: in the Wild
+
+<br>
+
+Take a look at a few of these issues. Do they make a compelling case? 
+
+- [Obspy 2276](https://github.com/obspy/obspy/issues/2276)
+- [Numpy 22585](https://github.com/numpy/numpy/issues/22585)
+- [Pandas 50373](https://github.com/pandas-dev/pandas/issues/50373) 
+- [Pandas 50473](https://github.com/pandas-dev/pandas/issues/50473)
+
+
+# Pull Requests
+Before you start...
+
+<br>
+
+:::{.incremental}
+- See if the project is even active
+- Read the developer documentation
+- Discuss new features
+:::
+
+
+# Pull Requests
+Before you start...
+
+<br>
+
+```{mermaid}
+%%| fig-width: 10
+flowchart LR
+  A[Bug] --> AA(Issue)
+  AA -- Non-obvious fix --> BB(Discuss) 
+  AA -- Obvious fix --> CC[Open PR]  
+  B[New Feature] --> BB
+  BB -- Consensus --> CC
+```
+
+
+
+# Pull Requests
+
+
+# Code reviews
 
