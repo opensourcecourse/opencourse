@@ -102,7 +102,7 @@ website:
 
   navbar:
     background: light
-    logo: images/osc_favi.png
+    logo: images/oss_gateway.png
     logo-alt: "OSC logo."
     title: false
     collapse-below: lg
