@@ -5,10 +5,12 @@ title: Exercises
 # Github Starter Course (Optional)
 
 Before proceeding to the assignment, if you feel you need more instructions, or want to learn more about the
-github specific features, you can complete the [starter course from github](https://github.com/opensourcecourse/github-starter-course).
+github specific features, you can complete the [starter course from github](https://github.com/education/github-starter-course).
 
-# Git Good Assignment
+# Git Assignment
 
-For this assignment, we will be practicing some of the git commands we discussed in class. If you are enrolled
-in the course, use the link provided in your course material to proceed. If you are going through the course on
-your own, you can find the assignment [here](https://github.com/opensourcecourse/git-assignment)
+The assignment link for this module can be found on the 
+[student discussion page](https://github.com/orgs/opensourcecourse/teams/students/discussions?pinned=1)
+
+If you are going through the course on
+your own, you can find template assignment [here](https://github.com/opensourcecourse/git-assignment)

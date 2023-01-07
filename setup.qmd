@@ -74,8 +74,14 @@ to use https or 2) Setup [ssh keys](https://docs.github.com/en/authentication/co
 
 :::
 
-# Setup Python
+# Setup Python Environment
 
 There are several ways to setup python but we recommend using [conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html). You
 may also want to [create a virtual environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands)
 for the course.
+
+All the packages you will need for the assignments can be installed with the following command:
+
+```bash
+python -m pip install -r https://raw.githubusercontent.com/opensourcecourse/utils/main/requirements.txt
+```
