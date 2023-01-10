@@ -153,7 +153,9 @@ bob.withdraw  # what is withdraw?
 
 <br>
 
-Dunders: things with double leading and trailing underscores. 
+[Dunders]{.red-bold}: 
+
+Names with double leading and trailing underscores. 
 These are part of the python language.
 
 
@@ -244,6 +246,52 @@ print(fs >> 6)
 print(fs >> 9)
 ```
 
+# Getters and Setters
+
+<br>
+
+::: {.incremental}
+- Avoid using `get` and `set` methods.
+- For simple cases, just assign or access a value on the instance/class.
+- When more logic is needed use [getters/setters](https://stackoverflow.com/a/2627034/3645626).
+- For many such attributes use [descriptors](https://docs.python.org/3/howto/descriptor.html).
+- If this still doesn't work cosnider `get`/`set`.
+:::
+
+
+# Getters and Setters
+
+Incorrect (most of the time)
+```python
+class DynamicX(object):
+    def __init__(self):
+        self._x = None
+
+    def get_x(self):
+        return self._x
+
+    def set_x(self, value):
+        self._x = value
+```
+
+# Getters and Setters
+
+Correct (most of the time)
+```python
+class DynamicX(object):
+    def __init__(self):
+        self._x = None
+
+    @property
+    def x(self):
+        print("getter of x called")
+        return self._x
+
+    @x.setter
+    def x(self, value):
+        print("setter of x called")
+        self._x = value
+```
 
 # Inheritance 
 

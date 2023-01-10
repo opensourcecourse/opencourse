@@ -3,7 +3,7 @@ title: Exercises
 ---
 
 The assignment link for this module can be found on the 
-[student discussion page](https://github.com/orgs/opensourcecourse/teams/students/discussions?pinned=1)
+[student discussion page](https://github.com/orgs/opensourcecourse/teams/students/discussions?pinned=1).
 
-If you are going through the course on
-your own, you can find template assignment [here](https://github.com/opensourcecourse/style-assignment)
+If you are going through the course on your own, you can find template
+assignment [here](https://github.com/opensourcecourse/style-assignment).
