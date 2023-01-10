@@ -65,7 +65,7 @@ treat them seriously.
 
 You should start by creating a github account, if you don't already have one. Then, you sign up for the course by
 joining the [student team](https://github.com/orgs/opensourcecourse/teams/students) of the OSC organization. Next,
-follow the [setup guid](setup.qmd).
+follow the [setup guide](setup.qmd).
 
 # Getting Help
 
