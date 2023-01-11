@@ -4,7 +4,7 @@ title: "Style Matters"
 ![](../../images/style_guy.png)
 
 :::{.callout-note appearance="minimal"}
-In character, in manner, in style, in all things, the supreme excellence is simplicity.”
+In character, in manner, in style, in all things, the supreme excellence is simplicity.
 
 \- Henry Wadsworth
 :::
