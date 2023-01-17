@@ -4,15 +4,15 @@ title: "Style Matters"
 ![](../../images/style_guy.png)
 
 :::{.callout-note appearance="minimal"}
-In character, in manner, in style, in all things, the supreme excellence is simplicity.”
+In character, in manner, in style, in all things, the supreme excellence is simplicity.
 
 \- Henry Wadsworth
 :::
 
 # Style
 
-Idiomatic Python, or "Pythonic" code is code that conforms to the Python community's norms and makes good use
-of language features. But it is more than that: truly python code achieves a difficult to describe aesthetic,
+Idiomatic Python, described with the abjective "Pythonic", is code that conforms to the Python community's norms and makes good use
+of language features. But it is more than that: truly pythonic code achieves a difficult to describe aesthetic,
 a sense of beautiful utility, brevity, and conciseness that simply "fits in your brain."
 
 Conversely, its easy to spot the antithesis of Pythonic code. Perhaps it "works", but it is overly complex, ignores community
@@ -21,22 +21,23 @@ language. These sorts of issue are collectively known as "code smells" or "antip
 them is hallmark of a good python programmer.
 
 Of course, we all start off writing "smelly" code, but its important to improve. Like painting a masterpiece,
-writing pythonic code takes practice and exposure to pythonic code bases. The open-source python ecosystem is the
-best place to develop this acumen.
+writing pythonic code takes practice and exposure to pythonic code bases will improve your tastes. The open-source
+python ecosystem is the best place to learn Pythonic coding styles.
 
 :::{.callout-warning}
-There is a danger in enforcing rules with blind dogmatic zeal, such "foolish consistencies" can often overshadow
-more important issues and occasionally there are good reasons to disregard certain guidelines. You should take
-the content in this module as good advice, not unalterable commandments.
+There is a danger, especially among less experienced programmers, in enforcing rules with blind dogmatic zeal,
+such "foolish consistencies" can often overshadow more important issues. Occasionally there are good reasons 
+to disregard certain guidelines. You should take the content in this module as a good guideline, not a list 
+of indelible commandments. In most cases, project consistency is the most important consideration.
 :::
 
 # Objectives
 
 In this module, we will:
 
-1. Highlight tenants of pep8 and other community practices.
+1. Discuss the principles of the Zen of Python and tenants of Pep8, as well as other community standards.
 2. Detect code smells/antipatterns.
-3. Fixes for python code issues.
+3. Cover ways to improve common style issues.
 
 # Reading
 

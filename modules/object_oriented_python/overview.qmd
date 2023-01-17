@@ -1,7 +1,7 @@
 ---
 title: Object Oriented Python
 ---
-![](../../images/cyber_punk_streets.png)
+![](../../images/future_city.png)
 
 :::{.callout-note appearance="minimal"}
 Any sufficiently advanced technology is indistinguishable from magic.
