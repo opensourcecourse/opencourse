@@ -205,7 +205,7 @@ This creates our first commit (dot) on the default branch (main).
 <br>
 
 ```{mermaid}
-%%| fig-width: 3
+%%| fig-width: 2
 gitGraph
    commit id: "9d6b7c"
 ```

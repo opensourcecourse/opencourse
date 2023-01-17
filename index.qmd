@@ -5,8 +5,6 @@ css: index.css
 editor: source
 ---
 
-# Introduction
-
 Welcome to OpenSourceCourse (OSC)!
 
 OSC is designed to help engineering/science students learn to effectively contribute to the
@@ -16,11 +14,12 @@ open-source scientific python ecosystem.
 
 After successfully completing this course you will:
 
-1. Have a working understanding of the git version control system and its common uses
+1. Have a working understanding of the git version control system
 2. Develop a sense of "Pythonic" code and the importance of coding style
-3. Practice object-oriented and functional python coding styles
-4. Understand basic software testing philosophies and the pytest framework
+3. Know when to use various object-oriented and functional python features
+4. Understand basic software testing philosophies and how to use the pytest framework
 5. Know how to effectively document various types of python code
+6. Be familiar with collaborative development practices
 
 # Prerequisites
 
@@ -31,22 +30,25 @@ This course is designed for students with some python experience. Specifically y
 3. Understand iteration and indexing
 4. Understand python's control flow (if/then, for, while, etc.)
 5. Know how to install python packages and manage python environments
-6. Be semi-comfortable using a terminal
+6. Be semi-comfortable using a terminal (command line)
 
 
 :::{.callout-warning}
-Although the content is meant to be user-friendly, this is not a beginning python/computing course.
+Although the content is meant to be approachable, this is not a beginning python/computing course.
 :::
 
 # Course Structure
 
-All of the course content can be found at the [OpenSourceCourse github organization](https://github.com/opensourcecourse).
+Apart from this website, the [student discussion board](https://github.com/orgs/opensourcecourse/teams/students)
+contains information about the course schedule, exercises, and office hours. It is also the right place to
+ask a question about a topic or exercise. 
 
-The content of the course is organized by modules. Each module contains three components:
+The [OpenSourceCourse github organization](https://github.com/opensourcecourse) is home to all the course content. 
+The course is organized into modules (on the left menu bar). Each module contains three components:
 
 ### Overview
 
-The overview strives to give a short introduction to the topic and module overview.
+The overview gives a short introduction to the topic and motivation.
 Before each module is presented in class, you should review the overview, including the links in the reading sections
 (but feel free to skip additional resources). This doesn't mean you need to understand everything in the reading,
 but do come to class with well-formed questions.
@@ -54,12 +56,22 @@ but do come to class with well-formed questions.
 ### Slides
 
 The slides contain the material that will be presented in class. You can look them over but this is not required.
+Notice that must slides progress from right to left, but some slides have horizontal, or grid, navigation features.
 
 ### Exercises
 
-The exercises are to be done after class. They are essential to help you internalize the concepts
-and develop the skills you need to be successful. Although they are not difficult or time-consuming, please do
-treat them seriously.
+The exercises are to be done after a module is presented in class. They are essential to help you internalize 
+the concepts and develop the applicable skills. Although they are not difficult or time-consuming, please do
+treat them seriously. Each exercise should take between 30 minutes to 3 hours.
+
+You will find links to start each exercise and due dates on the 
+[student discussion board](https://github.com/orgs/opensourcecourse/teams/students).  
+
+### Project
+
+The last part of this course is to make a non-trivial contribution to an open-source project. You can
+add a feature to an existing library, or release a small package of your own. More details are found
+in the [collaborative development exercise](https://github.com/opensourcecourse/collaborative-development-assignment). 
 
 # Enlisting
 
@@ -76,8 +88,9 @@ Office hours for the instructors will be posted in the
 
 If you notice any ways to improve the content of OSC please do it! Each page on the website has an
 "edit in GitHub" button, or a github icon, which you can click on to make quick pull requests in your browser.
+The slides have a "source" hyperlink at the bottom which you can click for a similar effect.
 
 You can also find all the template directories for the assignments on the github org. Feel free to open
-PRs there as well. 
+PRs there as well.
 
 Now, let's learn together!
