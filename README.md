@@ -23,7 +23,7 @@ Third, create and activate a virtual environment with [conda](https://docs.conda
 environment.yml file included in the repo. 
 
 ```bash
-conda create -f environment.yml
+conda env create -f environment.yml
 conda activate opencourse
 ```
 
