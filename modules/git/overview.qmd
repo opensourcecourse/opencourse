@@ -14,12 +14,12 @@ So git is a very powerful set of tools.
 # Git
 
 Git is a class of software known as a version control system (VCS). It is used to help developers manage the
-complexity of collaborative development.
+complexity of collaborative development, as well as to create and store robust backups of software.
 
 While very few devs are actually git experts, knowing the basics is *absolutely essential* for collaborative development.
 While other VCS exist, git is used almost exclusively these days.
 
-# Learning Objectives
+# Objectives
 
 In this module, we will:
 
