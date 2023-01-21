@@ -14,6 +14,8 @@ format:
         navigation-mode: vertical
         controls-layout: bottom-right
         controls-tutorial: true
+        mermaid:
+            theme: default
 
 footer: \
     <a href="https://opensourcecourse.dev/modules/git/overview.html">overview</a> /\
@@ -40,27 +42,27 @@ A graphical, graphical model
 
 ```{mermaid}
 %%| fig-width: 11
-    gitGraph
-       commit
-       commit
-       branch develop
-       checkout develop
-       commit
-       commit
-       checkout main
-       merge develop
-       checkout develop
-       commit
-       commit
-       checkout main
-       commit
-       branch fix_1
-       commit
-       commit
-       checkout main
-       merge fix_1
-       commit
-       checkout develop
+gitGraph
+   commit
+   commit
+   branch develop
+   checkout develop
+   commit
+   commit
+   checkout main
+   merge develop
+   checkout develop
+   commit
+   commit
+   checkout main
+   commit
+   branch fix_1
+   commit
+   commit
+   checkout main
+   merge fix_1
+   commit
+   checkout develop
 ```
 
 :::
