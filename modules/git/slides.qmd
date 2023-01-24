@@ -8,12 +8,13 @@ format:
         slide-number: true
         preview-links: auto
         theme: [../../custom_slides.scss]
-        css: ../../slides.css
+        css: "../../slides.css"
         view-distance: 100
         mobile-view-distance: 100
         navigation-mode: vertical
         controls-layout: bottom-right
         controls-tutorial: true
+        embed-resources: true
         mermaid:
             theme: default
 
@@ -23,6 +24,8 @@ footer: \
     <a href="https://opensourcecourse.dev/modules/git/exercises.html">exercises</a>
 ---
 
+
+
 # The Problem with Git Tutorials
 
 ::: {.r-stack}
@@ -30,13 +33,9 @@ footer: \
 :::
 
 
-# Git Graphs: Overview {.nostretch auto-animate="true"}
+# Git Graphs
 
 <br>
-
-::: {.centered_midsized}
-A graphical, graphical model
-:::
 
 ::: {.r-stack}
 
@@ -202,12 +201,13 @@ git commit -am "simple message"
 # Git Graphs: Commit {auto-animate="true" visibility="uncounted"}
 
 This creates our first commit (dot) on the default branch (main).
+
 "HEAD" refers to the latest commit on the current branch.
 
 <br>
 
 ```{mermaid}
-%%| fig-width: 2
+%%| fig-width: 4
 gitGraph
    commit id: "9d6b7c"
 ```
@@ -2007,6 +2007,25 @@ gitGraph
    commit id: "ba34dc"
 ```
 
+# Git Ignore
+
+Git can ignore certain files, or patterns, with a single file called ".gitignore".
+
+
+```text
+# pycharm
+.idea
+
+# Ipython stuff
+.ipynb_checkpoints
+
+# linux/osx garbage
+*~
+*.swp
+```
+
+
+
 # Branching Strategies
 
 :::{.incremental}
@@ -2124,10 +2143,6 @@ gitGraph
    checkout main
    merge develop tag: "v1.1.0"
 ```
-
-
-
-
 
 # Summary: the Tools
 
