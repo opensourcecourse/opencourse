@@ -2024,6 +2024,23 @@ Git can ignore certain files, or patterns, with a single file called ".gitignore
 *.swp
 ```
 
+# Branching Strategies: Versioning
+
+- Most projects use [SemVer](https://semver.org/)
+
+```markdown
+# MAJOR.MINOR.PATCH
+e.g, 1.2.3
+```
+
+- [CalVer](https://calver.org/) is also becoming popular
+
+```markdown
+# YYYY.MINOR.MICRO (Unity)
+# YY.MINOR.MICRO (pip)
+# YY.MM (Ubuntu)
+# YY.MINOR.MICRO (boltons)
+```
 
 
 # Branching Strategies
