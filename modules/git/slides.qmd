@@ -145,7 +145,7 @@ The [add](https://git-scm.com/docs/git-add) command stages files, which means th
 
 ```bash
 # add particular file
-git myscpript.py
+git add myscpript.py
 
 # add all files
 git add -A
