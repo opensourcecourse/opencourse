@@ -42,6 +42,7 @@ In this module, we will:
  - [Reverting Commits](https://stackoverflow.com/a/4114122/3645626)
  - [Commit Autonomy](https://blog.thoughtram.io/git/2014/11/18/the-anatomy-of-a-git-commit.html)
  - [Oh my Git!](https://ohmygit.org/), a mobile game to learn git concepts
+ - [git-sim](https://github.com/initialcommit-com/git-sim), create git graph visualizations and simulations
 
 
 :::{.callout-note}
