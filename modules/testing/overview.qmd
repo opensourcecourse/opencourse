@@ -59,3 +59,4 @@ In this module, we will cover:
 - [Pytest Documentation](https://docs.pytest.org/en/7.1.x/)
 - [Awesome Pytest List](https://github.com/augustogoulart/awesome-pytest)
 - [Using Pytest Fixtures](https://www.testim.io/blog/using-pytest-fixtures/)
+- [Model-based testing with hypothesis](https://www.youtube.com/watch?v=-S3BFkNn0rQ)
