@@ -2,7 +2,7 @@
 title: Going Forward
 ---
 
-After completing the course, here are some resources to help improve your programming craft.
+After completing the course, here are some resources to help you continue improving your programming craft.
 
 ## Python Books
 
