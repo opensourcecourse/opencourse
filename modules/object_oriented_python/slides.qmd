@@ -78,8 +78,8 @@ rover.say_hello()  # what does this print?
 Possible [Advantages]{.blue}
 
 ::: {.incremental}
-- Expressive (inuitive interfaces)
-- Modularity (inheretence)
+- Expressive (intuitive interfaces)
+- Modularity (inheritance)
 - Common Paradigm (java/c++)
 :::
 
@@ -111,16 +111,32 @@ Others?
 
 - class - the definition (blank form)  
 - instance - the filled in data (filled in form)
-- self - conventional name for instance
+- self - conventional name for class instance
 - attribute - data accessed via getattr (object.name)
-- method - class functions (starts with self)
+- method - class functions (first parameter is self)
+- class method - class function (first parameter is cls)
 
 :::
 
 
+# Class Methods
+
+```python
+class Dog:
+
+    def __init__(self, name):
+        self.name = name 
+    
+    @classmethod
+    def from_file(cls, path):
+        with path .open('r') as fi:
+            name = get_name(fi.read())
+        return cls(name=name)
+```
+
+
 
 # Knowledge Check {auto-animate="true"}
-<br>
 
 ```{.python}
 class Customer:
@@ -133,12 +149,6 @@ class Customer:
     def withdraw(self, amount):
         self.balance -= amount
 ```
-
-
-
-# Knowledge Check {auto-animate="true"}
-
-<br>
 
 ```{.python code-line-numbers="1|2|3|4"}
 bob = Customer('bob')  # What is bob?  
@@ -153,10 +163,10 @@ bob.withdraw  # what is withdraw?
 
 <br>
 
-[Dunders]{.red-bold}: 
+[Dunders]{.red-bold} 
 
 Names with double leading and trailing underscores. 
-These are part of the python language.
+Many are part of the python language.
 
 
 
@@ -190,7 +200,7 @@ class Customer:
 
 ```python
 class Customer:
-    def __add__(self, object_2):
+    def __add__(self, other):
         ...
 ```
 
@@ -255,13 +265,14 @@ print(fs >> 9)
 - For simple cases, just assign or access a value on the instance/class.
 - When more logic is needed use [getters/setters](https://stackoverflow.com/a/2627034/3645626).
 - For many such attributes use [descriptors](https://docs.python.org/3/howto/descriptor.html).
-- If this still doesn't work cosnider `get`/`set`.
+- If this still doesn't work consider methods named `get_x`/`set_x`.
 :::
 
 
 # Getters and Setters
 
-Incorrect (most of the time)
+Not ideal
+
 ```python
 class DynamicX(object):
     def __init__(self):
@@ -276,7 +287,8 @@ class DynamicX(object):
 
 # Getters and Setters
 
-Correct (most of the time)
+Better
+
 ```python
 class DynamicX(object):
     def __init__(self):
@@ -299,7 +311,7 @@ class DynamicX(object):
 
 - Inheritance is used to extend or modify classes
 
-- MRO defines lookups (instance) -> (class) -> (parent)
+- MRO defines lookups (instance) -> (class) -> (parent) -> (grandparent) -> ...
 
 
 

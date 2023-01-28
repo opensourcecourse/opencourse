@@ -2,14 +2,11 @@
 title: Acknowledgements
 ---
 
-# Contributors
-
 A huge thanks to [Eileen R Martin](https://github.com/eileenrmartin), [Ge Jin](https://github.com/jinwar),
 and [Jeff Shragge](https://github.com/jshragge) for their support and encouragement in developing OSC. Also to 
 [Shawn Boltz](https://github.com/sboltz) for providing feedback on the content and exercises.
 
 OSC wouldn't be possible without [all those who contributed content](https://github.com/opensourcecourse/opencourse/graphs/contributors).
-It takes a village.
 
 # Images
 
