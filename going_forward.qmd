@@ -1,0 +1,21 @@
+---
+title: Going Forward
+---
+
+After completing the course, here are some resources to help improve your programming craft.
+
+## Python Books
+
+- Fluent Python: Clear, Concise, and Effective Programming (2nd Edition)
+- Effective Python (2nd Edition)
+- Python Testing with pytest (2nd Edition)
+
+## General Programming Books
+
+- The Pragmatic Programmer: Your Journey To Mastery, 20th Anniversary Edition (2nd Edition)
+- Refactoring: Improving the Design of Existing Code (2nd Edition)  
+- Clean Code: A Handbook of Agile Software Craftsmanship
+
+## Interesting Projects
+
+- [nbdev](https://nbdev.fast.ai/) - Write, test, document, and distribute software packages and technical articles — all in one place, your notebook

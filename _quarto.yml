@@ -98,7 +98,8 @@ website:
             - text: "exercises"
               href: modules/collaborative_development/exercises.qmd
 
-      - acknowledgements.qmd
+      -  going_forward.qmd
+      -  acknowledgements.qmd
 
   navbar:
     background: light

@@ -21,20 +21,17 @@ footer: \
 
 # Overview
 
+<br>
+
 :::{.r-stack}
 - A Case for Style
 - Idiomatic Python
-    - Principles: The Zen
-    - Guidelines: PEP8
 - Anti-patterns and Code Smells
-    - Sloppiness
-    - Wrong Language
-    - Missing Python Features
 :::
 
 
 
-# A Case For Style
+# A Case for Style
 
 <br>
 
@@ -51,8 +48,7 @@ What does work mean?
 ::: incremental
 - The inputs produce the expected outputs?
 - The code is understandable?
-- The code is easy to extend/debug?
-- The code is maintainable?
+- The code is easy to change/debug?
 :::
 
 :::
@@ -95,17 +91,24 @@ plt.show()
 
 
 
+# A Case for Style
+
+:::{.r-stack}
+![](images/pillar_of_programming_purpose.png){width="500"}
+:::
+
+
 
 # Idiomatic Python
 
-**Pythonic**: a coding style that leverages Python's unique features to write code that is readable and beautiful.
+**Pythonic**: a coding style that leverages Python's features to make readable and beautiful software.
 
 Pythonic code:
 
 ::: incremental
 
-- Embodies Python's guiding principles (The Zen of Python)
-- Follows community guidelines (PEP 8, PEP 257, black, etc.)
+- Embodies Python's guiding principles (The Zen of Python, PEP 20)
+- Follows community norms (PEP 8, PEP 257, black, etc.)
 - Makes good use of python's features and libraries
 - Is easy to change
 
@@ -133,6 +136,17 @@ Tim also invented [Timsort](https://en.wikipedia.org/wiki/Timsort), a popular so
 :::
 
 :::
+
+
+## Side Note: What's a PEP? 
+
+<br>
+
+The Python programming language evolves through [Python Enhancement Proposals](https://peps.python.org/pep-0000/),
+which provide a mechanism for public discussion and peer-review of language changes and new features. 
+
+Surprisingly, not everyone on the internet agrees, and sometimes the discussions can get a bit heated and
+deviate from civility. See the [Walrus Operator](https://peps.python.org/pep-0572/).
 
 
 
@@ -185,7 +199,7 @@ assembly, or semiconductor physics for your code to be explicit).
 
 :::{.callout-note appearance="simple"}
 ## 3. Simple
-Simple is better than complex.\n\nComplex is better than complicated.
+Simple is better than complex.\n\n Complex is better than complicated.
 :::
 
 
@@ -226,8 +240,7 @@ Sparse is better than dense.
 
 ## Concise
 
-Sparisity means fewer things. Fewer classes, fewer functions, fewer parametrs. Concise code better than
-verbose code. 
+Sparsity means fewer things. Fewer classes, fewer functions, fewer parameters.  
 
 :::{.callout-note appearance="Concise"}
 "Perfection is achieved, not when there is nothing to add, but when there is nothing left to take away." 
@@ -249,8 +262,8 @@ Readability counts.
 
 ## Readable
 
-Readility means code is optimizaed not just for a computer to understand, but for a developer to understand.
-This means making documentation a first class concern, and keeping the implementation as simple as possible.
+Readability means code is optimized not just for a computer to understand, but for a developer to understand.
+Documentation is a first class concern.
 
 :::{.callout-note appearance="minimal"}
 Any fool can write code that a computer can understand. 
@@ -272,7 +285,8 @@ Special cases aren't special enough to break the rules.
 
 ## Consistent
 
-Concistent means abstractions are clear and not full of special expections.
+Consistent means abstractions are clear and not full of special exceptions.
+Software shouldn't be like the English language.
 
 
 
@@ -288,8 +302,9 @@ Although practicality beats purity.
 
 ## Pragmatic
 
-Pargamatic means prioritizing functionality and usability over more esoteric concerns like
+Pragmatic means prioritizing functionality and usability over more esoteric concerns and
 unlikely edge cases.
+
 
 
 # The Zen of Python
@@ -318,9 +333,7 @@ In the face of ambiguity, refuse the temptation to guess.
 
 ## Unsurprising
 
-Guessing what a user may want when there are several viable choises is rarely a good idea.
-It is much better to be explicit.
-
+Guessing what a user may want when there are several viable choices is rarely a good idea.
 
 
 
@@ -381,25 +394,32 @@ Namespaces are one honking great idea -- let's do more of those!
 
 ## Organized
 
+<br>
+
 Coming from MATLab, I found having to import python modules annoying. Why is it `np.pi` rather than just `pi`?
 Then, I created a variable named `pi` in a matlab finite element code which, of course, overwrote the 
-expected value. It took me several hours to debug, but afterward I understood.
+expected value. It took me several hours to debug, but afterward I understood why namespaces are a "honking"
+good idea.
 
 
-# Python Style (Pep 8)
+# Python Style ([Pep 8](https://peps.python.org/pep-0008/))
 
 <br>
 
 * Python style-guide adopted in 2001
-* Several explicit rules to approach pythonic
+* Several guidelines to approach pythonic
+* Originally just for the python source code, adopted more generally later
 
 
 ## Background
 
+<br>
+
 Pep8 is python's style guide. While originally only applicable to the standard library, it is now widely
 considered good practice for (nearly) all python projects.
 
-Here we explore a few of the more important aspects of PeP8, but you can find the whole thing [here]
+Here we explore a few of the more important aspects of PeP8, but you can find the whole 
+thing [here](https://peps.python.org/pep-0008/).
 
 
 # Pep 8: Line Lengths
@@ -416,7 +436,7 @@ Many modern formatting tools expand the line limit to around 90 characters.
 
 
 
-# Style: [Imports](https://peps.python.org/pep-0008/#imports)
+# Pep 8: [Imports](https://peps.python.org/pep-0008/#imports)
 
 <br>
 
@@ -429,7 +449,7 @@ from pandas import DataFrame, Series
 ```
 
 
-# Style: Imports
+# Pep 8: [Imports](https://peps.python.org/pep-0008/#imports)
 
 <br>
 
@@ -443,7 +463,7 @@ from pandas import DataFrame, Series
 
 
 
-# Style: Imports
+# Pep 8: [Imports](https://peps.python.org/pep-0008/#imports)
 <br>
 
 ```{.python code-line-numbers="1|3-4|6-7|9"}
@@ -460,7 +480,7 @@ from mylibrary.util import combobulate
 
 
 
-# Style: Naming
+# Pep 8: [Naming](https://peps.python.org/pep-0008/#naming-conventions)
 
 <br>
 
@@ -475,7 +495,7 @@ from mylibrary.util import combobulate
 :::
 
 
-# Style: Naming
+# Pep 8: [Naming](https://peps.python.org/pep-0008/#naming-conventions)
 
 <br>
 
@@ -487,7 +507,7 @@ my_variable = 10  # correct
 
 
 
-# Style: Naming
+# Pep 8: [Naming](https://peps.python.org/pep-0008/#naming-conventions)
 
 <br>
 
@@ -500,30 +520,231 @@ import mylibrary  # even better (most the time)
 ```
 
 
-# Understanding Check
+
+# Pep 8: [Try/Except](https://peps.python.org/pep-0008/##programming-recommendations)
 
 <br>
 
-What's wrong? 
+try/except clauses should:
+
+:::{.incremental}
+- Use a specific Exception type (where possible)
+- Limit the logic in the try/except scope
+:::
+
+
+# Pep 8: [Try/Except](https://peps.python.org/pep-0008/##programming-recommendations) {auto-animate="true"}
+
+<br>
+
+```{.python code-line-numbers="|3"}
+try:
+    cool_function(my_inputs)
+except: 
+    pass
+```
+
+
+# Pep 8: [Try/Except](https://peps.python.org/pep-0008/##programming-recommendations)
+
+<br>
+
+```{.python}
+try:
+    value = collection[key]
+    return handle_value(value)
+except KeyError:
+    return key_not_found(key)
+```
+
+
+# Pep 8: [Try/Except](https://peps.python.org/pep-0008/##programming-recommendations)
+
+<br>
+
+```{.python}
+try:
+    value = collection[key]
+except KeyError:
+    return key_not_found(key)
+else:
+    return handle_value(value)
+```
+
+
+
+# Pep 8: [Try/Except](https://peps.python.org/pep-0008/##programming-recommendations) {auto-animate="true"}
+
+<br>
+
+```{.python}
+try:
+    cool_function(my_inputs)
+except KeyError: 
+    pass
+except ValueError:
+    undo_change(my_inputs)
+```
+
+
+# Pep 8: [Membership](https://peps.python.org/pep-0008/##programming-recommendations) {auto-animate="true"}
+
+Negative membership checks
+
+<br>
+
+```{.python}
+# Wrong
+not "a" in my_dict
+# Correct
+"a" not in my_dict
+```
+
+
+
+# Pep 8: [Boolification](https://peps.python.org/pep-0008/##programming-recommendations) {auto-animate="true"}
+
+Bool checks
+
+<br>
+
+```{.python}
+# Wronger
+if my_var is True:
+    ...
+# Wrong
+if my_var == True:
+    ...
+# Correct
+if my_var:
+    ...
+```
+
+
+# Pep 8: [Spacing](https://peps.python.org/pep-0008/#whitespace-in-expressions-and-statements) {auto-animate="true"}
+
+
+<br>
+
+```{.python}
+# Correct:
+spam(ham[1], {eggs: 2})
+
+# Wrong:
+spam( ham[ 1 ], { eggs: 2 } )
+```
+
+
+
+# Pep 8: [Spacing](https://peps.python.org/pep-0008/#whitespace-in-expressions-and-statements) {auto-animate="true"}
+
+
+<br>
+
+```{.python}
+# Correct:
+foo = (0,)
+
+# Wrong:
+bar = (0, )
+```
+
+
+
+# Pep 8: [Spacing](https://peps.python.org/pep-0008/#whitespace-in-expressions-and-statements) {auto-animate="true"}
+
+
+<br>
+
+```{.python}
+# Correct:
+if x == 4: print(x, y); x, y = y, x
+
+# Wrong:
+if x == 4 : print(x , y) ; x , y = y , x
+```
+
+
+
+# Pep 8: [Spacing](https://peps.python.org/pep-0008/#whitespace-in-expressions-and-statements) {auto-animate="true"}
+
+
+<br>
+
+```{.python}
+# Correct:
+ham[1:9], ham[1:9:3], ham[:9:3], ham[1::3], ham[1:9:]
+ham[lower:upper], ham[lower:upper:], ham[lower::step]
+ham[lower+offset : upper+offset]
+ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]
+ham[lower + offset : upper + offset]
+
+# Wrong:
+ham[lower + offset:upper + offset]
+ham[1: 9], ham[1 :9], ham[1:9 :3]
+ham[lower : : upper]
+ham[ : upper]
+```
+
+
+# Pep 8: [Spacing](https://peps.python.org/pep-0008/#whitespace-in-expressions-and-statements) {auto-animate="true"}
+
+
+<br>
+
+```{.python}
+# Correct:
+x = 1
+y = 2
+long_variable = 3
+
+# Wrong:
+x             = 1
+y             = 2
+long_variable = 3
+```
+
+
+
+# Understanding Check
+
+<br>
 
 ```python
 myVar = 10
 
 class snake_class:
     '''A special class for snakes.'''
-    __snake_type__ = "python"
+    __snake_type__="python"
+    _my_list = [1,2,3]
     
-    def SlitherAround(self):
-        ...
-
+    def SlitherAround(self ):
+        return self._my_list[0 : 2]
+        
 ```
+
+
+# Pep 8: When to Ignore It?
+
+:::{.callout-note appearance="minimal"}
+A style guide is about consistency.
+:::
+
+When to ignore guidelines:
+
+:::{.incremental}
+- Makes the code less readable (for someone used to the guideline)
+- Existing code follows a different style (or just clean it up!)
+:::
+
+
 
 
 # Style: Automation
 
 <br> 
 
-* Basic style should be enforced by each project
+* Style should be enforced by each project
 * Nitpicks are better taken from a bot
 * Objective consistency is important
 
@@ -535,6 +756,22 @@ class snake_class:
 * black, autopep8, pyflakes, isort, flake8 ...
 * All tools can be bundled into [pre-commit](https://pre-commit.com/)
 * recommendation: Try [shed](https://github.com/Zac-HD/shed)
+* [ruff](https://github.com/charliermarsh/ruff) is also becoming popular
+
+
+## Shed Installation
+
+Shed can be installed with pip:
+
+```bash
+pip install shed
+```
+
+Then run it while in your repo with
+
+```bash
+shed
+```
 
 
 # Code Smells and Anti-patterns
@@ -542,7 +779,7 @@ class snake_class:
 <br>
 
 Code smells and anti-patterns: style/design issues in code that works, but isn't
-python (elegant, efficient, readable, ...)
+pythonic (elegant, efficient, readable, ...)
 
 
 # Code Smell: Complexity
@@ -633,7 +870,7 @@ Complexity Deodorant
 
 
 
-# Code Smell: Readablity {auto-animate="true"}
+# Code Smell: Readability {auto-animate="true"}
 
 <br>
 What does this do? 
@@ -660,7 +897,7 @@ assert np.allclose(func(test_ar, 0), moment(test_ar, 0))
 
 
 
-## Code Smell: Readablity {auto-animate="true"}
+## Code Smell: Readability {auto-animate="true"}
 
 <br> 
 Add meaningful names and docstring
@@ -676,7 +913,7 @@ def get_stats_moment(array, moment=1, axis=0):
 
 
 
-## Code Smell: Readablity {auto-animate="true"}
+## Code Smell: Readability {auto-animate="true"}
 
 <br> 
 Even Better, use scipy! 
@@ -687,7 +924,7 @@ from scipy.stats import moment
 
 
 
-# Code Smell: Readablity {auto-animate="true"}
+# Code Smell: Readability {auto-animate="true"}
 
 <br> 
 Incomprehensible Comprehensions
@@ -722,7 +959,7 @@ Break into different lines
 
 
 
-## Code Smell: Readablity {auto-animate="true"}
+## Code Smell: Readability {auto-animate="true"}
 
 <br> 
 Wrap in a function
@@ -743,7 +980,7 @@ def unwrap_list(nested):
 
 
 
-## Code Smell: Readablity {auto-animate="true"}
+## Code Smell: Readability {auto-animate="true"}
 
 <br> 
 If still unreadable, remove comprehension.
@@ -771,15 +1008,16 @@ Common problems:
 
 :::{.increment}
 * Too many arguments
-* Different output types/shapes
+* Variable output types
 :::
 
 
 
-# Code Smell: Signature Length
+# Code Smell: Too Many Inputs
 
 <br>
 Too many input parameters (probably need different functions)
+
 ```python
 def do_stats(
     ar, 
@@ -788,12 +1026,11 @@ def do_stats(
     std=True, 
     kurtosis=True,
     ...
-)
+):
     ...
-    return out_dict
 ```
 
-## Code Smell: Signature Length
+## Code Smell: Too Many Inputs
 
 :::{.caleout-note}
 The largest signature I know of is [`pd.read_csv`](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html)
@@ -803,10 +1040,11 @@ in the python data ecosystem. Also, all but one of its parameters is optional, a
 
 
 
-# Code Smell: Multiple Signature Return Values
+# Code Smell: Multiple Return Types
 
 <br>
 Output changes based on parameters
+
 ```python
 import numpy as np
 
@@ -820,10 +1058,11 @@ def std(ar, axis=0, return_mean=True):
         return std_ar
 ```
 
-# Code Smell: Multiple Signature Return Values
+# Code Smell: Multiple Return Types
 
 <br>
 None returned rather than raising an Error
+
 ```python
 import numpy as np
 
@@ -1027,6 +1266,7 @@ Nested dict (good)
 
 ```python
 from collections import defaultdict
+
 key_dict = defaultdict(list)  # a dict of lists for storing outputs
 
 # iterate key/value of data dict
@@ -1103,3 +1343,13 @@ Filtering list contents (good)
 ```python
 out = [a for a in range(100) if a % 2 == 0]
 ```
+
+
+# Summary
+
+- Style matters
+  - "This was written by a scientist!?"
+- Remember the Zen
+- Follow guidelines
+- Code should smell nice
+- Consistency
