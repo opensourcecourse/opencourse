@@ -62,34 +62,6 @@ What does work mean?
 :::
 
 
-# A Case for Style
-
-<br>
-
-:::{.r-stack}
-
-```{python}
-#| echo: false
-#| output: true
-
-import matplotlib.pyplot as plt
-import numpy as np
-
-with plt.xkcd():
-    fig, ax = plt.subplots(1, 1)
-    x_vals = np.arange(1, 100)
-    y_vals = x_vals ** 1.1
-    ax.plot(x_vals, y_vals)
-    ax.set_xlabel('People who use the code')
-    ax.set_ylabel("How much style matters")
-    ax.set_xticks([])
-    ax.set_yticks([])
-
-plt.show()
-```
-:::
-
-
 
 # A Case for Style
 
@@ -188,6 +160,8 @@ Explicit is better than implicit.
 
 ## Explicit
 
+<br>
+
 Explicit code means the abstractions are conistent and clear. 
 It doesn't mean everything is spelled out (you don't have to understand bytecode, 
 assembly, or semiconductor physics for your code to be explicit). 
@@ -204,6 +178,8 @@ Simple is better than complex.\n\n Complex is better than complicated.
 
 
 ## Simple 
+
+<br>
 
 Simple means the most direct (shortest lines of code, most readable) is preferred. This means avoiding
 complex features when possible (i.e., dictionaries and numpy arrays are better than custom classes 
@@ -223,6 +199,8 @@ Flat is better than nested.
 
 ## Flat
 
+<br>
+
 Highly nested structures are complex, and they often require recursion to effectively navigate. 
 This should be avoided when possible. In scientific computing, numpy operations are strongly
 preferred over nested for loops, both for efficiency and readability.
@@ -239,6 +217,8 @@ Sparse is better than dense.
 
 
 ## Concise
+
+<br>
 
 Sparsity means fewer things. Fewer classes, fewer functions, fewer parameters.  
 
@@ -261,6 +241,8 @@ Readability counts.
 
 
 ## Readable
+
+<br>
 
 Readability means code is optimized not just for a computer to understand, but for a developer to understand.
 Documentation is a first class concern.
@@ -285,6 +267,8 @@ Special cases aren't special enough to break the rules.
 
 ## Consistent
 
+<br>
+
 Consistent means abstractions are clear and not full of special exceptions.
 Software shouldn't be like the English language.
 
@@ -301,6 +285,8 @@ Although practicality beats purity.
 
 
 ## Pragmatic
+
+<br>
 
 Pragmatic means prioritizing functionality and usability over more esoteric concerns and
 unlikely edge cases.
@@ -319,6 +305,8 @@ Errors should never pass silently.\n\n Unless explicitly silenced.
 
 ## Correct
 
+<br>
+
 Errors should be raised unless the way to deal with them is obvious.
 
 
@@ -332,6 +320,8 @@ In the face of ambiguity, refuse the temptation to guess.
 :::
 
 ## Unsurprising
+
+<br>
 
 Guessing what a user may want when there are several viable choices is rarely a good idea.
 
@@ -348,6 +338,50 @@ Although that way may not be obvious at first unless you're Dutch.
 :::
 
 
+## Intuitive
+
+<br>
+
+Intuitive software is best illustrated when doing new things seldom requires referencing
+the documentation; the abstractions, object names, and APIs are such it is obvious how certain
+things should be done.
+
+
+
+
+
+## Intuitive
+
+
+::: {.columns}
+
+::: {.column width="40%"}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Guido_van_Rossum_OSCON_2006.jpg/800px-Guido_van_Rossum_OSCON_2006.jpg)
+:::
+
+::: {.column width="60%"}
+
+<br>
+Python's creator, [Guido Van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum), is Dutch, hence
+the inside joke in the PEP. 
+
+As the old adage goes:
+
+> [If you ain't Dutch, you ain't much](https://michaeljdouma.com/2019/07/07/a-brief-history-of-the-phrase-if-you-aint-dutch-you-aint-much/)
+
+:::
+
+:::
+
+
+<br>
+Python's creator, [Guido Van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum), is Dutch, hence
+the inside joke in the PEP. 
+
+As the old adage goes:
+
+> [If you ain't Dutch, you ain't much](https://michaeljdouma.com/2019/07/07/a-brief-history-of-the-phrase-if-you-aint-dutch-you-aint-much/)
+
 
 # The Zen of Python
 
@@ -358,6 +392,13 @@ Although that way may not be obvious at first unless you're Dutch.
 Now is better than never.
 :::
 
+
+## Operational
+
+<br>
+
+Usually it is better to have something that works for 90% of the cases *now* than
+a perfect program sometime in the distant future (which often means *never*).
 
 
 # The Zen of Python
@@ -370,6 +411,14 @@ Although never is often better than \*right\* now.
 :::
 
 
+## Flexible
+
+<br>
+
+On the flip side, implementations that are too hastily done can be hard to change.
+Especially when they must be maintained forever. Like an angry email to your boss,
+some code is better left unwritten.
+
 
 # The Zen of Python
 
@@ -381,6 +430,12 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 :::
 
+
+## Explainable
+
+<br>
+Working through a hard programming problem? Grab a friend, or a [rubber duck](https://en.wikipedia.org/wiki/Rubber_duck_debugging)
+and explain your implementation. Often simpler approaches will surface.   
 
 
 # The Zen of Python
@@ -402,7 +457,7 @@ expected value. It took me several hours to debug, but afterward I understood wh
 good idea.
 
 
-# Python Style ([Pep 8](https://peps.python.org/pep-0008/))
+# Python Style ([PEP 8](https://peps.python.org/pep-0008/))
 
 <br>
 
@@ -415,14 +470,14 @@ good idea.
 
 <br>
 
-Pep8 is python's style guide. While originally only applicable to the standard library, it is now widely
+PEP8 is python's style guide. While originally only applicable to the standard library, it is now widely
 considered good practice for (nearly) all python projects.
 
-Here we explore a few of the more important aspects of PeP8, but you can find the whole 
+Here we explore a few of the more important aspects of PEP8, but you can find the whole 
 thing [here](https://peps.python.org/pep-0008/).
 
 
-# Pep 8: Line Lengths
+# PEP 8: Line Lengths
 
 <br>
 
@@ -436,34 +491,45 @@ Many modern formatting tools expand the line limit to around 90 characters.
 
 
 
-# Pep 8: [Imports](https://peps.python.org/pep-0008/#imports)
-
-<br>
+# PEP 8: [Imports](https://peps.python.org/pep-0008/#imports)
 
 * Each import should be a single line
-* Unless multiple things are import *from* the same module
+* Unless multiple objects are imported *from* the same module
 
-```{.python code-line-numbers="1|2"}
+```{.python filename="no"}
+import numpy as np, scipy, matplotlib.pyplot as plt, sklearn
+
+```
+<br>
+```{.python filename="yes"}
+import matplotlib.pyplot as plt
 import numpy as np
-from pandas import DataFrame, Series
+import scipy
+import sklearn
+from pandas import Series DataFrame
 ```
 
 
-# Pep 8: [Imports](https://peps.python.org/pep-0008/#imports)
+# PEP 8: [Imports](https://peps.python.org/pep-0008/#imports)
 
 <br>
 
 * Imports should be organized alphabetically
 
 * Imports should be grouped by
-  * module level dunders 
+  * module level dunders (`__future__`)
   * standard library 
   * external packages 
   * internal packages
 
 
+::: footer
+All of this isn't actually in PEP8, but generally accepted by many (e.g., the [CIA](https://wikileaks.org/ciav7p1/cms/page_26607631.html))
+:::
 
-# Pep 8: [Imports](https://peps.python.org/pep-0008/#imports)
+
+
+# PEP 8: [Imports](https://peps.python.org/pep-0008/#imports)
 <br>
 
 ```{.python code-line-numbers="1|3-4|6-7|9"}
@@ -480,9 +546,8 @@ from mylibrary.util import combobulate
 
 
 
-# Pep 8: [Naming](https://peps.python.org/pep-0008/#naming-conventions)
+# PEP 8: [Naming](https://peps.python.org/pep-0008/#naming-conventions)
 
-<br>
 
 :::{.incremental}
 
@@ -491,11 +556,13 @@ from mylibrary.util import combobulate
 * CamelCase - used for classes
 * snake_case - used for functions, methods, modules, variables ...
 * Any name starting with _ is considered private
+* `__` performs name mangling (usually a bad idea)
+* In most cases, dunders should be avoided
 
 :::
 
 
-# Pep 8: [Naming](https://peps.python.org/pep-0008/#naming-conventions)
+# PEP 8: [Naming](https://peps.python.org/pep-0008/#naming-conventions)
 
 <br>
 
@@ -507,11 +574,11 @@ my_variable = 10  # correct
 
 
 
-# Pep 8: [Naming](https://peps.python.org/pep-0008/#naming-conventions)
+# PEP 8: [Naming](https://peps.python.org/pep-0008/#naming-conventions)
 
 <br>
 
-```{.python code-line-numbers="1|3|5"}
+```{.python code-line-numbers="1|3|5" filename=""}
 from PoorlyNamedLibrary import *  # wrong! 
 
 from mylibrary import the_thing_i_need  # better
@@ -521,35 +588,46 @@ import mylibrary  # even better (most the time)
 
 
 
-# Pep 8: [Try/Except](https://peps.python.org/pep-0008/##programming-recommendations)
+# PEP 8: [Try/Except](https://peps.python.org/pep-0008/##programming-recommendations)
 
 <br>
 
 try/except clauses should:
 
 :::{.incremental}
-- Use a specific Exception type (where possible)
+- Use a specific Exception types (where possible)
 - Limit the logic in the try/except scope
 :::
 
 
-# Pep 8: [Try/Except](https://peps.python.org/pep-0008/##programming-recommendations) {auto-animate="true"}
+# PEP 8: [Try/Except](https://peps.python.org/pep-0008/##programming-recommendations) {auto-animate="true"}
 
-<br>
 
-```{.python code-line-numbers="|3"}
+```{.python filename="wrong"}
 try:
     cool_function(my_inputs)
 except: 
     pass
 ```
 
-
-# Pep 8: [Try/Except](https://peps.python.org/pep-0008/##programming-recommendations)
-
 <br>
 
-```{.python}
+:::{.fragment}
+
+```{.python filename="correct"}
+try:
+    cool_function(my_inputs)
+except (ValueError, SpecificError): 
+    pass
+```
+
+:::
+
+
+# PEP 8: [Try/Except](https://peps.python.org/pep-0008/##programming-recommendations)
+
+
+```{.python filename="wrong"}
 try:
     value = collection[key]
     return handle_value(value)
@@ -557,12 +635,11 @@ except KeyError:
     return key_not_found(key)
 ```
 
-
-# Pep 8: [Try/Except](https://peps.python.org/pep-0008/##programming-recommendations)
-
 <br>
 
-```{.python}
+:::{.fragment}
+
+```{.python filename="correct"}
 try:
     value = collection[key]
 except KeyError:
@@ -571,48 +648,42 @@ else:
     return handle_value(value)
 ```
 
+:::
 
 
-# Pep 8: [Try/Except](https://peps.python.org/pep-0008/##programming-recommendations) {auto-animate="true"}
-
-<br>
-
-```{.python}
-try:
-    cool_function(my_inputs)
-except KeyError: 
-    pass
-except ValueError:
-    undo_change(my_inputs)
-```
-
-
-# Pep 8: [Membership](https://peps.python.org/pep-0008/##programming-recommendations) {auto-animate="true"}
+# PEP 8: [Membership](https://peps.python.org/pep-0008/##programming-recommendations) {auto-animate="true"}
 
 Negative membership checks
 
-<br>
-
-```{.python}
+```{.python filename="wrong"}
 # Wrong
 not "a" in my_dict
+```
+
+<br>
+
+:::{.fragment}
+
+```{.python filename="correct"}
 # Correct
 "a" not in my_dict
 ```
 
+:::
 
 
-# Pep 8: [Boolification](https://peps.python.org/pep-0008/##programming-recommendations) {auto-animate="true"}
+
+# PEP 8: [Boolification](https://peps.python.org/pep-0008/##programming-recommendations) {auto-animate="true"}
 
 Bool checks
 
 <br>
 
 ```{.python}
-# Wronger
+# Wrongest
 if my_var is True:
     ...
-# Wrong
+# Wronger
 if my_var == True:
     ...
 # Correct
@@ -621,89 +692,104 @@ if my_var:
 ```
 
 
-# Pep 8: [Spacing](https://peps.python.org/pep-0008/#whitespace-in-expressions-and-statements) {auto-animate="true"}
+# PEP 8: [Spacing](https://peps.python.org/pep-0008/#whitespace-in-expressions-and-statements) {auto-animate="true"}
 
 
-<br>
-
-```{.python}
-# Correct:
-spam(ham[1], {eggs: 2})
-
-# Wrong:
+```{.python filename="wrong"}
 spam( ham[ 1 ], { eggs: 2 } )
 ```
-
-
-
-# Pep 8: [Spacing](https://peps.python.org/pep-0008/#whitespace-in-expressions-and-statements) {auto-animate="true"}
-
-
 <br>
 
-```{.python}
-# Correct:
-foo = (0,)
+:::{.fragment}
 
-# Wrong:
+```{.python filename="correct"}
+spam(ham[1], {eggs: 2})
+```
+
+:::
+
+
+
+# PEP 8: [Spacing](https://peps.python.org/pep-0008/#whitespace-in-expressions-and-statements) {auto-animate="true"}
+
+```{.python filename="wrong"}
 bar = (0, )
 ```
 
-
-
-# Pep 8: [Spacing](https://peps.python.org/pep-0008/#whitespace-in-expressions-and-statements) {auto-animate="true"}
-
-
 <br>
 
-```{.python}
-# Correct:
-if x == 4: print(x, y); x, y = y, x
+:::{.fragment}
 
-# Wrong:
+```{.python filename="correct"}
+foo = (0,)
+```
+
+:::
+
+
+# PEP 8: [Spacing](https://peps.python.org/pep-0008/#whitespace-in-expressions-and-statements) {auto-animate="true"}
+
+
+```{.python filename="wrong"}
 if x == 4 : print(x , y) ; x , y = y , x
 ```
 
-
-
-# Pep 8: [Spacing](https://peps.python.org/pep-0008/#whitespace-in-expressions-and-statements) {auto-animate="true"}
-
-
 <br>
 
-```{.python}
-# Correct:
-ham[1:9], ham[1:9:3], ham[:9:3], ham[1::3], ham[1:9:]
-ham[lower:upper], ham[lower:upper:], ham[lower::step]
-ham[lower+offset : upper+offset]
-ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]
-ham[lower + offset : upper + offset]
 
-# Wrong:
+:::{.fragment}
+
+```{.python filename="correct"}
+if x == 4: print(x, y); x, y = y, x
+```
+
+:::
+
+
+
+# PEP 8: [Spacing](https://peps.python.org/pep-0008/#whitespace-in-expressions-and-statements) {auto-animate="true"}
+
+```{.python filename="wrong"}
 ham[lower + offset:upper + offset]
 ham[1: 9], ham[1 :9], ham[1:9 :3]
 ham[lower : : upper]
 ham[ : upper]
 ```
 
-
-# Pep 8: [Spacing](https://peps.python.org/pep-0008/#whitespace-in-expressions-and-statements) {auto-animate="true"}
-
-
 <br>
 
-```{.python}
-# Correct:
-x = 1
-y = 2
-long_variable = 3
+:::{.fragment}
 
-# Wrong:
+```{.python filename="correct"}
+ham[1:9], ham[1:9:3], ham[:9:3], ham[1::3], ham[1:9:]
+ham[lower:upper], ham[lower:upper:], ham[lower::step]
+ham[lower+offset : upper+offset]
+ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]
+ham[lower + offset : upper + offset]
+```
+
+:::
+
+# PEP 8: [Spacing](https://peps.python.org/pep-0008/#whitespace-in-expressions-and-statements) {auto-animate="true"}
+
+
+```{.python filename="wrong"}
 x             = 1
 y             = 2
 long_variable = 3
 ```
 
+<br>
+
+:::{.fragment}
+
+```{.python filename="correct"}
+x = 1
+y = 2
+long_variable = 3
+```
+
+:::
 
 
 # Understanding Check
@@ -724,7 +810,7 @@ class snake_class:
 ```
 
 
-# Pep 8: When to Ignore It?
+# PEP 8: When to Ignore It?
 
 :::{.callout-note appearance="minimal"}
 A style guide is about consistency.
@@ -737,8 +823,7 @@ When to ignore guidelines:
 - Existing code follows a different style (or just clean it up!)
 :::
 
-
-
+  
 
 # Style: Automation
 
@@ -746,7 +831,8 @@ When to ignore guidelines:
 
 * Style should be enforced by each project
 * Nitpicks are better taken from a bot
-* Objective consistency is important
+* Consistency is important!
+
 
 
 # Style: Automation Tools
@@ -757,6 +843,7 @@ When to ignore guidelines:
 * All tools can be bundled into [pre-commit](https://pre-commit.com/)
 * recommendation: Try [shed](https://github.com/Zac-HD/shed)
 * [ruff](https://github.com/charliermarsh/ruff) is also becoming popular
+
 
 
 ## Shed Installation
@@ -772,6 +859,7 @@ Then run it while in your repo with
 ```bash
 shed
 ```
+
 
 
 # Code Smells and Anti-patterns
