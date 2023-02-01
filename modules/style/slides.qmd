@@ -24,9 +24,10 @@ footer: \
 <br>
 
 :::{.r-stack}
-- A Case for Style
-- Idiomatic Python
-- Anti-patterns and Code Smells
+- A case for style
+- The Zen
+- PEP8
+- Anti-patterns and code smells
 :::
 
 
@@ -463,7 +464,7 @@ good idea.
 
 * Python style-guide adopted in 2001
 * Several guidelines to approach pythonic
-* Originally just for the python source code, adopted more generally later
+* Originally just for the python source code, adopted more broadly later
 
 
 ## Background
@@ -510,20 +511,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy
 import sklearn
-from pandas import Series DataFrame
+from pandas import Series, DataFrame
 ```
 
 :::
 
 # PEP 8: [Imports](https://peps.python.org/pep-0008/#imports)
 
-:::{.fragment}
 * Imports should be grouped by
   * module level dunders (`__future__`)
   * standard library 
   * external packages 
   * internal packages
-:::
 
 :::{.fragment}
 * Imports should be organized alphabetically
@@ -590,7 +589,7 @@ my-variable = 42  # kabob case
 :::{.fragment}
 
 ```{.python filename="correct"}
-my_variable = 10  # snake case
+my_variable = 42  # snake case
 ```
 
 :::
@@ -642,7 +641,7 @@ except (ValueError, SpecificError):
 
 ```{.python filename="wrong" code-line-numbers="|3"}
 try:
-    value = collection[key]
+    value = my_dict[key]
     return handle_value(value)
 except KeyError:
     return key_not_found(key)
@@ -654,7 +653,7 @@ except KeyError:
 
 ```{.python filename="correct"  code-line-numbers="|5-6"}
 try:
-    value = collection[key]
+    value = my_dict[key]
 except KeyError:
     return key_not_found(key)
 else:
@@ -767,6 +766,38 @@ long_variable = 3
 :::
 
 
+
+# PEP 8: [Type Checks](https://peps.python.org/pep-0008/#programming-recommendations) {auto-animate="true"}
+
+<br>
+
+```{.python filename="wrong"}
+type(my_dict) == dict
+```
+
+<br>
+
+:::{.fragment}
+
+```{.python filename="ok"}
+isinstance(my_dict, dict)
+```
+
+:::
+
+<br>
+
+:::{.fragment}
+
+```{.python filename="better"}
+from typing import Mapping
+isinstance(my_dict, Mapping)
+```
+
+:::
+
+
+
 # Understanding Check{auto-animate="true"}
 
 <br>
@@ -794,10 +825,10 @@ MY_CONSTANT = 10
 class SnakeClass:
     """A special class for snakes."""
     _snake_type = "python"
-    _my_long_tuple = (1,2,3)
+    _my_long_tuple = (1, 2, 3)
     
-    def shed_skin(self ):
-        return self._my_long_tuple[0 : 2]
+    def shed_skin(self):
+        return self._my_long_tuple[0: 2]
 ```
 
 
@@ -907,8 +938,8 @@ def my_func(arg_1):
 <br>
 
 ```{.python}
-def _is_validate_arg(arg_1):
-    """Validate arg_1 for use with my_func."""
+def _is_valid_arg(arg_1):
+    """Return True if arg_1 is valid for use in my_func."""
     return isinstance(arg_1, int) and 0 < arg_1 < 20
 
 
@@ -929,7 +960,7 @@ How to measure?
 
 :::{.incremental}
 * lines per fuction/method/class/module
-* number of indents (more rigorous: Cyclomatic complexity)
+* number of indents (more rigorous: cyclomatic complexity)
 * number of symbols defined
 * others? 
 :::
@@ -939,7 +970,7 @@ How to measure?
 # Code Smell: Complexity
 <br>
 
-Complexity Deodorant
+Complexity deodorant
 
 :::{.incremental}
 
@@ -962,7 +993,7 @@ def func(a, b=1, c=0):
     d = np.mean(a, c, keepdims=True)
     e = (a - d) ** b
     f = a.shape[c]
-    return np.sum(e) / f
+    return np.sum(e, c) / f
 ```
 
 ```{python}
@@ -979,7 +1010,7 @@ assert np.allclose(func(test_ar, 0), moment(test_ar, 0))
 
 
 
-## Code Smell: Readability {auto-animate="true"}
+# Code Smell: Readability {auto-animate="true"}
 
 <br> 
 
@@ -989,15 +1020,27 @@ Add meaningful names and docstring
 #| echo: true
 def get_stats_moment(array, moment=1, axis=0):
     """Calculate the statistical moment."""
-    mean = np.mean(array, axis, keepdims=True)
+    mean = np.mean(array, axis=axis, keepdims=True)
     demean_raised = (array - mean) ** moment
-    sample_count = a.shape[c]
-    return np.sum(demain) / sample_count
+    sample_count = array.shape[axis]
+    demean_sum = np.sum(demean_raised, axis=axis) 
+    return demean_sum / sample_count
+```
+
+```{python}
+#| echo: false
+
+import numpy as np
+from scipy.stats import moment
+
+test_ar = np.random.rand(10)
+assert np.allclose(get_stats_moment(test_ar, 1), moment(test_ar, 1))
+assert np.allclose(get_stats_moment(test_ar, 2), moment(test_ar, 2))
+assert np.allclose(get_stats_moment(test_ar, 0), moment(test_ar, 0))
 ```
 
 
-
-## Code Smell: Readability {auto-animate="true"}
+# Code Smell: Readability {auto-animate="true"}
 
 <br> 
 Even Better, use scipy!
@@ -1013,6 +1056,7 @@ from scipy.stats import moment
 
 <br> 
 Incomprehensible Comprehensions
+<br>
 
 ```python
 nested = [1, 2, 3, [2, 3], {1, 2, 3}]
@@ -1122,7 +1166,7 @@ def do_stats(
 
 ## Code Smell: Too Many Inputs
 
-:::{.caleout-note}
+:::{.callout-note}
 The largest signature I know of is [`pd.read_csv`](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html)
 which, as of pandas 1.5.1, supports 51 arguments. Although it is not ideal, it is one of the most used function
 in the python data ecosystem. Also, all but one of its parameters is optional, and keyword only arguments are used.
@@ -1185,37 +1229,34 @@ Not using language/std lib features:
 # Code Smell: Ignorance
 
 <br>
-Iteration (bad)
 
-```python
+```{.python filename="Iteration: Bad"}
 some_list = [1, 2, 3]
 
 for i in range(len(some_list)):
     val = some_list[i]
 ```
 
-
-
-# Code Smell: Ignorance {auto-animate="true"}
-
 <br>
-Iteration (good)
 
-```python
+:::{.fragment}
+
+```{.python filename="Iteration: Good"}
 some_list = [1, 2, 3]
 
 for val in some_list:
     ...
 ```
 
+:::
+
 
 
 # Code Smell: Ignorance {auto-animate="true"}
 
 <br>
-Dual iteration (bad)
 
-```python
+```{.python filename="Dual Iteration: Bad"}
 list_1 = [1, 2, 3]
 list_2 = [4, 5, 6]
 
@@ -1231,9 +1272,9 @@ for i in range(list_len):
 # Code Smell: Ignorance {auto-animate="true"}
 
 <br>
-Dual iteration (good)
 
-```python
+
+```{.python filename="Dual Iteration: Good"}
 list_1 = [1, 2, 3]
 list_2 = [4, 5, 6]
 
@@ -1244,10 +1285,7 @@ for val_1, val_2 in zip(list_1, list_2):
 
 # Code Smell: Ignorance
 
-<br>
-Enumeration (bad)
-
-```python
+```{.python filename="Enumeration: Bad"}
 some_list = [1, 2, 3]
 
 count = 0
@@ -1255,28 +1293,28 @@ for val in some_list:
     count += 1
 ```
 
-
-
-# Code Smell: Ignorance {auto-animate="true"}
-
 <br>
-Enumeration (bad) 
 
-```python
+:::{.fragment}
+
+```{.python filename="Enumeration: Good"}
 some_list = [1, 2, 3]
 
 for count, val in enumerate(some_list):
     ...
 ```
 
+:::
+
+
+
 
 
 # Code Smell: Ignorance {auto-animate="true"}
 
-<br>
-Unsure keys (bad)
 
-```python
+
+```{.python filename="Dubious Keys: Bad"}
 some_dict = {1: 1, 2: 2}
 
 if 3 in some_dict:
@@ -1285,56 +1323,51 @@ else:
     val = 3
 ```
 
-
-
-# Code Smell: Ignorance {auto-animate="true"}
-
 <br>
-Unsure keys (good)
 
-```python
+:::{.fragment}
+
+```{.python filename="Dubious Keys: Good"}
 some_dict = {1: 1, 2: 2}
 
 val = some_dict.get(3, 3)
 ```
 
+:::
+
 
 
 # Code Smell: Ignorance {auto-animate="true"}
 
 <br>
-Key/value iteration (bad)
 
-```python
+```{.python filename="Key Value Iteration: Bad"}
 some_dict = {1: 1, 2: 2}
 
 for key in some_dict:
     value = some_dict[key]
 ```
 
-
-
-## Code Smell: Ignorance {auto-animate="true"}
-
 <br>
-Key/value iteration (good)
 
-```python
+:::{.fragment}
+
+```{.python filename="Key Value Iteration: Good"}
 some_dict = {1: 1, 2: 2}
 
 for key, value in some_dict.items():
     ...
 ```
 
+:::
 
 
 
 # Code Smell: Ignorance {auto-animate="true"}
 
 <br>
-Nested dict (bad)
 
-```python
+```{.python filename="Nested Dict: Bad"}
 key_dict = {}  # a dict of lists for storing outputs
 
 # iterate key/value of data dict
@@ -1354,9 +1387,8 @@ The [collections module](https://docs.python.org/3/library/collections.html) of 
 # Code Smell: Ignorance {auto-animate="true"}
 
 <br>
-Nested dict (good)
 
-```python
+```{.python filename="Nested Dict: Good"}
 from collections import defaultdict
 
 key_dict = defaultdict(list)  # a dict of lists for storing outputs
@@ -1371,9 +1403,8 @@ for key, data in some_data.items():
 # Code Smell: Ignorance {auto-animate="true"}
 
 <br>
-Queuing (bad)
 
-```python
+```{.python filename="Queing: Bad"}
 queue = [1, 2, 3]  # a poor man's queue
 
 # pop last value off queue
@@ -1387,9 +1418,8 @@ queue.append(4)
 
 # Code Smell: Ignorance {auto-animate="true"}
 
-Queuing (Good)
 
-```python
+```{.python filename="Queing: Good"}
 from collections import deque
 queue = deque([1, 2, 3])  # a proper queue
 
@@ -1411,27 +1441,33 @@ queue.appendleft(-1)
 # Code Smell: Ignorance {auto-animate="true"}
 
 <br>
-Filtering list contents (bad)
 
-```python
+```{.python filename="Filtering: Bad"}
 out = []  # get all even numbers < 100
 for a in range(100):
     if a % 2 == 0:
         out.append(a)    
 ```
 
-
-# Code Smell: Ignorance {auto-animate="true"}
-
 <br>
-Filtering list contents (good)
 
-```python
+
+:::{.fragment}
+
+```{.python filename="Filtering: Good"}
 out = [a for a in range(100) if a % 2 == 0]
 ```
 
+:::
+
+
 
 # Summary
+
+<br>
+
+
+:::{.incremental}
 
 - Style matters
   - "Was this written by a scientist?"
@@ -1439,3 +1475,5 @@ out = [a for a in range(100) if a % 2 == 0]
 - Follow guidelines
 - Code should smell nice
 - Consistency
+
+:::
