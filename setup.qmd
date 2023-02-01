@@ -42,7 +42,8 @@ MY_GITHUB_NAME@users.noreply.github.com
 :::
 
 4. Make a small change
-Simply add a file called README.txt and write some text in there such as "this is a test"
+
+Simply add a file called README.txt to the local branch of the repository (where you git cloned the repo) and write some text in there such as "this is a test"
 
 5. Stage the change
 ```bash
