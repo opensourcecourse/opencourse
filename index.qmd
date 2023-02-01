@@ -16,19 +16,19 @@ After successfully completing this course you will:
 
 1. Have a working understanding of the git version control system
 2. Develop a sense of "Pythonic" code and the importance of coding style
-3. Know when to use various object-oriented and functional python features
+3. Know when to use various object-oriented and functional Python features
 4. Understand basic software testing philosophies and how to use the pytest framework
 5. Know how to effectively document various types of python code
 6. Be familiar with collaborative development practices
 
 # Prerequisites
 
-This course is designed for students with some python experience. Specifically you should:
+This course is designed for students with some Python experience. Specifically you should:
 
 1. Be well-versed with writing python functions
 2. Be familiar with common data structures like lists, dicts, tuples, etc.
 3. Understand iteration and indexing
-4. Understand python's control flow (if/then, for, while, etc.)
+4. Understand Python's control flow (if/then, for, while, etc.)
 5. Know how to install python packages and manage python environments
 6. Be semi-comfortable using a terminal (command line)
 
@@ -56,7 +56,7 @@ but do come to class with well-formed questions.
 ### Slides
 
 The slides contain the material that will be presented in class. You can look them over but this is not required.
-Notice that must slides progress from right to left, but some slides have horizontal, or grid, navigation features.
+Notice that must slides progress from left to right using keyboard arrow keys or mouse clicks on the navigation icon, but some slides have horizontal, or grid, navigation features.
 
 ### Exercises
 
@@ -90,7 +90,7 @@ If you notice any ways to improve the content of OSC please do it! Each page on 
 "edit in GitHub" button, or a github icon, which you can click on to make quick pull requests in your browser.
 The slides have a "source" hyperlink at the bottom which you can click for a similar effect.
 
-You can also find all the template directories for the assignments on the github org. Feel free to open
+You can also find all the template directories for the assignments on the [github org](https://github.com/opensourcecourse). Feel free to open
 PRs there as well.
 
 Now, let's learn together!
