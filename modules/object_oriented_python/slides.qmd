@@ -23,8 +23,8 @@ footer: \
 What is object oriented programming anyway?
 
 ::: {.incremental}
-* An abstraction with Data (attributes) and behavior (methods)
-* Data model may fit real-world
+* An abstraction which encapsulates data (attributes) and behavior (methods)
+* Data model may fit real-world (digital twinning?)
 * Extensibility through inheritance
 :::
 
@@ -35,7 +35,7 @@ What is object oriented programming anyway?
 <br>
 
 :::{.callout-warning}
-Object Orientied is not synonymous with "better"
+Object Oriented is not synonymous with "better"
 :::
 
 
@@ -43,29 +43,16 @@ Object Orientied is not synonymous with "better"
 
 <br>
 
-```python
+```{.python code-line-numbers="|2-3|5-6|8|9"}
 class Dog:
     def __init__(self, name):
         self.name = name  # data
     
     def say_hello(self):  # behavior
-        print(self.name) 
+        print(f"Hello from {self.name}") 
 
-        
 fido = Dog('fido')
 fido.say_hello()
-```
-
-
-
-# Knowledge Check
-
-<br>
-
-```python
-rover = Dog('rover')
-
-rover.say_hello()  # what does this print?
 ```
 
 
@@ -102,6 +89,28 @@ Possible [Disadvantages]{.red}
 :::{.fragment}
 Others?
 :::
+
+
+
+
+
+
+# Intro
+
+:::{.r-stack}
+
+![](images/simple_oo.png)
+
+:::
+
+# Intro
+
+:::{.r-stack}
+
+![](images/real_oo.png)
+
+:::
+
 
 # Nomenclature
 
