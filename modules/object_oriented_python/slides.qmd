@@ -1,6 +1,6 @@
 ---
 title: "Object Oriented Python"
-subtitle: OO programming with python
+subtitle: "The Class on Classes"
 format:
     revealjs:
         slide-number: true
@@ -20,7 +20,7 @@ footer: \
 
 <br>
 
-What is object oriented programming anyway?
+What is object oriented programming?
 
 ::: {.incremental}
 * An abstraction which encapsulates data (attributes) and behavior (methods)
@@ -39,11 +39,11 @@ Object Oriented is not synonymous with "better"
 :::
 
 
+
 # Intro
 
-<br>
 
-```{.python code-line-numbers="|2-3|5-6|8|9"}
+```{.python code-line-numbers="|2-3|5-6|8|9|11-12"}
 class Dog:
     def __init__(self, name):
         self.name = name  # data
@@ -53,63 +53,12 @@ class Dog:
 
 fido = Dog('fido')
 fido.say_hello()
+
+bessie = Dog('bessie')
+bessie.say_hello()
 ```
 
 
-
-# Intro
-
-:::: {.columns}
-
-::: {.column width="50%"}
-Possible [Advantages]{.blue}
-
-::: {.incremental}
-- Expressive (intuitive interfaces)
-- Modularity (inheritance)
-- Common Paradigm (java/c++)
-:::
-
-:::
-
-::: {.column width="50%"}
-
-Possible [Disadvantages]{.red}
-
-::: {.incremental}
-- Expressive (sometimes too much freedom)
-- Shared State (who changed what and when?)
-- Slower Execution (objects vs arrays)
-:::
-
-:::
-
-::::
-
-:::{.fragment}
-Others?
-:::
-
-
-
-
-
-
-# Intro
-
-:::{.r-stack}
-
-![](images/simple_oo.png)
-
-:::
-
-# Intro
-
-:::{.r-stack}
-
-![](images/real_oo.png)
-
-:::
 
 
 # Nomenclature
@@ -128,19 +77,37 @@ Others?
 :::
 
 
-# Class Methods
+# Classes in the Wild
 
-```python
-class Dog:
+<br>
 
-    def __init__(self, name):
-        self.name = name 
-    
-    @classmethod
-    def from_file(cls, path):
-        with path .open('r') as fi:
-            name = get_name(fi.read())
-        return cls(name=name)
+```{.python code-line-numbers="|3-4|6|7"}
+import numpy as np
+
+array = np.random.random(20)
+assert isinstance(array, np.ndarray)
+
+array.mean()  # method or attribute?
+array.shape  # method or attribute?
+```
+
+
+
+# Classes in the Wild
+
+```{.python code-line-numbers="|4|5|6|8-9|11-12"} 
+import numpy as np
+import pandas as pd
+
+array = np.random.random((10, 10))
+df = pd.DataFrame(array)
+assert isinstance(df, pd.DataFrame)
+
+sorted_df = df.sort_values(by=1)
+sort_method = df.sort_values
+
+sorted_df.equals(sort_method)
+sorted_df.equals(sort_method(by=1))
 ```
 
 
@@ -159,12 +126,70 @@ class Customer:
         self.balance -= amount
 ```
 
-```{.python code-line-numbers="1|2|3|4"}
+:::{.fragment}
+
+```{.python code-line-numbers="1|2|3|4|5-6"}
 bob = Customer('bob')  # What is bob?  
 cust = Customer  # what is cust?
 bob.balance  # what is balance (value and thing)
 bob.withdraw  # what is withdraw? 
+bob.name
+cust.name
 ```
+
+:::
+
+
+
+# Class Methods
+
+```python
+class Dog:
+    def __init__(self, name):
+        self.name = name 
+    
+    @classmethod
+    def from_file(cls, path):
+        with path .open('r') as fi:
+            name = fi.read()
+        return cls(name=name)
+```
+
+:::{.fragment}
+
+```python
+maggie = Dog("Maggie")
+new_dog_1 = maggie.from_file("dog_name.txt")
+new_dog_2 = Dog.from_file("dog_name.txt")
+```
+
+:::
+
+
+
+# Object creation
+
+Python has an object creation step:
+
+`__new__`
+
+Which creates an empty object (sets up space for data)
+
+:::{.fragment}
+
+and initialization step:
+
+`__init__`
+
+Which fills in data
+
+:::
+
+:::{.fragment}
+
+Usually, avoid `__new__`
+
+:::
 
 
 
@@ -181,14 +206,31 @@ Many are part of the python language.
 
 # Dunders: Examples
 
+
 <br>
 
-```python
+
+```{.python filename='pyfile.py'}
+print(__name__)
+
 if __name__ == "__main__":
-    ...
+    print('script mode')
+else:
+    print('module mode')
+```
+<br>
+
+:::{.fragment}
+
+```bash
+python pyfile.py  # __main__, script mode 
 ```
 
+```bash
+python -c "import pyfile"  # pyfile, module mode
+```
 
+:::
 
 # Dunders: Examples
 
@@ -203,19 +245,57 @@ class Customer:
 
 
 
-# Dunders: Examples
+# Dunders: Examples{auto-animate="true"}
 
 <br>
 
-```python
-class Customer:
+```{.python code-line-numbers="|4-7|9-11|"}
+import numpy as np
+
+class Color:
+    def __init__(self, rgb):
+        self.rgb = np.array(rgb)
+        assert len(self.rgb) == 3
+        assert np.all(self.rgb < 256)
+
     def __add__(self, other):
-        ...
+        new_color = (self.rgb + other.rgb) / 2
+        return Color(new_color)
+```
+
+```{python}
+#| echo: false
+import numpy as np
+
+class Color:
+    def __init__(self, rgb):
+        self.rgb = np.array(rgb)
+        assert len(self.rgb) == 3
+        assert np.all(self.rgb < 256)
+
+    def __add__(self, other):
+        new_color = (self.rgb + other.rgb) / 2
+        return Color(new_color)
+```
+
+
+# Dunders: Examples{auto-animate="true"}
+
+<br>
+
+
+```{python}
+#| echo: true
+color1 = Color([0, 0, 0])
+color2 = Color([100, 100, 100])
+
+color3 = color1 + color2
+assert np.all(color3.rgb == [50, 50, 50])
 ```
 
 
 
-# Dunders: Operator overloading
+# Dunders: Operator Overloading
 
 
 :::: {.columns}
@@ -248,94 +328,169 @@ class Customer:
 ::::
 
 
-# Dunders: Operator overloading
+# Dunders: Operator Overloading{auto-animate="true"}
 
-```{python}
-#| echo: True
-class FunkyString:
+
+```{.python code-line-numbers="|2-3|5-6|8-9|11-12"}
+class PaddingString:
     def __init__(self, starting_string):
         self._data = starting_string
 
     def __rshift__(self, num):
-        return ' '*num + self._data
-
-fs = FunkyString('bob')
-print(fs >> 3)
-print(fs >> 6)
-print(fs >> 9)
+        return PaddingString(' '*num + self._data)
+        
+    def __lshift__(self, num):
+        return PaddingString(self._data + ' '*num)
+        
+    def __str__(self):
+        return self._data 
 ```
 
-# Getters and Setters
 
-<br>
+```{python}
+#| echo: false
+class PaddingString:
+    def __init__(self, starting_string):
+        self._data = starting_string
 
-::: {.incremental}
-- Avoid using `get` and `set` methods.
-- For simple cases, just assign or access a value on the instance/class.
-- When more logic is needed use [getters/setters](https://stackoverflow.com/a/2627034/3645626).
-- For many such attributes use [descriptors](https://docs.python.org/3/howto/descriptor.html).
-- If this still doesn't work consider methods named `get_x`/`set_x`.
-:::
-
-
-# Getters and Setters
-
-Not ideal
-
-```python
-class DynamicX(object):
-    def __init__(self):
-        self._x = None
-
-    def get_x(self):
-        return self._x
-
-    def set_x(self, value):
-        self._x = value
+    def __rshift__(self, num):
+        return PaddingString(' '*num + self._data)
+        
+    def __lshift__(self, num):
+        return PaddingString(self._data + ' '*num)
+        
+    def __str__(self):
+        return self._data 
 ```
 
-# Getters and Setters
-
-Better
-
-```python
-class DynamicX(object):
-    def __init__(self):
-        self._x = None
-
-    @property
-    def x(self):
-        print("getter of x called")
-        return self._x
-
-    @x.setter
-    def x(self, value):
-        print("setter of x called")
-        self._x = value
-```
-
-# Inheritance 
-
-<br>
-
-- Inheritance is used to extend or modify classes
-
-- MRO defines lookups (instance) -> (class) -> (parent) -> (grandparent) -> ...
-
-
-
-## Inheritance 
-
-You can check the MRO via the `__MRO__` dunder class attribute.
+# Dunders: Operator Overloading{auto-animate="true"}
 
 <br>
 
 ```{python}
 #| echo: true
-import pandas as pd
-
-print(pd.DataFrame.__mro__)
+fs = PaddingString('bob')
+print(fs >> 3)
+print(fs >> 6)
+print(fs >> 9)
+print(fs << 10)
 ```
+
+
+
+# Getters and Setters
+
+::: {.incremental}
+- Sometimes side effects (or calcs) are needed when getting or setting an attribute.
+- For simple cases, just assign or access a value on the instance/class.
+- When more logic is needed consider [getters/setters](https://stackoverflow.com/a/2627034/3645626).
+- For many such attributes use [descriptors](https://docs.python.org/3/howto/descriptor.html).
+- If this doesn't work/fit, then use `get_`/`set_`.
+:::
+
+
+
+# Getters and Setters
+
+`get_`/`set_` methods
+
+```{python}
+#| echo: true
+class DynamicX(object):
+    def __init__(self):
+        self._x = None
+
+    def get_x(self):
+        print("getting x")
+        return self._x
+
+    def set_x(self, value):
+        print("setting x")
+        self._x = value
+```
+
+# Getters and Setters
+
+getter and setter
+
+```{python}
+#| echo: true
+class DynamicY(object):
+    def __init__(self):
+        self._y = None
+
+    @property
+    def y(self):
+        print("getting y")
+        return self._y
+
+    @y.setter
+    def y(self, value):
+        print("setting y")
+        self._y = value
+```
+
+
+# Getters and Setters{auto-animate="true"}
+<br>
+
+```{.python filename="DynamicX"}
+dynamic_x = DynamicX()
+
+dynamic_x.set_x(42)
+dynamic_x.get_x()
+```
+
+<br>
+
+```{.python filename="DynamicY"}
+dynamic_y = DynamicY()
+
+dynamic_y.y = 42
+dynamic_y.y
+```
+
+
+#  Getters and Setters
+
+```{python}
+#| echo: true
+import time
+
+class Clock:
+    @property
+    def time(self):
+        return time.ctime()
+```
+
+:::{.fragment}
+
+<br>
+```{python}
+#| echo: true
+clock = Clock()
+time_1 = clock.time    
+time.sleep(1)  # sleep 1 second
+time_2 = clock.time  # slightly larger than time_1
+print(time_1, time_2) 
+```
+
+:::
+
+
+
+# Inheritance 
+
+<br>
+
+:::{.incremental}
+
+- Inheritance is used to extend or modify classes
+
+- Python supports *multiple inheritance*, which can get confusing
+
+- MRO (`__mro__`) defines lookups (instance) -> (class) -> (parent) -> (grandparent) -> ...
+:::
 
 
 
@@ -355,6 +510,43 @@ child = Child()
 print(child.value_1)
 print(child.value_2)
 print(Child.value_1)
+```
+
+
+
+# Inheritance 
+
+You can check the MRO via the `__mro__` dunder class attribute.
+
+<br>
+
+```{python}
+#| echo: true
+import pandas as pd
+
+print(pd.DataFrame.__mro__)
+```
+
+
+
+# Mixins
+
+- [mixin's](https://stackoverflow.com/a/547714/3645626) add limited, broadly applicable, functionality
+to potentially many classes.
+
+
+```{.python code-line-numbers="|1-2|4-8|10-11"}
+class Animal:
+    ...
+    
+class _Pickleable:
+    def to_pickle(path):
+        ...
+    def from_pickle(path):
+        ...
+        
+class Dog(Animal, _Pickleable):
+    ...
 ```
 
 
@@ -379,13 +571,74 @@ issubclass(child, Parent)
 
 
 
+# Dataclasses{auto-animate="true"}
+<br>
+the [dataclasses](https://docs.python.org/3/library/dataclasses.html)
+module makes class definitions more ergonomic.
+
+It can:
+
+:::{.incremental}
+- Create `__init__`, `__equal__`, order dunders, `__hash__`
+- Can specify frozen for faux-immutability
+- Control input modes, like keyword only
+:::
+
+
+## Dataclasses Origin
+
+<br>
+
+The dataclasses module (of the standard library) was inspired by [attrs](https://www.attrs.org/en/stable/).
+It also serves similar purposes as [pydantic](https://docs.pydantic.dev/) but does not perform any
+runtime type checking. If you want typehints to be enforced, use pydantic. 
+
+
+# Dataclasses{auto-animate="true"}
+Traditional class definition
+
+```python
+class OceanPatch:
+
+    def __init__(self, time, dimension, velocity, temperature=20.0):
+        self.time = time
+        self.dimension = dimension
+        self.velocity = velocity
+        self.temperature = temperature
+
+    def __str__(self):
+        ...
+
+    def __eq__(self, other):
+        ...
+
+    ...
+```
+
+
+# Dataclasses{auto-animate="true"}
+Equivalent dataclass
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class OceanPatch:
+    time: float
+    dimension: float
+    velocity: list
+    temperature: float = 20.0
+```
+
+
+
 # Protocols
 
 <br>
 
 Protocols (sometimes called interfaces):
 
-    - indicate objects are compatible in some way
+    - indicate objects behave in some way
     - dunders often used to *implement* protocols
     - any number of protocols are possible
 
@@ -404,10 +657,38 @@ Common Protocols (most found in types or typing module):
     - ...
 
 
+# Protocols
+
+A class which implements the Sized protocol
+
+```{python}
+#| echo: true
+
+class SizedThing:
+    def __init__(self, data):
+        self._data = data
+    
+    def __len__(self):
+        return len(self._data)
+```
+
+:::{.fragment}
+
+```{python}
+#| echo: true
+from typing import Sized
+
+sized_thing_1 = SizedThing([1,2,3])
+assert len(sized_thing_1) == 3
+assert isinstance(sized_thing_1, Sized)
+```
+
+:::
+
 
 # Protocols
 
-Create a class which implements the Hashable protocol
+A class which implements the Hashable protocol
 ```{python}
 #| echo: true
 
@@ -417,43 +698,74 @@ class MyHashableClass:
     
     def __hash__(self):
         return hash(self.seed)
+```
+
+:::{.fragment}
+
+```{python}
+#| echo: true
+from typing import Hashable
 
 my_instance = MyHashableClass(42)
-
-# my instance is a valid key in a dictionary
+assert isinstance(my_instance, Hashable)
 my_dict = {my_instance: 42}
 ```
 
+:::
+
 
 # Protocols
 
-Create a class which implements the Callable protocol
 ```{python}
 #| echo: true
+from dataclasses import dataclass
 
+@dataclass
 class MyCallableClass:
-    secret_number = 42
+    secret_number: int = 123_456
     
     def __call__(self, arg1, arg2):
         return self.secret_number + arg1 + arg2
-
-my_instance = MyCallableClass()
-
-# now instances are callable
-my_instance(-1, 1)
 ```
+
+:::{.fragment}
+
+
+```{.python code-line-numbers="|5"}
+from typing import Callable
+
+callable_instance = MyCallableClass(12)
+assert isinstance(callable_instance, Callable)
+secret = callable_instance(-1, 1)
+```
+
+
+```{python}
+#| echo: false
+from typing import Callable
+
+callable_instance = MyCallableClass()
+assert isinstance(callable_instance, Callable)
+secret = callable_instance(-1, 1)
+```
+
+:::
+
 
 
 
 # Protocols
 
-<br>
 Defining protocols
 
-    - ABC module and typing.Protocol define protocols
-    - Protocol specifies required methods and their signatures
-    - ABCs use inheretence (or registering virtual children)
-    - typing.Protocol is based on structure not inheritance, often used for static type checking
+:::{.incremental}
+- Can define protocols with `abc` module and `typing.Protocol`
+- Protocol specifies required methods and their signatures
+- ABCs use inheritance (or registering virtual children)
+  - Children of an ABC which don't meet the requirements raise error
+- typing.Protocol is based on structure not inheritance
+  - `isinstance` checks required.
+:::
 
 ::: footer
 [This](https://jellis18.github.io/post/2022-01-11-abc-vs-protocol/) is a great article on the difference between ABC and
@@ -510,17 +822,18 @@ mydeck = MyDeck()
 ```
 
 
+
 # Protocols
 
 typing.Protocol example
 ```{python}
 #| echo: true
-from typing import Protocol, runtime_checkable, Self
+import typing
 
-@runtime_checkable
-class DeckProtocol(Protocol):
+@typing.runtime_checkable
+class DeckProtocol(typing.Protocol):
     """An ABC for a deck of cards."""
-    def shuffle(self) -> Self:
+    def shuffle(self) -> typing.Self:
         ...
     
     def draw(self) -> str:
@@ -556,6 +869,59 @@ class MyDeck:
 deck = MyDeck()
 assert isinstance(deck, DeckProtocol)
 ```
+
+
+
+# OO Design
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Possible [Advantages]{.blue}
+
+::: {.incremental}
+- Expressive (intuitive interfaces)
+- Modularity (inheritance)
+- Common Paradigm (java/c++)
+:::
+
+:::
+
+::: {.column width="50%"}
+
+Possible [Disadvantages]{.red}
+
+::: {.incremental}
+- Expressive (sometimes too much freedom)
+- Shared State (who changed what and when?)
+- Slower Execution (objects vs arrays)
+:::
+
+:::
+
+::::
+
+:::{.fragment}
+Others?
+:::
+
+
+
+# OO Design
+
+:::{.r-stack}
+
+![](images/simple_oo.png)
+
+:::
+
+# OO Design
+
+:::{.r-stack}
+
+![](images/real_oo.png)
+
+:::
 
 
 
@@ -621,7 +987,7 @@ A few dreaded python OO libraries:
 # Derrick's OO Design Guidelines 
 
 :::{.incremental}
-- Common uses shouldn't require more than 3 classes (make a user-friendly code not a puzzle)
+- Common uses shouldn't require more than 3 classes
 - Classes are simplest when extensions of familiar protocols (ie list-like plus extra bits)
 - Class division at a high data level (DataFrame rather than dict of Series)
 - Take it easy on operator overloading
