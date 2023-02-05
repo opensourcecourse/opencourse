@@ -6,12 +6,15 @@ format:
         slide-number: true
         preview-links: auto
         theme: [../../custom_slides.scss]
-        css: ../../slides.css
+        css: "../../slides.css"
         view-distance: 100
         mobile-view-distance: 100
         navigation-mode: vertical
         controls-layout: bottom-right
         controls-tutorial: true
+        embed-resources: true
+        mermaid:
+            theme: default
 
 footer: \
     <a href="https://opensourcecourse.dev/modules/collaborative_development/overview.html">overview</a> /\
@@ -26,11 +29,8 @@ footer: \
 
 - Codes of Conduct
 - Issues
-- Discussions
 - Pull Requests
 - Code Reviews
-
-
 
 
 # Codes of Conduct
@@ -83,8 +83,8 @@ Before you start...
 
 
 # Pull Requests
-Before you start...
 
+<br>
 <br>
 
 ```{mermaid}
@@ -98,9 +98,16 @@ flowchart LR
 ```
 
 
+# Code Reviews
 
-# Pull Requests
 
 
-# Code reviews
+
+# Conclusions
+
+:::{.incremental}
+- Be respectful of others
+- Get feedback early on
+- Get practice with github interfaces
+:::
 

@@ -98,6 +98,16 @@ website:
             - text: "exercises"
               href: modules/collaborative_development/exercises.qmd
 
+        - section: "Project Structure"
+          href: modules/structure/overview.qmd
+          contents:
+            - text: 'overview'
+              href: modules/structure/overview.qmd
+            - text: 'slides'
+              href: modules/structure/slides.qmd
+            - text: "exercises"
+              href: modules/structure/exercises.qmd
+
       -  going_forward.qmd
       -  acknowledgements.qmd
 

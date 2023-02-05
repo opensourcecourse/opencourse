@@ -1,0 +1,51 @@
+---
+title: "Structuring Coding Projects"
+---
+![](../../images/scafold.png)
+
+:::{.callout-note appearance="minimal"}
+Clean code always looks like it was written by someone who cares. 
+
+\— Robert C. Martin
+:::
+
+Creating an effective, clean structure for a coding project is a challenge. 
+Large code structures follow [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law) in that the
+code will end up looking like the communication structure of the developers. Small open-source libraries,
+applications, and research projects, however, don't feel such influences. You therefore might have more
+freedom, but this can lead to the [paradox of choice](https://en.wikipedia.org/wiki/The_Paradox_of_Choice). 
+
+Reasonable organization depends on the type and size of code. A python application will look quite different from a
+library which will be quite different from a repository of reproducible research (science repo). While some
+structure is imposed on the first two categories by frameworks and distribution tools, the science repo is
+wide open and many conflicting opinions exist. Here we examine common organization for each code type,
+and make some sane suggestions for taming your project's complexity. 
+
+
+# Objectives
+
+In this module, we will:
+
+1. See how a modern python *library* is structured
+2. Review common structures of python *applications*
+3. Examine the "science repo" and possible organization
+4. Discuss distribution channels
+
+# Reading
+
+- [Good Research Code Setup](https://goodresearch.dev/setup.html)
+
+# Additional Resources
+
+- [Packaging a python library](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
+- [Python Application Layouts](https://realpython.com/python-application-layouts/)
+- [Research code opinion 1](https://medium.com/swlh/how-to-structure-a-python-based-data-science-project-a-short-tutorial-for-beginners-7e00bff14f56)
+- [Research code opinion 2](https://towardsdatascience.com/how-to-structure-a-data-science-project-for-readability-and-transparency-360c6716800)
+
+## Workflow Engines
+
+- [kedro docs](https://kedro.org/)
+- [airflow](https://airflow.apache.org/)
+- [dagster](https://dagster.io/)
+- [prefect](https://github.com/PrefectHQ/prefect)
+- [doit](https://pydoit.org/)
