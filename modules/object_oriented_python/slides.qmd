@@ -43,20 +43,28 @@ Object Oriented is not synonymous with "better"
 # Intro
 
 
-```{.python code-line-numbers="|2-3|5-6|8|9|11-12"}
+```{.python code-line-numbers="|2-3|5-6|"}
 class Dog:
     def __init__(self, name):
         self.name = name  # data
-    
-    def say_hello(self):  # behavior
-        print(f"Hello from {self.name}") 
 
+    def say_hello(self):  # behavior
+        print(f"Hello from {self.name}")
+```
+
+:::{.fragment}
+
+<br>
+
+```{.python code-line-numbers="|1|2|4-5"}
 fido = Dog('fido')
 fido.say_hello()
 
 bessie = Dog('bessie')
 bessie.say_hello()
 ```
+
+:::
 
 
 
@@ -71,7 +79,7 @@ bessie.say_hello()
 - instance - the filled in data (filled in form)
 - self - conventional name for class instance
 - attribute - data accessed via getattr (object.name)
-- method - class functions (first parameter is self)
+- (instance) method - class functions (first parameter is self)
 - class method - class function (first parameter is cls)
 
 :::
@@ -155,9 +163,11 @@ class Dog:
         return cls(name=name)
 ```
 
+<br>
+
 :::{.fragment}
 
-```python
+```{.python code-line-numbers="|1|2-3|"}
 maggie = Dog("Maggie")
 new_dog_1 = maggie.from_file("dog_name.txt")
 new_dog_2 = Dog.from_file("dog_name.txt")
@@ -526,6 +536,29 @@ import pandas as pd
 
 print(pd.DataFrame.__mro__)
 ```
+
+
+# Super
+
+`super` is used to skip the current class in the mro.
+
+```{.python code-line-numbers="|1-4|6-7|9-11"}
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+class Square(Rectangle):
+    def __init__(self, length):
+        super().__init__(length, length)
+```
+
+:::{.footer}
+[more on super](https://realpython.com/python-super/#an-overview-of-pythons-super-function)
+:::
 
 
 
