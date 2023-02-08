@@ -6,10 +6,15 @@ format:
         slide-number: true
         preview-links: auto
         theme: [../../custom_slides.scss]
-        css: ../../slides.css
+        css: "../../slides.css"
+        view-distance: 100
+        mobile-view-distance: 100
         navigation-mode: vertical
         controls-layout: bottom-right
         controls-tutorial: true
+        embed-resources: true
+        mermaid:
+            theme: default
 footer: \
     <a href="https://opensourcecourse.dev/modules/object_oriented_python/overview.html">overview</a> /\
     <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/object_oriented_python/slides.qmd">source</a> /\
@@ -40,31 +45,198 @@ Object Oriented is not synonymous with "better"
 
 
 
-# Intro
+# Conceptual Framework {auto-animate="true"}
 
+<br>
+Start with a dictionary
 
-```{.python code-line-numbers="|2-3|5-6|"}
-class Dog:
-    def __init__(self, name):
-        self.name = name  # data
+```{.python code-line-numbers="|1|3|4"}
+my_dict = {'data_1': 1, 'data_2': 2}
 
-    def say_hello(self):  # behavior
-        print(f"Hello from {self.name}")
+my_data['data_1']   # access data_1
+my_data['data_3'] = 3  # set new data with key data_3
 ```
 
-:::{.fragment}
+
+
+# Conceptual Framework {auto-animate="true"}
+
+<br>
+Now switch it for a simple name space
+
+```{.python code-line-numbers="|1,3|5|6|7"}
+from types import SimpleNamespace
+
+my_ns = SimpleNamespace(data_1=1, data_2=2)
+
+my_ns.data_1   # access data_1
+my_ns.data_3 = 3  # set new data with key data_3
+my_ns.__dict__  # What's this?
+```
+
+
+# Conceptual Framework {auto-animate="true"}
+
+<br>
+Why not attach a function too?
+<br>
+
+```{.python}
+def some_function():
+    return
+
+my_ns.some_function
+```
+
+
+
+# Conceptual Framework {auto-animate="true"}
 
 <br>
 
-```{.python code-line-numbers="|1|2|4-5"}
-fido = Dog('fido')
-fido.say_hello()
-
-bessie = Dog('bessie')
-bessie.say_hello()
+```{mermaid}
+classDiagram
+    class my_ns
+    my_ns : my_data_1
+    my_ns : my_data_2
+    my_ns : my_data_3
+    my_ns : some_function()
 ```
 
-:::
+
+# Conceptual Framework {auto-animate="true"}
+
+<br>
+
+```{mermaid}
+classDiagram
+    class Class
+    Class : class_data = 12
+    class instance
+    instance : instance_data=42
+    instance --> Class
+```
+
+
+
+# Conceptual Framework {auto-animate="true"}
+
+```{mermaid}
+classDiagram
+    class Class1
+    Class1 : class_1_data = 12
+    class instance
+    instance : instance_data=42
+    class Class2
+    Class2 : class_2_data = 13
+    instance --> Class1
+    Class1 --> Class2
+```
+
+
+
+# Conceptual Framework {auto-animate="true"}
+
+```{mermaid}
+classDiagram
+    class Class1
+    Class1 : class_1_data = 12
+    class instance_1
+    instance_1 : instance_data=42
+    class instance_2
+    instance_2 : instance_data= 30
+    class Class2
+    Class2 : class_2_data = 13
+    instance_1 --> Class1
+    instance_2 --> Class1
+    Class1 --> Class2
+```
+
+
+
+# Conceptual Framework {auto-animate="true"}
+
+
+```{mermaid}
+classDiagram
+    class Class1
+    Class1 : data = 42
+    class instance
+    instance : data = 42
+    class Class2
+    Class2 : data = 13
+    instance --> Class1
+    Class1 --> Class2
+```
+
+
+
+# Conceptual Framework {auto-animate="true"}
+
+<br>
+
+```{mermaid}
+classDiagram
+    class Class1
+    Class1 : class_data = 10
+    Class1 : some_func(param1, param2)
+    class instance
+    instance : data = 42
+    instance --> Class1
+```
+
+
+
+# Conceptual Framework {auto-animate="true"}
+
+<br>
+
+```{.python code-line-numbers="|1-2|4-5|7-8"}
+class Class1:
+    class_data = 10
+
+    def __init__(self, data):
+        self.data = data  # data
+
+    def some_func(param_1, param2):  # behavior
+        ...
+```
+
+
+
+# Conceptual Framework {auto-animate="true"}
+
+Instance methods created from class functions
+
+```{mermaid}
+classDiagram
+    class Class1
+    Class1 : class_data = 10
+    Class1 : some_func(param1, param2)
+    class instance
+    instance : data = 42
+    instance --> Class1
+```
+
+
+
+# Conceptual Framework {auto-animate="true"}
+
+
+```{.python code-line-numbers="|10|8,11|8,12"}
+class Class1:
+    class_data = 10
+
+    def __init__(self, data):
+        self.data = data  # data
+
+    def some_method(self, parameter_2):  # behavior
+        print(self.data, parameter_2)
+
+self = Class1(data=42)
+instance.some_method(12)  # prints 42, 12
+Class1(self, 12)  # identical to above
+```
 
 
 
@@ -79,64 +251,7 @@ bessie.say_hello()
 - attribute - data accessed via getattr (object.name)
 - (instance) method - class functions (first parameter is self)
 - class method - class function (first parameter is cls)
-
-:::
-
-
-
-
-# Dog Revisited
-
-:::{.r-stack width="50%"}
-
-![](images/class_map.png)
-
-:::
-
-
-
-
-# Classes in the Wild
-
-<br>
-
-```{.python code-line-numbers="|3-4|6|7"}
-import numpy as np
-
-array = np.random.random(20)
-assert isinstance(array, np.ndarray)
-
-array.mean()  # method or attribute?
-array.shape  # method or attribute?
-```
-
-
-
-# Knowledge Check {auto-animate="true"}
-
-```{.python}
-class Customer:
-    name = "default"
-    bank = "Chase"
-    
-    def __init__(self, name):
-        self.name = name
-        self.balance = 0
-        
-    def withdraw(self, amount):
-        self.balance -= amount
-```
-
-:::{.fragment}
-
-```{.python code-line-numbers="1|2|3|4|5-6"}
-bob = Customer('bob')  # What is bob?  
-cust = Customer  # what is cust?
-bob.balance  # what is balance (value and thing)
-bob.withdraw  # what is withdraw? 
-bob.name, cust.name, bob.bank, cust.bank
-```
-
+- static method - class function (no special first parameter)
 :::
 
 
@@ -169,29 +284,74 @@ new_dog_2 = Dog.from_file("dog_name.txt")
 
 
 
-# Object creation
+# Static Methods
 
-Python has an object creation step:
+```python
+class Dog:
+    def __init__(self, name):
+        self.name = name
 
-`__new__`
+    @staticmethod
+    def add(arg1, arg2):
+        return arg1 + arg2
+```
 
-Which creates an empty object (sets up space for data)
-
-:::{.fragment}
-
-and initialization step:
-
-`__init__`
-
-Which fills in data
-
-:::
+<br>
 
 :::{.fragment}
 
-Usually, avoid `__new__`
+```{.python code-line-numbers="|1|2-3|"}
+maggie = Dog("Maggie")
+new_dog_1 = maggie.add(1, 2)
+new_dog_2 = Dog.add(2, 2)
+```
 
 :::
+
+
+
+# Knowledge Check {auto-animate="true"}
+
+```{.python}
+class Customer:
+    name = "default"
+    bank = "Chase"
+
+    def __init__(self, name):
+        self.name = name
+        self.balance = 0
+
+    def withdraw(self, amount):
+        self.balance -= amount
+```
+
+:::{.fragment}
+
+```{.python code-line-numbers="1|2|3|4|5-6"}
+bob = Customer('bob')  # What is bob?
+cust = Customer  # what is cust?
+bob.balance  # what is balance (value and thing)
+bob.withdraw  # what is withdraw?
+bob.name, cust.name, bob.bank, cust.bank
+```
+
+:::
+
+
+
+# Classes in the Wild
+
+<br>
+
+```{.python code-line-numbers="|3-4|6|7"}
+import numpy as np
+
+array = np.random.random(20)
+assert isinstance(array, np.ndarray)
+
+array.mean()  # method or attribute?
+array.shape  # method or attribute?
+```
 
 
 
@@ -244,6 +404,31 @@ class Customer:
         self.name = name
         self.balance = 0
 ```
+
+
+# Object creation
+
+Python has an object creation step:
+
+`__new__`
+
+Which creates an empty object (sets up space for data)
+
+:::{.fragment}
+
+and initialization step:
+
+`__init__`
+
+Which fills in data
+
+:::
+
+:::{.fragment}
+
+Usually, avoid `__new__`
+
+:::
 
 
 
@@ -494,25 +679,6 @@ print(time_1, time_2)
 - MRO (`__mro__`) defines lookups (instance) -> (class) -> (parent) -> (grandparent) -> ...
 :::
 
-
-
-# Inheritance 
-
-```{.python code-line-numbers="|11|12|13"}
-class Parent:
-    value_1 = 0
-    
-class Child(Parent):
-    value_2 = 1    
-    
-    def __init__(self):
-        self.value_1 = 2
-
-child = Child()
-print(child.value_1)
-print(child.value_2)
-print(Child.value_1)
-```
 
 
 
@@ -980,7 +1146,7 @@ data_file = os.path.join(data_path, 'the_facts.csv')
 
 
 
-## OO Design: Good Examples 
+# OO Design: Good Examples
 
 <br>
 
@@ -988,7 +1154,7 @@ With pathlib
 ```python 
 from pathlib import Path
 
-data_path = Path('/home/user/data')  # / will now work on windows!
+data_path = Path('/home/user/data')
 
 data_file = data_path / 'the_facts.csv'
 ```
@@ -1007,7 +1173,9 @@ A few dreaded python OO libraries:
 - Boto3 (dynamic loading objects, huge number of objects, etc.)
 :::
 
-
+:::{.fragment}
+Most are wrappers around languages with less flexible type systems or overly dynamic.
+:::
 
 # Derrick's OO Design Guidelines 
 

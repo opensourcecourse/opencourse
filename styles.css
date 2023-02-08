@@ -217,3 +217,11 @@ iframe.reveal-demo {
 .vertical-center {
     vertical-align: middle;
 }
+
+
+/*Style for instances in class diagrams*/
+.cssStyle > rect {
+    fill: #ff0000;
+    stroke: #ffff00;
+    stroke-width: 4px;
+  }
