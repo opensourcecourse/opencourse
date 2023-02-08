@@ -43,3 +43,4 @@ In this module we will learn about:
  - [Fluent Python](https://www.oreilly.com/library/view/fluent-python-2nd/9781492056348/)
  - [ABC vs Typing Protocol](https://jellis18.github.io/post/2022-01-11-abc-vs-protocol/)
  - [Python's Data Module](https://davidbpython.com/advanced_python/slides/handout-61-3.html)
+ - [More on Super, Mixins, MRO](https://realpython.com/python-super/#an-overview-of-pythons-super-function)
