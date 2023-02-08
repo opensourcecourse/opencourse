@@ -85,7 +85,7 @@ Why not attach a function too?
 def some_function():
     return
 
-my_ns.some_function
+my_ns.some_function = some_function
 ```
 
 
