@@ -60,21 +60,32 @@ bessie.say_hello()
 
 
 
-
 # Nomenclature
-
-<br>
 
 ::: {.incremental}
 
 - class - the definition (blank form)  
 - instance - the filled in data (filled in form)
 - self - conventional name for class instance
+- call - operator with "()"  (e.g., `Dog()`)
 - attribute - data accessed via getattr (object.name)
-- method - class functions (first parameter is self)
+- (instance) method - class functions (first parameter is self)
 - class method - class function (first parameter is cls)
 
 :::
+
+
+
+
+# Dog Revisited
+
+:::{.r-stack width="50%"}
+
+![](images/class_map.png)
+
+:::
+
+
 
 
 # Classes in the Wild
@@ -93,30 +104,12 @@ array.shape  # method or attribute?
 
 
 
-# Classes in the Wild
-
-```{.python code-line-numbers="|4|5|6|8-9|11-12"} 
-import numpy as np
-import pandas as pd
-
-array = np.random.random((10, 10))
-df = pd.DataFrame(array)
-assert isinstance(df, pd.DataFrame)
-
-sorted_df = df.sort_values(by=1)
-sort_method = df.sort_values
-
-sorted_df.equals(sort_method)
-sorted_df.equals(sort_method(by=1))
-```
-
-
-
 # Knowledge Check {auto-animate="true"}
 
 ```{.python}
 class Customer:
-    name = None
+    name = "default"
+    bank = "Chase"
     
     def __init__(self, name):
         self.name = name
@@ -133,8 +126,7 @@ bob = Customer('bob')  # What is bob?
 cust = Customer  # what is cust?
 bob.balance  # what is balance (value and thing)
 bob.withdraw  # what is withdraw? 
-bob.name
-cust.name
+bob.name, cust.name, bob.bank, cust.bank
 ```
 
 :::
