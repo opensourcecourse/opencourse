@@ -829,10 +829,13 @@ class OceanPatch:
 
 Protocols (sometimes called interfaces):
 
-    - indicate objects behave in some way
-    - dunders often used to *implement* protocols
-    - any number of protocols are possible
+:::{.incremental}
 
+- indicate objects behave in some way
+- dunders often used to *implement* protocols
+- any number of protocols are possible
+
+:::
 
 # Protocols
 
