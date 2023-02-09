@@ -233,9 +233,9 @@ class Class1:
     def some_method(self, parameter_2):  # behavior
         print(self.data, parameter_2)
 
-self = Class1(data=42)
+instance = Class1(data=42)
 instance.some_method(12)  # prints 42, 12
-Class1(self, 12)  # identical to above
+Class1.some_method(self, 12)  # identical to above
 ```
 
 
@@ -674,26 +674,12 @@ print(time_1, time_2)
 
 - Inheritance is used to extend or modify classes
 
+- `super` lets you access the immediate parent class' namespace
+
 - Python supports *multiple inheritance*, which can get confusing
 
 - MRO (`__mro__`) defines lookups (instance) -> (class) -> (parent) -> (grandparent) -> ...
 :::
-
-
-
-
-# Inheritance 
-
-You can check the MRO via the `__mro__` dunder class attribute.
-
-<br>
-
-```{python}
-#| echo: true
-import pandas as pd
-
-print(pd.DataFrame.__mro__)
-```
 
 
 # Super
@@ -718,6 +704,20 @@ class Square(Rectangle):
 [more on super](https://realpython.com/python-super/#an-overview-of-pythons-super-function)
 :::
 
+
+
+# Inheritance 
+
+You can check the MRO via the `__mro__` dunder class attribute.
+
+<br>
+
+```{python}
+#| echo: true
+import pandas as pd
+
+print(pd.DataFrame.__mro__)
+```
 
 
 # Mixins
