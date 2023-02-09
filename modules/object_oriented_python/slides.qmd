@@ -259,13 +259,15 @@ Class1.some_method(self, 12)  # identical to above
 # Class Methods
 
 ```python
+from pathlib import Path
+
 class Dog:
     def __init__(self, name):
         self.name = name 
     
     @classmethod
     def from_file(cls, path):
-        with path .open('r') as fi:
+        with Path(path).open('r') as fi:
             name = fi.read()
         return cls(name=name)
 ```
@@ -731,9 +733,12 @@ class Animal:
     ...
     
 class _Pickleable:
-    def to_pickle(path):
+    @classmethod
+    def to_pickle(cls, path):
         ...
-    def from_pickle(path):
+        
+    @classmethod
+    def from_pickle(cls, path):
         ...
         
 class Dog(Animal, _Pickleable):
