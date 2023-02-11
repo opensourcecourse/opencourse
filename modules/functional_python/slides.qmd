@@ -1,6 +1,6 @@
 ---
 title: "Functional Python"
-subtitle: Functional features you wont want to live without
+subtitle: Functionally Educational
 format:
     revealjs:
         slide-number: true
@@ -19,76 +19,239 @@ footer: \
 
 # Functional Concepts
 
-<br>
-
 :::{.incremental}
-- Pure functions
-- Immutability
+- Pure functions, immutability, side effects
 - Functions as parameters
 - Decorators
 - Anonymous functions
+- Generators
+- Context managers
 - Map, reduce
 - Recursion
 :::
 
 
 
-# Pure Functions
+# Functional Purity {auto-animate="true"}
+
+Define three vector functions
+
+:::{.fragment}
+
+$$
+f(a, \vec{x}, \vec{y}) = a \vec{x} + \vec{y}
+$$
+
+:::
+
+:::{.fragment}
+
+$$
+g(\vec{x}, \vec{y}) = \vec{x} \oslash \vec{y}
+$$
+
+:::
+
+:::{.fragment}
+
+$$
+h(a, \vec{x}) = \vec{x}^{\circ a}
+$$
+
+:::
+
+
+
+# Functional Purity {auto-animate="true"}
+
+Does the meaning change with order?
+
+$$
+f(a, \vec{x}, \vec{y}) = a \vec{x} + \vec{y}
+$$
+
+$$
+g(\vec{x}, \vec{y}) = \vec{x} \oslash \vec{y}
+$$
+
+$$
+h(a, \vec{x}) = \vec{x}^{\circ a}
+$$
+
+
+
+# Functional Purity {auto-animate="true"}
+
+Does the meaning change with order?
+
+$$
+g(\vec{x}, \vec{y}) = \vec{x} \oslash \vec{y}
+$$
+
+$$
+h(a, \vec{x}) = \vec{x}^{\circ a}
+$$
+
+$$
+f(a, \vec{x}, \vec{y}) = a \vec{x} + \vec{y}
+$$
+
+
+# Functional Purity {auto-animate="true"}
+
+Does the meaning change with order?
+
+$$
+h(a, \vec{x}) = \vec{x}^{\circ a}
+$$
+
+$$
+f(a, \vec{x}, \vec{y}) = a \vec{x} + \vec{y}
+$$
+
+$$
+g(\vec{x}, \vec{y}) = \vec{x} \oslash \vec{y}
+$$
+
+
+
+# Functional Purity {auto-animate="true"}
+
+Does the meaning change with order?
+
+$$
+h(a, \vec{x}) = \vec{x}^{\circ a}
+$$
+
+$$
+g(\vec{x}, \vec{y}) = \vec{x} \oslash \vec{y}
+$$
+
+$$
+f(a, \vec{x}, \vec{y}) = a \vec{x} + \vec{y}
+$$
+
+
+# Functional Purity {auto-animate="true"}
+
+<br>
+
+```{.python filename="functions"}
+def func_f(a, x, y):
+    ...
+
+def func_g(x, y):
+    ...
+
+def func_h(a, x):
+    ...
+```
+
+
+# Functional Purity {auto-animate="true"}
+
+<br>
+
+```{.python filename="inputs"}
+import numpy as np
+
+x = np.random.random(10)
+y = np.ones_like(x)
+a = 12
+```
+
+
+# Functional Purity {auto-animate="true"}
+
+<br>
+
+```{.python filename="Order"}
+f_1 = func_f(a, x, y)
+g_1 = func_g(x, y)
+h_1 = func_h(a, x)
+
+h_2 = func_h(a, x)
+g_2 = func_g(x, y)
+f_2 = func_f(a, x, y)
+```
+
+:::{.fragment}
+
+Do $f_1$ = $f_2$, $g_1$ = $g_2$, $h_1$ = $h_2$ ? 
+
+:::
+
+:::{.fragment}
+
+It depends on [functional purity]{.red-bold} 
+
+:::
+
+
+
+# Functional Purity {auto-animate="true"}
+
+
+```{.python filename="pure functions"}
+def func_f(a, x, y):
+    out = a * x + y
+    return out
+
+def func_g(x, y):
+    out = x / y
+    return out
+
+def func_h(a, x):
+    out = x ** a
+    return out
+```
+
+
+# Functional Purity {auto-animate="true"}
+
+
+```{.python filename="impure functions"}
+def func_f(a, x, y):
+    x[:] = a * x + y
+    return x
+
+def func_g(x, y):
+    x[:] = x / y
+    return x
+
+def func_h(a, x):
+    x[:] = x ** a
+    return x
+```
+
+
+# Functional Purity
 
 <br>
 
 ```{.python}
-evil_global_state = {'value': 1}
+global_state = {'value': 1}
 
 def impure_add(a):
-    return evil_global_state['value'] + a
+    return a + global_state['value']
 
-def pure_add(a, b):
-    return a + b
+def pure_add(a):
+    return a + 1
 ```
 
 
-
-# Pure Functions
-
-:::: {.columns}
-
-::: {.column width="50%"}
-[Advantages]{.blue}
-
-::: {.incremental}
-- Parallelize
-- Easier to tests
-- Eliminates race conditions (for atomic uses)
-:::
-
-:::
-
-::: {.column width="50%"}
-
-[Disadvantages]{.red}
-
-::: {.incremental}
-- Less convenient
-- Potentially lots of state to pass around
-- Usually more data copies
-:::
-
-:::
-
-::::
-
-
-
-# Immutability
+# Functional Purity {auto-animate="true"}
 
 <br>
 
 :::{.incremental}
-- Objects cannot change once created
-- New objects are created
-- Immutable built-ins: tuple, str, frozenset
+- Both pure and impure functions can be **correct**
+- Pure functions behave in a mathematically predictable way
+- Impure functions cause [side effects]{.red-bold}
+- Pure functions are much easier to parallelize
+- Restricted use of features
 :::
+
 
 
 
@@ -96,7 +259,7 @@ def pure_add(a, b):
 
 <br>
 
-```python
+```{.python code-line-numbers="|1-2|4|5"}
 list_1 = [1, 2, 3]
 tuple_1 = (1, 2, 3)
 
@@ -111,39 +274,18 @@ Why would we limit ourselves as developers?
 :::
 
 
-
 # Immutability
 
-:::: {.columns}
+<br>
 
-::: {.column width="50%"}
-[Advantages]{.blue}
-
-::: {.incremental}
-- Fewer copies for safety (no-inplace modifications)
-- Cannot be mutated (no race conditions)
-- Eliminates certain bugs
+:::{.incremental}
+- Objects cannot change once created
+- Side effects related to data are eliminated
+- Memory location no longer matters
+- New objects are created by functions
+- Immutable built-ins: tuple, str, frozenset
+- Prefer immutable data, pure functions until otherwise needed
 :::
-
-:::
-
-::: {.column width="50%"}
-
-[Disadvantages]{.red}
-
-::: {.incremental}
-- Less convenient, cant use certain approaches
-- More copies (no-inplace modifications)
-:::
-
-:::
-
-::::
-
-:::{.fragment}
-Avoid changing things and prefer immutability until otherwise needed.
-:::
-
 
 
 # Functions as Parameters
@@ -328,7 +470,7 @@ The function *definition* determines scope, not its use.
 <br>
 
 :::{.callout-note}
-99% of the time, using global or nonlocal is not a good idea.
+most of the time, using `global` or `nonlocal` is not a good idea.
 :::
 
 
