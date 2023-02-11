@@ -24,12 +24,15 @@ footer: \
 - Functions as parameters
 - Decorators
 - Anonymous functions
-- Generators
-- Context managers
+- *Generators
+- *Context managers
 - Map, reduce
 - Recursion
 :::
 
+:::{.footer}
+*Not particularly functional but no other place to cover these topics
+:::
 
 
 # Functional Purity {auto-animate="true"}
@@ -249,11 +252,10 @@ def pure_add(a):
 - Pure functions behave in a mathematically predictable way
 - Impure functions cause [side effects]{.red-bold}
 - Pure functions are much easier to parallelize
-- Restricted use of features
+- Pure functions restrict what a programmer can do
 :::
 
-
-
+  
 
 # Immutability
 
@@ -274,6 +276,64 @@ Why would we limit ourselves as developers?
 :::
 
 
+
+# Can Mix OO and Functional Benefits?
+
+
+```{.python code-line-numbers="|1-3|5-7|9|11-13"}
+def double(instance):
+    doubled_state = instance.state * 2
+    return instance.__class__(doubled_state)
+
+class Class1:
+    def __init__(self, state):
+        self.state = state
+
+    double = double
+  
+instance = self(1)
+double_instance_1 = self.double()
+double_instance_2 = double(instance)
+```
+
+
+
+# Handling Mutable State 
+
+Safe behavior by default, opt into unsafe behavior
+
+<br>
+
+```{.python code-line-numbers="|1-3|5|7"}
+import pandas as pd
+
+df = pd.read_csv('my_csv.csv')
+
+safe = df.sort_values()
+
+not_safe = df.sort_values(in_place=True)
+```
+
+
+# Handling Mutable State 
+
+Mark mutable attributes
+
+
+```{.python code-line-numbers="|7|9-10"}
+from sklearn.cluster import KMeans
+import numpy as np
+
+X = np.array([[1, 2], [1, 4], [1, 0],
+             [10, 2], [10, 4], [10, 0]])
+             
+kmeans = KMeans(n_clusters=2).fit(X)
+
+kmeans.labels_
+kmeans.cluster_centers_
+```
+
+
 # Immutability
 
 <br>
@@ -288,11 +348,29 @@ Why would we limit ourselves as developers?
 :::
 
 
+  
+# Immutability/Function Purity in the Wild
+
+<br>
+
+:::{.incremental}
+
+- [jax](https://github.com/google/jax)
+- [pyrsistent](https://github.com/tobgu/pyrsistent)
+- [static-frame](https://github.com/static-frame/static-frame)
+- [Apache Arrow](https://arrow.apache.org/)
+- [Polars](https://www.pola.rs/)
+
+:::
+
+
 # Functions as Parameters
 
 <br>
 
-Functions, or any object, can be passed as a parameter to a callable. 
+Functions are first class citizens 
+
+:::{.fragment}
 
 ```python
 def func1():
@@ -304,6 +382,7 @@ def func2(func):
 func2(func1)
 ```
 
+:::
 
 
 # Scope
@@ -313,13 +392,13 @@ func2(func1)
 Scope: the order in which python "sees" names and values (LEGB):
 
 :::{.incremental}
-Local — callables own indent level
+*Local* — callables own indent level
 
-Enclosing-function — callable containing callable
+*Enclosing-function* — callable containing callable
 
-Global (module) — top-level or module names
+*Global* (module) — top-level or module names
 
-Built-in (Python) — python names (open, list, set, ValueError, ...)
+*Built-in* (Python) — python names (open, list, set, ValueError, ...)
 :::
 
 ::: footer
@@ -489,8 +568,8 @@ def decorator(func):
 def add(arg1, arg2):
     return arg1 + arg2
 
-decorated = decorator(add)
-print(decorated(1, 1))
+add = decorator(add)
+print(add(1, 1))
 ```
 
 
@@ -519,23 +598,23 @@ add(1, 1)
 Decorators don't need to replace the old function
 
 ```python
-registery = []
+registry = []
 
 def decorator(func):
-    registery.append(func)
+    registry.append(func)
     return func
 
 @decorator
 def add(arg1, arg2):
     return arg1 + arg2
 
-print(add(1, 1), len(registery))
+print(add(1, 1), len(registry))
 ```
 
 
 
 # Decorators {auto-animate="true"}
-But when they do, they should use "wrap" to transfer metedata.
+Use `wrap` to transfer metedata to new function.
 
 ```python
 from functools import wraps
@@ -654,7 +733,7 @@ Decorators:
 <br>
 Functions with no name
 
-```{.python code-line-numbers="|6" auto-animate="true"}
+```{.python code-line-numbers="|6"}
 my_list = [1, 3, 2]
 other_map = {1: 10, 2: 0, 3: 99}
 
@@ -672,7 +751,7 @@ sort_list = sorted(
 
 Lambda def equivalence
 
-```
+```python
 # never give a lambda a name
 func1 = lambda x, y, z: x + y + z
 
@@ -680,6 +759,158 @@ func1 = lambda x, y, z: x + y + z
 def func1(x, y, z):
     return x + y + z 
 ```
+
+
+# Generators
+
+<br>
+
+:::{.incremental}
+- A function which suspends and resumes state
+- Useful for memory conservation (large or infinite lists)
+- Capable of two-way communication (Basis of async)
+- Implements the **Iterable** and **Iterators** protocol
+:::
+
+
+
+# Generators {auto-animate="true"}
+
+
+```{.python code-line-numbers="15|1-5|7|9-10|12-14"}
+def generator():
+    val = 0
+    while True:
+        val += 1
+        yield val
+
+iterable_thing = generator()
+
+# no get_item
+iterable_thing[0]  # raise TypeError
+
+# but it is iterable
+for val in iterable_thing:  
+    print(val)
+```
+
+
+# Generators {auto-animate="true"}
+
+<br>
+
+```{.python code-line-numbers="|8|9-11"}
+def generator():
+    val = 0
+    while True:
+        val += 1
+        yield val
+
+# Iterator
+iterator = generator()
+val1 = next(iterator)  # 1
+val2 = next(iterator)  # 2
+val3 = next(iterator)  # 3
+# raises StopIteration when exhausted
+```
+
+
+# Yield From
+yield from *drives* iteration
+
+```{.python code-line-numbers="|1-3|5-6"
+def generator_1(iterable):
+    for a in iterable:
+        yield a
+
+def generator_2(iterable):
+    yield from iterable
+```
+
+
+
+# Coroutines {auto-animate="true"}
+
+```{.python code-line-numbers="|1-3|5-6|8,3|9,3"}
+def generator(value):
+    while True:
+        value += yield value
+
+# Iterator
+iterable = generator(0)
+
+first = next(iterable)
+out1 = iterable.send(10)
+out2 = iterable.send(5)
+out3 = iterable.send(2)
+print(first , out1, out2, out3)
+```
+
+:::{.fragment}
+
+```{python}
+#| echo: false
+def generator(value):
+    while True:
+        value += yield value
+
+# Iterator
+iterable = generator(0)
+
+first = next(iterable)
+
+out1 = iterable.send(10)
+out2 = iterable.send(5)
+out3 = iterable.send(2)
+print(first , out1, out2, out3)
+```
+
+:::
+
+
+
+# Generators
+
+Generators (like) are **everywhere** in python!
+
+```python
+my_dict = {1: 1, 2: 2}
+items = my_dict.items()  
+
+generator_comp = (x for x in range(10))
+```
+
+
+# Context Mangers
+
+:::{.incremental}
+- Associated with the `with` keyword
+- Used to manage setup/teardown for different contexts
+:::
+
+```{.python code-line-numbers="|1|2-3"}
+with open('some_file.txt', 'w') as fi:
+    fi.write('my txt')
+...
+```
+
+
+# Context Mangers
+
+```{.python code-line-numbers="|1-4|5|6|7|9-10"}
+from contextlib import contextmanager
+
+@contextmaanger
+def my_open(filename, mode):
+    fi = open(filename, mode)
+    yield fi
+    fi.close()
+
+with my_open('test_file.txt', 'w') as fi:
+    fi.write('my txt')
+...
+```
+
 
 
 
