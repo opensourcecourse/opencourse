@@ -24,10 +24,10 @@ footer: \
 - Functions as parameters
 - Decorators
 - Anonymous functions
-- *Generators
-- *Context managers
 - Map, reduce
 - Recursion
+- *Generators
+- *Context managers
 :::
 
 :::{.footer}
@@ -761,6 +761,82 @@ def func1(x, y, z):
 ```
 
 
+
+# Map
+
+<br>
+
+Apply a function to each element of a sequence
+
+```{python}
+#| echo: true
+my_range = range(10)
+
+# square the list
+out = map(lambda x: x*x, my_range)
+
+print(list(out))
+```
+
+
+
+# Reduce
+
+
+Apply a function to first two elements, then the result to the third, etc.
+
+
+```{python}
+#| echo: true
+from functools import reduce
+my_range = range(1, 6)
+
+# square the list
+out = reduce(lambda x,y: x*y, my_range)
+
+print(out)
+```
+
+::: footer
+Haskel calls reduce "fold" which is a more descriptive name.
+See [Real Python's article](https://realpython.com/python-reduce-function/) for more on reduce.
+:::
+
+
+
+# Recursion
+
+<br>
+When a function calls into itself. Has a base case and at least one recursive case.
+
+
+```{.python code-line-numbers="|3|4,5"}
+def fibonacci(n):
+   if n <= 1:
+       return n
+   fib1 = fibonacci(n-1)
+   fib2 = fibonacci(n-2)
+   return fib1 + fib2
+```
+
+
+
+# Recursion
+
+<br>
+
+Recursion:
+
+:::{.incremental}
+- Works well for parsing recursive data structures (eg trees)
+- Easy to overflow the stack
+- Works well for showing off
+- Can be difficult to understand
+- Should be used sparingly
+:::
+
+
+
 # Generators
 
 <br>
@@ -912,78 +988,32 @@ with my_open('test_file.txt', 'w') as fi:
 ```
 
 
+## Context Mangers
 
+Class context managers are more powerful
 
-# Map
+```{.python code-line-numbers="|1-4|5|6|7|9-10"}
 
-<br>
+class MyOpen:
+    def __init__(self, path, mode):
+        self._path = path
+        self._mode = mode
+        self._fi = None
+        
+    def __enter__(self):
+        self._fi = open(self._path)
+        return self._fi
+        
+    def __exit__(self, exc_type, exc_value, exc_tb):
+        self._fi.close()
 
-Apply a function to each element of a sequence
-
-```{python}
-#| echo: true
-my_range = range(10)
-
-# square the list
-out = map(lambda x: x*x, my_range)
-
-print(list(out))
+with MyOpen('test_file.txt', 'w') as fi:
+    fi.write('my txt')
+...
 ```
 
-
-
-# Reduce
-
-
-Apply a function to first two elements, then the result to the third, etc.
-
-
-```{python}
-#| echo: true
-from functools import reduce
-my_range = range(1, 6)
-
-# square the list
-out = reduce(lambda x,y: x*y, my_range)
-
-print(out)
-```
-
-::: footer
-Haskel calls reduce "fold" which is a more descriptive name.
-See [Real Python's article](https://realpython.com/python-reduce-function/) for more on reduce.
+:::footer
+More on that [here](https://realpython.com/python-with-statement/)
 :::
 
-
-
-# Recursion
-
-<br>
-When a function calls into itself. Has a base case and at least one recursive case.
-
-
-```{.python code-line-numbers="|3|4,5"}
-def fibonacci(n):
-   if n <= 1:
-       return n
-   fib1 = fibonacci(n-1)
-   fib2 = fibonacci(n-2)
-   return fib1 + fib2
-```
-
-
-
-# Recursion
-
-<br>
-
-Recursion:
-
-:::{.incremental}
-- Works well for parsing recursive data structures (eg trees)
-- Easy to overflow the stack
-- Works well for showing off
-- Can be difficult to understand
-- Should be used sparingly
-:::
 

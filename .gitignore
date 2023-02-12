@@ -130,9 +130,11 @@ dmypy.json
 
 .quarto/
 _site
-
+site_libs/
 /.quarto/
 
 # pycharm
 .idea
 *.ipynb
+
+
