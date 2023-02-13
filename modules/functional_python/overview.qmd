@@ -4,9 +4,10 @@ title: Functional Python
 ![](../../images/decorative_cloth.png)
 
 :::{.callout-note appearance="minimal"}
-Elegance is not about being noticed, it’s about being remembered.
+Object oriented programming makes code understandable by encapsulating moving parts. 
+Functional programming makes code understandable by minimizing moving parts.
 
-\- Giorgio Armani
+\- Michael Feathers
 :::
 
 # Functional Programming
@@ -15,22 +16,25 @@ Functional programming has a lot of different definitions. In a pure sense, it m
 have certain mathematical behaviors and guarantees. In a pragmatic, python-centric perspective, 
 however, functional programming can be thought of as a collections of ideas and features.
 Many of these features are incredibly powerful and expressive, and found in many open-source
-libraries. Functional approaches also tend to be more scalable, a benefit to scientific computing.
+libraries. Functional approaches also tend to be more scalable, and less bug-prone, but do
+require discipline and forethought.
 
-One of python's most powerful, and prevalent, *functional* features is decorators. They are often
-used to mark or modify  functions or classes in some simple, and *hopefully*, easy to remember way. 
-However, despite looking simple, there  is actually a lot going on behind the scenes. Because they
-are so common and powerful, decorators are certainly  worth understanding.
+Understanding functional concepts, including their pros and cons, will help you know in which
+situations your software might benefit from a functional paradigm or when another approach is
+a more natural fit. In this module we cover key concepts of functional programming and 
+functional python features. We will also cover (time permitting) two other important python
+concepts which aren't particularly functional; generators and context managers.
 
 # Outline
 
 This module covers:
 
 1. Functional concept overview
-2. Callables as arguments, closures and scope
-3. Decorators
-4. Anonymous functions
-5. Map, reduce
+2. Scope, closures, higher-order functions (e.g. decorators)
+3. Anonymous functions
+4. Map, reduce
+5. Recursion
+6. \*Generators, \*context managers
 
 # Reading
 
@@ -41,3 +45,8 @@ This module covers:
  - [A Primer on Decorators](https://realpython.com/primer-on-python-decorators/)
  - [Python Closures](https://www.programiz.com/python-programming/closure)
  - [Python Tips: Decorators](https://book.pythontips.com/en/latest/decorators.html)
+ - [Learn you a Haskell](https://www.amazon.com/Learn-You-Haskell-Great-Good/dp/1593272839)
+
+:::{.footer}
+\*These aren't necessarily functional concepts but there is no other place to cover them. 
+:::
