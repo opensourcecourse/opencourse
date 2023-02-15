@@ -46,6 +46,7 @@ This module covers:
  - [Python Closures](https://www.programiz.com/python-programming/closure)
  - [Python Tips: Decorators](https://book.pythontips.com/en/latest/decorators.html)
  - [Learn you a Haskell](https://www.amazon.com/Learn-You-Haskell-Great-Good/dp/1593272839)
+ - [Context Managers](https://realpython.com/python-with-statement/)
 
 :::{.footer}
 \*These aren't necessarily functional concepts but there is no other place to cover them. 

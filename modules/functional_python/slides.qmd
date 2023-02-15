@@ -67,8 +67,7 @@ footer: \
 
 :::{.incremental}
 - Pure functions, immutability, side effects
-- Scope, higher order functions
-- Decorators
+- Scope, higher order functions (decorators)
 - Anonymous functions
 - Map, reduce
 - Recursion
@@ -277,13 +276,16 @@ def func_h(a, x):
 # Functional Purity {auto-animate="true"}
 
 :::{.incremental}
+
 - Both pure and impure functions can be **correct**
-- Pure functions behave in a mathematically predictable way
-  - Outputs depend exclusively on inputs
+- Pure functions: 
+  - Behave in a mathematically predictable way
+  - Have outputs which depend exclusively on inputs
   - Dont cause [side effects]{.red-bold}
   - [Referentially transparent](https://en.wikipedia.org/wiki/Referential_transparency)
-- Pure functions are much easier to parallelize
-- Pure functions restrict what a programmer can do
+  - Are much easier to parallelize
+  - Restrictive
+
 :::
 
 
@@ -305,6 +307,26 @@ def add3(a):
     print(out)
     return out
 ```
+
+
+
+# Knowledge Check
+
+Which of these functions are pure?
+
+```{.python code-line-numbers="1||1-5|7-10"}
+def simple_range(up_to):
+    out = []
+    for a in range(up_to):
+        out.append(a)
+    return out
+
+def other_defaults(arg1=1, some_list=[1,2,3]):
+    out = []
+    for val in some_list:
+        out.append(arg1 + val)
+```
+
 
 
 
@@ -450,7 +472,7 @@ kmeans.cluster_centers_
 - Memory location no longer matters
 - New objects are created by functions
 - Immutable built-ins: tuple, str, frozenset
-- Avoid modifying data in-place
+- Bottom line: avoid modifying data in-place when possible
 :::
 
 
@@ -483,13 +505,14 @@ func2(func1)
 Scope: the order in which python "sees" names and values (LEGB):
 
 :::{.incremental}
-*Local* — callables own indent level
 
-*Enclosing-function* — callable containing callable
+- *Local* — functions own indent level
 
-*Global* (module) — top-level or module names
+- *Enclosing-function* — function containing functions
 
-*Built-in* (Python) — python names (open, list, set, ValueError, ...)
+- *Global* (module) — top-level or module names
+
+- *Built-in* (Python) — python names (open, list, set, ValueError, ...)
 :::
 
 ::: footer
@@ -508,7 +531,7 @@ def func_1():
     
     def func_2():
         arg = 2
-        print(arg)
+        return arg
     
     return func_2()
 
@@ -516,7 +539,7 @@ func_1()
 ```
 
 :::{.fragment}
-prints: 2
+returns: 2
 :::
 
 
@@ -530,7 +553,7 @@ def func_1():
     arg = 1
     
     def func_2():
-        print(arg)
+        return arg
     
     return func_2()
 
@@ -538,7 +561,7 @@ func_1()
 ```
 
 :::{.fragment}
-prints: 1
+returns: 1
 :::
 
 
@@ -551,7 +574,7 @@ arg = 0
 def func_1():
     
     def func_2():
-        print(arg)
+        return arg
     
     return func_2()
 
@@ -559,26 +582,26 @@ func_1()
 ```
 
 :::{.fragment}
-prints: 0
+returns: 0
 :::
 
 
 # Scope{auto-animate="true"}
 
 ```python
-some_arg = 1
+arg = 1
 
 def func1():
-    print(some_arg)
+    return arg
 
 def func2(func):
-    some_arg = 2
-    func()
+    arg = 2
+    return func()
 
 func2(func1)
 ```
 :::{.fragment}
-prints: 1, Why!?
+returns 1,  Why!?
 :::
 
 
@@ -593,7 +616,7 @@ def func_1():
     
     def func_2():
         global arg
-        print(arg)
+        return arg
     
     return func_2()
 
@@ -601,7 +624,7 @@ func_1()
 ```
 
 :::{.fragment}
-prints: 0, why?
+returns 0, why?
 :::
 
 
@@ -616,7 +639,7 @@ def func_1():
     
     def func_2():
         nonlocal arg
-        print(arg)
+        return arg
     
     return func_2()
 
@@ -624,7 +647,7 @@ func_1()
 ```
 
 :::{.fragment}
-prints: 1, why?
+returns 1, why?
 :::
 
 
@@ -719,6 +742,49 @@ def decorator(func):
 ```
 
 
+# Decorators {auto-animate="true"}
+\*args and \*\*kwargs allow any inputs
+
+```python
+from functools import wraps
+
+def decorator(func):
+    @wraps(func)
+    def _wrapper(*args, **kwargs):
+        ...
+        return func(*args, **kwargs)
+    return _wrapper
+```
+
+
+## What are \*args and \*\* kwargs? 
+
+\*args is used to unpack positional arguments into a tuple
+and \*\*kwargs unpacks keyword arguments into a dict.
+
+For example:
+
+```{.python }
+def args_demo(*args):
+    return args
+
+out = args_demo(1, 2, 3, 4)
+# out is a tuple (1, 2, 3, 4)
+```
+
+
+## What are \*args and \*\* kwargs? 
+
+<br>
+
+```{.python }
+def kwargs_demo(**kwargs):
+    return kwargs
+
+out = kwargs_demo(one=1, two=2)
+# out is a dict {"one": 1, "two": 2}
+```
+
 
 # Decorators in the Wild
 
@@ -805,7 +871,7 @@ Decorators:
 - Are functions which take other functions as inputs
 - Can use the @ as shorthand for `decorator(func)`
 - May return a new function (appears to modify original)
-- Semantically mark a function
+- Semantically used to mark a function
 :::
 
 
@@ -858,8 +924,7 @@ def func1(x, y, z):
 
 Apply a function to each element of a sequence
 
-```{python}
-#| echo: true
+```{.python}
 my_range = range(10)
 
 # square the list
@@ -870,6 +935,30 @@ print(list(out))
 
 
 
+# Map
+
+```python
+import itertools
+import random
+
+arr_1 = map(random.randrange, itertools.repeat(10, 10))
+```
+
+:::{.fragment}
+```python
+import random
+
+arr_1 = [random.randrange(10) for _ in range(10)]
+```
+:::
+
+
+:::{.footer}
+This is from Gwen's style homework.
+:::
+
+
+
 # Reduce
 
 
@@ -877,20 +966,54 @@ Apply a function to first two elements, then the result to the third, etc.
 
 
 ```{python}
-#| echo: true
 from functools import reduce
 my_range = range(1, 6)
 
 # square the list
 out = reduce(lambda x,y: x*y, my_range)
-
-print(out)
 ```
 
 ::: footer
 Haskel calls reduce "fold" which is a more descriptive name.
 See [Real Python's article](https://realpython.com/python-reduce-function/) for more on reduce.
 :::
+
+
+# Reduce
+
+
+Apply a function to first two elements, then the result to the third, etc.
+
+
+```{python}
+from functools import reduce
+my_range = range(1, 6)
+
+# square the list
+out = reduce(lambda x,y: x*y, my_range)
+```
+
+::: footer
+Haskel calls reduce "fold" which is a more descriptive name.
+See [Real Python's article](https://realpython.com/python-reduce-function/) for more on reduce.
+:::
+
+
+
+
+# Accumulate
+
+Like reduce, but intermediate values are stored (e.g., cumulative max)
+
+<br>
+
+```python
+import random
+import itertools
+
+rand_ints = (random.randrange(1000) for _ in range(10))
+result = itertools.accumulate(rand_ints, max)
+```
 
 
 
@@ -918,11 +1041,10 @@ def fibonacci(n):
 Recursion:
 
 :::{.incremental}
-- Works well for parsing recursive data structures (eg trees)
+- Works well for parsing recursive data structures (e.g., trees)
 - Easy to overflow the stack
-- Works well for showing off
-- Can be difficult to understand
-- Should be used sparingly
+- Can be difficult to understand, should be used sparingly
+- Good for showing off, coding interviews
 :::
 
 
@@ -955,7 +1077,7 @@ iterable_thing = generator()
 # no get_item
 iterable_thing[0]  # raise TypeError
 
-# but it is iterable
+# but it is *iterable*
 for val in iterable_thing:  
     print(val)
 ```
@@ -972,7 +1094,7 @@ def generator():
         val += 1
         yield val
 
-# Iterator
+# Also iterator
 iterator = generator()
 val1 = next(iterator)  # 1
 val2 = next(iterator)  # 2
@@ -982,9 +1104,12 @@ val3 = next(iterator)  # 3
 
 
 # Yield From
+
 yield from *drives* iteration
 
-```{.python code-line-numbers="1||1-3|5-6"
+<br>
+
+```{.python code-line-numbers="1||1-3|5-6"}
 def generator_1(iterable):
     for a in iterable:
         yield a
@@ -997,7 +1122,8 @@ def generator_2(iterable):
 
 # Coroutines {auto-animate="true"}
 
-```{.python code-line-numbers="1||1-3|5-6|8,3|9,3"}
+
+```{.python code-line-numbers="1||1-3|5-6|7-11|12"}
 def generator(value):
     while True:
         value += yield value
@@ -1009,7 +1135,7 @@ first = next(iterable)
 out1 = iterable.send(10)
 out2 = iterable.send(5)
 out3 = iterable.send(2)
-print(first , out1, out2, out3)
+print(first, out1, out2, out3)
 ```
 
 :::{.fragment}
@@ -1039,6 +1165,8 @@ print(first , out1, out2, out3)
 
 Generators (like) are **everywhere** in python!
 
+<br>
+
 ```python
 my_dict = {1: 1, 2: 2}
 items = my_dict.items()  
@@ -1050,11 +1178,13 @@ generator_comp = (x for x in range(10))
 # Context Mangers
 
 :::{.incremental}
-- Associated with the `with` keyword
-- Used to manage setup/teardown for different contexts
+- Uses the `with` keyword
+- Useful to manage setup/teardown for different contexts
 :::
 
-```{.python code-line-numbers="1||1|2-3"}
+<br>
+
+```{.python}
 with open('some_file.txt', 'w') as fi:
     fi.write('my txt')
 ...
@@ -1063,10 +1193,10 @@ with open('some_file.txt', 'w') as fi:
 
 # Context Mangers
 
-```{.python code-line-numbers="1||1-4|5|6|7|9-10"}
+```{.python code-line-numbers="1||1-4|5|6,9|7|9-10"}
 from contextlib import contextmanager
 
-@contextmaanger
+@contextmanager
 def my_open(filename, mode):
     fi = open(filename, mode)
     yield fi
@@ -1103,7 +1233,18 @@ with MyOpen('test_file.txt', 'w') as fi:
 ```
 
 :::footer
-More on that [here](https://realpython.com/python-with-statement/)
+More on context managers [here](https://realpython.com/python-with-statement/)
 :::
 
+# Summary
+
+:::{.incremental}
+- Pure function and unchangeable data are advantageous
+- Avoid shared mutable state (when possible)
+- Functions can be passed to functions
+- Decorators mark or modify a callable
+- Recursion is cool, but not usually the simplest approach
+- Generators suspend function state
+- Context managers are a clean way to handle setup/teardown
+:::
 
