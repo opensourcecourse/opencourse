@@ -282,7 +282,7 @@ def func_h(a, x):
   - Behave in a mathematically predictable way
   - Have outputs which depend exclusively on inputs
   - Dont cause [side effects]{.red-bold}
-  - [Referentially transparent](https://en.wikipedia.org/wiki/Referential_transparency)
+  - Are [Referentially transparent](https://en.wikipedia.org/wiki/Referential_transparency)
   - Are much easier to parallelize
   - Restrictive
 
@@ -395,7 +395,7 @@ double_instance_2 = double(instance)
 
 <br>
 
-```python
+```{.python, code-line-numbers="1||1-6|8|9"}
 from dataclasses import dataclass
 
 @dataclass(frozen=True)
@@ -445,7 +445,22 @@ kmeans.cluster_centers_
 ```
 
 
-  
+
+# Immutability
+
+<br>
+
+:::{.incremental}
+- Objects cannot change once created
+- Mutation side effects are eliminated
+- Memory location no longer matters (for correctness)
+- New objects are created by functions
+- Immutable built-ins: tuple, str, frozenset
+- Bottom line: avoid modifying data in-place when possible
+:::
+
+
+
 ## Immutability Purity in the Wild
 
 <br>
@@ -462,26 +477,11 @@ kmeans.cluster_centers_
 
 
 
-# Immutability
-
-<br>
-
-:::{.incremental}
-- Objects cannot change once created
-- Side effects related to data are eliminated
-- Memory location no longer matters
-- New objects are created by functions
-- Immutable built-ins: tuple, str, frozenset
-- Bottom line: avoid modifying data in-place when possible
-:::
-
-
-
 # Functions as Parameters
 
 <br>
 
-Functions are first class citizens 
+Functions are "first class citizens" 
 
 :::{.fragment}
 
@@ -871,7 +871,7 @@ Decorators:
 - Are functions which take other functions as inputs
 - Can use the @ as shorthand for `decorator(func)`
 - May return a new function (appears to modify original)
-- Semantically used to mark a function
+- Often used to mark or register a callable 
 :::
 
 
@@ -929,26 +929,36 @@ my_range = range(10)
 
 # square the list
 out = map(lambda x: x*x, my_range)
-
-print(list(out))
 ```
 
+<br>
+
+:::{.fragment}
+
+```{.python}
+out = (x*x for x in range(10))
+```
+
+:::
 
 
 # Map
 
-```python
-import itertools
-import random
+<br>
 
-arr_1 = map(random.randrange, itertools.repeat(10, 10))
+```python
+from itertools import repeat
+from random import randrange
+
+arr_1 = map(randrange, repeat(10, 10))
 ```
+<br>
 
 :::{.fragment}
 ```python
-import random
+from random import randrange
 
-arr_1 = [random.randrange(10) for _ in range(10)]
+arr_1 = [randrange(10) for _ in range(10)]
 ```
 :::
 
@@ -958,34 +968,13 @@ This is from Gwen's style homework.
 :::
 
 
-
 # Reduce
 
 
 Apply a function to first two elements, then the result to the third, etc.
 
 
-```{python}
-from functools import reduce
-my_range = range(1, 6)
-
-# square the list
-out = reduce(lambda x,y: x*y, my_range)
-```
-
-::: footer
-Haskel calls reduce "fold" which is a more descriptive name.
-See [Real Python's article](https://realpython.com/python-reduce-function/) for more on reduce.
-:::
-
-
-# Reduce
-
-
-Apply a function to first two elements, then the result to the third, etc.
-
-
-```{python}
+```{.python}
 from functools import reduce
 my_range = range(1, 6)
 
@@ -1008,11 +997,12 @@ Like reduce, but intermediate values are stored (e.g., cumulative max)
 <br>
 
 ```python
-import random
-import itertools
 
-rand_ints = (random.randrange(1000) for _ in range(10))
-result = itertools.accumulate(rand_ints, max)
+from itertools import accumulate
+from random import randrange
+
+rand_ints = (randrange(1000) for _ in range(10))
+result = accumulate(rand_ints, max)
 ```
 
 
@@ -1177,6 +1167,8 @@ generator_comp = (x for x in range(10))
 
 # Context Mangers
 
+<br>
+
 :::{.incremental}
 - Uses the `with` keyword
 - Useful to manage setup/teardown for different contexts
@@ -1184,11 +1176,15 @@ generator_comp = (x for x in range(10))
 
 <br>
 
+:::{.fragment}
+
 ```{.python}
 with open('some_file.txt', 'w') as fi:
     fi.write('my txt')
 ...
 ```
+
+:::
 
 
 # Context Mangers
