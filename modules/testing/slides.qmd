@@ -309,6 +309,7 @@ def test_user_story_1():
 
 # Testing [Approaches]{.blue-bold}: Example
 <br>
+
 ```python
 def add(a, b):
     return a + b
@@ -368,14 +369,16 @@ plt.show()
 
 - The framework generate many examples (distribution)
 - Keeps track of failures
-- Edge cases also checked (eg 0, -1 NaN, inf)
+- Edge cases checked (eg 0, -1 NaN, inf)
 - Tests can take much longer
 - Non-deterministic
 
 
 
 # Testing [Approaches]{.blue-bold}: Property
+
 <br>
+
 ```python
 def add(a, b):
     return a + b
@@ -483,6 +486,16 @@ plt.show()
 
 :::
 
+
+# Testing [Approaches]{.blue-bold}: Mathematical
+
+<br>
+
+:::{.incremental}
+- Pure functional languages can be proven correct via formal proofs
+- How can we prove the proof is correct? 
+- Possible, but difficult in practice
+:::
 
 
 # [Pytest](https://docs.pytest.org/en/7.2.x/)
