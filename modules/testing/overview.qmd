@@ -45,7 +45,7 @@ Here we simply try to highlight some of the main ideas and provide the basics of
 
 In this module, we will cover:
 
-1. Prevalent testing taxonomies and common types of testing
+1. Software testing approaches and domains
 2. Basics of the pytest framework
 
 # Reading

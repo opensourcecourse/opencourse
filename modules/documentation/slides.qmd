@@ -21,14 +21,13 @@ footer: \
 
 
 # What is it? 
-<br>
 
 Documentation is:
 
 :::{.incremental}
 - User's manual
 - Blueprints
-- Promotional material
+- Advertisements
 - Sticky notes
 - Textbook
 - Prose
@@ -44,7 +43,7 @@ Documentation is:
 - Code comments (in-line, block)
 - Docstrings
 - Readme
-- Project Documentation
+- Project documentation
 :::
 
 
@@ -72,7 +71,7 @@ Use sparingly. Explain why, not what.
 <br>
 
 ```python
-extent = width + 1  # Add a bit to width  
+extent = width + 1  # add one to width  
 ```
 
 
@@ -343,9 +342,9 @@ pytest --doctest-modules
 :::{.incremental}
 - Use a spell checker
 - Use complete sentences
-- Try to be empathetic
+- Try to be empathic, try to be a friend
 - It's fine if the docstring is longer than the code
-- Typehints are good too, don't be redundant.
+- Typehints are good too, don't be redundant
 :::
 
 
@@ -371,11 +370,14 @@ def my_func(thing_a, thing_b):
 
 Your project's elevator pitch / note in a bottle
 
+:::{.fragment}
+
 - Short
 - Show code snippets
 - Describe basic functionality
 - A prospective user knows within 2 minutes if the library might solve their problem
 
+:::
 
 
 # Markdown/reST
