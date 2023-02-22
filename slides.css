@@ -36,6 +36,11 @@
     font-weight: bold;
 }
 
+.green-bold{
+    color: green;
+    font-weight: bold;
+}
+
 section.level2 > h1 {
     font-size: 200%;
 }

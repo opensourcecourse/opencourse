@@ -221,6 +221,14 @@ plt.show()
 
 :::
 
+:::{.fragment}
+
+- [Level of Automation]{.green-bold} is also important
+
+:::
+
+
+
 # Testing [Domains]{.red-bold}
 
 
@@ -301,10 +309,15 @@ def test_user_story_1():
 # Testing [Approaches]{.blue-bold}: Example
 <br>
 
-- Generate example data manually for test case
+
+:::{.incremental}
+
+- Pick out example inputs
 - Ensure expected and actual behavior match
+- Include inputs related to bugs
 - How do we know when we have picked enough examples?
 
+:::
 
 
 # Testing [Approaches]{.blue-bold}: Example
@@ -366,12 +379,15 @@ plt.show()
 # Testing [Approaches]{.blue-bold}: Property
 <br>
 
-- The framework generate many examples (distribution)
-- Keeps track of failures
-- Edge cases checked (eg 0, -1 NaN, inf)
+:::{.incremental}
+
+- Generate many examples (distribution)
+- Keep track of failures
+- Emphasis on edge cases (eg 0, -1 NaN, inf)
 - Tests can take much longer
 - Non-deterministic
 
+:::
 
 
 # Testing [Approaches]{.blue-bold}: Property
@@ -437,8 +453,8 @@ image source [here](https://preview.redd.it/ikue937n15u71.jpg?auto=webp&s=a94c95
 :::{.incremental}
 
 - Approach to test the tests
-- The framework make valid changes to the code
-- Runs the tests
+- Make syntactically valid changes to the code
+- Run the test suite
 - Expects a test failure -> "killed the mutant""
 
 :::
@@ -588,13 +604,21 @@ if __name__ == "__main__":
 
 <br>
 
+:::{.incremental}
+
 - De-facto python testing framework (apart from unittest)
 - Highly extensible (100+ plugins)
 - Separates setup, testing, teardown
 - Configurable with commandline arguments
 
+:::
+
+:::{.fragement}
+
 :::{.r-stack}
 ![](https://docs.pytest.org/en/7.1.x/_static/pytest_logo_curves.svg){width="180"}
+:::
+
 :::
 
 
@@ -605,8 +629,8 @@ How to use pytest?
 :::{.incremental}
  - Call `pytest` from the command line, it will then:
  - Parse command line arguments 
- - [Discover tests](https://docs.pytest.org/en/7.1.x/explanation/goodpractices.html#conventions-for-python-test-discovery) (files: test*)
- - Collect tests and fixtures (classes Test*, functions/methods test*)
+ - [Discover tests](https://docs.pytest.org/en/7.1.x/explanation/goodpractices.html#conventions-for-python-test-discovery) (files: test\*)
+ - Collect tests and fixtures (classes Test\*, functions/methods test\*)
  - Resolve fixture/test dependencies
  - Run selected tests
 :::
@@ -653,13 +677,13 @@ Organizing tests
 from mymodule import add
 
 class TestAdd:
-    def test_add_floats():
+    def test_add_floats(self):
         ...
     
-    def test_add_strings():
+    def test_add_strings(self):
         ...
        
-    def test_add_lists():
+    def test_add_lists(self):
         ...
 ```
 
@@ -732,6 +756,40 @@ What domain and approach does test_norm use?
 
 :::
 
+
+
+# Pytest: Testing Errors
+
+<br>
+
+```{.python filename="test_add.py" code-line-numbers="1||6,7|8"}
+import pytest
+
+from mymodule import add
+
+def test_add_string_num_raises():
+    msg = "unsupported operand type"
+    with pytest.raises(TyperError, match=msg):
+        add(1, '1')
+```
+
+
+# Pytest: Parametrization
+
+```{.python filename="test_add.py" code-line-numbers="1||4-8|10|11-12"}
+import pytest
+from mymodule import add
+
+io_tuple = (
+    (1, 2, 3),
+    (4, 5, 6),
+    ("a", "b", "ab"),
+)
+
+@pytest.mark.parametrize("a,b,expected", io_tuple)
+def test_add_string_num_raises(a, b, expected):
+    assert add(a, b) == expected
+```
 
 # Anatomy of a Software Test
 
@@ -869,7 +927,8 @@ def test_data_2(data):
 - Marks allow organizing tests/fixtures/modules
   - Custom marks defined in pytest.ini or pyproject.toml
 - Running tests can be controlled by marks
-- Marks can also skip/xfail based on conditions
+- Marks can also skip/xfail
+- Marks can control parametrization
 :::
 
 
@@ -935,6 +994,22 @@ pytest -m "slow not webtests"
 
 :::
 
+
+# Pytest More Skips
+
+<br>
+
+```{.python code-line-numbers="1||5|8"}
+import pytest
+
+def test_function():
+    if not valid_config():
+        pytest.skip("unsupported configuration")
+
+def test_thing_with_optional_library():
+    np = pytest.importorskip("numpy")
+    ...
+```
 
 
 # Pytest: Derrick's Test Organization 
@@ -1013,17 +1088,20 @@ class TestThing2:
 ```
 
 
-
 # Pytest: Tips/Tricks
 
 <br>
 
-- --pdb flag stops after a test failure and drop into debugger
+:::{.incremental}
+
+- --pdb flag stops after a test failure and drops into debugger
 - Check coverage with [pytest-cov](https://pypi.org/project/pytest-cov/)
 - Testing reqs are different for packages/libraries vs research scripts
-- pytest integrates with many IDEs (vscode, pycharm)
+- Pytest integrates with many IDEs (vscode, pycharm)
+- Testing helps you write smaller, more modular, code
 - Have fun!
 
+:::
 
 
 # Pytest DemoTime!
