@@ -279,6 +279,8 @@ if __name__ == "__main__":
 Docstrings follow functions, methods, modules, classes, etc.
 They explain the purpose and use of the code.
 
+<br>
+
 ```python
 def recombobulate(bob, bits):
     """Put Bob and bits back together"""
@@ -291,6 +293,8 @@ def recombobulate(bob, bits):
 <br>
 
 docstrings are accessed via `__doc__`
+
+<br>
 
 ```python
 def recombobulate(bob, bits):
@@ -332,10 +336,15 @@ There are several common flavors of docstrings
 
 <br>
 
+
+:::{.incremental}
+
 - Most common docstring style for scientific/machine learning codes
 - More human readable than some other styles
 - Uses several sections underscored by -----
 - Examples section uses standard [doctest format](https://docs.python.org/3/library/doctest.html)
+
+:::
 
 ::: footer
 See the [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html) site for more details on numpy flavored
@@ -345,7 +354,6 @@ docstrings.
 
 # Docstrings: Numpy  {auto-animate="true"}
 
-<br>
 
 ```{.python code-line-numbers="1||2|3-9|11-13|15-17"}
 def recombobulate(bob, bits=None):
@@ -373,8 +381,6 @@ def recombobulate(bob, bits=None):
 # Docstrings: Numpy  {auto-animate="true"}
 
 
-<br>
-
 ```{.python code-line-numbers="1||1-4||"}
 def recombobulate(
     bob: Bob,
@@ -394,6 +400,69 @@ def recombobulate(
     >>> new_bob = recombobulate(bob, bits)
     """
 ```
+
+# Docstrings: Doctests
+
+```{.python code-line-numbers="1||2|4-5|6-7|8-11"}
+def factorial(n):
+    """Return the factorial of n, an exact integer >= 0.
+
+    >>> factorial(30)
+    265252859812191058636308480000000
+    >>> [factorial(n) for n in range(6)]
+    [1, 1, 2, 6, 24, 120]
+    >>> factorial(-1)
+    Traceback (most recent call last):
+        ...
+    ValueError: n must be >= 0
+    """
+```
+
+::: footer
+This example comes from the [doctest documentation](https://docs.python.org/3/library/doctest.html)
+:::
+
+
+
+# Docstrings: Doctests
+
+Directives
+
+<br>
+
+```{.python}
+"""
+>>> print(list(range(20)))  # doctest: +NORMALIZE_WHITESPACE
+[0,   1,  2,  3,  4,  5,  6,  7,  8,  9,
+10,  11, 12, 13, 14, 15, 16, 17, 18, 19]
+"""
+```
+
+:::footer
+This example comes from the [doctest documentation](https://docs.python.org/3/library/doctest.html)
+:::
+
+
+
+
+# Docstrings: Doctests
+
+Directives
+
+<br>
+
+```{.python}
+"""
+>>> print(list(range(20)))  # doctest: +ELLIPSIS
+[0, 1, ..., 18, 19]
+"""
+```
+
+:::footer
+This example comes from the [doctest documentation](https://docs.python.org/3/library/doctest.html)
+:::
+
+
 
 
 # Docstrings: Doctests
@@ -438,9 +507,15 @@ def my_func(thing_a, thing_b):
 ```
 
 
-# Readme
+# Understanding Check
 
 <br>
+
+When to use a comment vs a docstring?
+
+
+
+# Readme
 
 Your project's elevator pitch / note in a bottle
 
@@ -451,11 +526,12 @@ Your project's elevator pitch / note in a bottle
 - Describe basic functionality/features
 - After 2 minutes readers should:
     - Know if the library might solve their problem
-    - Know if the code is well well used/maintained (badges)
+    - See an example
+    - Know if the code is well used/maintained (badges)
 :::
 
 
-# External Documentation
+# Project Documentation
 
 
 :::{.incremental}
@@ -522,6 +598,8 @@ Technical descriptions of the machinery and how to operate it (information-orien
 - Do nothing but describe
 - Provide examples
 - Is accurate
+- "One hardly reads reference material; one consults it."
+- Most common reference: API documentation
 :::
 
 
@@ -534,6 +612,7 @@ Clarifies and illuminates a particular topic (understanding-oriented).
 - Talk *about* the subject
 - Discuss alternatives and opinions
 - Doesn't instruct or provide technical reference
+- Example: theory / design decisions
 :::
 
 
@@ -561,7 +640,7 @@ The most common libraries for building python docs:
 - [mkdocs](https://www.mkdocs.org/)
 - [quarto](https://quarto.org/)
 
-The pages can be hosted on readthedocs, githubpages, or elsewhere.
+The pages can be hosted on readthedocs, githubpages, netlify, or elsewhere.
 
 
 

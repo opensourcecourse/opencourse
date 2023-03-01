@@ -1046,7 +1046,7 @@ Recursion:
 :::{.incremental}
 - A function which suspends and resumes state
 - Useful for memory conservation (large or infinite lists)
-- Capable of two-way communication (Basis of async)
+- Capable of two-way communication (premise of python async)
 - Implements the **Iterable** and **Iterators** protocol
 :::
 
@@ -1093,13 +1093,51 @@ val3 = next(iterator)  # 3
 ```
 
 
-# Yield From
+
+# Yield From {auto-animate="true"}
+
+<br>
+
+```{.python code-line-numbers="1||1-2|4|6|8|10"}
+def generator_0(iterable):
+    yield iterable
+
+input_list = [1, 2, 3]
+
+one_el = next(generator_0(input_list))
+
+total = [x for x in generator_0(input_list)]
+
+listout = list(generator(input_list)
+```
+
+
+# Yield From {auto-animate="true"}
+
+<br>
+
+```{.python code-line-numbers="1||1-3|5|7|9|11"}
+def generator_1(iterable):
+    for a in iterable:
+        yield a
+
+input_list = [1, 2, 3]
+
+one_el = next(generator_1(input_list))
+
+total = [x for x in generator_1(input_list)]
+
+listout = list(generator(input_list)
+```
+
+
+# Yield From {auto-animate="true"}
 
 yield from *drives* iteration
 
 <br>
 
-```{.python code-line-numbers="1||1-3|5-6"}
+```{.python}
 def generator_1(iterable):
     for a in iterable:
         yield a
@@ -1107,6 +1145,7 @@ def generator_1(iterable):
 def generator_2(iterable):
     yield from iterable
 ```
+
 
 
 
@@ -1153,7 +1192,7 @@ print(first , out1, out2, out3)
 
 # Generators
 
-Generators (like) are **everywhere** in python!
+Generators are **everywhere** in python!
 
 <br>
 
