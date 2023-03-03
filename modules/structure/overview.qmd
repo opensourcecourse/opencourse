@@ -44,7 +44,7 @@ In this module, we will:
 
 ## Workflow Engines
 
-- [kedro docs](https://kedro.org/)
+- [kedro](https://kedro.org/)
 - [airflow](https://airflow.apache.org/)
 - [dagster](https://dagster.io/)
 - [prefect](https://github.com/PrefectHQ/prefect)
