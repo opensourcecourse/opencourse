@@ -92,7 +92,7 @@ dbscan1d
   - [Hatch](https://github.com/pypa/hatch)
 
 :::{footer}
-There has been [recent discussion](https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/)
+There has been [recent discussions](https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/)
 about why there are so many ways to do things.
 :::
 
@@ -101,7 +101,51 @@ about why there are so many ways to do things.
 
 :::{ .incremental }
 - docs
-- init
+- github config files (.github)
+  - actions
+  - templates
+- .ini files
+- various configurations
+:::
+
+
+# Libraries: Tips
+
+:::{.increment}
+
+- Write the readme (and maybe a tutorial) before coding
+- Write tests as you develop
+- Use pre-commit
+- Setup CI with github actions
+- Consider using a template:
+    - [option 1](https://github.com/ionelmc/cookiecutter-pylibrary)
+    - [option 2](https://github.com/vikpe/python-package-starter)
 
 :::
+
+
+# Services
+
+Long-running service, usually part of a web-application
+
+:::{.incremental}
+- Communicate with ReST, RPC, Sockets, GraphQL, etc.
+- Use a framework (fast API, django rest framework, etc.)
+- Containerization makes deployment easier
+- Follow a guide for setup (lots to get wrong)
+:::
+
+
+# Applications
+
+Designed for people (not code)
+
+:::{.incremental}
+- Graphical User Interface (GUI)
+- Web application
+- Command-line tool
+- 
+
+:::
+
 
