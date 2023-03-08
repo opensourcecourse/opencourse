@@ -11,7 +11,7 @@ Don't document the program; program the document.
 
 # Documentation
 Documenting all software is important, but just like testing, selecting the appropriate level and strategy
-depends on the type of software its audience. For example, a simple script for producing a figure for a 
+depends on the type of software and its audience. For example, a simple script for producing a figure for a 
 report will be documented very differently from a popular open-source library. It's not a coincidence 
 that some of the most popular python packages are also the best documented. 
 However, it's not the *volume* of documentation that counts, but *quality*.
