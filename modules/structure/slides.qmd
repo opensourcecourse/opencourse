@@ -24,4 +24,84 @@ footer: \
     <a href="https://opensourcecourse.dev/modules/structure/exercises.html">exercises</a>
 ---
 
+# Outline
+
+:::{.incremental}
+
+- Libraries
+- Services
+- Applications
+- Science Repository
+
+:::
+
+# Libraries 
+
+:::{.incremental}
+
+- Target Audience: Python coders
+- Libraries are imported and used in other codes
+- Used via an Application Programming Interface (API) 
+
+:::
+
+
+# Libraries 
+
+Key Components:
+
+:::{.incremental}
+
+- modules (directories with `__init__.py`)
+- [pyrpoject.toml](https://github.com/d-chambers/dbscan1d/blob/master/pyproject.toml)
+- tests
+- License
+- README
+- pyproject.toml
+
+:::
+
+
+# Library Structure
+
+DBScan1D example:
+
+```{.stretch}
+dbscan1d
+├── src
+│   └── dbscan1d
+│       ├── __init__.py
+│       ├── version.py
+│       ├── core.py
+│       └── utils.py
+├── tests
+│   ├── test_core.py
+│   └── test_utils.py
+├── LICENSE.txt
+├── README.md
+└── pyproject.toml
+```
+
+
+# Libraries: Build systems
+
+- Build systems are separated from installation 
+  - [Poetry](https://python-poetry.org/)
+  - [Flit](https://flit.pypa.io/en/stable/)
+  - [SetupTools](https://packaging.python.org/en/latest/tutorials/installing-packages/)
+  - [Hatch](https://github.com/pypa/hatch)
+
+:::{footer}
+There has been [recent discussion](https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/)
+about why there are so many ways to do things.
+:::
+
+
+# Libraries: Extras
+
+:::{ .incremental }
+- docs
+- init
+
+:::
 
