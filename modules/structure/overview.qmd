@@ -41,6 +41,7 @@ In this module, we will:
 - [Python Application Layouts](https://realpython.com/python-application-layouts/)
 - [Research code opinion 1](https://medium.com/swlh/how-to-structure-a-python-based-data-science-project-a-short-tutorial-for-beginners-7e00bff14f56)
 - [Research code opinion 2](https://towardsdatascience.com/how-to-structure-a-data-science-project-for-readability-and-transparency-360c6716800)
+- [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510&ref=https://githubhelp.com)
 
 ## Workflow Engines
 

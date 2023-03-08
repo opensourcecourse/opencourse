@@ -26,16 +26,19 @@ footer: \
 
 # Outline
 
+<br>
+
 :::{.incremental}
 
 - Libraries
-- Services
 - Applications
 - Science Repository
 
 :::
 
 # Libraries 
+
+<br>
 
 :::{.incremental}
 
@@ -48,6 +51,8 @@ footer: \
 
 # Libraries 
 
+<br>
+
 Key Components:
 
 :::{.incremental}
@@ -55,9 +60,8 @@ Key Components:
 - modules (directories with `__init__.py`)
 - [pyrpoject.toml](https://github.com/d-chambers/dbscan1d/blob/master/pyproject.toml)
 - tests
-- License
-- README
-- pyproject.toml
+- license
+- readme
 
 :::
 
@@ -85,19 +89,23 @@ dbscan1d
 
 # Libraries: Build systems
 
+<br>
+
 - Build systems are separated from installation 
   - [Poetry](https://python-poetry.org/)
   - [Flit](https://flit.pypa.io/en/stable/)
   - [SetupTools](https://packaging.python.org/en/latest/tutorials/installing-packages/)
   - [Hatch](https://github.com/pypa/hatch)
 
-:::{footer}
-There has been [recent discussions](https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/)
+:::{.footer}
+There has been [heated discussions](https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/)
 about why there are so many ways to do things.
 :::
 
 
 # Libraries: Extras
+
+<br>
 
 :::{ .incremental }
 - docs
@@ -111,41 +119,233 @@ about why there are so many ways to do things.
 
 # Libraries: Tips
 
-:::{.increment}
+<br>
 
-- Write the readme (and maybe a tutorial) before coding
+:::{.incremental}
+
+- Write the readme (with a tutorial) before coding
 - Write tests as you develop
-- Use pre-commit
+- Use a linter (e.g., pre-commit)
 - Setup CI with github actions
-- Consider using a template:
-    - [option 1](https://github.com/ionelmc/cookiecutter-pylibrary)
-    - [option 2](https://github.com/vikpe/python-package-starter)
-
+- Many templates exist to get started
 :::
 
 
-# Services
 
-Long-running service, usually part of a web-application
+# Applications
+
+Designed for people (generally not codes)
 
 :::{.incremental}
-- Communicate with ReST, RPC, Sockets, GraphQL, etc.
-- Use a framework (fast API, django rest framework, etc.)
-- Containerization makes deployment easier
-- Follow a guide for setup (lots to get wrong)
+- Graphical User Interface (GUI)
+- Terminal User Interfaces (TUI)
+- Command-line tools
+- Web application
+- Web services
+- ...
 :::
 
 
 # Applications
 
-Designed for people (not code)
+<br>
 
 :::{.incremental}
-- Graphical User Interface (GUI)
-- Web application
-- Command-line tool
-- 
+
+- Most applications are written using a framework
+- The framework specifies how the project is set up
+- Pinning dependencies is usually best
+- Containerization (e.g. docker) can be a good idea
 
 :::
 
 
+# GUIs, TUIs, Command Line
+
+:::{.fragment}
+**GUIs**
+
+[tkinter](https://docs.python.org/3/library/tkinter.html), [pyside](https://www.qt.io/qt-for-python),
+[DearPyGui](https://github.com/hoffstadt/DearPyGui), [PySimpleGUI](https://github.com/PySimpleGUI/PySimpleGUI)
+:::
+
+:::{.fragment}
+**TUIs**
+
+[Textual](https://github.com/Textualize/textual)
+
+:::
+
+:::{.fragment}
+**Command line**
+
+-Make a library
+
+-Define command line entry points in [pyproject.toml](https://stackoverflow.com/a/73066937/3645626)
+
+-Install the library
+
+:::
+
+
+:::{.footer}
+[This Real Python article](https://realpython.com/python-typer-cli/) is great for building command line tools.
+:::
+
+
+# [Textual](https://github.com/Textualize/textual) Examples
+
+<br>
+
+![](https://raw.githubusercontent.com/Textualize/textual/main/imgs/textual.png)
+
+
+# Web Applications/Services
+
+:::{.fragment}
+**Minimalist frameworks**
+
+[Flask](https://flask.palletsprojects.com/en/2.2.x/), [Quart](https://pgjones.gitlab.io/quart/), [Sanic](https://sanic.dev/en/)
+:::
+
+:::{.fragment}
+**Batteries included frameworks**
+
+[Django](https://www.djangoproject.com/), [Pyramid](https://trypyramid.com/)
+:::
+
+:::{.fragment}
+**Web services**
+
+[FastAPI](https://fastapi.tiangolo.com/), [Django rest framework](https://www.django-rest-framework.org/)
+:::
+
+:::{.fragment}
+**Static site generators**
+
+[Quarto](https://quarto.org/), [Pelican](https://getpelican.com/), [Hugo](https://gohugo.io/)
+:::
+
+
+# The Science Repo
+
+<br>
+
+Purposes
+
+:::{.incremental}
+
+- Organize experiments and analysis
+- Make research reproducible
+- Generate figures
+- Share research
+
+:::
+
+# Useful Frameworks and Workflow Engines
+
+<br>
+
+![](images/spectrum.png)
+
+
+# Frameworks: Kedro
+
+- Opinionated end-to-end framework
+- Supports containerization, dependency resolution, logging, VC, etc.
+
+```code
+project-template    # Project folder
+├── conf            # Configuration files
+├── data            # Local project data
+├── docs            # Documentation
+├── logs            # Logs of pipeline runs
+├── notebooks       # Exploratory Jupyter notebooks 
+├── pyproject.toml  # Identifies the project root
+├── README.md       # README.md explaining your project
+├── setup.cfg       # Configuration options for testing and linting
+└── src             # Source code for pipelines
+```
+
+
+
+# Workflow Engines
+
+<br>
+
+- Resolves dependencies
+- Reruns jobs only when needed
+- Long history: 
+  - (e.g., make, Scons)
+
+
+
+# Workflow Engines: [Prefect](https://github.com/PrefectHQ/prefect)
+
+```{.python}
+from prefect import flow, task
+from typing import List
+import httpx
+
+
+@task(retries=3)
+def get_stars(repo: str):
+    url = f"https://api.github.com/repos/{repo}"
+    count = httpx.get(url).json()["stargazers_count"]
+    print(f"{repo} has {count} stars!")
+
+
+@flow(name="GitHub Stars")
+def github_stars(repos: List[str]):
+    for repo in repos:
+        get_stars(repo)
+
+
+# run the flow!
+github_stars(["PrefectHQ/Prefect"])
+```
+
+
+
+# Simple Scripts?
+
+```code
+Simple Project 
+├── a010_download_data.py
+├── a020_preprocess_seismograms.py
+├── a030_detect_earthquakes.py            
+├── a040_plot_detections.py
+├── local.py
+├── utils.py  
+├── inputs/
+├── outputs/
+├──── a010_raw_data
+├──── a020_preprocessed_seismograms
+├──── ...
+├── environment.yml  
+├── README.md   
+└── test_*.py...
+```
+
+
+# Jupyter Notebooks? 
+
+:::{.incremental}
+- [Some people](https://odsc.medium.com/why-you-should-be-using-jupyter-notebooks-ea2e568c59f2) really like notebooks for science
+  - Easy to interact with
+  - Simple to get started
+- [Others](https://www.youtube.com/watch?v=7jiPeIFXb6U) think they are harmful
+  - Discourage modular code
+  - Difficult to test
+  - Stateful GOTOs?
+- Yet others have built tools to remedy these issues
+  - [NBDev](https://nbdev.fast.ai/)
+  - [Papermill](https://github.com/nteract/papermill)
+:::
+
+
+# Class Discussion
+
+<br>
+
+How do you organize your projects?
