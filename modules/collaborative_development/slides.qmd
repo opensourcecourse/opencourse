@@ -100,8 +100,17 @@ flowchart LR
 
 # Code Reviews
 
+:::{.incremental}
+- Be respectful! 
+- Focus on the right things
+- Reviews should be a good experience for both parties
+- Mentorship occurs in reviews
+- Be patient
+:::
 
-
+:::{.footer}
+Read more [here](https://google.github.io/eng-practices/review/reviewer/)
+:::
 
 # Conclusions
 
