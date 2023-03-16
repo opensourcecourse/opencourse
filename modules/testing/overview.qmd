@@ -14,6 +14,8 @@ Testing can be used to show the presence of bugs, but never to show their absenc
 \ — Edsger W. Dijkstra
 :::
 
+[Video](https://www.youtube.com/watch?v=VYN4ZSdpCmw)
+
 # Software Testing
 
 Testing is probably the most important topic in software engineering. This is because malfunctioning software can have dire

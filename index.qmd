@@ -10,6 +10,8 @@ Welcome to OpenSourceCourse (OSC)!
 OSC is designed to help engineering/science students learn to effectively contribute to the
 open-source scientific python ecosystem.
 
+You an find a video introduction [here](https://www.youtube.com/watch?v=b4ru68A31Uk)
+
 # Learning Objectives
 
 After successfully completing this course you will:

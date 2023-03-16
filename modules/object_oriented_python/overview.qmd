@@ -9,6 +9,8 @@ Any sufficiently advanced technology is indistinguishable from magic.
 \- Author C. Clarke
 :::
 
+[Video](https://www.youtube.com/watch?v=QbQbecAPU4M)
+
 Python's popularity is in part due to its simplicity. However, unlike many other "simple" languages,
 Python has many advanced features that, when used pragmatically, facilitate the expression of complex
 concepts in a concise way. Knowing some of these features is necessary, not just to level up as a developer,

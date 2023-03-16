@@ -10,6 +10,8 @@ Functional programming makes code understandable by minimizing moving parts.
 \- Michael Feathers
 :::
 
+[Video](https://www.youtube.com/watch?v=52tYA0yH5bY)
+
 # Functional Programming
 
 Functional programming has a lot of different definitions. In a pure sense, it means abstractions

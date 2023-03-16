@@ -16,7 +16,10 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
-   sodipodi:docname="science_repo_spectrum.svg">
+   sodipodi:docname="science_repo_spectrum.svg"
+   inkscape:export-filename="/media/data/Gits/opencourse/modules/structure/images/spectrum.png"
+   inkscape:export-xdpi="199.5"
+   inkscape:export-ydpi="199.5">
   <defs
      id="defs2">
     <clipPath
@@ -93,7 +96,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="597.23543"
+     inkscape:cx="601.27604"
      inkscape:cy="-88.76656"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"

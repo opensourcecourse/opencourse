@@ -11,6 +11,8 @@ So git is a very powerful set of tools.
 \- Linus Torvalds
 :::
 
+[Video](https://www.youtube.com/watch?v=qzg6Toe0DVA)
+
 # Git
 
 Git is a class of software known as a version control system (VCS). It is used to help developers manage the

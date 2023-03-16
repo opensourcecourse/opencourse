@@ -9,6 +9,8 @@ Clean code always looks like it was written by someone who cares.
 \— Robert C. Martin
 :::
 
+[Video](https://www.youtube.com/watch?v=Q2SGLQofBvI)
+
 Creating an effective, clean structure for a coding project is a challenge. 
 Large code structures follow [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law) in that the
 code will end up looking like the communication structure of the developers. Small open-source libraries,

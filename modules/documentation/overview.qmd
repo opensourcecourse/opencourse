@@ -9,6 +9,8 @@ Don't document the program; program the document.
 \- Unknown
 :::
 
+[Video](https://www.youtube.com/watch?v=25jwO2_lAoI)
+
 # Documentation
 Documenting all software is important, but just like testing, selecting the appropriate level and strategy
 depends on the type of software and its audience. For example, a simple script for producing a figure for a 

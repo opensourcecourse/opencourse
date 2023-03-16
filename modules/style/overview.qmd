@@ -9,6 +9,8 @@ In character, in manner, in style, in all things, the supreme excellence is simp
 \- Henry Wadsworth
 :::
 
+[Video](https://www.youtube.com/watch?v=QzadYpLpyqI)
+
 # Style
 
 Idiomatic Python, described with the abjective "Pythonic", is code that conforms to the Python community's norms and makes good use
