@@ -55,3 +55,10 @@ section {
     top: unset !important;
     height: 100vh;
 }
+
+.v-center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}

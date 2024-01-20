@@ -1,0 +1,55 @@
+---
+title: Intro to Open-Source Development
+pagetitle: "OSC"
+css: ../index.css
+editor: source
+image: ../images/oss_gateway.png
+---
+
+This course covers Git, style guides, advanced python features, testing, documentation, and collaborative coding using GitHub.
+
+It is designed to help engineering/science students learn to effectively contribute to the
+open-source scientific python ecosystem.
+
+You can find a video introduction [here](https://www.youtube.com/watch?v=b4ru68A31Uk)
+
+# Course Learning Outcomes
+After successfully completing the course you will be able to:
+
+1. Use the Git version control system to manage software projects.
+2. Apply style guides to codebases.
+3. Design object-oriented and functional python implementations for solving computing problems.
+4. Use the pytest framework to verify correctness of programs.
+5. Design documentation which effectively advertises and explains a project.
+6. Evaluate pull request and bug report quality and provide feedback for making improvements.
+7. Create and submit code contributions which follow best practices and project guidelines.
+
+# Prerequisites
+
+This course is designed for students with some Python experience. Specifically you should:
+
+1. Be well-versed with writing python functions
+2. Be familiar with common data structures like lists, dicts, tuples, etc.
+3. Understand iteration and indexing
+4. Understand Python's control flow (if/then, for, while, etc.)
+5. Know how to install python packages and manage python environments
+6. Be semi-comfortable using a terminal (command line)
+
+:::{.callout-warning}
+Although the content is meant to be approachable, this is not a beginning python/computing course.
+
+If you don't feel comfortable with these topics, the [Python Intro course material](../python_intro/intro.qmd) may be a better place to start.
+:::
+
+See the [OSC overview page](../index.qmd) for general information on course structure. 
+
+
+## Project
+
+The last part of this course is to make a non-trivial contribution to an open-source project. You can
+add a feature to an existing library, or release a small package of your own. More details are found
+in the [collaborative development exercise](https://github.com/opensourcecourse/collaborative-development-assignment). 
+
+## Setup
+
+Follow the [setup guide](setup.qmd) to get setup for this course. 

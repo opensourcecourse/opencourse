@@ -3,66 +3,41 @@ title: OpenSourceCourse
 pagetitle: "OSC"
 css: index.css
 editor: source
+listing:
+  id: source_content
+  type: grid
+  contents:
+    - "osc_intro/intro.qmd"
+    - "python_intro/intro.qmd"
 ---
 
 Welcome to OpenSourceCourse (OSC)!
 
-OSC is designed to help engineering/science students learn to effectively contribute to the
-open-source scientific python ecosystem.
+OSC is a collection of education material to help engineering/science students improve their software development skills. Each course is designed to be taught in-person. 
 
-You an find a video introduction [here](https://www.youtube.com/watch?v=b4ru68A31Uk)
+Current courses are:
 
-# Learning Objectives
-
-After successfully completing this course you will:
-
-1. Have a working understanding of the git version control system
-2. Develop a sense of "Pythonic" code and the importance of coding style
-3. Know when to use various object-oriented and functional Python features
-4. Understand basic software testing philosophies and how to use the pytest framework
-5. Know how to effectively document various types of python code
-6. Be familiar with collaborative development practices
-
-# Prerequisites
-
-This course is designed for students with some Python experience. Specifically you should:
-
-1. Be well-versed with writing python functions
-2. Be familiar with common data structures like lists, dicts, tuples, etc.
-3. Understand iteration and indexing
-4. Understand Python's control flow (if/then, for, while, etc.)
-5. Know how to install python packages and manage python environments
-6. Be semi-comfortable using a terminal (command line)
-
-
-:::{.callout-warning}
-Although the content is meant to be approachable, this is not a beginning python/computing course.
+::: {#source_content}
 :::
+
 
 # Course Structure
 
-Apart from this website, the [student discussion board](https://github.com/orgs/opensourcecourse/teams/students)
-contains information about the course schedule, exercises, and office hours. It is also the right place to
-ask a question about a topic or exercise. 
-
-The [OpenSourceCourse github organization](https://github.com/opensourcecourse) is home to all the course content. 
-The course is organized into modules (on the left menu bar). Each module contains three components:
+The [OpenSourceCourse github organization](https://github.com/opensourcecourse) is home to all course content. 
+Each course is organized into modules (on the left menu bar). Each module contains three components:
 
 ### Overview
 
 The overview gives a short introduction to the topic and motivation.
-Before each module is presented in class, you should review the overview, including the links in the reading sections
-(but feel free to skip additional resources). This doesn't mean you need to understand everything in the reading,
-but do come to class with well-formed questions.
+Before each module is presented in class, you should review the overview, including the links in the reading sections (but feel free to skip additional resources). This doesn't mean you need to understand everything in the reading, but do come to class with well-formed questions.
 
 ### Slides
 
-The slides contain the material that will be presented in class. You can look them over but this is not required.
-Notice that must slides progress from left to right using keyboard arrow keys or mouse clicks on the navigation icon, but some slides have horizontal, or grid, navigation features.
+The slides contain the material that will be presented in class. You can look them over before class but this is not required. Notice that most slides progress from left to right using keyboard arrow keys or mouse clicks on the navigation icon, but some slides have horizontal, or grid, navigation features.
 
 ### Exercises
 
-The exercises are to be done after a module is presented in class. They are essential to help you internalize 
+The exercises are to be done after a module is presented in class. They will help you internalize 
 the concepts and develop the applicable skills. Although they are not difficult or time-consuming, please do
 treat them seriously. Each exercise should take between 30 minutes to 3 hours.
 
@@ -71,20 +46,17 @@ You will find links to start each exercise and due dates on the
 
 ### Project
 
-The last part of this course is to make a non-trivial contribution to an open-source project. You can
-add a feature to an existing library, or release a small package of your own. More details are found
-in the [collaborative development exercise](https://github.com/opensourcecourse/collaborative-development-assignment). 
+Each course has a final project to integrate and demonstrate the skills learned in the course.  
+
 
 # Enlisting
 
-You should start by creating a github account, if you don't already have one. Then, you sign up for the course by
-joining the [student team](https://github.com/orgs/opensourcecourse/teams/students) of the OSC organization. Next,
-follow the [setup guide](setup.qmd).
+You should start by creating a github account, if you don't already have one. Then, you sign up for a course by
+joining the [student team](https://github.com/orgs/opensourcecourse/teams/students) of the OSC organization. Next, follow the [setup guide](setup.qmd).
 
 # Getting Help
 
-Office hours for the instructors will be posted in the 
-[student discussion board](https://github.com/orgs/opensourcecourse/teams/students/discussions?pinned=1). 
+Office hours for the instructors of each course will be posted in the corresponding discussion board.
 
 # Collaboration
 
@@ -94,5 +66,3 @@ The slides have a "source" hyperlink at the bottom which you can click for a sim
 
 You can also find all the template directories for the assignments on the [github org](https://github.com/opensourcecourse). Feel free to open
 PRs there as well.
-
-Now, let's learn together!

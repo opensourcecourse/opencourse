@@ -1,7 +1,6 @@
 # OpenSourceCourse
 
-This is the website for OpenSourceCourse, a short course designed to help engineers and scientists contribute to
-the open-source scientific python ecosystem.
+This is the website for OpenSourceCourse, a collection of educational material designed to help engineers and scientists contribute to the open-source scientific python ecosystem.
 
 The course website is found [here](https://opensourcecourse.dev/).
 

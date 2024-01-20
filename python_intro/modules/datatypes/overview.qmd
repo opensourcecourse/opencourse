@@ -1,0 +1,10 @@
+---
+title: Data Types
+---
+
+This module provides a rapid review of some common built-in datatypes in python.
+
+This includes 
+
+## References
+[Python's built-in types](https://docs.python.org/3/library/stdtypes.html)

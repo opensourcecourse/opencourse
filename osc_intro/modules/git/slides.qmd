@@ -7,8 +7,8 @@ format:
     revealjs:
         slide-number: true
         preview-links: auto
-        theme: [../../custom_slides.scss]
-        css: "../../slides.css"
+        theme: [../../../custom_slides.scss]
+        css: "../../../slides.css"
         view-distance: 100
         mobile-view-distance: 100
         navigation-mode: vertical
@@ -19,9 +19,9 @@ format:
             theme: default
 
 footer: \
-    <a href="https://opensourcecourse.dev/modules/git/overview.html">overview</a> /\
-    <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/git/slides.qmd">source</a> /\
-    <a href="https://opensourcecourse.dev/modules/git/exercises.html">exercises</a>
+    <a href="https://opensourcecourse.dev/osc_intro/modules/git/overview.html">overview</a> /\
+    <a href="https://github.com/opensourcecourse/opencourse/blob/main/osc_intro/modules/git/slides.qmd">source</a> /\
+    <a href="https://opensourcecourse.dev/osc_intro/modules/git/exercises.html">exercises</a>
 ---
 
 

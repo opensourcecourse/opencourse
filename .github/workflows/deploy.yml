@@ -34,7 +34,7 @@ jobs:
       - name: Install quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          version: "1.2.313"
+          version: "1.2.475"  # Note cant bump passed 1.2 until quarto_cli #3973 is fixed.
 
       - name: print quarto version
         run: |

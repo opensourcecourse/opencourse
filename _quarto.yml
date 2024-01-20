@@ -2,139 +2,181 @@ project:
   type: website
   output-dir: _site
 
+format:
+  html:
+    toc: true
+    theme:
+      light: [cosmo, theme.scss]
+      dark: darkly
+    code-copy: true
+    code-overflow: wrap
+    css: styles.css
+
 website:
   title: "OSC"
   image: "images/logo.png"
   favicon: "images/osc_favi.png"
-  # google-analytics: "G-FV9Z7SDZ0M"
-  # open-graph: true
   twitter-card: true
   site-url: https://github.com/opensourcecourse
   repo-url: https://github.com/opensourcecourse/website
   repo-actions: [edit]
   page-navigation: true
 
-  sidebar: 
-    style: "floating"
-    collapse-level: 2
-    title: "Open Source Course"
-    subtitle: 'OSC'
-    logo: "images/oss_gateway.png"
-    search: true
-    contents:
-      - index.qmd
-      - setup.qmd
-
-      - section: "Modules"
-        contents:
-
-        - section: "Git"
-          href: modules/git/overview.qmd
-          contents:
-            - text: 'overview'
-              href: modules/git/overview.qmd
-            - text: 'slides'
-              href: modules/git/slides.qmd
-            - text: "exercises"
-              href: modules/git/exercises.qmd
-
-        - section: "Style"
-          href: modules/style/overview.qmd
-          contents:
-            - text: 'overview'
-              href: modules/style/overview.qmd
-            - text: 'slides'
-              href: modules/style/slides.qmd
-            - text: "exercises"
-              href: modules/style/exercises.qmd
-
-        - section: "Object Oriented Python"
-          href: modules/object_oriented_python/overview.qmd
-          contents:
-            - text: 'overview'
-              href: modules/object_oriented_python/overview.qmd
-            - text: 'slides'
-              href: modules/object_oriented_python/slides.qmd
-            - text: "exercises"
-              href: modules/object_oriented_python/exercises.qmd
-
-        - section: "Functional Python"
-          href: modules/functional_python/overview.qmd
-          contents:
-            - text: 'overview'
-              href: modules/functional_python/overview.qmd
-            - text: 'slides'
-              href: modules/functional_python/slides.qmd
-            - text: "exercises"
-              href: modules/functional_python/exercises.qmd
-
-        - section: "Testing"
-          href: modules/testing/overview.qmd
-          contents:
-            - text: 'overview'
-              href: modules/testing/overview.qmd
-            - text: 'slides'
-              href: modules/testing/slides.qmd
-            - text: "exercises"
-              href: modules/testing/exercises.qmd
-
-        - section: "Documentation"
-          href: modules/documentation/overview.qmd
-          contents:
-            - text: 'overview'
-              href: modules/documentation/overview.qmd
-            - text: 'slides'
-              href: modules/documentation/slides.qmd
-            - text: "exercises"
-              href: modules/documentation/exercises.qmd
-
-        - section: "Collaborative Development"
-          href: modules/collaborative_development/overview.qmd
-          contents:
-            - text: 'overview'
-              href: modules/collaborative_development/overview.qmd
-            - text: 'slides'
-              href: modules/collaborative_development/slides.qmd
-            - text: "exercises"
-              href: modules/collaborative_development/exercises.qmd
-
-        - section: "Project Structure"
-          href: modules/structure/overview.qmd
-          contents:
-            - text: 'overview'
-              href: modules/structure/overview.qmd
-            - text: 'slides'
-              href: modules/structure/slides.qmd
-            - text: "exercises"
-              href: modules/structure/exercises.qmd
-
-      -  going_forward.qmd
-      -  acknowledgements.qmd
-
   navbar:
     background: light
     logo: images/oss_gateway.png
     logo-alt: "OSC logo."
     title: false
+    search: true
     collapse-below: lg
+
     left:
-      - text: "Overview"
+      - text: "About"
         href: index.qmd
 
+      - text: "Open Source Development"
+        href: osc_intro/intro.qmd
+
+      - text: "Python Intro"
+        href: python_intro/intro.qmd
+
     right:
-      - icon: github
+
+      - text: "{{< iconify devicon jupyter size=xl >}}"
+        href: https://opensourcecourse.github.io/hub
+
+      - text: "{{< iconify devicon github size=xl >}}"
         href: https://github.com/opensourcecourse/website
         aria-label: OpenSourceCourse GitHub
 
-  
-# bibliography: references.bib
 
-format:
-  html:
-    toc: true
-    theme:
-      light: [cosmo, theme.scss]
-    code-copy: true
-    code-overflow: wrap
-    css: styles.css
-    # include-after-body: js.html
+  sidebar:
+
+    - id: about
+      style: "floating"
+      collapse-level: 1
+      title: "Welcome"
+      subtitle: 'About'
+      logo: "images/oss_gateway.png"
+
+      contents:
+        - index.qmd
+        - acknowledgements.qmd
+
+
+    - id: osc
+      style: "floating"
+      collapse-level: 2
+      title: "Open Source Course"
+      subtitle: 'OSC'
+      logo: "images/oss_gateway.png"
+
+      contents:
+        - osc_intro/intro.qmd
+        - setup.qmd
+
+        - section: "Modules"
+          contents:
+
+          - section: "Git"
+            href: osc_intro/modules/git/overview.qmd
+            contents:
+              - text: 'overview'
+                href: osc_intro/modules/git/overview.qmd
+              - text: 'slides'
+                href: osc_intro/modules/git/slides.qmd
+              - text: "exercises"
+                href: osc_intro/modules/git/exercises.qmd
+
+          - section: "Style"
+            href: osc_intro/modules/style/overview.qmd
+            contents:
+              - text: 'overview'
+                href: osc_intro/modules/style/overview.qmd
+              - text: 'slides'
+                href: osc_intro/modules/style/slides.qmd
+              - text: "exercises"
+                href: osc_intro/modules/style/exercises.qmd
+
+          - section: "Object Oriented Python"
+            href: osc_intro/modules/object_oriented_python/overview.qmd
+            contents:
+              - text: 'overview'
+                href: osc_intro/modules/object_oriented_python/overview.qmd
+              - text: 'slides'
+                href: osc_intro/modules/object_oriented_python/slides.qmd
+              - text: "exercises"
+                href: osc_intro/modules/object_oriented_python/exercises.qmd
+
+          - section: "Functional Python"
+            href: osc_intro/modules/functional_python/overview.qmd
+            contents:
+              - text: 'overview'
+                href: osc_intro/modules/functional_python/overview.qmd
+              - text: 'slides'
+                href: osc_intro/modules/functional_python/slides.qmd
+              - text: "exercises"
+                href: osc_intro/modules/functional_python/exercises.qmd
+
+          - section: "Testing"
+            href: osc_intro/modules/testing/overview.qmd
+            contents:
+              - text: 'overview'
+                href: osc_intro/modules/testing/overview.qmd
+              - text: 'slides'
+                href: osc_intro/modules/testing/slides.qmd
+              - text: "exercises"
+                href: osc_intro/modules/testing/exercises.qmd
+
+          - section: "Documentation"
+            href: osc_intro/modules/documentation/overview.qmd
+            contents:
+              - text: 'overview'
+                href: osc_intro/modules/documentation/overview.qmd
+              - text: 'slides'
+                href: osc_intro/modules/documentation/slides.qmd
+              - text: "exercises"
+                href: osc_intro/modules/documentation/exercises.qmd
+
+          - section: "Collaborative Development"
+            href: osc_intro/modules/collaborative_development/overview.qmd
+            contents:
+              - text: 'overview'
+                href: osc_intro/modules/collaborative_development/overview.qmd
+              - text: 'slides'
+                href: osc_intro/modules/collaborative_development/slides.qmd
+              - text: "exercises"
+                href: osc_intro/modules/collaborative_development/exercises.qmd
+
+          - section: "Project Structure"
+            href: osc_intro/modules/structure/overview.qmd
+            contents:
+              - text: 'overview'
+                href: osc_intro/modules/structure/overview.qmd
+              - text: 'slides'
+                href: osc_intro/modules/structure/slides.qmd
+              - text: "exercises"
+                href: osc_intro/modules/structure/exercises.qmd
+
+        -  osc_intro/going_forward.qmd
+
+    - id: py_intro
+      style: "floating"
+      collapse-level: 2
+      title: "Python Intro"
+      subtitle: 'OSC'
+      logo: "python_intro/images/blocks.png"
+
+      contents:
+        - python_intro/intro.qmd
+        - section: "Modules"
+          contents:
+          - section: "Data Types"
+            href: python_intro/modules/datatypes/overview.qmd
+            contents:
+              - text: 'overview'
+                href: python_intro/modules/datatypes/overview.qmd
+              - text: 'slides'
+                href: python_intro/modules/datatypes/slides.qmd
+              - text: "exercises"
+                href: python_intro/modules/datatypes/exercises.qmd

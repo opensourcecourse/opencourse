@@ -1,0 +1,305 @@
+---
+title: "Variables and Basic Python Datatypes"
+format:
+    revealjs:
+        embed-resources: true
+        slide-number: true
+        preview-links: auto
+        theme: [../../../custom_slides.scss]
+        css: ../../../slides.css
+        navigation-mode: vertical
+        controls-layout: bottom-right
+        controls-tutorial: true
+
+footer: \
+    <a href="https://opensourcecourse.dev/python_intro/modules/datatypes/overview.html">overview</a> /\
+    <a href="https://github.com/opensourcecourse/opencourse/blob/main/python_intro/modules/datatypes/slides.qmd">source</a> /\
+    <a href="https://opensourcecourse.dev/modules/python_intro/modules/datatypes/exercises.html">exercises</a>
+---
+
+# Variables
+
+Variables reference a value
+
+<br>
+
+:::{.fragment}
+```{.python filename="functions" code-line-numbers="1|2|3|4|5"}
+bar = 1
+foo = "two"
+que = 3.0
+por = bar
+print(bar, foo, que, por)
+```
+:::
+
+:::{.fragment}
+```{python filename="variables" code-line-numbers="1|3|5"}
+#| echo: false
+bar = 1
+foo = "two"
+que = 3.0
+por = bar
+print(bar, foo, que, por)
+```
+:::
+
+# Variables: Knowledge Check
+
+<br>
+
+Why doesn't this work?
+
+<br>
+
+
+:::{.fragment}
+
+```{.python filename="variables"}
+int_2 = int_1
+int_1 = 2
+```
+
+:::
+
+
+# Variables: Knowledge Check
+
+<br>
+
+What is the value of `foo`?
+
+<br>
+
+:::{.fragment}
+
+```{.python filename="variables"}
+bar = 12
+foo = bar
+bar = 20
+print(foo)
+```
+:::
+
+# Basic Types
+ - Number
+ - Boolean
+ - String
+ - List
+ - Dictionary
+
+
+# Numbers
+
+- Python supports `ints`, `floats`, `complex`
+- Operators return appropriate types
+
+```{.python filename="numbers" code-line-numbers="1|2|3|4|5"}
+my_sum = 42 + 2.7182818  # 44.7182818
+my_product = 42 * 2   # 84
+my_division = 30 / 2  # 15.0
+my_floor_division = 30 // 2  # 15
+my_expontential = 10**6  # 1_000_000
+```
+
+# Numbers: Intuition Check
+
+How do you think complex numbers behave when added by an `int`? 
+
+:::{.fragment}
+```{.python filename="numbers"}
+my_complex = complex(1, 1)
+
+my_complex + 1
+```
+:::
+
+# Boolean
+
+- Booleans can be either `True` or `False`
+- Everything in python is "truthy" except:
+  - 0, empty things, `None`
+
+:::{.fragment}
+```{.python filename="variables" code-line-numbers="1-2|4-5|7"}
+so_true = True
+so_false = False
+
+my_var1 = so_true and so_false
+my_var2 = so_true or so_false
+
+another_bool = bool(0)
+```
+:::
+
+
+# Strings
+
+Strings represent characters
+
+:::{.fragment}
+```{.python filename="variables" code-line-numbers="1|3|5"}
+my_str = "Bloom's Taxonomy"
+
+str_concat = my_str + " is great!"
+
+str_repeat = "a" * 2
+
+lower_case = my_str.lower()
+upper_case = my_str.upper()
+```
+:::
+
+
+# Strings: Knowledge Check
+
+What do these functions do? 
+
+:::{.fragment}
+```{.python code-line-numbers="1|3|4"}
+my_str = "a farewell to arms"
+
+print(my_str.title())
+print(my_str.startswith("a"))
+```
+:::
+
+
+# Lists
+
+- Lists hold multiple values, which can be different types.
+
+
+:::{.fragment}
+```{.python filename="variables" code-line-numbers="1|3|4|5|6|7-8|9-10"}
+my_list = [1, 2, True, 0.0]
+
+len(my_list)  # get the length of the list
+my_list[0]  # gets first value
+my_list[-1]  # gets last value
+my_list[1:2]  # gets middle values
+# append value to end
+my_list.append("Grapes of Wrath")
+# join two lists together
+concated = [1,2,3] + [4, 5, 6]  
+```
+:::
+
+
+# Lists: Knowledge Check
+
+:::{.fragment}
+```{.python filename="lists" code-line-numbers="1|3|4|5|6"}
+my_list = [1, 2, 3]
+
+len(my_list)
+my_list[1] 
+my_list.append(8)
+my_list[-2]
+```
+:::
+
+
+# Dictionaries
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {.incremental}
+<br>
+
+- A Key -> Value container
+- Keys must be **unique** and **hashable**
+- Values have no restrictions
+:::
+
+:::
+
+::: {.column width="50%"}
+:::{.fragment}
+```{mermaid}
+%%| fig-width: 4.2
+flowchart LR
+  A[Key 1] --> B(Value 1)
+  C[Key 2] --> D(Value 2)
+  E[Key 3] --> D
+```
+:::
+
+:::
+
+:::
+
+
+# Dictionaries
+
+- Accessing keys
+
+```{.python code-line-numbers="1-5|7|8|9"}
+map = {
+  1: 2,
+  4: 3.1415,
+  "time": "money",
+}
+
+map[1]  # 2
+map[4]  # 3.1425
+time = map["time"]  # money
+```
+
+# Dictionaries
+
+- Adding/removing keys
+
+```{.python code-line-numbers="1-3|5|6"}
+map = {
+  1: 2,
+}
+
+map['time'] = "money"
+map.pop(1)
+```
+
+
+# Dictionaries: Knowledge Check
+
+<br>
+
+```{.python code-line-numbers="1-4|6|7|8"}
+map = {
+  1: 2,
+  "bob": "sue",
+}
+
+map[1] 
+map["bob"]
+map["sue"]
+```
+
+
+# Dictionaries: Intuition Check
+
+<br>
+
+```{.python}
+map = {
+  1: 2,
+  "bob": "sue",
+}
+
+len(map)
+```
+
+
+# Exercise
+
+::: {.r-stack}
+http://tinyurl.com/59d2s9yv
+:::
+
+
+::: {.r-stack}
+![](../../images/data_structures_hub.png)
+:::
+

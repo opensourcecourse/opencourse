@@ -5,7 +5,7 @@ format:
     revealjs:
         slide-number: true
         preview-links: auto
-        theme: [../../custom_slides.scss]
+        theme: [../../../custom_slides.scss]
         css: "../../slides.css"
         view-distance: 100
         mobile-view-distance: 100
@@ -17,9 +17,9 @@ format:
             theme: default
 
 footer: \
-    <a href="https://opensourcecourse.dev/modules/collaborative_development/overview.html">overview</a> /\
-    <a href="https://github.com/opensourcecourse/opencourse/blob/main/modules/collaborative_development/slides.qmd">source</a> /\
-    <a href="https://opensourcecourse.dev/modules/collaborative_development/exercises.html">exercises</a>
+    <a href="https://opensourcecourse.dev/osc_intro/modules/collaborative_development/overview.html">overview</a> /\
+    <a href="https://github.com/opensourcecourse/opencourse/blob/main/osc_intro/modules/collaborative_development/slides.qmd">source</a> /\
+    <a href="https://opensourcecourse.dev/osc_intro/modules/collaborative_development/exercises.html">exercises</a>
 ---
 
 

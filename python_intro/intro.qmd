@@ -1,0 +1,15 @@
+---
+title: Python Intro
+pagetitle: "Py Intro"
+css: ../index.css
+editor: source
+image: images/blocks.png
+---
+
+This course covers the basics of the python langauge and scientific ecosystem. 
+
+:::{.callout-warning}
+This course is still under construction.
+:::
+
+

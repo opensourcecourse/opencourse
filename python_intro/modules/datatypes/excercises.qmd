@@ -1,0 +1,5 @@
+# Exercise  
+
+Complete the following exercise by clicking [here](https://opensourcecourse.github.io/hub/lab/?path=data_types.ipynb)
+
+
