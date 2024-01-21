@@ -1,10 +1,34 @@
 ---
-title: Data Types
+title: Basic Python Types
+
 ---
+![](../../images/toolbox.png)
 
-This module provides a rapid review of some common built-in datatypes in python.
+:::{.callout-note appearance="minimal"}
+Let's start at the very beginning,
+a very good place to start
 
-This includes 
+\- Julie Andrews
+:::
 
-## References
-[Python's built-in types](https://docs.python.org/3/library/stdtypes.html)
+This module covers some common built-in datatypes in python.
+
+Understanding these datatypes is not only important for using python effectively, but also for understanding more advanced features of python's type system and implementation.
+
+# Objectives
+
+In this module we will learn about:
+
+1. Numeric types: int, float, complex
+2. Boolean
+3. Strings
+4. Containers: list and dict
+
+
+# Reading
+
+- [Basic Data Types in Python](https://realpython.com/python-data-types/)
+
+# Additional Resources
+
+ - [Python's built-in types](https://docs.python.org/3/library/stdtypes.html)
