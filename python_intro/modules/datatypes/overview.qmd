@@ -13,16 +13,21 @@ a very good place to start
 
 This module covers some common built-in datatypes in python.
 
-Understanding these datatypes is not only important for using python effectively, but also for understanding more advanced features of python's type system and implementation.
+Understanding these datatypes is not only important for using python effectively, but also for understanding more advanced concepts of python's type system.
 
 # Objectives
 
-In this module we will learn about:
+After completing this module you will be able to:
 
-1. Numeric types: int, float, complex
-2. Boolean
-3. Strings
-4. Containers: list and dict
+1. Create python variables
+
+2. Identify usages of basic python types, including:
+   * Numeric types: int, float, complex
+   * Boolean
+   * Strings 
+   * Container types: list and dict
+
+3. Debug short code snippets using these concepts  
 
 
 # Reading

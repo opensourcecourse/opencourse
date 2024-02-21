@@ -24,7 +24,7 @@ Variables reference a value
 <br>
 
 :::{.fragment}
-```{.python filename="functions" code-line-numbers="1|2|3|4|5"}
+```{.python filename="variables" code-line-numbers="1|2|3|4|5"}
 bar = 1
 foo = "two"
 que = 3.0
@@ -56,8 +56,8 @@ Why doesn't this work?
 :::{.fragment}
 
 ```{.python filename="variables"}
-int_2 = int_1
-int_1 = 2
+var_1 = var_2
+var_2 = 2
 ```
 
 :::
@@ -94,6 +94,8 @@ print(foo)
 - Python supports `ints`, `floats`, `complex`
 - Operators return appropriate types
 
+<br>
+
 ```{.python filename="numbers" code-line-numbers="1|2|3|4|5"}
 my_sum = 42 + 2.7182818  # 44.7182818
 my_product = 42 * 2   # 84
@@ -106,6 +108,8 @@ my_expontential = 10**6  # 1_000_000
 
 How do you think complex numbers behave when added by an `int`? 
 
+<br>
+
 :::{.fragment}
 ```{.python filename="numbers"}
 my_complex = complex(1, 1)
@@ -117,18 +121,32 @@ my_complex + 1
 # Boolean
 
 - Booleans can be either `True` or `False`
-- Everything in python is "truthy" except:
-  - 0, empty things, `None`
 
 :::{.fragment}
-```{.python filename="variables" code-line-numbers="1-2|4-5|7"}
+```{.python filename="boolean" code-line-numbers="1-2|4-5"}
 so_true = True
 so_false = False
 
 my_var1 = so_true and so_false
 my_var2 = so_true or so_false
+```
+:::
 
-another_bool = bool(0)
+
+
+# Boolean
+
+- Everything in python is "truthy" except:
+  - 0, empty things, `None`, `False`, ...
+
+<br>
+
+:::{.fragment}
+```{.python filename="boolean" code-line-numbers="1|2|3|4"}
+bool(10)
+bool(1.0)
+bool("")
+bool(0)
 ```
 :::
 
@@ -138,7 +156,7 @@ another_bool = bool(0)
 Strings represent characters
 
 :::{.fragment}
-```{.python filename="variables" code-line-numbers="1|3|5"}
+```{.python filename="strings" code-line-numbers="1|3|5|7-9"}
 my_str = "Bloom's Taxonomy"
 
 str_concat = my_str + " is great!"
@@ -153,10 +171,12 @@ upper_case = my_str.upper()
 
 # Strings: Knowledge Check
 
-What do these functions do? 
+What do these methods do? 
+
+<br>
 
 :::{.fragment}
-```{.python code-line-numbers="1|3|4"}
+```{.python filename="strings" code-line-numbers="1|3|4"}
 my_str = "a farewell to arms"
 
 print(my_str.title())
@@ -171,7 +191,7 @@ print(my_str.startswith("a"))
 
 
 :::{.fragment}
-```{.python filename="variables" code-line-numbers="1|3|4|5|6|7-8|9-10"}
+```{.python filename="lists" code-line-numbers="1|3|4|5|6|7-8|9-10"}
 my_list = [1, 2, True, 0.0]
 
 len(my_list)  # get the length of the list
@@ -181,12 +201,29 @@ my_list[1:2]  # gets middle values
 # append value to end
 my_list.append("Grapes of Wrath")
 # join two lists together
-concated = [1,2,3] + [4, 5, 6]  
+concated = [1, 2, 3] + [4, 5, 6]  
+```
+:::
+
+
+# Lists
+
+- Lists support iteration.
+
+
+:::{.fragment}
+```{.python filename="lists" code-line-numbers="1|3-4"}
+some_phrase = ["Heghlu'meH",  "QaQ", "jajvam"]
+
+for word in some_phrase:
+    print(word) 
 ```
 :::
 
 
 # Lists: Knowledge Check
+
+<br>
 
 :::{.fragment}
 ```{.python filename="lists" code-line-numbers="1|3|4|5|6"}
@@ -198,98 +235,6 @@ my_list.append(8)
 my_list[-2]
 ```
 :::
-
-
-# Dictionaries
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-::: {.incremental}
-<br>
-
-- A Key -> Value container
-- Keys must be **unique** and **hashable**
-- Values have no restrictions
-:::
-
-:::
-
-::: {.column width="50%"}
-:::{.fragment}
-```{mermaid}
-%%| fig-width: 4.2
-flowchart LR
-  A[Key 1] --> B(Value 1)
-  C[Key 2] --> D(Value 2)
-  E[Key 3] --> D
-```
-:::
-
-:::
-
-:::
-
-
-# Dictionaries
-
-- Accessing keys
-
-```{.python code-line-numbers="1-5|7|8|9"}
-map = {
-  1: 2,
-  4: 3.1415,
-  "time": "money",
-}
-
-map[1]  # 2
-map[4]  # 3.1425
-time = map["time"]  # money
-```
-
-# Dictionaries
-
-- Adding/removing keys
-
-```{.python code-line-numbers="1-3|5|6"}
-map = {
-  1: 2,
-}
-
-map['time'] = "money"
-map.pop(1)
-```
-
-
-# Dictionaries: Knowledge Check
-
-<br>
-
-```{.python code-line-numbers="1-4|6|7|8"}
-map = {
-  1: 2,
-  "bob": "sue",
-}
-
-map[1] 
-map["bob"]
-map["sue"]
-```
-
-
-# Dictionaries: Intuition Check
-
-<br>
-
-```{.python}
-map = {
-  1: 2,
-  "bob": "sue",
-}
-
-len(map)
-```
 
 
 # Exercise
