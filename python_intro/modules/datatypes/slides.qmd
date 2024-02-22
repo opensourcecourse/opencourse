@@ -24,25 +24,15 @@ Variables reference a value
 <br>
 
 :::{.fragment}
-```{.python filename="variables" code-line-numbers="1|2|3|4|5"}
+```{.python filename="variables" code-line-numbers="1|2|3|4"}
 bar = 1
 foo = "two"
 que = 3.0
 por = bar
-print(bar, foo, que, por)
 ```
 :::
 
-:::{.fragment}
-```{python filename="variables" code-line-numbers="1|3|5"}
-#| echo: false
-bar = 1
-foo = "two"
-que = 3.0
-por = bar
-print(bar, foo, que, por)
-```
-:::
+
 
 # Variables: Knowledge Check
 
@@ -86,7 +76,6 @@ print(foo)
  - Boolean
  - String
  - List
- - Dictionary
 
 
 # Numbers
@@ -121,6 +110,8 @@ my_complex + 1
 # Boolean
 
 - Booleans can be either `True` or `False`
+
+<br>
 
 :::{.fragment}
 ```{.python filename="boolean" code-line-numbers="1-2|4-5"}
@@ -169,7 +160,7 @@ upper_case = my_str.upper()
 :::
 
 
-# Strings: Knowledge Check
+# Strings: Intuition Check
 
 What do these methods do? 
 
@@ -179,8 +170,8 @@ What do these methods do?
 ```{.python filename="strings" code-line-numbers="1|3|4"}
 my_str = "a farewell to arms"
 
-print(my_str.title())
-print(my_str.startswith("a"))
+my_str.title()
+my_str.startswith("a")
 ```
 :::
 
@@ -210,6 +201,7 @@ concated = [1, 2, 3] + [4, 5, 6]
 
 - Lists support iteration.
 
+<br>
 
 :::{.fragment}
 ```{.python filename="lists" code-line-numbers="1|3-4"}
@@ -218,6 +210,10 @@ some_phrase = ["Heghlu'meH",  "QaQ", "jajvam"]
 for word in some_phrase:
     print(word) 
 ```
+:::
+
+::: footer
+Don't recognize the text? See [here](https://www.youtube.com/watch?v=WiP0IuGFV4c)
 :::
 
 
