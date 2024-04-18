@@ -73,7 +73,7 @@ website:
 
       contents:
         - osc_intro/intro.qmd
-        - setup.qmd
+        - osc_intro/setup.qmd
 
         - section: "Modules"
           contents:
